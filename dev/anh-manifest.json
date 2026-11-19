@@ -1,0 +1,2036 @@
+{
+ "generated": "2026-11-19T12:20:05.943Z",
+ "items": [
+  {
+   "file": "comai-face.webp",
+   "base": "comai-face",
+   "part": null,
+   "size": null,
+   "w": 128,
+   "h": 128,
+   "alpha": false,
+   "bytes": 5180
+  },
+  {
+   "file": "icon-bo-1-256.webp",
+   "base": "icon-bo",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 278,
+   "alpha": true,
+   "bytes": 18748
+  },
+  {
+   "file": "icon-bo-1-512.webp",
+   "base": "icon-bo",
+   "part": 1,
+   "size": 512,
+   "w": 286,
+   "h": 311,
+   "alpha": true,
+   "bytes": 15120
+  },
+  {
+   "file": "icon-bo-2-256.webp",
+   "base": "icon-bo",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 255,
+   "alpha": true,
+   "bytes": 19420
+  },
+  {
+   "file": "icon-bo-2-512.webp",
+   "base": "icon-bo",
+   "part": 2,
+   "size": 512,
+   "w": 313,
+   "h": 312,
+   "alpha": true,
+   "bytes": 16874
+  },
+  {
+   "file": "icon-bo-3-256.webp",
+   "base": "icon-bo",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 285,
+   "alpha": true,
+   "bytes": 19890
+  },
+  {
+   "file": "icon-bo-3-512.webp",
+   "base": "icon-bo",
+   "part": 3,
+   "size": 512,
+   "w": 280,
+   "h": 312,
+   "alpha": true,
+   "bytes": 16794
+  },
+  {
+   "file": "icon-bo-4-256.webp",
+   "base": "icon-bo",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 264,
+   "alpha": true,
+   "bytes": 16728
+  },
+  {
+   "file": "icon-bo-4-512.webp",
+   "base": "icon-bo",
+   "part": 4,
+   "size": 512,
+   "w": 304,
+   "h": 313,
+   "alpha": true,
+   "bytes": 13834
+  },
+  {
+   "file": "icon-bo-5-256.webp",
+   "base": "icon-bo",
+   "part": 5,
+   "size": 256,
+   "w": 228,
+   "h": 338,
+   "alpha": true,
+   "bytes": 16220
+  },
+  {
+   "file": "icon-bo-5-512.webp",
+   "base": "icon-bo",
+   "part": 5,
+   "size": 512,
+   "w": 228,
+   "h": 338,
+   "alpha": true,
+   "bytes": 16220
+  },
+  {
+   "file": "icon-bo-6-256.webp",
+   "base": "icon-bo",
+   "part": 6,
+   "size": 256,
+   "w": 256,
+   "h": 224,
+   "alpha": true,
+   "bytes": 15942
+  },
+  {
+   "file": "icon-bo-6-512.webp",
+   "base": "icon-bo",
+   "part": 6,
+   "size": 512,
+   "w": 328,
+   "h": 287,
+   "alpha": true,
+   "bytes": 15218
+  },
+  {
+   "file": "icon-bo-7-256.webp",
+   "base": "icon-bo",
+   "part": 7,
+   "size": 256,
+   "w": 256,
+   "h": 264,
+   "alpha": true,
+   "bytes": 16070
+  },
+  {
+   "file": "icon-bo-7-512.webp",
+   "base": "icon-bo",
+   "part": 7,
+   "size": 512,
+   "w": 295,
+   "h": 304,
+   "alpha": true,
+   "bytes": 13268
+  },
+  {
+   "file": "icon-bo-8-256.webp",
+   "base": "icon-bo",
+   "part": 8,
+   "size": 256,
+   "w": 256,
+   "h": 259,
+   "alpha": true,
+   "bytes": 20544
+  },
+  {
+   "file": "icon-bo-8-512.webp",
+   "base": "icon-bo",
+   "part": 8,
+   "size": 512,
+   "w": 302,
+   "h": 305,
+   "alpha": true,
+   "bytes": 19336
+  },
+  {
+   "file": "icon-bo-9-256.webp",
+   "base": "icon-bo",
+   "part": 9,
+   "size": 256,
+   "w": 256,
+   "h": 286,
+   "alpha": true,
+   "bytes": 20932
+  },
+  {
+   "file": "icon-bo-9-512.webp",
+   "base": "icon-bo",
+   "part": 9,
+   "size": 512,
+   "w": 277,
+   "h": 309,
+   "alpha": true,
+   "bytes": 17324
+  },
+  {
+   "file": "icon-bo-10-256.webp",
+   "base": "icon-bo",
+   "part": 10,
+   "size": 256,
+   "w": 256,
+   "h": 258,
+   "alpha": true,
+   "bytes": 16350
+  },
+  {
+   "file": "icon-bo-10-512.webp",
+   "base": "icon-bo",
+   "part": 10,
+   "size": 512,
+   "w": 291,
+   "h": 293,
+   "alpha": true,
+   "bytes": 13318
+  },
+  {
+   "file": "icon-bo-11-256.webp",
+   "base": "icon-bo",
+   "part": 11,
+   "size": 256,
+   "w": 256,
+   "h": 265,
+   "alpha": true,
+   "bytes": 16826
+  },
+  {
+   "file": "icon-bo-11-512.webp",
+   "base": "icon-bo",
+   "part": 11,
+   "size": 512,
+   "w": 303,
+   "h": 314,
+   "alpha": true,
+   "bytes": 14600
+  },
+  {
+   "file": "icon-bo-12-256.webp",
+   "base": "icon-bo",
+   "part": 12,
+   "size": 256,
+   "w": 256,
+   "h": 272,
+   "alpha": true,
+   "bytes": 18540
+  },
+  {
+   "file": "icon-bo-12-512.webp",
+   "base": "icon-bo",
+   "part": 12,
+   "size": 512,
+   "w": 296,
+   "h": 315,
+   "alpha": true,
+   "bytes": 15650
+  },
+  {
+   "file": "linhvat-pen-star-1-256.webp",
+   "base": "linhvat-pen-star",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 387,
+   "alpha": false,
+   "bytes": 17884
+  },
+  {
+   "file": "linhvat-pen-star-1-512.webp",
+   "base": "linhvat-pen-star",
+   "part": 1,
+   "size": 512,
+   "w": 406,
+   "h": 613,
+   "alpha": false,
+   "bytes": 32890
+  },
+  {
+   "file": "linhvat-pen-star-2-256.webp",
+   "base": "linhvat-pen-star",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 387,
+   "alpha": false,
+   "bytes": 16156
+  },
+  {
+   "file": "linhvat-pen-star-2-512.webp",
+   "base": "linhvat-pen-star",
+   "part": 2,
+   "size": 512,
+   "w": 404,
+   "h": 611,
+   "alpha": false,
+   "bytes": 30284
+  },
+  {
+   "file": "linhvat-pen-star-3-256.webp",
+   "base": "linhvat-pen-star",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 387,
+   "alpha": false,
+   "bytes": 12608
+  },
+  {
+   "file": "linhvat-pen-star-3-512.webp",
+   "base": "linhvat-pen-star",
+   "part": 3,
+   "size": 512,
+   "w": 406,
+   "h": 613,
+   "alpha": false,
+   "bytes": 23300
+  },
+  {
+   "file": "linhvat-pen-star-4-256.webp",
+   "base": "linhvat-pen-star",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 387,
+   "alpha": false,
+   "bytes": 13576
+  },
+  {
+   "file": "linhvat-pen-star-4-512.webp",
+   "base": "linhvat-pen-star",
+   "part": 4,
+   "size": 512,
+   "w": 405,
+   "h": 612,
+   "alpha": false,
+   "bytes": 25288
+  },
+  {
+   "file": "linhvat-pen-star-5-256.webp",
+   "base": "linhvat-pen-star",
+   "part": 5,
+   "size": 256,
+   "w": 256,
+   "h": 386,
+   "alpha": false,
+   "bytes": 18622
+  },
+  {
+   "file": "linhvat-pen-star-5-512.webp",
+   "base": "linhvat-pen-star",
+   "part": 5,
+   "size": 512,
+   "w": 406,
+   "h": 612,
+   "alpha": false,
+   "bytes": 34326
+  },
+  {
+   "file": "linhvat-pen-star-6-256.webp",
+   "base": "linhvat-pen-star",
+   "part": 6,
+   "size": 256,
+   "w": 256,
+   "h": 260,
+   "alpha": false,
+   "bytes": 13624
+  },
+  {
+   "file": "linhvat-pen-star-6-512.webp",
+   "base": "linhvat-pen-star",
+   "part": 6,
+   "size": 512,
+   "w": 404,
+   "h": 410,
+   "alpha": false,
+   "bytes": 25446
+  },
+  {
+   "file": "nen-hanhtrinh-720.webp",
+   "base": "nen-hanhtrinh",
+   "part": null,
+   "size": 720,
+   "w": 720,
+   "h": 1279,
+   "alpha": false,
+   "bytes": 296834
+  },
+  {
+   "file": "nen-hanhtrinh-1440.webp",
+   "base": "nen-hanhtrinh",
+   "part": null,
+   "size": 1440,
+   "w": 941,
+   "h": 1671,
+   "alpha": false,
+   "bytes": 397548
+  },
+  {
+   "file": "nen-thuong-720.webp",
+   "base": "nen-thuong",
+   "part": null,
+   "size": 720,
+   "w": 720,
+   "h": 1279,
+   "alpha": false,
+   "bytes": 71572
+  },
+  {
+   "file": "nen-thuong-1440.webp",
+   "base": "nen-thuong",
+   "part": null,
+   "size": 1440,
+   "w": 941,
+   "h": 1672,
+   "alpha": false,
+   "bytes": 95932
+  },
+  {
+   "file": "nen-trangchu-720.webp",
+   "base": "nen-trangchu",
+   "part": null,
+   "size": 720,
+   "w": 720,
+   "h": 1279,
+   "alpha": false,
+   "bytes": 130130
+  },
+  {
+   "file": "nen-trangchu-1440.webp",
+   "base": "nen-trangchu",
+   "part": null,
+   "size": 1440,
+   "w": 941,
+   "h": 1672,
+   "alpha": false,
+   "bytes": 177372
+  },
+  {
+   "file": "nv-bang-chinh-1200.webp",
+   "base": "nv-bang-chinh",
+   "part": null,
+   "size": 1200,
+   "w": 1200,
+   "h": 675,
+   "alpha": false,
+   "bytes": 111602
+  },
+  {
+   "file": "nv-bang-phu-1200.webp",
+   "base": "nv-bang-phu",
+   "part": null,
+   "size": 1200,
+   "w": 1200,
+   "h": 675,
+   "alpha": false,
+   "bytes": 97976
+  },
+  {
+   "file": "nv-comai-1-256.webp",
+   "base": "nv-comai",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 256,
+   "alpha": false,
+   "bytes": 15206
+  },
+  {
+   "file": "nv-comai-1-512.webp",
+   "base": "nv-comai",
+   "part": 1,
+   "size": 512,
+   "w": 512,
+   "h": 512,
+   "alpha": false,
+   "bytes": 40708
+  },
+  {
+   "file": "nv-comai-2-256.webp",
+   "base": "nv-comai",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 256,
+   "alpha": false,
+   "bytes": 14702
+  },
+  {
+   "file": "nv-comai-2-512.webp",
+   "base": "nv-comai",
+   "part": 2,
+   "size": 512,
+   "w": 512,
+   "h": 513,
+   "alpha": false,
+   "bytes": 38518
+  },
+  {
+   "file": "nv-comai-3-256.webp",
+   "base": "nv-comai",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 256,
+   "alpha": false,
+   "bytes": 15266
+  },
+  {
+   "file": "nv-comai-3-512.webp",
+   "base": "nv-comai",
+   "part": 3,
+   "size": 512,
+   "w": 512,
+   "h": 512,
+   "alpha": false,
+   "bytes": 39296
+  },
+  {
+   "file": "nv-comai-4-256.webp",
+   "base": "nv-comai",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 256,
+   "alpha": false,
+   "bytes": 16598
+  },
+  {
+   "file": "nv-comai-4-512.webp",
+   "base": "nv-comai",
+   "part": 4,
+   "size": 512,
+   "w": 512,
+   "h": 512,
+   "alpha": false,
+   "bytes": 44494
+  },
+  {
+   "file": "nv-ha-camxuc-1-256.webp",
+   "base": "nv-ha-camxuc",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 385,
+   "alpha": false,
+   "bytes": 22186
+  },
+  {
+   "file": "nv-ha-camxuc-1-512.webp",
+   "base": "nv-ha-camxuc",
+   "part": 1,
+   "size": 512,
+   "w": 408,
+   "h": 614,
+   "alpha": false,
+   "bytes": 42000
+  },
+  {
+   "file": "nv-ha-camxuc-2-256.webp",
+   "base": "nv-ha-camxuc",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 383,
+   "alpha": false,
+   "bytes": 22770
+  },
+  {
+   "file": "nv-ha-camxuc-2-512.webp",
+   "base": "nv-ha-camxuc",
+   "part": 2,
+   "size": 512,
+   "w": 410,
+   "h": 614,
+   "alpha": false,
+   "bytes": 43798
+  },
+  {
+   "file": "nv-ha-camxuc-3-256.webp",
+   "base": "nv-ha-camxuc",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 382,
+   "alpha": false,
+   "bytes": 22742
+  },
+  {
+   "file": "nv-ha-camxuc-3-512.webp",
+   "base": "nv-ha-camxuc",
+   "part": 3,
+   "size": 512,
+   "w": 411,
+   "h": 614,
+   "alpha": false,
+   "bytes": 42948
+  },
+  {
+   "file": "nv-ha-camxuc-4-256.webp",
+   "base": "nv-ha-camxuc",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 381,
+   "alpha": false,
+   "bytes": 20936
+  },
+  {
+   "file": "nv-ha-camxuc-4-512.webp",
+   "base": "nv-ha-camxuc",
+   "part": 4,
+   "size": 512,
+   "w": 412,
+   "h": 613,
+   "alpha": false,
+   "bytes": 39522
+  },
+  {
+   "file": "nv-ha-camxuc-5-256.webp",
+   "base": "nv-ha-camxuc",
+   "part": 5,
+   "size": 256,
+   "w": 256,
+   "h": 392,
+   "alpha": false,
+   "bytes": 24306
+  },
+  {
+   "file": "nv-ha-camxuc-5-512.webp",
+   "base": "nv-ha-camxuc",
+   "part": 5,
+   "size": 512,
+   "w": 400,
+   "h": 612,
+   "alpha": false,
+   "bytes": 44568
+  },
+  {
+   "file": "nv-ha-camxuc-6-256.webp",
+   "base": "nv-ha-camxuc",
+   "part": 6,
+   "size": 256,
+   "w": 256,
+   "h": 382,
+   "alpha": false,
+   "bytes": 23250
+  },
+  {
+   "file": "nv-ha-camxuc-6-512.webp",
+   "base": "nv-ha-camxuc",
+   "part": 6,
+   "size": 512,
+   "w": 411,
+   "h": 613,
+   "alpha": false,
+   "bytes": 43740
+  },
+  {
+   "file": "nv-khoa-camxuc-1-256.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 385,
+   "alpha": false,
+   "bytes": 19196
+  },
+  {
+   "file": "nv-khoa-camxuc-1-512.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 1,
+   "size": 512,
+   "w": 408,
+   "h": 613,
+   "alpha": false,
+   "bytes": 33828
+  },
+  {
+   "file": "nv-khoa-camxuc-2-256.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 385,
+   "alpha": false,
+   "bytes": 19360
+  },
+  {
+   "file": "nv-khoa-camxuc-2-512.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 2,
+   "size": 512,
+   "w": 408,
+   "h": 614,
+   "alpha": false,
+   "bytes": 35168
+  },
+  {
+   "file": "nv-khoa-camxuc-3-256.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 385,
+   "alpha": false,
+   "bytes": 18866
+  },
+  {
+   "file": "nv-khoa-camxuc-3-512.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 3,
+   "size": 512,
+   "w": 408,
+   "h": 614,
+   "alpha": false,
+   "bytes": 33282
+  },
+  {
+   "file": "nv-khoa-camxuc-4-256.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 371,
+   "alpha": false,
+   "bytes": 18296
+  },
+  {
+   "file": "nv-khoa-camxuc-4-512.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 4,
+   "size": 512,
+   "w": 406,
+   "h": 588,
+   "alpha": false,
+   "bytes": 31596
+  },
+  {
+   "file": "nv-khoa-camxuc-5-256.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 5,
+   "size": 256,
+   "w": 256,
+   "h": 383,
+   "alpha": false,
+   "bytes": 21530
+  },
+  {
+   "file": "nv-khoa-camxuc-5-512.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 5,
+   "size": 512,
+   "w": 409,
+   "h": 612,
+   "alpha": false,
+   "bytes": 38698
+  },
+  {
+   "file": "nv-khoa-camxuc-6-256.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 6,
+   "size": 256,
+   "w": 256,
+   "h": 403,
+   "alpha": false,
+   "bytes": 21494
+  },
+  {
+   "file": "nv-khoa-camxuc-6-512.webp",
+   "base": "nv-khoa-camxuc",
+   "part": 6,
+   "size": 512,
+   "w": 377,
+   "h": 593,
+   "alpha": false,
+   "bytes": 34482
+  },
+  {
+   "file": "nv-lan-camxuc-1-256.webp",
+   "base": "nv-lan-camxuc",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 385,
+   "alpha": false,
+   "bytes": 24632
+  },
+  {
+   "file": "nv-lan-camxuc-1-512.webp",
+   "base": "nv-lan-camxuc",
+   "part": 1,
+   "size": 512,
+   "w": 409,
+   "h": 615,
+   "alpha": false,
+   "bytes": 45566
+  },
+  {
+   "file": "nv-lan-camxuc-2-256.webp",
+   "base": "nv-lan-camxuc",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 379,
+   "alpha": false,
+   "bytes": 24990
+  },
+  {
+   "file": "nv-lan-camxuc-2-512.webp",
+   "base": "nv-lan-camxuc",
+   "part": 2,
+   "size": 512,
+   "w": 415,
+   "h": 615,
+   "alpha": false,
+   "bytes": 48304
+  },
+  {
+   "file": "nv-lan-camxuc-3-256.webp",
+   "base": "nv-lan-camxuc",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 387,
+   "alpha": false,
+   "bytes": 24148
+  },
+  {
+   "file": "nv-lan-camxuc-3-512.webp",
+   "base": "nv-lan-camxuc",
+   "part": 3,
+   "size": 512,
+   "w": 408,
+   "h": 616,
+   "alpha": false,
+   "bytes": 44176
+  },
+  {
+   "file": "nv-lan-camxuc-4-256.webp",
+   "base": "nv-lan-camxuc",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 376,
+   "alpha": false,
+   "bytes": 23866
+  },
+  {
+   "file": "nv-lan-camxuc-4-512.webp",
+   "base": "nv-lan-camxuc",
+   "part": 4,
+   "size": 512,
+   "w": 418,
+   "h": 614,
+   "alpha": false,
+   "bytes": 46632
+  },
+  {
+   "file": "nv-lan-camxuc-5-256.webp",
+   "base": "nv-lan-camxuc",
+   "part": 5,
+   "size": 256,
+   "w": 256,
+   "h": 377,
+   "alpha": false,
+   "bytes": 25042
+  },
+  {
+   "file": "nv-lan-camxuc-5-512.webp",
+   "base": "nv-lan-camxuc",
+   "part": 5,
+   "size": 512,
+   "w": 417,
+   "h": 614,
+   "alpha": false,
+   "bytes": 47078
+  },
+  {
+   "file": "nv-lan-camxuc-6-256.webp",
+   "base": "nv-lan-camxuc",
+   "part": 6,
+   "size": 256,
+   "w": 256,
+   "h": 382,
+   "alpha": false,
+   "bytes": 25310
+  },
+  {
+   "file": "nv-lan-camxuc-6-512.webp",
+   "base": "nv-lan-camxuc",
+   "part": 6,
+   "size": 512,
+   "w": 412,
+   "h": 615,
+   "alpha": false,
+   "bytes": 48506
+  },
+  {
+   "file": "nv-minh-camxuc-1-256.webp",
+   "base": "nv-minh-camxuc",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 255,
+   "alpha": false,
+   "bytes": 14464
+  },
+  {
+   "file": "nv-minh-camxuc-1-512.webp",
+   "base": "nv-minh-camxuc",
+   "part": 1,
+   "size": 512,
+   "w": 502,
+   "h": 501,
+   "alpha": false,
+   "bytes": 36622
+  },
+  {
+   "file": "nv-minh-camxuc-2-256.webp",
+   "base": "nv-minh-camxuc",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 255,
+   "alpha": false,
+   "bytes": 16012
+  },
+  {
+   "file": "nv-minh-camxuc-2-512.webp",
+   "base": "nv-minh-camxuc",
+   "part": 2,
+   "size": 512,
+   "w": 502,
+   "h": 501,
+   "alpha": false,
+   "bytes": 40088
+  },
+  {
+   "file": "nv-minh-camxuc-3-256.webp",
+   "base": "nv-minh-camxuc",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 255,
+   "alpha": false,
+   "bytes": 13470
+  },
+  {
+   "file": "nv-minh-camxuc-3-512.webp",
+   "base": "nv-minh-camxuc",
+   "part": 3,
+   "size": 512,
+   "w": 501,
+   "h": 500,
+   "alpha": false,
+   "bytes": 33682
+  },
+  {
+   "file": "nv-minh-camxuc-4-256.webp",
+   "base": "nv-minh-camxuc",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 255,
+   "alpha": false,
+   "bytes": 14272
+  },
+  {
+   "file": "nv-minh-camxuc-4-512.webp",
+   "base": "nv-minh-camxuc",
+   "part": 4,
+   "size": 512,
+   "w": 502,
+   "h": 501,
+   "alpha": false,
+   "bytes": 37340
+  },
+  {
+   "file": "nv-minh-camxuc-5-256.webp",
+   "base": "nv-minh-camxuc",
+   "part": 5,
+   "size": 256,
+   "w": 256,
+   "h": 255,
+   "alpha": false,
+   "bytes": 17716
+  },
+  {
+   "file": "nv-minh-camxuc-5-512.webp",
+   "base": "nv-minh-camxuc",
+   "part": 5,
+   "size": 512,
+   "w": 502,
+   "h": 501,
+   "alpha": false,
+   "bytes": 43904
+  },
+  {
+   "file": "nv-minh-camxuc-6-256.webp",
+   "base": "nv-minh-camxuc",
+   "part": 6,
+   "size": 256,
+   "w": 256,
+   "h": 255,
+   "alpha": false,
+   "bytes": 14934
+  },
+  {
+   "file": "nv-minh-camxuc-6-512.webp",
+   "base": "nv-minh-camxuc",
+   "part": 6,
+   "size": 512,
+   "w": 503,
+   "h": 501,
+   "alpha": false,
+   "bytes": 38432
+  },
+  {
+   "file": "nv-vy-camxuc-1-256.webp",
+   "base": "nv-vy-camxuc",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 382,
+   "alpha": false,
+   "bytes": 20962
+  },
+  {
+   "file": "nv-vy-camxuc-1-512.webp",
+   "base": "nv-vy-camxuc",
+   "part": 1,
+   "size": 512,
+   "w": 410,
+   "h": 611,
+   "alpha": false,
+   "bytes": 39290
+  },
+  {
+   "file": "nv-vy-camxuc-2-256.webp",
+   "base": "nv-vy-camxuc",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 382,
+   "alpha": false,
+   "bytes": 20798
+  },
+  {
+   "file": "nv-vy-camxuc-2-512.webp",
+   "base": "nv-vy-camxuc",
+   "part": 2,
+   "size": 512,
+   "w": 409,
+   "h": 611,
+   "alpha": false,
+   "bytes": 38318
+  },
+  {
+   "file": "nv-vy-camxuc-3-256.webp",
+   "base": "nv-vy-camxuc",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 382,
+   "alpha": false,
+   "bytes": 20410
+  },
+  {
+   "file": "nv-vy-camxuc-3-512.webp",
+   "base": "nv-vy-camxuc",
+   "part": 3,
+   "size": 512,
+   "w": 409,
+   "h": 611,
+   "alpha": false,
+   "bytes": 37646
+  },
+  {
+   "file": "nv-vy-camxuc-4-256.webp",
+   "base": "nv-vy-camxuc",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 382,
+   "alpha": false,
+   "bytes": 20356
+  },
+  {
+   "file": "nv-vy-camxuc-4-512.webp",
+   "base": "nv-vy-camxuc",
+   "part": 4,
+   "size": 512,
+   "w": 410,
+   "h": 612,
+   "alpha": false,
+   "bytes": 37194
+  },
+  {
+   "file": "nv-vy-camxuc-5-256.webp",
+   "base": "nv-vy-camxuc",
+   "part": 5,
+   "size": 256,
+   "w": 256,
+   "h": 376,
+   "alpha": false,
+   "bytes": 22302
+  },
+  {
+   "file": "nv-vy-camxuc-5-512.webp",
+   "base": "nv-vy-camxuc",
+   "part": 5,
+   "size": 512,
+   "w": 409,
+   "h": 601,
+   "alpha": false,
+   "bytes": 40650
+  },
+  {
+   "file": "nv-vy-camxuc-6-256.webp",
+   "base": "nv-vy-camxuc",
+   "part": 6,
+   "size": 256,
+   "w": 256,
+   "h": 383,
+   "alpha": false,
+   "bytes": 22388
+  },
+  {
+   "file": "nv-vy-camxuc-6-512.webp",
+   "base": "nv-vy-camxuc",
+   "part": 6,
+   "size": 512,
+   "w": 409,
+   "h": 612,
+   "alpha": false,
+   "bytes": 41950
+  },
+  {
+   "file": "s01-cau-1-480.webp",
+   "base": "s01-cau",
+   "part": 1,
+   "size": 480,
+   "w": 480,
+   "h": 482,
+   "alpha": false,
+   "bytes": 52264
+  },
+  {
+   "file": "s01-cau-1-960.webp",
+   "base": "s01-cau",
+   "part": 1,
+   "size": 960,
+   "w": 622,
+   "h": 624,
+   "alpha": false,
+   "bytes": 72712
+  },
+  {
+   "file": "s01-cau-2-480.webp",
+   "base": "s01-cau",
+   "part": 2,
+   "size": 480,
+   "w": 480,
+   "h": 480,
+   "alpha": false,
+   "bytes": 46264
+  },
+  {
+   "file": "s01-cau-2-960.webp",
+   "base": "s01-cau",
+   "part": 2,
+   "size": 960,
+   "w": 624,
+   "h": 624,
+   "alpha": false,
+   "bytes": 64808
+  },
+  {
+   "file": "s01-cau-3-480.webp",
+   "base": "s01-cau",
+   "part": 3,
+   "size": 480,
+   "w": 480,
+   "h": 479,
+   "alpha": false,
+   "bytes": 49598
+  },
+  {
+   "file": "s01-cau-3-960.webp",
+   "base": "s01-cau",
+   "part": 3,
+   "size": 960,
+   "w": 622,
+   "h": 621,
+   "alpha": false,
+   "bytes": 69168
+  },
+  {
+   "file": "s01-cau-4-480.webp",
+   "base": "s01-cau",
+   "part": 4,
+   "size": 480,
+   "w": 480,
+   "h": 478,
+   "alpha": false,
+   "bytes": 43782
+  },
+  {
+   "file": "s01-cau-4-960.webp",
+   "base": "s01-cau",
+   "part": 4,
+   "size": 960,
+   "w": 624,
+   "h": 621,
+   "alpha": false,
+   "bytes": 61272
+  },
+  {
+   "file": "s01-y-800.webp",
+   "base": "s01-y",
+   "part": null,
+   "size": 800,
+   "w": 800,
+   "h": 533,
+   "alpha": false,
+   "bytes": 115804
+  },
+  {
+   "file": "s01-y-1600.webp",
+   "base": "s01-y",
+   "part": null,
+   "size": 1600,
+   "w": 1536,
+   "h": 1024,
+   "alpha": false,
+   "bytes": 284222
+  },
+  {
+   "file": "s02-cau-1-480.webp",
+   "base": "s02-cau",
+   "part": 1,
+   "size": 480,
+   "w": 480,
+   "h": 480,
+   "alpha": false,
+   "bytes": 43354
+  },
+  {
+   "file": "s02-cau-1-960.webp",
+   "base": "s02-cau",
+   "part": 1,
+   "size": 960,
+   "w": 624,
+   "h": 624,
+   "alpha": false,
+   "bytes": 61516
+  },
+  {
+   "file": "s02-cau-2-480.webp",
+   "base": "s02-cau",
+   "part": 2,
+   "size": 480,
+   "w": 480,
+   "h": 480,
+   "alpha": false,
+   "bytes": 41536
+  },
+  {
+   "file": "s02-cau-2-960.webp",
+   "base": "s02-cau",
+   "part": 2,
+   "size": 960,
+   "w": 624,
+   "h": 624,
+   "alpha": false,
+   "bytes": 58936
+  },
+  {
+   "file": "s02-cau-3-480.webp",
+   "base": "s02-cau",
+   "part": 3,
+   "size": 480,
+   "w": 480,
+   "h": 480,
+   "alpha": false,
+   "bytes": 51626
+  },
+  {
+   "file": "s02-cau-3-960.webp",
+   "base": "s02-cau",
+   "part": 3,
+   "size": 960,
+   "w": 624,
+   "h": 624,
+   "alpha": false,
+   "bytes": 71392
+  },
+  {
+   "file": "s02-cau-4-480.webp",
+   "base": "s02-cau",
+   "part": 4,
+   "size": 480,
+   "w": 480,
+   "h": 480,
+   "alpha": false,
+   "bytes": 48044
+  },
+  {
+   "file": "s02-cau-4-960.webp",
+   "base": "s02-cau",
+   "part": 4,
+   "size": 960,
+   "w": 624,
+   "h": 624,
+   "alpha": false,
+   "bytes": 67526
+  },
+  {
+   "file": "s02-y-800.webp",
+   "base": "s02-y",
+   "part": null,
+   "size": 800,
+   "w": 800,
+   "h": 533,
+   "alpha": false,
+   "bytes": 112688
+  },
+  {
+   "file": "s02-y-1600.webp",
+   "base": "s02-y",
+   "part": null,
+   "size": 1600,
+   "w": 1536,
+   "h": 1024,
+   "alpha": false,
+   "bytes": 264204
+  },
+  {
+   "file": "s03-cau-1-480.webp",
+   "base": "s03-cau",
+   "part": 1,
+   "size": 480,
+   "w": 480,
+   "h": 479,
+   "alpha": false,
+   "bytes": 47688
+  },
+  {
+   "file": "s03-cau-1-960.webp",
+   "base": "s03-cau",
+   "part": 1,
+   "size": 960,
+   "w": 625,
+   "h": 624,
+   "alpha": false,
+   "bytes": 66272
+  },
+  {
+   "file": "s03-cau-2-480.webp",
+   "base": "s03-cau",
+   "part": 2,
+   "size": 480,
+   "w": 480,
+   "h": 479,
+   "alpha": false,
+   "bytes": 46766
+  },
+  {
+   "file": "s03-cau-2-960.webp",
+   "base": "s03-cau",
+   "part": 2,
+   "size": 960,
+   "w": 625,
+   "h": 624,
+   "alpha": false,
+   "bytes": 67084
+  },
+  {
+   "file": "s03-cau-3-480.webp",
+   "base": "s03-cau",
+   "part": 3,
+   "size": 480,
+   "w": 480,
+   "h": 479,
+   "alpha": false,
+   "bytes": 55842
+  },
+  {
+   "file": "s03-cau-3-960.webp",
+   "base": "s03-cau",
+   "part": 3,
+   "size": 960,
+   "w": 625,
+   "h": 624,
+   "alpha": false,
+   "bytes": 78584
+  },
+  {
+   "file": "s03-cau-4-480.webp",
+   "base": "s03-cau",
+   "part": 4,
+   "size": 480,
+   "w": 480,
+   "h": 479,
+   "alpha": false,
+   "bytes": 44600
+  },
+  {
+   "file": "s03-cau-4-960.webp",
+   "base": "s03-cau",
+   "part": 4,
+   "size": 960,
+   "w": 625,
+   "h": 624,
+   "alpha": false,
+   "bytes": 61982
+  },
+  {
+   "file": "s03-y-800.webp",
+   "base": "s03-y",
+   "part": null,
+   "size": 800,
+   "w": 800,
+   "h": 533,
+   "alpha": false,
+   "bytes": 129166
+  },
+  {
+   "file": "s03-y-1600.webp",
+   "base": "s03-y",
+   "part": null,
+   "size": 1600,
+   "w": 1536,
+   "h": 1024,
+   "alpha": false,
+   "bytes": 306722
+  },
+  {
+   "file": "sticker-1-1-256.webp",
+   "base": "sticker-1",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 294,
+   "alpha": true,
+   "bytes": 23788
+  },
+  {
+   "file": "sticker-1-1-512.webp",
+   "base": "sticker-1",
+   "part": 1,
+   "size": 512,
+   "w": 431,
+   "h": 495,
+   "alpha": true,
+   "bytes": 41202
+  },
+  {
+   "file": "sticker-1-2-256.webp",
+   "base": "sticker-1",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 264,
+   "alpha": true,
+   "bytes": 19914
+  },
+  {
+   "file": "sticker-1-2-512.webp",
+   "base": "sticker-1",
+   "part": 2,
+   "size": 512,
+   "w": 470,
+   "h": 485,
+   "alpha": true,
+   "bytes": 36762
+  },
+  {
+   "file": "sticker-1-3-256.webp",
+   "base": "sticker-1",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 282,
+   "alpha": true,
+   "bytes": 21508
+  },
+  {
+   "file": "sticker-1-3-512.webp",
+   "base": "sticker-1",
+   "part": 3,
+   "size": 512,
+   "w": 437,
+   "h": 481,
+   "alpha": true,
+   "bytes": 38360
+  },
+  {
+   "file": "sticker-1-4-256.webp",
+   "base": "sticker-1",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 276,
+   "alpha": true,
+   "bytes": 20212
+  },
+  {
+   "file": "sticker-1-4-512.webp",
+   "base": "sticker-1",
+   "part": 4,
+   "size": 512,
+   "w": 457,
+   "h": 492,
+   "alpha": true,
+   "bytes": 34800
+  },
+  {
+   "file": "sticker-1-5-256.webp",
+   "base": "sticker-1",
+   "part": 5,
+   "size": 256,
+   "w": 256,
+   "h": 256,
+   "alpha": true,
+   "bytes": 21636
+  },
+  {
+   "file": "sticker-1-5-512.webp",
+   "base": "sticker-1",
+   "part": 5,
+   "size": 512,
+   "w": 482,
+   "h": 482,
+   "alpha": true,
+   "bytes": 44184
+  },
+  {
+   "file": "sticker-1-6-256.webp",
+   "base": "sticker-1",
+   "part": 6,
+   "size": 256,
+   "w": 256,
+   "h": 282,
+   "alpha": true,
+   "bytes": 21848
+  },
+  {
+   "file": "sticker-1-6-512.webp",
+   "base": "sticker-1",
+   "part": 6,
+   "size": 512,
+   "w": 436,
+   "h": 481,
+   "alpha": true,
+   "bytes": 38344
+  },
+  {
+   "file": "sticker-2-1-256.webp",
+   "base": "sticker-2",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 290,
+   "alpha": true,
+   "bytes": 21820
+  },
+  {
+   "file": "sticker-2-1-512.webp",
+   "base": "sticker-2",
+   "part": 1,
+   "size": 512,
+   "w": 431,
+   "h": 489,
+   "alpha": true,
+   "bytes": 34804
+  },
+  {
+   "file": "sticker-2-2-256.webp",
+   "base": "sticker-2",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 298,
+   "alpha": true,
+   "bytes": 22516
+  },
+  {
+   "file": "sticker-2-2-512.webp",
+   "base": "sticker-2",
+   "part": 2,
+   "size": 512,
+   "w": 413,
+   "h": 481,
+   "alpha": true,
+   "bytes": 37300
+  },
+  {
+   "file": "sticker-2-3-256.webp",
+   "base": "sticker-2",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 301,
+   "alpha": true,
+   "bytes": 24200
+  },
+  {
+   "file": "sticker-2-3-512.webp",
+   "base": "sticker-2",
+   "part": 3,
+   "size": 512,
+   "w": 406,
+   "h": 478,
+   "alpha": true,
+   "bytes": 39242
+  },
+  {
+   "file": "sticker-2-4-256.webp",
+   "base": "sticker-2",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 298,
+   "alpha": true,
+   "bytes": 23386
+  },
+  {
+   "file": "sticker-2-4-512.webp",
+   "base": "sticker-2",
+   "part": 4,
+   "size": 512,
+   "w": 427,
+   "h": 497,
+   "alpha": true,
+   "bytes": 39092
+  },
+  {
+   "file": "sticker-2-5-256.webp",
+   "base": "sticker-2",
+   "part": 5,
+   "size": 256,
+   "w": 256,
+   "h": 291,
+   "alpha": true,
+   "bytes": 22748
+  },
+  {
+   "file": "sticker-2-5-512.webp",
+   "base": "sticker-2",
+   "part": 5,
+   "size": 512,
+   "w": 435,
+   "h": 494,
+   "alpha": true,
+   "bytes": 39764
+  },
+  {
+   "file": "sticker-2-6-256.webp",
+   "base": "sticker-2",
+   "part": 6,
+   "size": 256,
+   "w": 256,
+   "h": 291,
+   "alpha": true,
+   "bytes": 25400
+  },
+  {
+   "file": "sticker-2-6-512.webp",
+   "base": "sticker-2",
+   "part": 6,
+   "size": 512,
+   "w": 435,
+   "h": 494,
+   "alpha": true,
+   "bytes": 45694
+  },
+  {
+   "file": "sticker-3-1-256.webp",
+   "base": "sticker-3",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 241,
+   "alpha": true,
+   "bytes": 19374
+  },
+  {
+   "file": "sticker-3-1-512.webp",
+   "base": "sticker-3",
+   "part": 1,
+   "size": 512,
+   "w": 496,
+   "h": 466,
+   "alpha": true,
+   "bytes": 42188
+  },
+  {
+   "file": "sticker-3-2-256.webp",
+   "base": "sticker-3",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 255,
+   "alpha": true,
+   "bytes": 19548
+  },
+  {
+   "file": "sticker-3-2-512.webp",
+   "base": "sticker-3",
+   "part": 2,
+   "size": 512,
+   "w": 490,
+   "h": 488,
+   "alpha": true,
+   "bytes": 36256
+  },
+  {
+   "file": "sticker-3-3-256.webp",
+   "base": "sticker-3",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 299,
+   "alpha": true,
+   "bytes": 21078
+  },
+  {
+   "file": "sticker-3-3-512.webp",
+   "base": "sticker-3",
+   "part": 3,
+   "size": 512,
+   "w": 426,
+   "h": 497,
+   "alpha": true,
+   "bytes": 32546
+  },
+  {
+   "file": "sticker-3-4-256.webp",
+   "base": "sticker-3",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 278,
+   "alpha": true,
+   "bytes": 19380
+  },
+  {
+   "file": "sticker-3-4-512.webp",
+   "base": "sticker-3",
+   "part": 4,
+   "size": 512,
+   "w": 451,
+   "h": 489,
+   "alpha": true,
+   "bytes": 34470
+  },
+  {
+   "file": "sticker-3-5-256.webp",
+   "base": "sticker-3",
+   "part": 5,
+   "size": 256,
+   "w": 256,
+   "h": 278,
+   "alpha": true,
+   "bytes": 21162
+  },
+  {
+   "file": "sticker-3-5-512.webp",
+   "base": "sticker-3",
+   "part": 5,
+   "size": 512,
+   "w": 450,
+   "h": 488,
+   "alpha": true,
+   "bytes": 38364
+  },
+  {
+   "file": "sticker-3-6-256.webp",
+   "base": "sticker-3",
+   "part": 6,
+   "size": 256,
+   "w": 256,
+   "h": 277,
+   "alpha": true,
+   "bytes": 19574
+  },
+  {
+   "file": "sticker-3-6-512.webp",
+   "base": "sticker-3",
+   "part": 6,
+   "size": 512,
+   "w": 455,
+   "h": 492,
+   "alpha": true,
+   "bytes": 35262
+  },
+  {
+   "file": "sticker-4-1-256.webp",
+   "base": "sticker-4",
+   "part": 1,
+   "size": 256,
+   "w": 256,
+   "h": 274,
+   "alpha": true,
+   "bytes": 19630
+  },
+  {
+   "file": "sticker-4-1-512.webp",
+   "base": "sticker-4",
+   "part": 1,
+   "size": 512,
+   "w": 512,
+   "h": 548,
+   "alpha": true,
+   "bytes": 47372
+  },
+  {
+   "file": "sticker-4-2-256.webp",
+   "base": "sticker-4",
+   "part": 2,
+   "size": 256,
+   "w": 256,
+   "h": 274,
+   "alpha": true,
+   "bytes": 19318
+  },
+  {
+   "file": "sticker-4-2-512.webp",
+   "base": "sticker-4",
+   "part": 2,
+   "size": 512,
+   "w": 512,
+   "h": 548,
+   "alpha": true,
+   "bytes": 46588
+  },
+  {
+   "file": "sticker-4-3-256.webp",
+   "base": "sticker-4",
+   "part": 3,
+   "size": 256,
+   "w": 256,
+   "h": 242,
+   "alpha": true,
+   "bytes": 21332
+  },
+  {
+   "file": "sticker-4-3-512.webp",
+   "base": "sticker-4",
+   "part": 3,
+   "size": 512,
+   "w": 512,
+   "h": 485,
+   "alpha": true,
+   "bytes": 54900
+  },
+  {
+   "file": "sticker-4-4-256.webp",
+   "base": "sticker-4",
+   "part": 4,
+   "size": 256,
+   "w": 256,
+   "h": 248,
+   "alpha": true,
+   "bytes": 26798
+  },
+  {
+   "file": "sticker-4-4-512.webp",
+   "base": "sticker-4",
+   "part": 4,
+   "size": 512,
+   "w": 512,
+   "h": 497,
+   "alpha": true,
+   "bytes": 71486
+  }
+ ],
+ "sessions": [
+  {
+   "session": "S01",
+   "json": 10357,
+   "smallImgs": 307712,
+   "largeImgs": 552182,
+   "cells": 4,
+   "hasY": true,
+   "spots": [
+    {
+     "id": "S01-Y1",
+     "panel": 1,
+     "show": null,
+     "lookVi": "Bảng các bước nấu trên tủ lạnh",
+     "lane": "skill"
+    },
+    {
+     "id": "S01-Y2",
+     "panel": 1,
+     "show": null,
+     "lookVi": "Nồi canh và thớt rau",
+     "lane": "skill"
+    },
+    {
+     "id": "S01-Y3",
+     "panel": 1,
+     "show": null,
+     "lookVi": "Đồng hồ trên tường",
+     "lane": "self"
+    },
+    {
+     "id": "S01-Y4",
+     "panel": 1,
+     "show": null,
+     "lookVi": "Tí xếp bát đũa",
+     "lane": "family"
+    },
+    {
+     "id": "S01-Y5",
+     "panel": 2,
+     "show": null,
+     "lookVi": "Giá bát sạch, giỏ quần áo",
+     "lane": "skill"
+    },
+    {
+     "id": "S01-Y6",
+     "panel": 2,
+     "show": null,
+     "lookVi": "Mẹ đứng ở cửa",
+     "lane": "family"
+    }
+   ],
+   "panelCount": 2
+  },
+  {
+   "session": "S02",
+   "json": 10515,
+   "smallImgs": 297248,
+   "largeImgs": 523574,
+   "cells": 4,
+   "hasY": true,
+   "spots": [
+    {
+     "id": "S02-Y1",
+     "panel": 1,
+     "show": null,
+     "lookVi": "Đồng hồ 11:30, đèn mờ",
+     "lane": "weekly"
+    },
+    {
+     "id": "S02-Y2",
+     "panel": 1,
+     "show": null,
+     "lookVi": "Ba quyển bài tập cắm cờ đỏ",
+     "lane": "weekly"
+    },
+    {
+     "id": "S02-Y3",
+     "panel": 1,
+     "show": null,
+     "lookVi": "Điện thoại có ảnh đáp án",
+     "lane": "weekly"
+    },
+    {
+     "id": "S02-Y4",
+     "panel": 2,
+     "show": null,
+     "lookVi": "Phiếu bài ngắn lúc 8:30",
+     "lane": "daily"
+    },
+    {
+     "id": "S02-Y5",
+     "panel": 2,
+     "show": null,
+     "lookVi": "Phiếu có ngôi sao của cô",
+     "lane": "daily"
+    },
+    {
+     "id": "S02-Y6",
+     "panel": 2,
+     "show": null,
+     "lookVi": "Đàn ghi-ta và giường ngủ",
+     "lane": "daily"
+    }
+   ],
+   "panelCount": 2
+  },
+  {
+   "session": "S03",
+   "json": 14082,
+   "smallImgs": 324062,
+   "largeImgs": 580644,
+   "cells": 4,
+   "hasY": true,
+   "spots": [
+    {
+     "id": "S03-Y1",
+     "panel": null,
+     "show": "card",
+     "lookVi": "Thẻ gợi ý chung (không gắn tranh)",
+     "lane": "why"
+    },
+    {
+     "id": "S03-Y2",
+     "panel": 1,
+     "show": null,
+     "lookVi": "Bàn trưng bày sách theo sở thích",
+     "lane": "how"
+    },
+    {
+     "id": "S03-Y3",
+     "panel": 3,
+     "show": null,
+     "lookVi": "Bàn câu lạc bộ, Hà khoe hình hành tinh",
+     "lane": "how"
+    },
+    {
+     "id": "S03-Y4",
+     "panel": 1,
+     "show": null,
+     "lookVi": "Hà ôm cuốn sách vũ trụ",
+     "lane": "example"
+    },
+    {
+     "id": "S03-Y5",
+     "panel": 2,
+     "show": null,
+     "lookVi": "Hà đọc trên giường, kính thiên văn bên cửa sổ",
+     "lane": "result"
+    },
+    {
+     "id": "S03-Y6",
+     "panel": 3,
+     "show": null,
+     "lookVi": "Lan và Minh tròn mắt nhìn",
+     "lane": "result"
+    }
+   ],
+   "panelCount": 3
+  }
+ ]
+}

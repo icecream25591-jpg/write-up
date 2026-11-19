@@ -1,0 +1,59 @@
+// Khởi động Write Up!: đọc config, áp cài đặt, hỏi tên lần đầu, dựng menu, chạy bộ điều hướng hash.
+import { start } from './router.js';
+import { initNav, setActiveNav } from './shell.js';
+import { load } from './store.js';
+import * as pages from './screens/pages.js';
+import { initSync } from './sync.js';
+// Màn session và My Work chỉ tải khi cần (lần đầu mở trang nhẹ hơn)
+const loadSession = () => import('./screens/session.js');
+const loadWork = () => import('./screens/work.js');
+import { initKeyboard } from './keyboard.js';
+import { applyPrefs } from './prefs.js';
+import { initSfx } from './sfx.js';
+
+const view = document.getElementById('view');
+let current = null;   // màn đang hiện
+let firstRender = true;
+let seq = 0;          // chống hiện nhầm màn cũ khi tải dữ liệu chậm
+
+const SCREENS = { home: pages.home, journey: pages.journey, settings: pages.settings, work: async (c, r) => (await loadWork()).work(c, r) };
+
+async function loadConfig() {
+  try {
+    const r = await fetch('config.json', { cache: 'no-cache' });
+    if (r.ok) return await r.json();
+  } catch { /* mở file trực tiếp hoặc mất mạng: dùng mặc định */ }
+  return { sessionsReady: [1, 2, 3], lockOrder: false };
+}
+
+async function render(ctx, route) {
+  const my = ++seq;
+  const isSession = route.name === 'session';
+  ctx.studentName = load('studentName', '') || 'bạn';
+  const screen = isSession ? await (await loadSession()).session(ctx, route) : await SCREENS[route.name](ctx, route);
+  const dispose = (sc) => (sc?.cleanup ? sc.cleanup() : sc?.mai?.destroy());
+  if (my !== seq) { dispose(screen); return; }
+
+  dispose(current);
+  current = screen;
+  document.body.classList.toggle('in-session', isSession);
+  setActiveNav(isSession ? null : route.name);
+
+  if (!firstRender) screen.el.classList.add('enter');
+  view.replaceChildren(screen.el);
+  if (!firstRender) view.focus({ preventScroll: true });
+  firstRender = false;
+}
+
+applyPrefs();
+initSfx();             // âm thanh chỉ mở sau lần chạm đầu tiên
+const config = await loadConfig();
+const ctx = { config, studentName: load('studentName', '') || 'bạn' };
+initNav();
+initKeyboard();
+initSync(config);      // gửi bài đang chờ, hỏi nhận xét mới (nếu đã nối Sheet)
+await pages.welcomeIfNeeded();
+start((route) => render(ctx, route));
+// Tải sẵn phần mã còn lại khi máy rảnh (sau khi trang đầu đã hiện): mất mạng sau đó vẫn mở được mọi màn.
+const idle = window.requestIdleCallback || ((f) => setTimeout(f, 200));
+setTimeout(() => idle(() => { loadSession().catch(() => {}); loadWork().catch(() => {}); }), 2500);

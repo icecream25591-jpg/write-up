@@ -1,0 +1,336 @@
+{
+  "session": "S01",
+  "version": "2026.11.19",
+  "source": "content/noi-dung-S1-S22.md · S1",
+  "topic": "Household chores and life skills",
+  "productVi": "5 câu đúng hoặc đoạn ngắn 60–80 từ.",
+  "targetsVi": "câu đầy đủ; because / when / if + mệnh đề; V-ing làm chủ ngữ; chủ ngữ dài với who.",
+  "sticker": "sticker-1#1",
+  "recall": [
+    {
+      "id": "S01-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Which one is a complete sentence?",
+      "options": [
+        "Because my mother works late.",
+        "My mother works late, so I cook dinner.",
+        "Cooking dinner every evening."
+      ],
+      "answer": "My mother works late, so I cook dinner.",
+      "explainVi": "A chỉ là mệnh đề phụ đứng một mình; C thiếu động từ chính."
+    },
+    {
+      "id": "S01-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "My brother ___ the dishes after every meal.",
+      "options": [
+        "wash",
+        "washes",
+        "washing"
+      ],
+      "answer": "washes",
+      "explainVi": "Chủ ngữ ngôi thứ ba số ít, thì hiện tại đơn: thêm -es."
+    },
+    {
+      "id": "S01-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Doing the laundry take about an hour.",
+      "answer": "take → takes",
+      "explainVi": "Chủ ngữ V-ing tính là số ít."
+    },
+    {
+      "id": "S01-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "I feel proud ___ my parents enjoy the soup I cook.",
+      "options": [
+        "when",
+        "so",
+        "but"
+      ],
+      "answer": "when",
+      "explainVi": "when + mệnh đề nêu thời điểm; so và but không hợp nghĩa ở đây."
+    },
+    {
+      "id": "S01-R5",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Teenagers who cook for their families they learn to plan ahead.",
+      "answer": "bỏ \"they\"",
+      "explainVi": "Chủ ngữ dài \"Teenagers who …\" đã đủ, không lặp đại từ."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S01-C1",
+      "image": "s01-cau",
+      "cell": 1,
+      "altVi": "Lan tự nấu cơm, trứng, rau theo thẻ hình",
+      "vi": "Viết một câu có when + mệnh đề.",
+      "target": "when",
+      "chips": [
+        "prepare a meal",
+        "on her own"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bwhen\\b",
+          "flags": "i",
+          "msgVi": "Viết một câu có when + mệnh đề."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "When Lan prepares a meal on her own, she learns to follow each step carefully."
+    },
+    {
+      "id": "S01-C2",
+      "image": "s01-cau",
+      "cell": 2,
+      "altVi": "Minh cho đồ vào máy giặt, cặp và sách chờ trên ghế",
+      "vi": "Mở đầu bằng V-ing làm chủ ngữ.",
+      "target": "V-ing",
+      "chips": [
+        "do the laundry",
+        "manage one's time"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*[A-Za-z]+ing\\b",
+          "flags": "",
+          "msgVi": "Mở đầu bằng V-ing làm chủ ngữ."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "Doing the laundry before homework helps Minh manage his time."
+    },
+    {
+      "id": "S01-C3",
+      "image": "s01-cau",
+      "cell": 3,
+      "altVi": "Mẹ đi làm về mệt, Khoa đã rửa xong bát",
+      "vi": "Viết một câu có because + mệnh đề.",
+      "target": "because",
+      "chips": [
+        "working parents",
+        "share the workload"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bbecause\\b",
+          "flags": "i",
+          "msgVi": "Viết một câu có because + mệnh đề."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "Working parents like Khoa's mother feel relieved because he has already washed all the dishes."
+    },
+    {
+      "id": "S01-C4",
+      "image": "s01-cau",
+      "cell": 4,
+      "altVi": "Vy đếm tiền xu, lên thực đơn rẻ cho cả tuần",
+      "vi": "Chủ ngữ dài với who.",
+      "target": "who",
+      "chips": [
+        "live on a small budget",
+        "become self-reliant"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bwho\\b",
+          "flags": "i",
+          "msgVi": "Chủ ngữ dài với who."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "A student who plans cheap meals for the week can live on a small budget."
+    }
+  ],
+  "ideas": {
+    "image": "s01-y",
+    "prompt": "What household skill should every teenager learn before finishing secondary school? Explain why.",
+    "promptType": "explain-why",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "skill",
+        "en": "Skill",
+        "vi": "Kỹ năng em chọn",
+        "color": "claim",
+        "prefilled": false
+      },
+      {
+        "id": "self",
+        "en": "Benefits for Me",
+        "vi": "Lợi ích cho bản thân",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "family",
+        "en": "Benefits for My Family",
+        "vi": "Lợi ích cho gia đình",
+        "color": "teal",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "spots": [
+      {
+        "id": "S01-Y1",
+        "panel": 1,
+        "lookVi": "Bảng các bước nấu trên tủ lạnh",
+        "qVi": "Lan nhìn gì để tự nấu ăn?",
+        "chips": [
+          "follow simple steps"
+        ],
+        "lane": "skill"
+      },
+      {
+        "id": "S01-Y2",
+        "panel": 1,
+        "lookVi": "Nồi canh và thớt rau",
+        "qVi": "Lan đang tự làm việc gì?",
+        "chips": [
+          "prepare a simple meal"
+        ],
+        "lane": "skill"
+      },
+      {
+        "id": "S01-Y3",
+        "panel": 1,
+        "lookVi": "Đồng hồ trên tường",
+        "qVi": "Lan làm gì trước bữa tối?",
+        "chips": [
+          "manage one's time"
+        ],
+        "lane": "self"
+      },
+      {
+        "id": "S01-Y4",
+        "panel": 1,
+        "lookVi": "Tí xếp bát đũa",
+        "qVi": "Em nhỏ giúp chị bằng cách nào?",
+        "chips": [
+          "share the workload"
+        ],
+        "lane": "family"
+      },
+      {
+        "id": "S01-Y5",
+        "panel": 2,
+        "lookVi": "Giá bát sạch, giỏ quần áo",
+        "qVi": "Sau bữa tối, những việc nào đã xong?",
+        "chips": [
+          "wash the dishes",
+          "do the laundry"
+        ],
+        "lane": "skill"
+      },
+      {
+        "id": "S01-Y6",
+        "panel": 2,
+        "lookVi": "Mẹ đứng ở cửa",
+        "qVi": "Vì sao mẹ mỉm cười nhẹ nhõm?",
+        "chips": [
+          "working parents",
+          "come home tired"
+        ],
+        "lane": "family"
+      }
+    ]
+  },
+  "tips": {
+    "recall": {
+      "titleEn": "Sentence basics",
+      "vi": "Câu đầy đủ = chủ ngữ + động từ chính. Chủ ngữ ngôi thứ ba số ít ở hiện tại đơn: động từ thêm -s / -es.",
+      "exampleEn": "My sister cooks rice every evening."
+    },
+    "sentences": {
+      "titleEn": "Complete sentences",
+      "vi": "Câu đầy đủ cần chủ ngữ và động từ chính. Mệnh đề because / when / if không đứng một mình; chủ ngữ V-ing tính là số ít.",
+      "exampleEn": "Ironing a school shirt takes only five minutes. When my sister irons her uniform, she starts with the collar."
+    },
+    "ideas": {
+      "titleEn": "Skill → Benefits",
+      "vi": "Chọn MỘT kỹ năng. Mỗi lợi ích trả lời câu hỏi: kỹ năng đó giúp em hoặc gia đình như thế nào?",
+      "exampleEn": "Skill: fix small things at home → Me: save pocket money → My family: Dad can rest at weekends."
+    },
+    "write": {
+      "titleEn": "because / when / if + V-ing subject",
+      "vi": "Bài cần ít nhất một câu có because / when / if và một câu mở đầu bằng V-ing.",
+      "exampleEn": "Mending a torn shirt saves money because we do not have to buy a new one."
+    }
+  },
+  "write": {
+    "id": "S01-W1",
+    "kind": "sentences",
+    "prompt": "What household skill should every teenager learn before finishing secondary school? Explain why.",
+    "taskVi": "Trả lời đề ở chặng 3.",
+    "core": {
+      "sentences": 5,
+      "vi": "5 câu đúng"
+    },
+    "words": {
+      "core": null,
+      "extension": [
+        60,
+        80
+      ]
+    },
+    "minutes": null,
+    "mustUse": [
+      "một câu có because / when / if",
+      "một câu có V-ing làm chủ ngữ"
+    ],
+    "modelAfterSubmit": "I think every teenager should learn to cook simple meals before finishing secondary school. Cooking is a practical skill that we need every day. When teenagers can prepare a meal on their own, they do not have to depend on instant noodles or take-away food. Following a few simple steps also teaches them to plan their time. Besides, a teenager who cooks dinner can share the workload with working parents, so the whole family has more time to rest."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Câu nào cũng nói về kỹ năng em chọn hoặc lý do?"
+    },
+    {
+      "round": "Câu",
+      "code": "FR",
+      "vi": "Mỗi câu có chủ ngữ và động từ chính; mệnh đề because / when không đứng một mình?"
+    },
+    {
+      "round": "Câu",
+      "code": "SV",
+      "vi": "Chủ ngữ V-ing hoặc ngôi thứ ba số ít đi với động từ thêm -s / -es?"
+    },
+    {
+      "round": "Từ",
+      "code": "PU",
+      "vi": "Viết hoa đầu câu, có dấu chấm cuối câu?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-1#1",
+    "stickerVi": "Lan nấu ăn"
+  },
+  "praiseEn": "Great start — your sentences are ready to serve!"
+}

@@ -1,0 +1,8 @@
+{
+  "_ghichu": "Cấu hình do giáo viên sửa. lockOrder=true: học sinh phải học theo thứ tự trạm. sheetUrl: URL Ứng dụng web Apps Script (…/exec) – xem docs/huong-dan-google-sheet.md; để trống thì bài chỉ lưu trên máy học sinh. sessionsReady: các session đã có data/sXX.json và được mở cho học sinh.",
+  "siteName": "Write Up!",
+  "lockOrder": false,
+  "sheetUrl": "https://script.google.com/macros/s/AKfycbxFxg07ZGDLbpe-EYmyXrgLfqn1k3-IVS73RWYJNh_o0yuKeD13yJaaDWGyBBkcpmrjLQ/exec",
+  "sessionsReady": [1, 2, 3],
+  "demoSession": { "n": 1, "topic": "Household chores and life skills" }
+}

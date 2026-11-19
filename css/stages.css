@@ -1,0 +1,129 @@
+/* ===== Chặng Recall & Sentences (Phần 3) ===== */
+
+/* Thanh nút dưới: vùng nội dung + nút cô Mai */
+.sess-foot .foot-in{flex:1;min-width:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sess-foot.no-mai{padding-right:var(--gutter)}
+.btn.grow,.btn2.grow{flex:1 1 0;min-width:96px;padding:0 14px}
+@media (max-width:359px){
+  .sess-foot .btn2{padding:0 12px}
+  .sess-title h1{font-size:1rem}
+}
+.btn-ok{background:var(--ok);color:#06331F;box-shadow:0 5px 0 #23966A}
+.btn-ok:active{box-shadow:0 2px 0 #23966A}
+.btn2[disabled]{opacity:.5;cursor:not-allowed;box-shadow:none}
+.btn2.sm{min-height:44px;padding:0 12px;font-size:.875rem}
+.sess-foot.fb-ok{background:var(--ok-soft);border-top-color:#A8E3C9}
+.sess-foot.fb-bad{background:var(--coral-bg);border-top-color:#F5C3B5}
+.fb{display:flex;gap:10px;align-items:flex-start;width:100%}
+.fb-face{width:46px;height:46px;flex:none;border-radius:50%;object-fit:cover;object-position:top;border:3px solid #fff;background:#fff}
+.fb-txt{min-width:0}
+.fb-title{font-weight:900;font-size:1.0625rem}
+.fb-ok .fb-title,.fb-ok .fb-why{color:var(--ok-ink)}
+.fb-bad .fb-title,.fb-bad .fb-why,.fb-bad .fb-ans{color:var(--coral-ink)}
+.fb-why,.fb-ans{font-size:.875rem;line-height:1.4}
+
+/* Bong bóng cô Mai: ví dụ mới */
+.tip-ex{display:block;margin-top:6px;padding-left:8px;border-left:3px solid var(--claim-bg);font-style:italic;color:var(--ink-3)}
+
+/* ---------- Recall ---------- */
+.recall{display:flex;flex-direction:column;gap:14px;width:100%;max-width:640px;margin:0 auto}
+.guide{display:flex;align-items:flex-end;gap:10px}
+.guide-pic{width:84px;height:110px;flex:none;object-fit:cover;object-position:top;border-radius:18px;background:#fff}
+.guide-say{flex:1;min-width:0;margin:0;background:#fff;border:2px solid var(--card-border);border-radius:18px 18px 18px 4px;
+  padding:12px 14px;font-weight:800;font-size:.9375rem}
+.q-card{padding:16px 18px;font-size:1.1875rem;font-weight:800;line-height:1.45;overflow-wrap:anywhere}
+.fix-tag{display:block;margin-bottom:6px;font-size:.75rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--coral-ink)}
+.blank{display:inline-block;min-width:80px;border-bottom:3px solid var(--primary);color:var(--primary-shadow);text-align:center;padding:0 4px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{min-height:56px;border-radius:var(--r);border:2px solid var(--border);background:#fff;color:var(--ink);font-weight:800;font-size:1.0625rem;
+  display:flex;align-items:center;gap:10px;padding:8px 14px;box-shadow:0 4px 0 var(--border);text-align:left;transition:transform .08s}
+.opt:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 var(--border)}
+.opt:disabled{cursor:default}
+.opt .key{width:28px;height:28px;flex:none;border-radius:8px;background:var(--line);display:flex;align-items:center;justify-content:center;font-size:.875rem}
+.opt .txt{flex:1;min-width:0;overflow-wrap:anywhere}
+.opt .mark{flex:none;display:flex}
+.opt.right{border:3px solid var(--ok);background:var(--ok-soft);color:var(--ok-ink);box-shadow:none;font-weight:900}
+.opt.right .key{background:var(--ok);color:#fff}
+.opt.wrong{border:3px solid var(--coral);background:var(--coral-bg);color:var(--coral-ink);box-shadow:none}
+.opt.wrong .key{background:var(--coral);color:#fff}
+.q-area>.lbl{display:block;margin-bottom:6px}
+.opt-note{text-transform:none;letter-spacing:0;font-weight:700}
+.fix-in{width:100%;min-height:48px;border-radius:14px;border:2px solid var(--primary);padding:8px 12px;font-weight:700;background:#fff}
+.reveal{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.reveal .ans{background:#fff;border:2px solid var(--card-border);border-radius:14px;padding:10px 12px}
+.self{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.9375rem}
+.self span{flex:1 1 100%}
+.sum{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.sum li{display:flex;gap:8px;align-items:flex-start;background:#fff;border:2px solid var(--card-border);border-radius:14px;padding:10px 12px;font-size:.9375rem;flex-wrap:wrap}
+.sum .m{width:22px;height:22px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff}
+.sum li.ok .m{background:var(--ok)} .sum li.bad .m{background:var(--coral)}
+.sum li>span[lang]{flex:1;min-width:0}
+.sum li>.sum-ans{flex:1 1 100%;padding-left:30px;color:var(--ok-ink)}
+
+/* ---------- Sentences ---------- */
+.cell{position:relative;margin:0}
+.cell-pic{width:100%;aspect-ratio:1/1;max-height:180px;object-fit:cover;border-radius:22px;border:3px solid #fff;
+  box-shadow:0 0 0 2px var(--card-border);background:#F6EAD3;transition:max-height .2s var(--ease)}
+.cell-badge{position:absolute;left:10px;top:10px;background:#fff;border-radius:999px;padding:3px 10px;font-weight:900;font-size:.8125rem}
+.thumbs{display:flex;gap:8px}
+.thumb{position:relative;width:52px;height:52px;min-height:0;padding:0;border-radius:14px;overflow:hidden;border:3px solid #fff;
+  box-shadow:0 0 0 2px var(--card-border);background:#fff}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb.cur{border-color:var(--primary)}
+.thumb.ok::after{content:"✓";position:absolute;right:2px;bottom:2px;width:18px;height:18px;border-radius:50%;background:var(--ok);color:#fff;
+  font-size:11px;line-height:18px;text-align:center;font-weight:900}
+.task{padding:12px 14px;font-size:1rem;font-weight:800;line-height:1.4}
+.task .hl{color:var(--primary-shadow)}
+.target{white-space:nowrap}
+.target b{background:#FFF4CC;border-radius:6px;padding:0 5px}
+.chips-wrap .lbl{margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;font-weight:800;font-size:.875rem;
+  background:var(--ok-soft);color:var(--ok-ink);border:2px solid #A8E3C9;transition:transform .08s}
+.chip:active{transform:scale(.96)}
+.sent-ta{width:100%;height:76px;border-radius:var(--r);border:2px solid var(--primary);padding:10px 12px;font-weight:700;line-height:1.4;
+  resize:none;background:#fff;color:var(--ink)}
+.sent .col-r>.lbl{margin-bottom:-6px}
+.checks:empty{display:none}
+.checks{background:#fff;border:2px solid var(--card-border);border-radius:14px;padding:10px 12px;transition:opacity .15s}
+.checks.stale{opacity:.55}
+.checks ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.checks li{display:flex;gap:8px;align-items:flex-start;font-size:.875rem;line-height:1.35}
+.checks li .m{width:20px;height:20px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;margin-top:1px}
+.checks li.ok{color:var(--ok-ink)} .checks li.ok .m{background:var(--ok)}
+.checks li.bad{color:var(--coral-ink)} .checks li.bad .m{background:var(--coral)}
+.checks .sum{margin:8px 0 0;font-size:.8125rem;color:var(--ink-2);display:block;background:none;border:0;padding:0}
+.checks .sum.ok{color:var(--ok-ink)}
+.model{background:var(--primary-soft);border-left:5px solid var(--primary);border-radius:14px;padding:10px 12px}
+.model p{margin:4px 0 0;font-size:1rem}
+.model .why{font-size:.8125rem;color:var(--ink-3)}
+
+/* Màn hình thấp / bàn phím bật: thu tranh để thấy ô viết và nút Check */
+@media (max-height:640px) and (max-width:767px){
+  .sess-head{padding-top:max(8px,var(--safe-t));gap:6px}
+  .stages .name{display:none}
+
+
+  .cell-pic{max-height:min(180px,30dvh)}
+  .thumbs{display:none}
+  .guide-pic{width:64px;height:84px}
+}
+body.typing .sent .cell-pic{max-height:min(120px,18dvh)}
+body.typing .sent .thumbs{display:none}
+
+/* Máy tính (mẫu D2) */
+@media (min-width:768px){
+  .sent>.col-l{flex:1 1 420px;max-width:540px}
+  .sent>.col-r{flex:1 1 420px;gap:16px}
+  .cell-pic{max-height:none;border-width:4px;border-radius:28px}
+  body.typing .sent .cell-pic{max-height:none}
+  body.typing .sent .thumbs{display:flex}
+  .thumb{width:72px;height:72px;border-radius:16px}
+  .task{font-size:1.1875rem;padding:14px 16px}
+  .sent-ta{height:120px;font-size:18px;padding:14px 16px;resize:vertical}
+  .q-card{font-size:1.375rem}
+  /* thanh dưới rộng: nút chính không kéo hết bề ngang, dồn về phải */
+  .sess-foot .btn.grow{flex:0 1 340px;margin-left:auto}
+  .sess-foot .btn2.grow{flex:0 1 220px}
+}
+.blank.wrong{border-bottom-color:var(--coral);color:var(--coral-ink)}

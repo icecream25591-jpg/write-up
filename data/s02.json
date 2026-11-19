@@ -1,0 +1,339 @@
+{
+  "session": "S02",
+  "version": "2026.11.19",
+  "source": "content/noi-dung-S1-S22.md · S2",
+  "topic": "Homework in modern education",
+  "productVi": "4–6 câu nối nhau, khoảng 80–100 từ.",
+  "targetsVi": "câu phức, câu ghép, trạng từ nối (however, therefore…); câu WHY và RESULT.",
+  "sticker": "sticker-1#2",
+  "recall": [
+    {
+      "id": "S02-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Cooking for the family ___ teenagers how to plan.",
+      "options": [
+        "teach",
+        "teaches",
+        "teaching"
+      ],
+      "answer": "teaches",
+      "explainVi": "Chủ ngữ V-ing → động từ số ít."
+    },
+    {
+      "id": "S02-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Living away from home taught my cousin to look ___ herself.",
+      "options": [
+        "at",
+        "after",
+        "for"
+      ],
+      "answer": "after",
+      "explainVi": "look after oneself = tự chăm lo cho bản thân."
+    },
+    {
+      "id": "S02-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Because my parents work late. I make dinner.",
+      "answer": "… work late, I make dinner.",
+      "explainVi": "Mệnh đề because không đứng một mình (FR)."
+    },
+    {
+      "id": "S02-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Students ___ help with chores often become more independent.",
+      "options": [
+        "who",
+        "which",
+        "they"
+      ],
+      "answer": "who",
+      "explainVi": "who nối với danh từ chỉ người, tạo chủ ngữ dài."
+    },
+    {
+      "id": "S02-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Small daily tasks help children ___ responsibility for their own things.",
+      "options": [
+        "make",
+        "take",
+        "do"
+      ],
+      "answer": "take",
+      "explainVi": "take responsibility for = chịu trách nhiệm về."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S02-C1",
+      "image": "s02-cau",
+      "cell": 1,
+      "altVi": "Minh tự giải ba bài toán, tới bài thứ ba thì bí",
+      "vi": "Dùng however giữa hai vế, đúng dấu câu.",
+      "target": "however",
+      "chips": [
+        "recall a method",
+        "a gap in his knowledge"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "[;.]\\s*however,",
+          "flags": "i",
+          "msgVi": "Dùng however giữa hai vế, đúng dấu câu."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "Minh solved the first two problems easily; however, the third one showed him a gap in his knowledge."
+    },
+    {
+      "id": "S02-C2",
+      "image": "s02-cau",
+      "cell": 2,
+      "altVi": "Cô Mai chữa một lỗi chung trên bảng",
+      "vi": "Dùng therefore nêu kết quả.",
+      "target": "therefore",
+      "chips": [
+        "a common mistake",
+        "consolidate knowledge"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\btherefore\\b",
+          "flags": "i",
+          "msgVi": "Dùng therefore nêu kết quả."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "Many students made a common mistake; therefore, Ms Mai explains it to the whole class."
+    },
+    {
+      "id": "S02-C3",
+      "image": "s02-cau",
+      "cell": 3,
+      "altVi": "Khoa chép đáp án lúc 11:30 đêm, ba bài cắm cờ hạn nộp",
+      "vi": "Câu WHY với because.",
+      "target": "because",
+      "chips": [
+        "a heavy workload",
+        "meet a deadline"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bbecause\\b",
+          "flags": "i",
+          "msgVi": "Câu WHY với because."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "Khoa is copying answers at 11:30 p.m. because he has to meet a deadline for three subjects tomorrow."
+    },
+    {
+      "id": "S02-C4",
+      "image": "s02-cau",
+      "cell": 4,
+      "altVi": "Vy làm xong bài ngắn rồi đi đánh cầu lông",
+      "vi": "Câu RESULT với so.",
+      "target": "so",
+      "chips": [
+        "strike a balance between",
+        "extracurricular activities"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bso\\b",
+          "flags": "i",
+          "msgVi": "Câu RESULT với so."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "Vy finishes one short review task, so she can strike a balance between study and extracurricular activities like badminton."
+    }
+  ],
+  "ideas": {
+    "image": "s02-y",
+    "prompt": "Is a small amount of homework every day better than a large amount once a week? Write a short paragraph giving your view.",
+    "promptType": "give-view",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "daily",
+        "en": "Little and Often: Benefits",
+        "vi": "Ít mà đều: lợi ích",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "weekly",
+        "en": "All at Once: Problems",
+        "vi": "Dồn nhiều một lần: vấn đề",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "spots": [
+      {
+        "id": "S02-Y1",
+        "panel": 1,
+        "lookVi": "Đồng hồ 11:30, đèn mờ",
+        "qVi": "Minh còn thức đến mấy giờ?",
+        "chips": [
+          "stay up late",
+          "lose concentration"
+        ],
+        "lane": "weekly"
+      },
+      {
+        "id": "S02-Y2",
+        "panel": 1,
+        "lookVi": "Ba quyển bài tập cắm cờ đỏ",
+        "qVi": "Vì sao Minh có quá nhiều việc cùng lúc?",
+        "chips": [
+          "a heavy workload",
+          "three deadlines on one day"
+        ],
+        "lane": "weekly"
+      },
+      {
+        "id": "S02-Y3",
+        "panel": 1,
+        "lookVi": "Điện thoại có ảnh đáp án",
+        "qVi": "Minh làm gì để kịp hạn?",
+        "chips": [
+          "copy answers"
+        ],
+        "lane": "weekly"
+      },
+      {
+        "id": "S02-Y4",
+        "panel": 2,
+        "lookVi": "Phiếu bài ngắn lúc 8:30",
+        "qVi": "Bài hôm nay giúp Minh luyện điều gì?",
+        "chips": [
+          "practise today's lesson",
+          "consolidate knowledge"
+        ],
+        "lane": "daily"
+      },
+      {
+        "id": "S02-Y5",
+        "panel": 2,
+        "lookVi": "Phiếu có ngôi sao của cô",
+        "qVi": "Cô giáo làm gì với bài đã nộp?",
+        "chips": [
+          "quick feedback on mistakes"
+        ],
+        "lane": "daily"
+      },
+      {
+        "id": "S02-Y6",
+        "panel": 2,
+        "lookVi": "Đàn ghi-ta và giường ngủ",
+        "qVi": "Làm bài xong, Minh còn thời gian cho việc gì?",
+        "chips": [
+          "time for hobbies",
+          "an early night"
+        ],
+        "lane": "daily"
+      }
+    ]
+  },
+  "tips": {
+    "recall": {
+      "titleEn": "S1 review",
+      "vi": "Chủ ngữ V-ing đi với động từ số ít. Mệnh đề because không đứng một mình. who nối với danh từ chỉ người.",
+      "exampleEn": "Folding clothes teaches my brother to be tidy."
+    },
+    "sentences": {
+      "titleEn": "however / therefore",
+      "vi": "however = đối lập, therefore = kết quả. Nối hai vế trong một câu: chấm phẩy trước, phẩy sau.",
+      "exampleEn": "The quiz was short; however, it covered every lesson of the week."
+    },
+    "ideas": {
+      "titleEn": "Benefits or Problems?",
+      "vi": "Xếp mỗi cụm vào đúng phía. Nhìn đồng hồ, cờ hạn nộp, ngôi sao của cô để biết cụm thuộc phía nào.",
+      "exampleEn": "a ten-minute task each night → Little and Often: Benefits; five worksheets due on Friday → All at Once: Problems"
+    },
+    "write": {
+      "titleEn": "Clear view + WHY",
+      "vi": "Câu đầu nêu rõ em chọn cách nào. Sau đó có một câu WHY với because và một từ nối however / therefore đúng dấu câu.",
+      "exampleEn": "I prefer short daily tasks because I can ask about a mistake the very next morning."
+    }
+  },
+  "write": {
+    "id": "S02-W1",
+    "kind": "paragraph",
+    "prompt": "Is a small amount of homework every day better than a large amount once a week? Write a short paragraph giving your view.",
+    "taskVi": "4–6 câu nối nhau trả lời đề ở chặng 3.",
+    "words": {
+      "core": [
+        80,
+        100
+      ],
+      "extension": [
+        100,
+        130
+      ]
+    },
+    "minutes": null,
+    "mustUse": [
+      "một câu WHY có because",
+      "một trạng từ nối (however / therefore) đúng dấu câu"
+    ],
+    "modelAfterSubmit": "In my view, a small amount of homework every day is better than a large amount once a week. Short daily tasks are useful because students practise a lesson while it is still fresh in their minds. However, when several big assignments have to be handed in together, many students stay up late and lose concentration. Some of them even copy answers just to meet the deadline. Therefore, regular short tasks help students learn more and still leave time for rest and hobbies."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Câu đầu nêu rõ quan điểm của em về đúng câu hỏi của đề?"
+    },
+    {
+      "round": "Câu",
+      "code": "CS",
+      "vi": "Trước however / therefore là dấu chấm hoặc chấm phẩy, sau là dấu phẩy?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Từ nối đúng nghĩa (however = đối lập, therefore = kết quả)?"
+    },
+    {
+      "round": "Câu",
+      "code": "FR",
+      "vi": "Không còn mệnh đề because / when đứng một mình?"
+    },
+    {
+      "round": "Từ",
+      "code": "SP",
+      "vi": "Viết đúng các từ homework, deadline, concentration?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-1#2",
+    "stickerVi": "Minh cầm bảng việc"
+  },
+  "praiseEn": "Nice balance — your ideas are well connected!"
+}

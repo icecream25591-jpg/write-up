@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Soát ảnh · Write Up!</title>
+<link rel="icon" href="../img/comai-face.webp" type="image/webp">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/tokens.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-weight:700;line-height:1.45}
+  main{max-width:1280px;margin:0 auto;padding:20px 16px 60px}
+  h1{font-size:1.6rem;margin:0 0 4px} h2{font-size:1.3rem;margin:32px 0 10px} h3{font-size:1.05rem;margin:18px 0 8px}
+  .muted{color:var(--ink-2);font-size:.875rem}
+  nav.toc{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+  nav.toc a{padding:6px 10px;border-radius:999px;background:#fff;border:2px solid var(--card-border);text-decoration:none;color:var(--ink);font-size:.85rem}
+  table{border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;font-size:.875rem;width:100%}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{background:#FBF4E6}
+  .ok{color:var(--ok-ink)} .warn{color:#B3261E}
+  .card{background:#fff;border:2px solid var(--card-border);border-radius:18px;padding:12px}
+  /* tranh lập ý + khung */
+  .scene{position:relative;border-radius:12px;overflow:hidden;max-width:800px}
+  .scene img{display:block;width:100%;height:auto}
+  .box{position:absolute;border:3px solid #E8553E;border-radius:6px;pointer-events:none}
+  .box b{position:absolute;left:4px;top:4px;width:30px;height:30px;border-radius:50%;background:#E8553E;color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:.9rem;border:2px solid #fff}
+  .spots{margin:8px 0 0;padding-left:18px;font-size:.875rem}
+  .spots .p{display:inline-block;min-width:64px;font-weight:900}
+  /* lưới ảnh */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+  .cells{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+  figure{margin:0;background:#fff;border:2px solid var(--card-border);border-radius:14px;padding:8px;display:flex;flex-direction:column;gap:6px}
+  figure .im{border-radius:8px;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1;overflow:hidden}
+  figure .im.wide{aspect-ratio:auto}
+  figure img{max-width:100%;max-height:100%;height:auto;display:block}
+  .checker{background:conic-gradient(#eee 25%,#fff 0 50%,#eee 0 75%,#fff 0) 0 0/16px 16px}
+  figcaption{font-size:.75rem;color:var(--ink-2);word-break:break-all}
+  figcaption b{color:var(--ink)}
+  .tag{display:inline-block;font-size:.7rem;padding:1px 6px;border-radius:6px;background:var(--ok-soft);color:var(--ok-ink);margin-left:4px}
+  .tag.no{background:#FDEAE4;color:#8A2E1A}
+  label.tg{font-size:.875rem;display:inline-flex;gap:6px;align-items:center;margin-left:12px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Soát ảnh · Write Up!</h1>
+  <p class="muted">Trang kiểm tra nội bộ (Phần 2). Dữ liệu từ <code>dev/anh-manifest.json</code> (chạy lại <code>node tools/anh-manifest.mjs</code> sau khi xuất ảnh), <code>img/panels.json</code> và <code>data/sXX.json</code>.</p>
+  <nav class="toc" id="toc"></nav>
+  <div id="out"><p class="muted">Đang tải…</p></div>
+</main>
+<script type="module">
+const $ = (h) => { const t = document.createElement('template'); t.innerHTML = h.trim(); return t.content; };
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const kb = (b) => (b / 1024).toFixed(1) + ' KB';
+const out = document.getElementById('out'), toc = document.getElementById('toc');
+
+const [man, panels] = await Promise.all([
+  fetch('anh-manifest.json', { cache: 'no-cache' }).then((r) => r.json()),
+  fetch('../img/panels.json', { cache: 'no-cache' }).then((r) => r.json()),
+]);
+out.textContent = '';
+const section = (id, title) => { toc.append($(`<a href="#${id}">${esc(title)}</a>`)); const s = $(`<section id="${id}"><h2>${esc(title)}</h2></section>`).firstChild; out.append(s); return s; };
+
+// 1. Dung lượng
+const sz = section('dung-luong', 'Dung lượng từng session');
+sz.append($(`<table><tr><th>Session</th><th>Ảnh cỡ nhỏ (điện thoại)</th><th>JSON</th><th>Tổng tải</th><th>Ảnh cỡ lớn</th><th>Khung / điểm chạm</th></tr>
+  ${man.sessions.map((s) => { const t = s.smallImgs + s.json; return `<tr><td><b>${s.session}</b></td><td>${kb(s.smallImgs)}</td><td>${kb(s.json)}</td>
+  <td class="${t > 400 * 1024 ? 'warn' : 'ok'}">${kb(t)} ${t > 400 * 1024 ? '(> 400 KB)' : '✓'}</td><td>${kb(s.largeImgs)}</td>
+  <td>${s.panelCount ?? '–'} khung · ${s.spots.length} điểm</td></tr>`; }).join('')}</table>
+  <p class="muted">Mục tiêu: ảnh mỗi session dưới 400 KB ở cỡ nhỏ; cả session (ảnh + dữ liệu) dưới 500 KB.</p>`));
+
+// 2. Từng session
+for (const s of man.sessions) {
+  const sx = s.session.toLowerCase();
+  const data = await fetch(`../data/${sx}.json`, { cache: 'no-cache' }).then((r) => r.json());
+  const sec = section(sx, `${s.session} · ${data.topic}`);
+  const P = panels[`${sx}-y`];
+  const lanes = Object.fromEntries((data.ideas?.lanes || []).map((l) => [l.id, l.en]));
+  sec.append($(`<h3>Tranh lập ý <code>${sx}-y</code> · ${P ? P.panels.length + ' khung' + (P.manual ? ' (sửa tay)' : ' (tự tìm)') : 'chưa có panels.json'}
+    <label class="tg"><input type="checkbox" checked data-toggle="${sx}"> hiện khung</label></h3>
+    <div class="card"><div class="scene" id="scene-${sx}">
+      <img src="../img/${sx}-y-800.webp" srcset="../img/${sx}-y-800.webp 800w, ../img/${sx}-y-1600.webp 1600w" sizes="(min-width: 840px) 800px, 100vw" alt="${sx}-y" width="800" height="${Math.round(800 / (P?.ratio || 1.5))}">
+      ${(P?.panels || []).map((p) => `<div class="box" style="left:${p.x}%;top:${p.y}%;width:${p.w}%;height:${p.h}%"><b>${p.n}</b></div>`).join('')}
+    </div>
+    <ul class="spots">${(data.ideas?.spots || []).map((sp) => {
+      const okPanel = sp.panel === null || (P && sp.panel <= P.panels.length);
+      return `<li><span class="p ${okPanel ? '' : 'warn'}">${sp.panel === null ? 'thẻ chữ' : 'khung ' + sp.panel}</span> ${esc(sp.lookVi)} · <i>${esc((sp.chips || []).join(', '))}</i> → ${esc(lanes[sp.lane] || sp.lane)}</li>`;
+    }).join('')}</ul></div>`));
+  sec.append($(`<h3>4 ô luyện câu <code>${sx}-cau</code></h3><div class="cells">${(data.sentences || []).map((c) => `
+    <figure><div class="im"><img loading="lazy" src="../img/${sx}-cau-${c.cell}-480.webp" srcset="../img/${sx}-cau-${c.cell}-480.webp 480w, ../img/${sx}-cau-${c.cell}-960.webp 960w" sizes="240px" alt="${esc(c.altVi)}"></div>
+    <figcaption><b>Ô ${c.cell}</b> · ${esc(c.altVi)}<br>${sizeOf(`${sx}-cau-${c.cell}-480.webp`)} / ${sizeOf(`${sx}-cau-${c.cell}-960.webp`)}</figcaption></figure>`).join('')}</div>`));
+}
+document.addEventListener('change', (e) => {
+  const k = e.target.dataset.toggle; if (!k) return;
+  for (const b of document.querySelectorAll(`#scene-${k} .box`)) b.style.display = e.target.checked ? '' : 'none';
+});
+
+// 3. Ảnh dùng chung
+function sizeOf(f) { const i = man.items.find((x) => x.file === f); return i ? `${i.w}×${i.h} · ${kb(i.bytes)}` : '<span class="warn">thiếu</span>'; }
+const groups = [
+  ['Nền màn hình', /^nen-/], ['Bảng nhân vật', /^nv-bang-/], ['Nhân vật cảm xúc', /^nv-\w+-camxuc$/],
+  ['Cô Mai', /^nv-comai$|^comai-face$/], ['Linh vật Pen & Star', /^linhvat-/], ['Icon (nền trong)', /^icon-bo$/], ['Sticker (nền trong)', /^sticker-/],
+];
+const shared = section('dung-chung', 'Ảnh dùng chung');
+for (const [title, re] of groups) {
+  const its = man.items.filter((i) => re.test(i.base));
+  const bases = [...new Set(its.map((i) => i.base))];
+  const h = $(`<h3>${title}</h3>`); shared.append(h);
+  for (const b of bases) {
+    const mine = its.filter((i) => i.base === b);
+    const small = Math.min(...mine.map((i) => i.size ?? Infinity));
+    const shown = mine.filter((i) => i.size === small || i.size === null);
+    const wide = /^nen-|^nv-bang-/.test(b);
+    const total = mine.reduce((s, i) => s + i.bytes, 0);
+    shared.append($(`<p class="muted"><b>${b}</b> · ${shown.length} hình · mọi cỡ ${kb(total)}${/^(icon|sticker)/.test(b) ? (mine.every((i) => i.alpha) ? ' <span class="tag">nền trong</span>' : ' <span class="tag no">chưa trong</span>') : ''}</p>
+      <div class="${wide ? 'cells' : 'grid'}">${shown.map((i) => `<figure><div class="im ${wide ? 'wide' : ''} ${i.alpha ? 'checker' : ''}"><img loading="lazy" src="../img/${i.file}" alt="${esc(i.file)}"></div>
+      <figcaption><b>${i.part ? 'Hình ' + i.part : esc(i.file)}</b> · ${i.w}×${i.h} · ${kb(i.bytes)}</figcaption></figure>`).join('')}</div>`));
+  }
+}
+</script>
+</body>
+</html>

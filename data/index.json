@@ -1,0 +1,93 @@
+{
+  "_ghichu": "Tạo tự động từ content/noi-dung-S1-S22.md bằng tools/make-index.mjs. Trạm mở cho học sinh: config.json → sessionsReady.",
+  "stations": [
+    {
+      "n": 1,
+      "topic": "Household chores and life skills"
+    },
+    {
+      "n": 2,
+      "topic": "Homework in modern education"
+    },
+    {
+      "n": 3,
+      "topic": "Reading habits among young people"
+    },
+    {
+      "n": 4,
+      "topic": "Technology in education"
+    },
+    {
+      "n": 5,
+      "topic": "Preserving cultural heritage"
+    },
+    {
+      "n": 6,
+      "topic": "Plastic pollution"
+    },
+    {
+      "n": 7,
+      "topic": "Cashless payments"
+    },
+    {
+      "n": 8,
+      "topic": "Life skills vs academic subjects"
+    },
+    {
+      "n": 9,
+      "topic": "Regulating fast-food advertising"
+    },
+    {
+      "n": 10,
+      "topic": "Part-time jobs for students"
+    },
+    {
+      "n": 11,
+      "topic": "Online and traditional learning"
+    },
+    {
+      "n": 12,
+      "topic": "Urban traffic"
+    },
+    {
+      "n": 13,
+      "topic": "Social media and mental health"
+    },
+    {
+      "n": 14,
+      "topic": "Studying abroad"
+    },
+    {
+      "n": 15,
+      "topic": "Homework and exams"
+    },
+    {
+      "n": 16,
+      "topic": "Early foreign-language learning"
+    },
+    {
+      "n": 17,
+      "topic": "Tourism and local communities"
+    },
+    {
+      "n": 18,
+      "topic": "Life skills: home or school?"
+    },
+    {
+      "n": 19,
+      "topic": "Clubs and volunteering"
+    },
+    {
+      "n": 20,
+      "topic": "Food waste"
+    },
+    {
+      "n": 21,
+      "topic": "Reading less"
+    },
+    {
+      "n": 22,
+      "topic": "Mock exam and self-editing"
+    }
+  ]
+}

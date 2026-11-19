@@ -1,0 +1,111 @@
+/* ===== Chặng 3 · Idea Workshop (mẫu M5, D3) ===== */
+.ideas{display:grid;gap:10px;grid-template-columns:minmax(0,1fr);grid-template-areas:"task" "pic" "plan"}
+.wtask{grid-area:task;background:#fff;border:2px solid var(--card-border);border-radius:14px;padding:6px 12px}
+.wtask summary{font-weight:900;font-size:.875rem;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:6px;list-style:none}
+.wtask summary::before{content:"▸";transition:transform .15s}
+.wtask[open] summary::before{transform:rotate(90deg)}
+.wtask summary::-webkit-details-marker{display:none}
+.wtask p{margin:4px 0 6px;font-size:.875rem;line-height:1.45}
+.wtask .ts .lbl{display:block}
+.pic{grid-area:pic;display:flex;flex-direction:column;gap:8px;min-width:0}
+.planbox{grid-area:plan;display:flex;flex-direction:column;gap:6px;min-width:0}
+
+/* Tranh: tỉ lệ cố định (aspect-ratio đặt từ panels.json), không nhảy giao diện */
+.scene{position:relative;width:100%;border-radius:20px;overflow:hidden;border:3px solid #fff;box-shadow:0 0 0 2px var(--card-border);background:#FFF4DE}
+.scene-img{width:100%;height:100%;object-fit:cover;display:block}
+/* Chấm số 38px ở góc trên trái mỗi khung; vùng chạm nới thêm bằng ::before */
+.pdot{position:absolute;width:38px;height:38px;min-height:0;padding:0;border-radius:50%;border:3px solid #fff;
+  font-weight:900;font-size:1rem;background:var(--accent);color:var(--ink);box-shadow:0 0 0 5px rgba(255,212,59,.45);
+  animation:dot-pulse 2.2s ease-in-out infinite;z-index:2}
+.pdot::before{content:"";position:absolute;inset:-6px;border-radius:50%}
+.pdot.claim{background:var(--claim);color:#fff;box-shadow:0 0 0 5px rgba(47,179,122,.35);animation:none}
+.pdot.other,.pdot.seen{background:#fff;color:var(--ink-2);box-shadow:0 1px 4px rgba(43,37,64,.3);animation:none}
+@keyframes dot-pulse{0%,100%{box-shadow:0 0 0 4px rgba(255,212,59,.5)}50%{box-shadow:0 0 0 9px rgba(255,212,59,.12)}}
+.pic-hint{margin:0;font-size:.75rem;color:var(--ink-2)}
+.hint-card{background:#fff;border:2px dashed var(--amber);border-radius:14px;padding:8px 12px}
+.hint-card p{margin:2px 0 0;font-size:.875rem}
+.hint-card .hc-chips{color:var(--amber-ink);font-weight:900}
+
+/* Khung phóng to: đè lên tranh, cùng kích thước, nền kem */
+/* nền kem che kín tranh ngay lập tức; chỉ khung ảnh có hiệu ứng phóng ra */
+.zoom{position:absolute;inset:0;background:#FFF4DE;z-index:5}
+@keyframes zoom-in{from{opacity:.4;transform:scale(.92)}to{opacity:1;transform:none}}
+.z-frame{position:absolute;overflow:hidden;border-radius:12px;border:3px solid #fff;box-shadow:0 0 0 2px var(--primary);animation:zoom-in .18s var(--ease)}
+.z-frame img{position:absolute;max-width:none}
+.z-bar{position:absolute;left:8px;right:8px;bottom:8px;display:flex;align-items:center;gap:8px;background:#fff;border-radius:14px;
+  padding:6px 8px;box-shadow:0 2px 8px rgba(43,37,64,.12);max-height:56%;overflow:auto}
+.z-q{flex:1;min-width:0;margin:0;font-size:.8125rem;font-weight:800;line-height:1.3}
+.z-chips{display:block}
+.z-chips i{display:inline-block;font-style:normal;background:var(--ok-soft);color:var(--ok-ink);border-radius:999px;padding:1px 8px;margin:3px 4px 0 0;font-size:.75rem}
+.z-btn{border:none;border-radius:12px;background:var(--mai);color:#fff;font-weight:900;font-size:.8125rem;padding:0 10px;min-height:44px;white-space:nowrap}
+.z-btn.ghost{background:#fff;border:2px solid var(--mai);color:var(--ok-ink);min-height:44px}
+.z-sw{display:flex;flex-direction:column;align-items:flex-end;gap:3px;max-width:46%}
+.z-warn{font-size:.6875rem;font-weight:700;color:var(--how-ink);text-align:right;line-height:1.2}
+.z-mine{font-size:.8125rem;font-weight:900;color:var(--ok-ink);white-space:nowrap}
+.z-close{position:absolute;right:8px;top:8px;width:44px;height:44px;min-height:0;padding:0;border-radius:50%;border:none;
+  background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;z-index:2}
+.z-pager{display:flex;align-items:center;gap:4px;font-size:.8125rem;flex:none}
+.z-nav{width:44px;height:44px;min-height:0;padding:0;border-radius:50%;border:2px solid var(--border);background:#fff;font-size:1.1rem;font-weight:900}
+.z-nav:disabled{opacity:.35}
+
+/* My plan: mỗi hàng một màu nhánh (--lb nền, --lc viền, --li chữ) */
+.plan{display:flex;flex-direction:column;gap:5px}
+.row{display:flex;align-items:center;gap:8px;min-height:44px;padding:5px 8px;border-radius:12px;background:#fff;
+  border:2px dashed var(--lc);cursor:pointer;text-align:left;transition:box-shadow .15s}
+.row.fixed{cursor:default}
+.row.done,.row.wrong{background:var(--lb);border-style:solid}
+.row.on,.row.target{border:3px solid var(--lc);box-shadow:0 0 0 3px var(--lb)}
+.row.wrong{border-color:var(--danger)}
+.row .tag{flex:none;min-width:64px;max-width:42%;text-align:center;border-radius:7px;padding:2px 6px;font-size:.6875rem;font-weight:900;
+  background:var(--lc);color:#fff;line-height:1.25}
+.rtxt{display:flex;flex-direction:column;min-width:0;flex:1}
+.row .t{font-size:.8125rem;font-weight:800;line-height:1.25;color:var(--muted)}
+.row.done .t,.row.wrong .t{color:var(--li)}
+.row .note{font-size:.75rem;font-weight:700;color:#B23A26;line-height:1.25;margin-top:2px}
+.okmark{flex:none;width:22px;height:22px;border-radius:50%;background:var(--ok);color:#fff;display:flex;align-items:center;justify-content:center}
+.chg{margin-left:auto;flex:none;font-size:.75rem;font-weight:900;color:var(--ok-ink);background:#fff;border:2px solid var(--mai);
+  border-radius:999px;padding:0 10px;min-height:44px;white-space:nowrap}
+.items{display:flex;flex-wrap:wrap;gap:4px}
+.placed{border:2px solid var(--lc);background:#fff;color:var(--li);border-radius:999px;padding:2px 9px;font-size:.8125rem;font-weight:800;min-height:44px}
+.placed.wrong{border-color:var(--danger);background:#FDEAE4;color:#B23A26}
+
+/* Cụm để chọn (pick, chooseOne) và khay cụm (sort) */
+.choices{display:flex;flex-direction:column;gap:5px}
+.choices:empty{display:none}
+.c-lbl{text-transform:none;letter-spacing:0;font-size:.8125rem;color:var(--ink-3)}
+.c-lbl b{color:var(--li)}
+.pchips,.tchips{display:flex;flex-wrap:wrap;gap:6px}
+.pchip,.tchip{border-radius:999px;font-size:.8125rem;font-weight:800;padding:6px 12px;min-height:44px;background:#fff;color:var(--ink);
+  border:2px solid var(--border);line-height:1.2;text-align:left;transition:transform .08s}
+.pchip:active,.tchip:active{transform:scale(.97)}
+.pchip.picked{background:var(--lb);color:var(--li);border-color:var(--lc)}
+.tchip.sel{border:3px solid var(--primary);background:var(--primary-soft);color:var(--primary-shadow)}
+.tray:empty{display:none}
+.tray{display:flex;flex-direction:column;gap:5px;background:#fff;border:2px solid var(--card-border);border-radius:14px;padding:8px 10px}
+.muted{font-size:.75rem;color:var(--ink-2);margin:2px 0 0}
+.sel-hint{color:var(--primary-shadow);font-weight:800}
+.check-row{display:flex;align-items:center;gap:8px;min-height:44px}
+.msg{flex:1;font-size:.8125rem;font-weight:800;color:var(--ink-2)}
+.msg.ok{color:var(--ok-ink)} .msg.bad{color:#B23A26}
+.btn.sm{min-height:44px;padding:0 18px;font-size:.9375rem;box-shadow:0 3px 0 var(--primary-shadow);flex:none}
+
+/* Thanh dưới: tiến độ Plan n / N + Write */
+.prog{flex:1;min-width:0}
+.prog .bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.prog .bar i{display:block;height:100%;background:var(--ok);transition:width .25s var(--ease)}
+.prog span{display:block;margin-top:3px;font-size:.8125rem;font-weight:800;color:var(--ink-2)}
+.sess-foot .prog + .btn{flex:none}
+
+/* Máy tính (D3): tranh trái, đề + My plan phải */
+@media (min-width:768px){
+  /* hàng trên chỉ cao bằng đề bài (auto), hàng dưới nhận phần còn lại (1fr):
+     My plan dài ra không làm đề bài hay tranh xê dịch */
+  .ideas{grid-template-columns:minmax(0,1.5fr) minmax(320px,1fr);grid-template-rows:auto 1fr;grid-template-areas:"pic task" "pic plan";column-gap:28px;row-gap:14px;align-items:start}
+  .scene{border-radius:28px}
+  .wtask{padding:10px 16px}
+  .wtask p{font-size:1rem}
+  .row .t{font-size:.9375rem}
+  .z-q{font-size:1rem}
+  .pchip,.tchip{font-size:.875rem}
+  .prog .bar{height:12px}
+}

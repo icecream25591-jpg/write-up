@@ -1,0 +1,441 @@
+{
+  "session": "S03",
+  "version": "2026.11.19",
+  "source": "content/noi-dung-S1-S22.md · S3",
+  "topic": "Reading habits among young people",
+  "productVi": "câu chủ đề cho sẵn + 4–6 câu phát triển theo WHY / HOW – EXAMPLE – RESULT, 80–100 từ.",
+  "targetsVi": "help / let + O + V, enable + O + to V, by + V-ing, prevent + O + from V-ing, make it + adj + to V.",
+  "sticker": "sticker-1#3",
+  "recall": [
+    {
+      "id": "S03-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "I finished my essay early___ I had time to read a novel.",
+      "options": [
+        "; therefore,",
+        ", therefore",
+        "therefore"
+      ],
+      "answer": "; therefore,",
+      "explainVi": "therefore nối hai vế câu: dấu chấm phẩy trước, dấu phẩy sau."
+    },
+    {
+      "id": "S03-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "It is not easy to ___ a balance between study and sport.",
+      "options": [
+        "make",
+        "strike",
+        "hit"
+      ],
+      "answer": "strike",
+      "explainVi": "strike a balance between A and B."
+    },
+    {
+      "id": "S03-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "He studied hard, however he failed the test.",
+      "answer": "… hard; however, he …",
+      "explainVi": "however không nối hai câu bằng dấu phẩy (CS)."
+    },
+    {
+      "id": "S03-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "I set a timer so that I can meet the ___.",
+      "options": [
+        "deadline",
+        "dateline",
+        "timeline"
+      ],
+      "answer": "deadline",
+      "explainVi": "meet a deadline = nộp kịp hạn."
+    },
+    {
+      "id": "S03-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Doing a few problems after class helps students ___ what they have learnt.",
+      "options": [
+        "consolidate",
+        "collect",
+        "confirm"
+      ],
+      "answer": "consolidate",
+      "explainVi": "consolidate knowledge = củng cố kiến thức."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S03-C1",
+      "image": "s03-cau",
+      "cell": 1,
+      "altVi": "Minh ngáp trước cuốn sách dày có kẹp bài kiểm tra",
+      "vi": "Dùng make it + adj + to V.",
+      "target": "make it + adj + to V",
+      "chips": [
+        "a required book",
+        "read for pleasure"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(make|makes|made|making)\\s+it\\s+\\w+(\\s+for\\s+[\\w']+)?\\s+to\\s+\\w+",
+          "flags": "i",
+          "msgVi": "Dùng make it + adj + to V."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "A thick book with a test at the end makes it hard for Minh to read for pleasure."
+    },
+    {
+      "id": "S03-C2",
+      "image": "s03-cau",
+      "cell": 2,
+      "altVi": "Cô giáo giúp Hà chọn sách trên giá sách lớp",
+      "vi": "Dùng help + O + V.",
+      "target": "help + O + V",
+      "chips": [
+        "a well-stocked class library",
+        "the right level"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(help|helps|helped|helping)\\s+\\w+",
+          "flags": "i",
+          "msgVi": "Dùng help + O + V."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "The teacher helps Ha choose a book at the right level from the class library."
+    },
+    {
+      "id": "S03-C3",
+      "image": "s03-cau",
+      "cell": 3,
+      "altVi": "Bố hỏi Tí thích gì rồi cùng mượn sách khủng long",
+      "vi": "Dùng by + V-ing.",
+      "target": "by + V-ing",
+      "chips": [
+        "personal interest",
+        "borrow books"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bby\\s+[a-z]+ing\\b",
+          "flags": "i",
+          "msgVi": "Dùng by + V-ing."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "Ti's dad encourages him to read by borrowing books about dinosaurs, his favourite animals."
+    },
+    {
+      "id": "S03-C4",
+      "image": "s03-cau",
+      "cell": 4,
+      "altVi": "Khoa gấp cuốn truyện bóng đá, hỏi mượn tập tiếp",
+      "vi": "Dùng enable + O + to V.",
+      "target": "enable + O + to V",
+      "chips": [
+        "develop a reading habit",
+        "a series"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(enable|enables|enabled|enabling)\\s+[\\w']+(\\s+[\\w']+)?\\s+to\\s+\\w+",
+          "flags": "i",
+          "msgVi": "Dùng enable + O + to V."
+        },
+        {
+          "kind": "anyChip",
+          "msgVi": "Dùng ít nhất một cụm gợi ý."
+        }
+      ],
+      "model": "A football series that he really enjoys enables Khoa to develop a reading habit."
+    }
+  ],
+  "ideas": {
+    "image": "s03-y",
+    "prompt": "How can a school reading club help students who rarely read for pleasure? Write a paragraph.",
+    "promptType": "explain-how",
+    "topicSentence": "A school reading club can turn reading into a social activity rather than a test.",
+    "topicSentenceVi": "Câu chủ đề cho sẵn (mức cơ bản chép lại).",
+    "mode": "pick",
+    "lanes": [
+      {
+        "id": "claim",
+        "en": "Claim",
+        "vi": "câu chủ đề cho sẵn",
+        "color": "claim",
+        "prefilled": true
+      },
+      {
+        "id": "why",
+        "en": "Why",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "how",
+        "en": "How",
+        "color": "how",
+        "prefilled": false
+      },
+      {
+        "id": "example",
+        "en": "Example",
+        "color": "example",
+        "prefilled": false
+      },
+      {
+        "id": "result",
+        "en": "Result",
+        "color": "result",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "spots": [
+      {
+        "id": "S03-Y1",
+        "panel": null,
+        "show": "card",
+        "lookVi": "Thẻ gợi ý chung (không gắn tranh)",
+        "qVi": "Vì sao nhiều bạn ít đọc sách ngoài giờ học?",
+        "chips": [
+          "books feel like homework"
+        ],
+        "lane": "why"
+      },
+      {
+        "id": "S03-Y2",
+        "panel": 1,
+        "lookVi": "Bàn trưng bày sách theo sở thích",
+        "qVi": "Hà chọn sách dựa vào điều gì?",
+        "chips": [
+          "choose books on their own interests"
+        ],
+        "lane": "how"
+      },
+      {
+        "id": "S03-Y3",
+        "panel": 3,
+        "lookVi": "Bàn câu lạc bộ, Hà khoe hình hành tinh",
+        "qVi": "Ở buổi sinh hoạt, các bạn làm gì?",
+        "chips": [
+          "share a favourite page with friends"
+        ],
+        "lane": "how"
+      },
+      {
+        "id": "S03-Y4",
+        "panel": 1,
+        "lookVi": "Hà ôm cuốn sách vũ trụ",
+        "qVi": "Cuốn sách cụ thể nào đã thu hút Hà?",
+        "chips": [
+          "a book about space"
+        ],
+        "lane": "example"
+      },
+      {
+        "id": "S03-Y5",
+        "panel": 2,
+        "lookVi": "Hà đọc trên giường, kính thiên văn bên cửa sổ",
+        "qVi": "Về nhà, Hà làm gì mà không ai nhắc?",
+        "chips": [
+          "read for pleasure every evening"
+        ],
+        "lane": "result"
+      },
+      {
+        "id": "S03-Y6",
+        "panel": 3,
+        "lookVi": "Lan và Minh tròn mắt nhìn",
+        "qVi": "Khi Hà chia sẻ, bạn bè phản ứng thế nào?",
+        "chips": [
+          "become curious about the book"
+        ],
+        "lane": "result"
+      }
+    ],
+    "picks": {
+      "why": [
+        {
+          "en": "books feel like homework",
+          "ok": true
+        },
+        {
+          "en": "reading is good for everyone",
+          "ok": false,
+          "whyVi": "Quá chung chung: chưa nói vì sao các bạn ngại đọc."
+        },
+        {
+          "en": "the school library is too far",
+          "ok": false,
+          "whyVi": "Không có trong tranh, và câu lạc bộ không giải quyết được điều này."
+        },
+        {
+          "en": "students prefer playing football",
+          "ok": false,
+          "whyVi": "Lạc đề: nói sở thích khác, chưa nói vì sao ngại đọc sách."
+        }
+      ],
+      "how": [
+        {
+          "en": "choose books on their own interests",
+          "ok": true
+        },
+        {
+          "en": "share a favourite page with friends",
+          "ok": true
+        },
+        {
+          "en": "give members a reading test every week",
+          "ok": false,
+          "whyVi": "Ngược ý: lại biến việc đọc thành bài kiểm tra."
+        },
+        {
+          "en": "use more technology in class",
+          "ok": false,
+          "whyVi": "Lạc đề: không nói câu lạc bộ đọc sách làm gì."
+        }
+      ],
+      "example": [
+        {
+          "en": "Ha · a book about space",
+          "ok": true
+        },
+        {
+          "en": "many students in my school",
+          "ok": false,
+          "whyVi": "Chưa cụ thể: Example cần một người, một cuốn sách, một lần."
+        },
+        {
+          "en": "Minh · a thick required book",
+          "ok": false,
+          "whyVi": "Ngược hướng: đây là cuốn sách làm Minh chán đọc."
+        },
+        {
+          "en": "Khoa · a football match on TV",
+          "ok": false,
+          "whyVi": "Lạc đề: không phải chuyện đọc sách."
+        }
+      ],
+      "result": [
+        {
+          "en": "read for pleasure every evening",
+          "ok": true
+        },
+        {
+          "en": "friends become curious about the book",
+          "ok": true
+        },
+        {
+          "en": "get higher marks in every subject",
+          "ok": false,
+          "whyVi": "Nói quá: tranh chỉ cho thấy thói quen đọc, không có điểm số."
+        },
+        {
+          "en": "spend less time with friends",
+          "ok": false,
+          "whyVi": "Ngược ý: câu lạc bộ làm việc đọc gắn với bạn bè hơn."
+        }
+      ]
+    }
+  },
+  "tips": {
+    "recall": {
+      "titleEn": "S2 review",
+      "vi": "however / therefore nối hai vế: chấm phẩy trước, phẩy sau. Ôn cụm: strike a balance between, meet a deadline, consolidate knowledge.",
+      "exampleEn": "I revised a little every evening; therefore, I met the deadline easily."
+    },
+    "sentences": {
+      "titleEn": "help / let / enable + O + V",
+      "vi": "help + O + V (hoặc to V); let + O + V, không có to; enable + O + to V; by + V-ing chỉ cách làm; make it + adj + to V.",
+      "exampleEn": "Audiobooks let my grandmother enjoy stories again. My cousin found a great novel by asking the librarian."
+    },
+    "ideas": {
+      "titleEn": "Why → How → Example → Result",
+      "vi": "Claim là câu chủ đề cho sẵn. Why: vì sao các bạn ngại đọc. How: câu lạc bộ làm gì. Example: một bạn, một cuốn sách, một lần. Result: điều gì thay đổi. Chọn cụm khớp với tranh của Hà.",
+      "exampleEn": "Why: the library feels too quiet → How: a weekly book chat → Example: Nam · a mystery novel → Result: finishes it in three days"
+    },
+    "write": {
+      "titleEn": "How ≠ Example",
+      "vi": "How nói chung cách câu lạc bộ giúp. Example kể một lần cụ thể: ai, cuốn nào, chuyện gì xảy ra. Example không được chỉ nhắc lại How.",
+      "exampleEn": "How: Members recommend books to each other. Example: Last week, Nam lent me a mystery novel, and I finished it in two days."
+    }
+  },
+  "write": {
+    "id": "S03-W1",
+    "kind": "paragraph",
+    "prompt": "How can a school reading club help students who rarely read for pleasure? Write a paragraph.",
+    "taskVi": "Chép câu chủ đề, viết tiếp 4–6 câu theo thứ tự WHY / HOW – EXAMPLE – RESULT.",
+    "topicSentence": "A school reading club can turn reading into a social activity rather than a test.",
+    "words": {
+      "core": [
+        80,
+        100
+      ],
+      "extension": [
+        110,
+        130
+      ]
+    },
+    "extensionVi": "không dùng khung",
+    "minutes": null,
+    "mustUse": [
+      "help / let + O + V",
+      "by + V-ing"
+    ],
+    "modelAfterSubmit": "A school reading club can turn reading into a social activity rather than a test. Many students avoid books because reading feels like homework to them. A club can change this view by letting members choose books about their own interests. When members share a page they like, reading gives them something to talk about with friends. For example, at Friday's meeting, my classmate Ha showed Lan a picture of Saturn from her space book, and Lan asked to borrow it for the weekend. In this way, one book chosen for pleasure can lead other students back to reading."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Mọi câu phát triển đều nói về câu lạc bộ đọc sách?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Đủ bốn bước WHY / HOW – EXAMPLE – RESULT, đúng thứ tự?"
+    },
+    {
+      "round": "Câu",
+      "code": "VF",
+      "vi": "let + O + V (không to); help + O + V hoặc help + O + to V; by + V-ing?"
+    },
+    {
+      "round": "Câu",
+      "code": "FR",
+      "vi": "Mỗi câu đủ chủ ngữ và động từ chính?"
+    },
+    {
+      "round": "Từ",
+      "code": "A",
+      "vi": "\"a book\" khi nhắc lần đầu, \"the book\" khi đã nhắc tới?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-1#3",
+    "stickerVi": "Hà ôm chồng sách"
+  },
+  "praiseEn": "Bookworm level up — great work!"
+}

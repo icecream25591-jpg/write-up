@@ -1,0 +1,46 @@
+/* Bộ biến màu, cỡ, bo góc dùng chung toàn site. Chỉ sửa ở đây. */
+:root{
+  /* Nền và chữ */
+  --bg:#FFF8EC;          /* nền kem */
+  --surface:#FFFFFF;     /* thẻ, thanh */
+  --line:#F1E9DA;        /* đường kẻ thanh */
+  --border:#E6DECF;      /* viền nút phụ */
+  --card-border:#EFE7D8; /* viền thẻ */
+  --ink:#2B2540;         /* chữ chính */
+  --ink-2:#6E6880;       /* chữ phụ */
+  --ink-3:#4A4460;       /* chữ thân thẻ */
+  --muted:#8A8399;       /* chữ tắt */
+
+  /* Màu chức năng */
+  --primary:#2F5BEA;     /* nút chính, chữ trắng */
+  --primary-shadow:#1D3FB5;
+  --primary-soft:#E8EEFE;
+  --ok:#3DBE8B;          /* đúng / xong */
+  --ok-soft:#E3F7EE;
+  --ok-ink:#0E5A3E;
+  --accent:#FFD43B;      /* vàng nhấn: sao, thanh từ */
+  --danger:#E8553E;
+
+  /* Cô Mai */
+  --mai:#2FB37A;
+
+  /* 4 màu nhánh – CHỈ dùng cho nhánh (sơ đồ, chip viết), không làm màu nút */
+  --claim-bg:#E3F7EE;   --claim:#2FB37A;   --claim-ink:#0E5A3E;
+  --how-bg:#FDEBF2;     --how:#E2739D;     --how-ink:#8A2350;
+  --example-bg:#E6F0FE; --example:#4C7BF0; --example-ink:#1D3FB5;
+  --result-bg:#F1EAFE;  --result:#9466E8;  --result-ink:#5424A8;
+  /* 3 màu phụ cho nhánh khác (Benefits, Problems, Why ở S3…) – không trùng 4 màu trên */
+  --amber-bg:#FFF4D6;   --amber:#F2A93B;   --amber-ink:#8A5A00;   /* vàng cam */
+  --teal-bg:#DDF5F7;    --teal:#2BB5C4;    --teal-ink:#0B5A63;    /* xanh ngọc */
+  --coral-bg:#FDEAE4;   --coral:#E8745A;   --coral-ink:#8A2E1A;   /* cam đỏ */
+
+  /* Kích thước */
+  --tap:44px;            /* vùng chạm tối thiểu */
+  --r-sm:10px; --r:16px; --r-lg:22px;
+  --gutter:16px;
+  --maxw:1280px;
+  --font:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-t:env(safe-area-inset-top,0px);
+}
