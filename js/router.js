@@ -26,8 +26,15 @@ export const href = {
   stage: (n, i) => `#/s/${n}/${STAGES[i].slug}`,
 };
 
+// Trang đang làm trước khi mở Settings (để nút Back quay lại đúng chỗ)
+export let lastNonSettings = '#/home';
+
 export function start(onRoute) {
-  const run = () => onRoute(parse());
+  const run = () => {
+    const r = parse();
+    if (r.name !== 'settings') lastNonSettings = location.hash || '#/home';
+    onRoute(r);
+  };
   addEventListener('hashchange', run);
   if (!location.hash) history.replaceState(null, '', '#/home');
   run();

@@ -1,4 +1,7 @@
-// 6 tiếng ngắn tạo bằng Web Audio API (không tải tệp nào): ok, bad, tap, open, done, sticker.
+// 6 tiếng ngắn: ok, bad, tap, open, done, sticker.
+// Nguồn chính: tệp OGG/MP3 trong sfx/ (Kenney «Interface Sounds», CC0) phát bằng thẻ <audio>
+//   – chạy được trên điện thoại (iPhone/Zalo) kể cả khi Web Audio bị chặn.
+// Dự phòng: tiếng tổng hợp bằng Web Audio khi tệp không tải được.
 // - Âm lượng mặc định nhỏ; tắt được trong Settings (writeup:sound).
 // - Không phát khi máy bật «giảm chuyển động» (prefers-reduced-motion).
 // - Chỉ phát sau lần chạm / bấm phím đầu tiên của học sinh (trình duyệt điện thoại chặn tự phát).
@@ -20,10 +23,39 @@ function ensure() {
   return ac;
 }
 
+// ---- tệp âm thanh (thẻ <audio>) ----
+const FILES = {};
+const EXT = (() => { try { return new Audio().canPlayType('audio/ogg; codecs="vorbis"') === 'probably' ? 'ogg' : 'mp3'; } catch { return 'mp3'; } })();
+function loadFiles() {
+  for (const name of Object.keys(SOUNDS)) {
+    if (FILES[name]) continue;
+    try {
+      const a = new Audio(`sfx/${name}.${EXT}`);
+      a.preload = 'auto'; a.volume = FILE_VOLUME;
+      a.addEventListener('error', () => { FILES[name] = null; });
+      FILES[name] = a;
+    } catch { FILES[name] = null; }
+  }
+}
+// iOS chỉ cho phát khi có cú chạm: «mồi» từng tệp (tắt tiếng) ở lần chạm đầu để lần sau phát được ngay
+function primeFiles() {
+  for (const a of Object.values(FILES)) {
+    if (!a) continue;
+    try {
+      a.muted = true;
+      const pr = a.play();
+      const back = () => { a.pause(); a.currentTime = 0; a.muted = false; };
+      if (pr && pr.then) pr.then(back).catch(() => { a.muted = false; }); else back();
+    } catch { a.muted = false; }
+  }
+}
+const FILE_VOLUME = 0.6;
+
 /** Gọi một lần lúc khởi động: mở khoá âm thanh ở lần chạm đầu tiên. */
 export function initSfx() {
   const unlock = () => {
     unlocked = true;
+    loadFiles(); primeFiles();
     const c = ensure();
     if (c && c.state === 'suspended') c.resume().catch(() => {});
     removeEventListener('pointerdown', unlock, true);
@@ -68,8 +100,23 @@ export function sfx(name, { force = false } = {}) {
   else if (!force && !soundEnabled()) why = 'tat';
   else if (!force && reduced()) why = 'giam_chuyen_dong';
   else if (!unlocked && !force) why = 'chua_cham';
+  const file = !why && !force ? FILES[name] : (!why ? (loadFiles(), FILES[name]) : null);
+  if (file) {
+    try {
+      file.currentTime = 0;
+      const pr = file.play();
+      if (pr && pr.catch) pr.catch(() => synth(name, s));
+      log.push({ name, played: true, why: '', src: 'file' });
+      if (log.length > 50) log.shift();
+      return true;
+    } catch { /* thử tiếng tổng hợp */ }
+  }
+  return synth(name, s, why);
+}
+
+function synth(name, s, why = '') {
   const played = !why && !!ensure();
-  log.push({ name, played, why: why || (played ? '' : 'khong_ho_tro') });
+  log.push({ name, played, why: why || (played ? '' : 'khong_ho_tro'), src: 'synth' });
   if (log.length > 50) log.shift();
   if (!played) return false;
   if (ac.state === 'suspended') ac.resume().catch(() => {});

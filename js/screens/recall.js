@@ -9,6 +9,7 @@ import { sfx } from '../sfx.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const shuffle = (a) => { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+const norm = (t) => String(t ?? '').toLowerCase().replace(/[^a-z0-9s]/g, ' ').replace(/s+/g, ' ').trim();
 const blank = (en, fill, wrong = false) => esc(en).replace(/_{2,}/, `<span class="blank${fill ? ' filled' : ''}${wrong ? ' wrong' : ''}">${fill ? esc(fill) : '&nbsp;'}</span>`);
 
 export function mountRecall(s, { n, data, p }) {
@@ -44,15 +45,24 @@ export function mountRecall(s, { n, data, p }) {
       const opts = shuffle(q.options);
       area.innerHTML = `<div class="opts" role="group" aria-label="Options">${opts.map((o, k) => `
         <button type="button" class="opt" data-v="${esc(o)}"><span class="key">${'ABCD'[k]}</span><span class="txt" lang="en">${esc(o)}</span><span class="mark" aria-hidden="true"></span></button>`).join('')}</div>`;
+      const tried = (R.first ||= {})[q.id];
+      if (tried && !a) markTried(tried);
       area.addEventListener('click', (e) => {
         const b = e.target.closest('.opt');
-        if (!b || R.ans[q.id]) return;
-        R.ans[q.id] = { pick: b.dataset.v, ok: b.dataset.v === q.answer };
-        sfx(R.ans[q.id].ok ? 'ok' : 'bad');
+        if (!b || b.disabled || R.ans[q.id]) return;
+        const right = b.dataset.v === q.answer;
+        // Sai lần đầu: cho thêm MỘT cơ hội, chưa hiện đáp án
+        if (!right && !R.first[q.id]) {
+          R.first[q.id] = b.dataset.v; save(); sfx('bad');
+          markTried(b.dataset.v);
+          return;
+        }
+        R.ans[q.id] = { pick: b.dataset.v, ok: right, second: !!R.first[q.id] };
+        sfx(right ? 'ok' : 'bad');
         save();
         paintChoice(q); feedback(q); swapFace(q);
         const filled = s.body.querySelector('.blank');
-        if (filled) { filled.classList.add('filled'); filled.classList.toggle('wrong', !R.ans[q.id].ok); filled.textContent = b.dataset.v; }
+        if (filled) { filled.classList.add('filled'); filled.classList.toggle('wrong', !right); filled.textContent = b.dataset.v; }
       });
       if (a) paintChoice(q);
     } else {
@@ -84,8 +94,17 @@ export function mountRecall(s, { n, data, p }) {
     if (a) feedback(q);
     else if (isFix && R.revealed?.[q.id]) foot(`<span class="hint">Tự đánh dấu bên trên rồi đi tiếp.</span>`);
     else if (isFix) {
-      foot(`<button type="button" class="btn grow" data-act="reveal">Check</button>`);
-    } else foot(`<span class="hint">Chạm một đáp án.</span>`);
+      foot(`${R.retry?.[q.id] ? `<span class="hint retry">Chưa khớp. Đọc lại và sửa thêm một lần nữa nhé!</span>` : ''}<button type="button" class="btn grow" data-act="reveal">Check</button>`);
+    } else foot(R.first?.[q.id] ? `<span class="hint retry">Chưa đúng. Thử lại một lần nữa nhé!</span>` : `<span class="hint">Chạm một đáp án.</span>`);
+  }
+
+  function markTried(v) {
+    for (const b of s.body.querySelectorAll('.opt')) {
+      if (b.dataset.v !== v) continue;
+      b.disabled = true; b.classList.add('wrong', 'tried');
+      b.querySelector('.mark').innerHTML = icons.close(16);
+    }
+    foot(`<span class="hint retry">Chưa đúng. Thử lại một lần nữa nhé!</span>`);
   }
 
   function paintChoice(q) {
@@ -149,6 +168,20 @@ export function mountRecall(s, { n, data, p }) {
     const act = b.dataset.act;
     if (act === 'reveal') {
       const q = items[R.i];
+      const typed = s.body.querySelector('#fix-in')?.value || '';
+      if (norm(typed) && norm(typed) === norm(q.answer)) {
+        R.ans[q.id] = { pick: typed, ok: true, typed, second: !!R.retry?.[q.id] };
+        (R.revealed ||= {})[q.id] = true; save(); sfx('ok');
+        const rv = s.body.querySelector('.reveal'); rv.hidden = false; rv.querySelector('.self').hidden = true;
+        feedback(q); swapFace(q);
+        return;
+      }
+      if (!(R.retry ||= {})[q.id]) { // chưa khớp lần đầu: thêm một cơ hội
+        R.retry[q.id] = true; save(); sfx('bad');
+        foot(`<span class="hint retry">Chưa khớp. Đọc lại và sửa thêm một lần nữa nhé!</span><button type="button" class="btn grow" data-act="reveal">Check</button>`);
+        s.body.querySelector('#fix-in')?.focus();
+        return;
+      }
       (R.revealed ||= {})[q.id] = true; save();
       s.body.querySelector('.reveal').hidden = false;
       foot(`<span class="hint">Tự đánh dấu bên trên rồi đi tiếp.</span>`);
@@ -158,7 +191,7 @@ export function mountRecall(s, { n, data, p }) {
       R.i++; save(); show();
       s.body.scrollTop = 0;
     } else if (act === 'again') {
-      R.i = 0; R.ans = {}; R.revealed = {}; R.typed = {}; R.done = false; save(); show();
+      R.i = 0; R.ans = {}; R.revealed = {}; R.typed = {}; R.first = {}; R.retry = {}; R.done = false; save(); show();
     }
   });
 

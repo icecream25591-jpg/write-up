@@ -146,3 +146,25 @@
 .brand-w{white-space:nowrap}
 .welcome-card>p{margin:0;text-align:center;color:var(--ink-3)}
 .welcome-card .btn{margin-top:6px}
+
+/* ---- Settings: nút Back, mã tiến độ gọn, nguồn âm thanh ---- */
+.set-top{display:flex;align-items:center;gap:12px}
+.set-top .page-title{margin:0}
+.set-back{min-height:44px;padding:0 14px 0 10px;box-shadow:none;border-width:2px;gap:4px}
+.credit{margin-top:6px}
+.credit a{color:var(--primary-shadow)}
+.code-out{display:flex;flex-direction:column;gap:8px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap}
+.code-show summary{min-height:44px;display:flex;align-items:center;font-size:.8125rem;font-weight:800;color:var(--ink-2);cursor:pointer}
+.code-show textarea,#code-in{font-size:16px;line-height:1.3;word-break:break-all;max-height:4.5rem;resize:none}
+
+/* ---- Lời chào lần đầu + sticker ---- */
+.wl-lan{width:96px;height:auto;align-self:center;margin-bottom:-4px}
+.welcome-card .wl-go{min-height:56px;font-size:1.125rem}
+button.stat{font:inherit;color:inherit;text-align:center;cursor:pointer}
+.sticker-card{max-height:calc(100dvh - 32px);overflow:auto;align-items:stretch}
+.stk-n{font-size:.875rem;background:var(--accent);border-radius:999px;padding:1px 10px;vertical-align:middle}
+.stk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:6px 0}
+.stk-grid figure{margin:0;text-align:center;font-size:.75rem;font-weight:800;color:var(--ink-2)}
+.stk-grid img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;margin:0 auto}
+.stk-empty{margin:6px 0!important;color:var(--ink-3)}

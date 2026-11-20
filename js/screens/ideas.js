@@ -117,7 +117,7 @@ export async function mountIdeas(s, { n, data, p }) {
     if (!pn) return;
     const f = Math.min(100 / pn.w, 76 / pn.h);
     const iw = pn.w * f, ih = pn.h * f;
-    const big = scene.clientWidth * (100 / pn.w) * (devicePixelRatio || 1) > 900;
+    const big = innerWidth < 768 || scene.clientWidth * (100 / pn.w) * (devicePixelRatio || 1) > 900;
     let bar = '';
     if (mode === 'chooseOne') {
       const sp = dirOf(k);
@@ -141,9 +141,9 @@ export async function mountIdeas(s, { n, data, p }) {
           <span class="z-chips" lang="en">${(sp?.chips || []).map((c) => `<i>${esc(c)}</i>`).join('')}</span></div>${pager}`;
     }
     zoom.innerHTML = `
-      <div class="z-frame" style="left:${(100 - iw) / 2}%;top:3%;width:${iw}%;height:${ih}%">
+      <div class="z-stage"><div class="z-frame" style="--l:${(100 - iw) / 2}%;--t:3%;--w:${iw}%;--h:${ih}%;--ar:${((pn.w * ratio) / pn.h).toFixed(4)}">
         <img src="img/${I.image}-${big ? 1600 : 800}.webp" alt="Khung ${k} phóng to"
-          style="width:${10000 / pn.w}%;height:${10000 / pn.h}%;left:${(-pn.x / pn.w) * 100}%;top:${(-pn.y / pn.h) * 100}%"></div>
+          style="width:${10000 / pn.w}%;height:${10000 / pn.h}%;left:${(-pn.x / pn.w) * 100}%;top:${(-pn.y / pn.h) * 100}%"></div></div>
       <div class="z-bar">${bar}</div>
       <button type="button" class="z-close" data-act="close" aria-label="Đóng khung">${icons.close(20)}</button>`;
     zoom.hidden = false;

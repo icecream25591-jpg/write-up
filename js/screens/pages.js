@@ -7,6 +7,7 @@ import { updateStars } from '../shell.js';
 import { FONT_SCALES, applyPrefs, soundOn, setSound, exportCode, parseCode, importCode, cleanCode, validCode } from '../prefs.js';
 import { flushQueue, fetchFeedback, unseenCount, updateBadges } from '../sync.js';
 import { sfx } from '../sfx.js';
+import { lastNonSettings } from '../router.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const ico = (k, cls = '') => `<img class="ico ${cls}" src="img/icon-bo-${k}-96.webp" alt="" width="40" height="40" decoding="async">`;
@@ -93,7 +94,7 @@ async function homeJourney(ctx, view) {
           <div class="stats">
             <a class="card stat" href="#/journey">${ico(ICON.stations)}<b>${st.doneCount}/22</b><span>stations</span></a>
             <a class="card stat" href="#/work">${unseenCount() ? `<span class="badge" aria-label="${unseenCount()} nhận xét mới">${unseenCount()}</span>` : ''}${ico(ICON.feedback)}<b>Feedback</b><span>from Ms Mai</span></a>
-            <a class="card stat" href="#/journey">${ico(ICON.stickers)}<b>${stickers}</b><span>${stickers === 1 ? 'sticker' : 'stickers'}</span></a>
+            <button type="button" class="card stat" data-open="stickers">${ico(ICON.stickers)}<b>${stickers}</b><span>${stickers === 1 ? 'sticker' : 'stickers'}</span></button>
           </div>
         </div>
       </div>
@@ -111,6 +112,7 @@ async function homeJourney(ctx, view) {
   el.addEventListener('click', (e) => {
     const b = e.target.closest('[data-info]');
     if (b) toast(b.dataset.info);
+    if (e.target.closest('[data-open="stickers"]')) openStickers(ctx);
   });
   // Journey trên điện thoại: cuộn tới trạm đang học
   if (view === 'journey') requestAnimationFrame(() => setTimeout(() => {
@@ -122,6 +124,31 @@ async function homeJourney(ctx, view) {
 export const home = (ctx) => homeJourney(ctx, 'home');
 export const journey = (ctx) => homeJourney(ctx, 'journey');
 
+// ---------- Bộ sưu tập sticker (bấm ô «stickers» ở Home) ----------
+function openStickers(ctx) {
+  const mine = load('stickers', []);
+  const topics = new Map((ctx.config.sessionsReady || []).map((n) => [`sticker-1#${n}`, n]));
+  const wrap = document.createElement('div');
+  wrap.className = 'welcome sticker-pop';
+  wrap.innerHTML = `
+    <div class="welcome-card sticker-card" role="dialog" aria-modal="true" aria-labelledby="stk-t">
+      <h2 id="stk-t">My stickers <span class="stk-n">${mine.length}</span></h2>
+      ${mine.length ? `<div class="stk-grid">${mine.map((id) => {
+        const [sheet, idx] = String(id).split('#');
+        return `<figure><img src="img/${sheet}-${idx}-256.webp" alt="Sticker ${esc(idx)}" width="96" height="96" loading="lazy"><figcaption>S${topics.get(id) ?? esc(idx)}</figcaption></figure>`;
+      }).join('')}</div>` : `<p class="stk-empty">Chưa có sticker nào. Hoàn thành một trạm (nộp bài ở Write &amp; Check) để nhận sticker đầu tiên!</p>`}
+      <button type="button" class="btn" data-close>Close</button>
+    </div>`;
+  document.body.append(wrap);
+  const app = document.querySelector('.app');
+  app.setAttribute('inert', '');
+  const close = () => { app.removeAttribute('inert'); wrap.remove(); removeEventListener('keydown', onKey); };
+  const onKey = (e) => { if (e.key === 'Escape') close(); };
+  addEventListener('keydown', onKey);
+  wrap.addEventListener('click', (e) => { if (e.target === wrap || e.target.closest('[data-close]')) close(); });
+  wrap.querySelector('[data-close]').focus();
+}
+
 // ---------- Settings ----------
 export function settings() {
   const el = document.createElement('section');
@@ -129,7 +156,10 @@ export function settings() {
   const scale = load('fontScale', 'm');
   el.innerHTML = `
     <div class="page settings">
-      <h1 class="page-title">Settings</h1>
+      <div class="set-top">
+        <a class="btn2 set-back" href="${lastNonSettings}" data-back>${icons.back ? icons.back(18) : '←'} Back</a>
+        <h1 class="page-title">Settings</h1>
+      </div>
       <form class="card set-card" data-form="student" novalidate>
         <h2>Student</h2>
         <label for="st-name">Your name</label>
@@ -145,6 +175,7 @@ export function settings() {
         <button type="button" class="switch" role="switch" aria-checked="${soundOn()}" data-act="sound">
           <span class="knob" aria-hidden="true"></span><span class="sw-lbl">${soundOn() ? 'On' : 'Off'}</span></button>
         <p class="muted">Tiếng đúng / sai, mở chặng, nhận sticker (âm lượng nhỏ).</p>
+        <p class="muted credit">Sound effects: «Interface Sounds» by <a href="https://kenney.nl/assets/interface-sounds" target="_blank" rel="noopener">Kenney</a> (kenney.nl), licence CC0 (public domain).</p>
       </div>
 
       <div class="card set-card">
@@ -159,12 +190,16 @@ export function settings() {
         <p class="muted">Trình duyệt (nhất là trong Zalo) có thể xoá tiến độ. Tạo mã rồi gửi cho chính mình để lưu; đổi máy thì dán mã vào ô dưới.</p>
         <button type="button" class="btn2" data-act="export">Create my code</button>
         <div class="code-out" hidden>
-          <label for="code-out">Your code</label>
-          <textarea id="code-out" readonly rows="3"></textarea>
-          <button type="button" class="btn2" data-act="copy">Copy</button>
+          <p class="field-msg ok code-info" aria-live="polite"></p>
+          <div class="btn-row">
+            <button type="button" class="btn2" data-act="copy">Copy code</button>
+            <button type="button" class="btn2" data-act="share" hidden>Share</button>
+          </div>
+          <details class="code-show"><summary>Show code</summary>
+            <textarea id="code-out" readonly rows="2" aria-label="Your code"></textarea></details>
         </div>
         <label for="code-in">Paste a code</label>
-        <textarea id="code-in" rows="3" placeholder="WU1.…"></textarea>
+        <textarea id="code-in" rows="2" placeholder="WU1.…"></textarea>
         <p class="field-msg imp-msg" aria-live="polite"></p>
         <button type="button" class="btn2" data-act="import">Import</button>
       </div>
@@ -198,13 +233,17 @@ export function settings() {
       if (on) sfx('tap');
       t.setAttribute('aria-checked', String(on)); t.querySelector('.sw-lbl').textContent = on ? 'On' : 'Off';
     } else if (act === 'export') {
+      const code = exportCode();
       $('.code-out').hidden = false;
-      $('#code-out').value = exportCode();
-      $('#code-out').select();
+      $('#code-out').value = code;
+      $('.code-info').textContent = `Đã tạo mã (${code.length.toLocaleString('vi-VN')} ký tự). Bấm Copy rồi dán vào tin nhắn gửi cho chính mình.`;
+      if (navigator.share) $('[data-act="share"]').hidden = false;
+    } else if (act === 'share') {
+      try { await navigator.share({ title: 'Write Up! progress code', text: $('#code-out').value }); } catch { /* đã huỷ */ }
     } else if (act === 'copy') {
       const ta = $('#code-out');
       try { await navigator.clipboard.writeText(ta.value); toast('Đã chép mã tiến độ.'); }
-      catch { ta.select(); document.execCommand?.('copy'); toast('Đã chọn mã – giữ để chép.'); }
+      catch { $('.code-show').open = true; ta.select(); document.execCommand?.('copy'); toast('Đã chọn mã – giữ để chép.'); }
     } else if (act === 'import') {
       const msg = $('.imp-msg');
       const r = parseCode($('#code-in').value);
@@ -255,9 +294,19 @@ export function welcomeIfNeeded() {
       if (!validCode(code)) { msg.textContent = 'Mã chỉ gồm chữ, số, dấu gạch (2–20 ký tự).'; msg.className = 'field-msg bad'; f.querySelector('#wl-code').focus(); return; }
       save('studentName', name); if (code) save('studentCode', code);
       flushQueue();
-      app.removeAttribute('inert'); app.removeAttribute('aria-hidden');
-      wrap.remove();
-      resolve();
+      // Bước 2: lời chào, rồi sang bản đồ hành trình để chọn trạm 1
+      f.innerHTML = `
+        <img src="img/nv-lan-camxuc-1-320.webp" alt="" width="120" height="180" class="wl-lan">
+        <h2 id="wl-t">Welcome to the English Writing Class, ${esc(name)}!</h2>
+        <p lang="vi">Chào mừng em tới với lớp học luyện viết tiếng Anh.</p>
+        <button type="button" class="btn wl-go">Start your journey!</button>`;
+      f.querySelector('.wl-go').focus();
+      f.querySelector('.wl-go').addEventListener('click', () => {
+        app.removeAttribute('inert'); app.removeAttribute('aria-hidden');
+        wrap.remove();
+        location.hash = '#/journey';
+        resolve();
+      });
     });
   });
 }

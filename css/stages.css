@@ -61,9 +61,9 @@
 .sum li>.sum-ans{flex:1 1 100%;padding-left:30px;color:var(--ok-ink)}
 
 /* ---------- Sentences ---------- */
-.cell{position:relative;margin:0}
-.cell-pic{width:100%;aspect-ratio:1/1;max-height:180px;object-fit:cover;border-radius:22px;border:3px solid #fff;
-  box-shadow:0 0 0 2px var(--card-border);background:#F6EAD3;transition:max-height .2s var(--ease)}
+.cell{position:relative;margin:0 auto;width:min(100%,42dvh,340px);transition:width .2s var(--ease)}
+.cell-pic{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;border-radius:22px;border:3px solid #fff;
+  box-shadow:0 0 0 2px var(--card-border);background:#F6EAD3;}
 .cell-badge{position:absolute;left:10px;top:10px;background:#fff;border-radius:999px;padding:3px 10px;font-weight:900;font-size:.8125rem}
 .thumbs{display:flex;gap:8px}
 .thumb{position:relative;width:52px;height:52px;min-height:0;padding:0;border-radius:14px;overflow:hidden;border:3px solid #fff;
@@ -104,19 +104,19 @@
   .stages .name{display:none}
 
 
-  .cell-pic{max-height:min(180px,30dvh)}
+  .cell{width:min(100%,34dvh,260px)}
   .thumbs{display:none}
   .guide-pic{width:64px;height:84px}
 }
-body.typing .sent .cell-pic{max-height:min(120px,18dvh)}
+body.typing .sent .cell{width:min(100%,20dvh,150px)}
 body.typing .sent .thumbs{display:none}
 
 /* Máy tính (mẫu D2) */
 @media (min-width:768px){
   .sent>.col-l{flex:1 1 420px;max-width:540px}
   .sent>.col-r{flex:1 1 420px;gap:16px}
-  .cell-pic{max-height:none;border-width:4px;border-radius:28px}
-  body.typing .sent .cell-pic{max-height:none}
+  .cell,body.typing .sent .cell{width:100%}
+  .cell-pic{border-width:4px;border-radius:28px}
   body.typing .sent .thumbs{display:flex}
   .thumb{width:72px;height:72px;border-radius:16px}
   .task{font-size:1.1875rem;padding:14px 16px}
@@ -127,3 +127,32 @@ body.typing .sent .thumbs{display:none}
   .sess-foot .btn2.grow{flex:0 1 220px}
 }
 .blank.wrong{border-bottom-color:var(--coral);color:var(--coral-ink)}
+
+/* Recall: cơ hội thứ hai */
+.sess-foot .hint.retry{font-size:.875rem;font-weight:900;color:var(--coral-ink)}
+.opt.tried{opacity:.6}
+
+/* ===== Điện thoại XOAY NGANG (rộng ≥768 nhưng thấp ≤500): không dùng khung máy tính, nhường chỗ cho nội dung ===== */
+@media (min-width:768px) and (max-height:500px){
+  .topnav{padding:2px 20px;gap:8px}
+  .brand{min-height:40px;font-size:1.25rem}
+  body.in-session .topnav{display:none}
+  .sess-head{padding:max(6px,var(--safe-t)) 16px 4px;gap:2px}
+  .sess-title .lbl{display:none}
+  .sess-title h1{font-size:1.0625rem}
+  .stages .name{display:none}
+  .stages a{min-height:34px}
+  .stages li+li::before{top:13px}
+  .stages{max-width:420px}
+  .sess-row .stars{display:flex}
+  .sess-body{padding:10px 16px 16px;gap:10px}
+  .sess-foot{padding:8px 96px max(8px,var(--safe-b)) 20px;border-radius:0;border-width:2px 0 0}
+  .mai{right:14px;bottom:8px}
+  .page{padding:12px 20px 20px;gap:12px}
+  .guide-pic{width:64px;height:84px}
+  .cols{gap:14px}
+  .sent>.col-l{flex:0 0 auto;width:min(38%,60dvh)}
+  .sent>.col-r{flex:1 1 300px;gap:10px}
+  .cell,body.typing .sent .cell{width:100%}
+  .thumbs{display:none}
+}
