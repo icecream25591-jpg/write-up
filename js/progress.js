@@ -1,6 +1,7 @@
 // Tiến độ từng session trong localStorage (qua store.js, đã bọc try/catch).
 // writeup:p:s01 = { recall: {i, ans:{id:{pick, ok}}, done}, sentences: {i, items:{id:{text, tries, passed, model}}, done} }
 import { load, save } from './store.js';
+import { tick } from './hlc.js';
 
 const key = (s) => `p:${s}`;
 // ideas = { mode, claim, pick:{lane:{text, ok, why}}, sorted:{spotId: lane}, seen:[panel], checked, done,
@@ -17,7 +18,9 @@ export function getProgress(s) {
     ideas: { ...(p.ideas || {}) }, write: { ...(p.write || {}) }, reward: { ...(p.reward || {}) } };
 }
 
-export function saveProgress(s, p) { save(key(s), p); }
+// Mỗi lần lưu đóng dấu _t (đồng hồ lai: thời điểm sửa, luôn lớn hơn mọi bản đã thấy từ máy khác; xem hlc.js) và _v (số lần lưu, chỉ để phân thắng bại phụ)
+// để gộp tiến độ giữa nhiều máy (account/merge.js).
+export function saveProgress(s, p) { p._v = (Number(p._v) || 0) + 1; p._t = tick(); save(key(s), p); }
 
 /** Ghi trễ (gõ phím): gom nhiều lần gõ thành một lần ghi. */
 const timers = new Map();

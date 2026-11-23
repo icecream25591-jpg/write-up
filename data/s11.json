@@ -1,0 +1,418 @@
+{
+  "session": "S11",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S11 (tools/tao-session.mjs)",
+  "topic": "Online and traditional learning",
+  "productVi": "đoạn so sánh 110–130 từ theo MỘT tiêu chí.",
+  "targetsVi": "so sánh trực tiếp với whereas / while, Unlike / Compared with; mệnh đề lý do hoặc nhượng bộ.",
+  "sticker": "sticker-2#5",
+  "recall": [
+    {
+      "id": "S11-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Students who work late ___ to feel tired in class.",
+      "options": [
+        "tend",
+        "tends",
+        "tending"
+      ],
+      "answer": "tend",
+      "explainVi": "Chủ ngữ số nhiều Students → tend."
+    },
+    {
+      "id": "S11-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "A part-time job ___ teach responsibility, but it is not the only way.",
+      "options": [
+        "can",
+        "must",
+        "has"
+      ],
+      "answer": "can",
+      "explainVi": "can = có thể, nhận định chừng mực."
+    },
+    {
+      "id": "S11-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "code": "S",
+      "en": "Teenagers who earn money are likely spending it carefully.",
+      "answer": "likely to spend",
+      "explainVi": "be likely + to V."
+    },
+    {
+      "id": "S11-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Long shifts often come at the ___ of sleep.",
+      "options": [
+        "expense",
+        "amount",
+        "value"
+      ],
+      "answer": "expense",
+      "explainVi": "come at the expense of = đánh đổi bằng."
+    },
+    {
+      "id": "S11-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Some students find it hard to juggle work ___ study.",
+      "options": [
+        "and",
+        "with",
+        "or"
+      ],
+      "answer": "and",
+      "explainVi": "juggle A and B."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S11-C1",
+      "image": "s11-cau",
+      "cell": 1,
+      "altVi": "Lan nói chuyện với một bạn trong phòng nhóm trực tuyến",
+      "vi": "Mở đầu bằng Unlike.",
+      "target": "Unlike",
+      "chips": [
+        "a breakout room",
+        "peer interaction",
+        "pair work",
+        "her own partner"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*Unlike\\b",
+          "flags": "",
+          "msgVi": "Mở đầu câu bằng Unlike."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Unlike pair work in a classroom, a breakout room lets Lan hear only her own partner."
+    },
+    {
+      "id": "S11-C2",
+      "image": "s11-cau",
+      "cell": 2,
+      "altVi": "Minh và bạn luyện nói, cô Mai đi ngang lắng nghe",
+      "vi": "So sánh trong một câu với while.",
+      "target": "while",
+      "chips": [
+        "face-to-face lessons",
+        "listen in",
+        "walk around",
+        "several pairs"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bwhile\\b",
+          "flags": "i",
+          "msgVi": "So sánh trong một câu với while."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "In face-to-face lessons, Ms Mai listens in on several pairs, while online teachers visit one room at a time."
+    },
+    {
+      "id": "S11-C3",
+      "image": "s11-cau",
+      "cell": 3,
+      "altVi": "Vy bực bội vì hình bị đơ, biểu tượng Wi-Fi yếu",
+      "vi": "Mệnh đề nhượng bộ Although + lý do với because of.",
+      "target": "Although + because of",
+      "chips": [
+        "a stable internet connection",
+        "be ready for the lesson",
+        "video keeps freezing",
+        "because of"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*Although\\b",
+          "flags": "",
+          "msgVi": "Mở đầu bằng Although."
+        },
+        {
+          "kind": "regex",
+          "pattern": "\\bbecause of\\b",
+          "flags": "i",
+          "msgVi": "Nêu lý do với because of."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Although Vy is ready for the lesson, her video keeps freezing because of a weak connection."
+    },
+    {
+      "id": "S11-C4",
+      "image": "s11-cau",
+      "cell": 4,
+      "altVi": "Lưới video, một bạn tắt camera và mic mà không ai để ý",
+      "vi": "Mở đầu bằng Compared with.",
+      "target": "Compared with",
+      "chips": [
+        "go unnoticed",
+        "stay focused",
+        "a silent student",
+        "notice"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*Compared (?:with|to)\\b",
+          "flags": "",
+          "msgVi": "Mở đầu câu bằng Compared with."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Compared with a classroom, an online class makes it much harder to notice a silent student."
+    }
+  ],
+  "ideas": {
+    "image": "s11-y",
+    "prompt": "Compare online and classroom lessons in terms of how easily a teacher can notice a student who needs help. Which works better for secondary school students? Write a paragraph.",
+    "promptType": "explain",
+    "mode": "chooseOne",
+    "lanes": [
+      {
+        "id": "claim",
+        "en": "Claim",
+        "color": "claim",
+        "prefilled": false
+      },
+      {
+        "id": "how",
+        "en": "How",
+        "color": "how",
+        "prefilled": false
+      },
+      {
+        "id": "example",
+        "en": "Example",
+        "color": "example",
+        "prefilled": false
+      },
+      {
+        "id": "result",
+        "en": "Result",
+        "color": "result",
+        "prefilled": false
+      }
+    ],
+    "directions": [
+      {
+        "id": "S11-D1",
+        "panel": 1,
+        "claim": "online makes noticing harder",
+        "how": "one room at a time",
+        "example": "Ms Mai sees one breakout room",
+        "result": "a muted student goes unnoticed"
+      },
+      {
+        "id": "S11-D2",
+        "panel": 2,
+        "claim": "classroom makes noticing easier",
+        "how": "see confused faces at a glance",
+        "example": "Ms Mai walks between desks",
+        "result": "help before the student asks"
+      },
+      {
+        "id": "S11-D3",
+        "panel": 3,
+        "claim": "classmates help each other",
+        "how": "share one worksheet",
+        "example": "two friends work together",
+        "result": "solve problems face to face"
+      }
+    ],
+    "vague": {
+      "how": {
+        "en": "in different ways",
+        "whyVi": "Quá chung chung: chưa nói giáo viên nhìn thấy gì.",
+        "branchVi": "How"
+      },
+      "example": {
+        "en": "some students",
+        "whyVi": "Chưa cụ thể: cần một người và một việc trong tranh.",
+        "branchVi": "Example"
+      },
+      "result": {
+        "en": "learn better",
+        "whyVi": "Quá chung chung: chưa nói giáo viên phát hiện được gì.",
+        "branchVi": "Result"
+      }
+    },
+    "decoy": {
+      "en": "online lessons are cheaper",
+      "whyVi": "Khác tiêu chí: đề hỏi cách giáo viên nhận ra học sinh cần giúp."
+    },
+    "spots": [
+      {
+        "id": "S11-Y1",
+        "panel": 1,
+        "lookVi": "Nửa trái · nhiều ô phòng nhóm",
+        "qVi": "Lớp được chia như thế nào?",
+        "chips": [
+          "many small breakout rooms"
+        ],
+        "branchVi": "Lớp trực tuyến"
+      },
+      {
+        "id": "S11-Y2",
+        "panel": 1,
+        "lookVi": "Nửa trái · cô Mai chỉ ở một ô",
+        "qVi": "Cô giáo nhìn được bao nhiêu nhóm cùng lúc?",
+        "chips": [
+          "one room at a time"
+        ],
+        "branchVi": "Lớp trực tuyến"
+      },
+      {
+        "id": "S11-Y3",
+        "panel": 1,
+        "lookVi": "Nửa trái · bạn tắt mic",
+        "qVi": "Vì sao bạn này dễ bị bỏ qua?",
+        "chips": [
+          "go unnoticed",
+          "a muted student"
+        ],
+        "branchVi": "Lớp trực tuyến"
+      },
+      {
+        "id": "S11-Y4",
+        "panel": 1,
+        "lookVi": "Nửa trái · Vy bấm xem lại",
+        "qVi": "Đây là ưu điểm nhưng thuộc tiêu chí nào?",
+        "chips": [
+          "replay instructions"
+        ],
+        "branchVi": "Đánh giá của em",
+        "noteVi": "Đây là ý hay, nhưng không thuộc tiêu chí em đang so sánh."
+      },
+      {
+        "id": "S11-Y5",
+        "panel": 2,
+        "lookVi": "Nửa phải · cô Mai đi giữa các bàn",
+        "qVi": "Cô phát hiện bạn cần giúp bằng cách nào?",
+        "chips": [
+          "see confused faces at a glance"
+        ],
+        "branchVi": "Lớp trực tiếp"
+      },
+      {
+        "id": "S11-Y6",
+        "panel": 3,
+        "lookVi": "Nửa phải · hai bạn chung một phiếu",
+        "qVi": "Bạn bè giúp nhau thế nào?",
+        "chips": [
+          "help each other face to face"
+        ],
+        "branchVi": "Lớp trực tiếp"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Compare directly",
+      "vi": "whereas / while nối hai vế đối lập trong một câu. Unlike / Compared with đứng đầu câu rồi có phẩy. Although + mệnh đề (nhượng bộ); because of + danh từ.",
+      "exampleEn": "Online lessons can be replayed, whereas classroom explanations are heard only once. Unlike a video, a teacher can answer questions at once."
+    },
+    "ideas": {
+      "titleEn": "Keep ONE criterion",
+      "vi": "Chọn MỘT tiêu chí so sánh làm Claim: giáo viên nhận ra học sinh cần giúp dễ hay khó. Ý hay nhưng khác tiêu chí thì không dùng.",
+      "exampleEn": "Claim: noticing who needs help → How: see confused faces at a glance → Example: Ms Mai walks between the tables → Result: help before the student asks"
+    },
+    "write": {
+      "titleEn": "One criterion, two sides",
+      "vi": "Mỗi ý so sánh đủ hai bên. Cần whereas / while và Unlike / Compared with, cộng một mệnh đề nhượng bộ. However đứng đầu câu mới.",
+      "exampleEn": "Compared with a classroom, an online lesson makes it harder for a teacher to notice a silent student, although chat tools can help."
+    },
+    "recall": {
+      "titleEn": "S10 review",
+      "vi": "can / may / tend to làm nhận định mềm. should / should not nêu lập trường. must not ≠ don't have to.",
+      "exampleEn": "Students don't have to work part-time, but those who do tend to become more responsible."
+    }
+  },
+  "write": {
+    "id": "S11-W1",
+    "kind": "paragraph",
+    "prompt": "Compare online and classroom lessons in terms of how easily a teacher can notice a student who needs help. Which works better for secondary school students? Write a paragraph.",
+    "taskVi": "đoạn 110–130 từ (mở rộng: 140–160 từ, không khung): một tiêu chí, so sánh trực tiếp, giải thích, ví dụ, đánh giá.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        110,
+        130
+      ],
+      "extension": [
+        140,
+        160
+      ]
+    },
+    "extensionVi": "không khung",
+    "minutes": null,
+    "mustUse": [
+      "whereas / while và Unlike / Compared with",
+      "một mệnh đề nhượng bộ"
+    ],
+    "modelAfterSubmit": "When it comes to noticing students who need help, classroom lessons are more effective than live online classes. In a classroom, a teacher can walk between the tables and see at a glance which students look confused, whereas in an online class she often sees only rows of small video boxes. Unlike a classroom teacher, who can see every face at once, an online teacher may not notice a student who has turned off the camera. For example, during our online speaking lessons, Ms Mai could visit only one breakout room at a time, so some pairs waited a long time for help. Although online platforms have chat and hand-raising tools, shy students rarely use them. Therefore, secondary students, who still need close support, benefit more from face-to-face lessons."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Cả đoạn giữ đúng MỘT tiêu chí (nhận ra bạn cần giúp)?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Mỗi ý so sánh đủ hai bên, không chỉ tả một bên?"
+    },
+    {
+      "round": "Câu",
+      "code": "FR",
+      "vi": "Mệnh đề Although / whereas không đứng một mình thành câu?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "whereas nối hai vế trong một câu; however đứng đầu câu mới?"
+    },
+    {
+      "round": "Từ",
+      "code": "PU",
+      "vi": "Dấu phẩy trước whereas; sau cụm Unlike… / Compared with… đầu câu?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-2#5",
+    "stickerVi": "Hà với laptop"
+  },
+  "praiseEn": "Clear comparison — top marks for focus!"
+}

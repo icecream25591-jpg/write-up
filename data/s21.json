@@ -1,0 +1,369 @@
+{
+  "session": "S21",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S21 (tools/tao-session.mjs)",
+  "topic": "Reading less",
+  "productVi": "essay có giờ, 200–250 từ, 40 phút, đề hai câu hỏi (vì sao + tích cực hay tiêu cực).",
+  "targetsVi": "thesis trả lời cả hai câu hỏi; phân biệt nguyên nhân chính và phụ; đánh giá xu hướng có lý do.",
+  "sticker": "sticker-4#3",
+  "recall": [
+    {
+      "id": "S21-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Restaurants could reduce waste ___ cooking in smaller batches.",
+      "options": [
+        "by",
+        "with",
+        "for"
+      ],
+      "answer": "by",
+      "explainVi": "by + V-ing chỉ cách thức."
+    },
+    {
+      "id": "S21-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Smaller portions should ___ by restaurants.",
+      "options": [
+        "be offered",
+        "offer",
+        "offered"
+      ],
+      "answer": "be offered",
+      "explainVi": "Đề xuất bị động: should be + V3."
+    },
+    {
+      "id": "S21-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Many food are wasted at parties.",
+      "answer": "A lot of food is wasted",
+      "explainVi": "food không đếm được → much / a lot of, động từ số ít."
+    },
+    {
+      "id": "S21-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Milk can go ___ quickly in hot weather.",
+      "options": [
+        "off",
+        "out",
+        "away"
+      ],
+      "answer": "off",
+      "explainVi": "go off = bị hỏng (thực phẩm)."
+    },
+    {
+      "id": "S21-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Hosts order extra food ___ that they do not run out.",
+      "options": [
+        "so",
+        "such",
+        "as"
+      ],
+      "answer": "so",
+      "explainVi": "so that + mệnh đề chỉ mục đích."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S21-C1",
+      "image": "s21-cau",
+      "cell": 1,
+      "altVi": "Cả nhà ăn tối, ai cũng xem video ngắn trên điện thoại riêng",
+      "vi": "Câu nêu nguyên nhân chính (The main reason … is that …).",
+      "target": "nguyên nhân chính",
+      "chips": [
+        "short videos",
+        "screen time",
+        "within reach",
+        "the main reason"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bThe main reason\\b[^.]*\\bis that\\b",
+          "flags": "i",
+          "msgVi": "Dùng The main reason … is that …"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The main reason why many people read less is that short videos are always within reach."
+    },
+    {
+      "id": "S21-C2",
+      "image": "s21-cau",
+      "cell": 2,
+      "altVi": "Hà ôn sách luyện thi lúc khuya, cuốn tiểu thuyết yêu thích nằm trên giá",
+      "vi": "Câu nêu nguyên nhân phụ (A secondary reason …).",
+      "target": "nguyên nhân phụ",
+      "chips": [
+        "exam pressure",
+        "read for pleasure",
+        "a secondary reason",
+        "the novel she loves"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bA (?:secondary|second|minor) reason\\b",
+          "flags": "i",
+          "msgVi": "Dùng A secondary reason …"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "A secondary reason is exam pressure, which leaves Ha no time for the novel she loves."
+    },
+    {
+      "id": "S21-C3",
+      "image": "s21-cau",
+      "cell": 3,
+      "altVi": "Khoa chạy bộ trong công viên, nghe sách nói",
+      "vi": "Đánh giá tích cực có lý do.",
+      "target": "Đánh giá tích cực",
+      "chips": [
+        "an audiobook",
+        "a busy schedule",
+        "listen while jogging",
+        "enjoy stories"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:positive|good|welcome|beneficial)\\b",
+          "flags": "i",
+          "msgVi": "Nói rõ đây là thay đổi tích cực."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Listening to an audiobook allows Khoa to enjoy stories despite a busy schedule, which is a positive change."
+    },
+    {
+      "id": "S21-C4",
+      "image": "s21-cau",
+      "cell": 4,
+      "altVi": "Minh đọc bài dài nhưng cứ vài dòng lại xem điện thoại",
+      "vi": "Đánh giá tiêu cực có điều kiện.",
+      "target": "Đánh giá tiêu cực",
+      "chips": [
+        "a short attention span",
+        "deep reading",
+        "keep checking phones",
+        "a long text"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bif\\b[^.]*\\b(?:may|might|could|will)\\b",
+          "flags": "i",
+          "msgVi": "Đánh giá kèm điều kiện: If …, … may …"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "If teenagers keep checking their phones, they may find it harder to concentrate on a long text."
+    }
+  ],
+  "ideas": {
+    "image": "s21-y",
+    "prompt": "More and more young people now listen to audiobooks or read on screens instead of reading printed books. What are the reasons for this change, and do you think it is a good or bad development?",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "main-cause",
+        "en": "Main cause",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "positive",
+        "en": "Positive",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "negative",
+        "en": "Negative",
+        "color": "coral",
+        "prefilled": false
+      },
+      {
+        "id": "secondary-cause",
+        "en": "Secondary cause",
+        "color": "slate",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "onDemand": true,
+    "spots": [
+      {
+        "id": "S21-Y1",
+        "panel": 1,
+        "lookVi": "Khung 1 · bà đọc tiểu thuyết dày, người xung quanh đọc báo",
+        "qVi": "Ngày xưa người ta đọc trên gì?",
+        "chips": [
+          "printed books and newspapers"
+        ],
+        "compare": "Contrast"
+      },
+      {
+        "id": "S21-Y2",
+        "panel": 2,
+        "lookVi": "Khung 2 · Vy đọc sách điện tử chữ to",
+        "qVi": "Vì sao đọc trên điện thoại tiện hơn?",
+        "chips": [
+          "one device",
+          "hundreds of books"
+        ],
+        "lane": "main-cause"
+      },
+      {
+        "id": "S21-Y3",
+        "panel": 2,
+        "lookVi": "Khung 2 · Vy chỉnh cỡ chữ",
+        "qVi": "Điều này giúp người đọc thế nào?",
+        "chips": [
+          "adjust the font size"
+        ],
+        "lane": "positive"
+      },
+      {
+        "id": "S21-Y4",
+        "panel": 2,
+        "lookVi": "Khung 2 · Lan nghe sách nói",
+        "qVi": "Lan có thể nghe sách lúc nào?",
+        "chips": [
+          "listen while travelling or doing chores"
+        ],
+        "lane": "positive"
+      },
+      {
+        "id": "S21-Y5",
+        "panel": null,
+        "lookVi": "Thẻ gợi ý chung",
+        "qVi": "Vì sao học sinh ít thời gian ngồi đọc sách giấy?",
+        "chips": [
+          "long school days",
+          "extra classes"
+        ],
+        "show": "card",
+        "lane": "secondary-cause"
+      },
+      {
+        "id": "S21-Y6",
+        "panel": 2,
+        "lookVi": "Khung 2 · các bạn lướt video ngắn",
+        "qVi": "Đọc trên điện thoại có rủi ro gì?",
+        "chips": [
+          "short videos one tap away",
+          "a short attention span"
+        ],
+        "lane": "negative"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Main reason · secondary reason",
+      "vi": "The main reason is that…; A secondary reason is…. Đánh giá có điều kiện: It is positive provided that…. Chủ ngữ số ít / số nhiều đi với động từ đúng.",
+      "exampleEn": "The main reason is that one phone can store hundreds of books. This trend is positive provided that students still read for pleasure."
+    },
+    "ideas": {
+      "titleEn": "Main · Secondary · Positive · Negative",
+      "vi": "Xếp mỗi cụm vào đúng nhánh. Chọn một nguyên nhân chính trước, rồi mới đánh giá.",
+      "exampleEn": "one device, hundreds of books → Main reason; long school days → Secondary reason; a short attention span → Negative"
+    },
+    "write": {
+      "titleEn": "Answer both questions",
+      "vi": "Thesis trả lời cả \"why\" và \"good or bad\". Mỗi câu hỏi một thân bài. Đánh giá có lý do và điều kiện, không chỉ nói \"it is good\".",
+      "exampleEn": "Digital reading has grown mainly because it is convenient. It is a positive trend, provided that students do not replace books with short videos."
+    },
+    "recall": {
+      "titleEn": "S20 review",
+      "vi": "should be + V3 (+ by…). by + V-ing. so that. Mỗi giải pháp khớp một nguyên nhân.",
+      "exampleEn": "Leftovers should be collected by volunteers so that they can be shared."
+    }
+  },
+  "write": {
+    "id": "S21-W1",
+    "kind": "essay",
+    "prompt": "More and more young people now listen to audiobooks or read on screens instead of reading printed books. What are the reasons for this change, and do you think it is a good or bad development?",
+    "taskVi": "essay 200–250 từ trong 40 phút.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        200,
+        250
+      ],
+      "extension": [
+        200,
+        250
+      ]
+    },
+    "extensionVi": "",
+    "minutes": 40,
+    "mustUse": [
+      "thesis trả lời cả hai câu hỏi",
+      "nêu rõ nguyên nhân chính và phụ",
+      "đánh giá có lý do (có thể kèm điều kiện)"
+    ],
+    "modelAfterSubmit": "Many young people today listen to audiobooks on the bus or read stories on their phones rather than holding a printed book. This change is mainly caused by the convenience of smartphones, and in my view it is largely a positive development, as long as young people still practise deep reading.\n\nThe main reason is that a phone is always within reach. A single device can store hundreds of books, and many e-books are cheaper than printed ones, so students can start reading almost anywhere. A secondary reason is lack of time. With long school days and extra classes, many teenagers find that their only free moments come on the way to school or while doing chores, and audiobooks fit these moments perfectly.\n\nOn the positive side, these formats help young people keep reading for pleasure despite their busy lives. Readers can adjust the font size, and listeners can enjoy a story while jogging or travelling. However, there is a risk. When books are read on a phone, games and short videos are only one tap away, which may weaken readers' ability to concentrate on a long text.\n\nIn conclusion, young people are turning to audiobooks and screens mainly because they are convenient. This trend is positive overall, provided that readers switch off notifications and still make time for longer, focused reading."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Thesis và thân bài trả lời đủ cả \"why\" và \"positive or negative\"?"
+    },
+    {
+      "round": "Ý",
+      "code": "OVER",
+      "vi": "Đánh giá có lý do, không chỉ nói \"it is good\"; có nêu rủi ro hoặc điều kiện?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Dấu hiệu phân biệt nguyên nhân chính (The main reason) và phụ (A secondary reason)?"
+    },
+    {
+      "round": "Câu",
+      "code": "SV",
+      "vi": "A single device / many e-books đi với động từ đúng số?"
+    },
+    {
+      "round": "Từ",
+      "code": "SP",
+      "vi": "audiobook, e-book, concentrate, convenience?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-4#3",
+    "stickerVi": "Lan đọc sách, đeo tai nghe"
+  },
+  "praiseEn": "Page-turner! You answered every part of the question."
+}

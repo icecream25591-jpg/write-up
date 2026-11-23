@@ -1,8 +1,11 @@
 {
-  "_ghichu": "Cấu hình do giáo viên sửa. lockOrder=true: học sinh phải học theo thứ tự trạm. sheetUrl: URL Ứng dụng web Apps Script (…/exec) – xem docs/huong-dan-google-sheet.md; để trống thì bài chỉ lưu trên máy học sinh. sessionsReady: các session đã có data/sXX.json và được mở cho học sinh.",
+  "_ghichu": "Cấu hình do giáo viên sửa. lockOrder=true: học sinh phải học xong trạm trước mới mở trạm sau. lockStages=true: trong một trạm phải xong chặng trước mới vào chặng sau (đặt false cả hai khi cô muốn thử nhanh). sheetUrl: URL Ứng dụng web Apps Script (…/exec) – xem docs/huong-dan-google-sheet.md; để trống thì bài chỉ lưu trên máy học sinh. examPrompt: đề thi thử S22 (học sinh chỉ thấy khi bấm Bắt đầu; để trống thì chưa thi được). accounts: true = bắt buộc đăng nhập Google và vào lớp bằng mã lớp (cần Firebase, xem KE-HOACH-TAI-KHOAN.md; để false thì web chạy như cũ). sessionsReady: các session đã có data/sXX.json và được mở cho học sinh.",
   "siteName": "Write Up!",
   "lockOrder": false,
+  "lockStages": false,
+  "accounts": false,
   "sheetUrl": "https://script.google.com/macros/s/AKfycbxFxg07ZGDLbpe-EYmyXrgLfqn1k3-IVS73RWYJNh_o0yuKeD13yJaaDWGyBBkcpmrjLQ/exec",
-  "sessionsReady": [1, 2, 3],
+  "examPrompt": "",
+  "sessionsReady": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
   "demoSession": { "n": 1, "topic": "Household chores and life skills" }
 }

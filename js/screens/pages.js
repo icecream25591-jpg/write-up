@@ -5,7 +5,25 @@ import { loadSession, sx } from '../data.js';
 import { icons } from '../icons.js';
 import { updateStars } from '../shell.js';
 import { FONT_SCALES, applyPrefs, soundOn, setSound, exportCode, parseCode, importCode, cleanCode, validCode } from '../prefs.js';
-import { flushQueue, fetchFeedback, unseenCount, updateBadges } from '../sync.js';
+import { flushQueue, fetchFeedback, unseenCount, updateBadges, getConfig } from '../sync.js';
+
+// Mã tiến độ NGẮN (11 ký tự, ví dụ K7P3Q-9XM2A): tiến độ lưu trên Google Sheet của cô, mã chỉ là chìa khoá.
+// Không nối được Sheet (mất mạng, chưa cập nhật Apps Script) thì dùng mã dài WU1.… như cũ.
+const SHORT_RE = /^[A-Z0-9]{5}-?[A-Z0-9]{5}$/;
+async function sheetCall(opts, params) {
+  const url = getConfig().sheetUrl;
+  if (!url) return null;
+  try {
+    const u = new URL(url, location.href);
+    for (const [k, v] of Object.entries(params || {})) u.searchParams.set(k, v);
+    const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 15000);
+    const r = await fetch(u, { redirect: 'follow', signal: ctl.signal, ...opts });
+    clearTimeout(tm);
+    return await r.json();
+  } catch { return null; }
+}
+const saveShort = (long) => sheetCall({ method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ loai: 'tien_do', du_lieu: long }) });
+const loadShort = (code) => sheetCall({}, { tien_do: code.slice(0, 5) + '-' + code.slice(-5) });
 import { sfx } from '../sfx.js';
 import { lastNonSettings } from '../router.js';
 
@@ -28,14 +46,12 @@ export function toast(text) {
 function mapHtml(st) {
   const cur = st.current;
   return `<div class="jmap">
-    <img class="jmap-bg" src="img/nen-hanhtrinh-720.webp" srcset="img/nen-hanhtrinh-720.webp 720w, img/nen-hanhtrinh-1440.webp 1440w"
-      sizes="(min-width: 768px) 420px, 100vw" alt="Bản đồ hành trình 22 trạm" width="720" height="1279" decoding="async" loading="lazy">
+    <img class="jmap-bg" src="img/nen-hanhtrinh-doc-720.webp" alt="Bản đồ hành trình 22 trạm" width="720" height="2160" decoding="async" fetchpriority="high">
     ${st.list.map((s) => {
       const [x, y] = MAP_XY[s.n - 1];
       const pos = `left:${x}%;top:${y}%`;
       if (s.n === cur.n && s.ready && !s.locked) {
-        return `<a class="stn now" href="${s.resume}" style="${pos}" aria-label="Trạm ${s.n}: ${esc(s.topic)} – đang học, ${s.stages}/5 chặng. Continue">
-          <span class="now-tag">S${s.n} · ${s.done ? 'Review' : 'Continue'}</span>
+        return `<a class="stn now" href="${s.resume}" style="${pos}" aria-label="Trạm ${s.n}: ${esc(s.topic)} – đang học, ${s.stages}/5 chặng. ${s.done ? 'Review' : 'Continue'}">
           <img src="img/nv-lan-camxuc-1-256.webp" alt="" width="50" height="50"></a>`;
       }
       if (s.done) return `<a class="stn done" href="${s.resume}" style="${pos}" aria-label="Trạm ${s.n}: ${esc(s.topic)} – đã xong">${icons.check(16)}</a>`;
@@ -105,6 +121,9 @@ async function homeJourney(ctx, view) {
         </div>
         <div class="j-bar"><i style="width:${pct(st.doneCount, 22)}"></i></div>
         <p class="j-legend"><span class="lg done"></span>Done <span class="lg now"></span>Now <span class="lg open"></span>Open <span class="lg soon"></span>Coming soon${ctx.config.lockOrder ? ' <span class="lg locked"></span>Locked' : ''}</p>
+        ${cur?.ready ? `<div class="j-now"><img src="img/nv-lan-camxuc-1-256.webp" alt="" width="40" height="40">
+          <span class="j-now-txt"><span class="lbl">Now · Station ${cur.n}</span><b lang="en">${esc(topic)}</b></span>
+          <a class="btn j-now-go" href="${cur.resume}">${cur.done ? 'Review' : 'Continue'}</a></div>` : ''}
         ${mapHtml(st)}
       </aside>
     </div>`;
@@ -150,7 +169,7 @@ function openStickers(ctx) {
 }
 
 // ---------- Settings ----------
-export function settings() {
+export function settings(ctx) {
   const el = document.createElement('section');
   el.className = 'screen';
   const scale = load('fontScale', 'm');
@@ -174,7 +193,7 @@ export function settings() {
         <h2>Sound</h2>
         <button type="button" class="switch" role="switch" aria-checked="${soundOn()}" data-act="sound">
           <span class="knob" aria-hidden="true"></span><span class="sw-lbl">${soundOn() ? 'On' : 'Off'}</span></button>
-        <p class="muted">Tiếng đúng / sai, mở chặng, nhận sticker (âm lượng nhỏ).</p>
+        <p class="muted">Tiếng đúng / sai, xếp cụm, chúc mừng khi xong trạm (âm lượng nhỏ).</p>
         <p class="muted credit">Sound effects: «Interface Sounds» by <a href="https://kenney.nl/assets/interface-sounds" target="_blank" rel="noopener">Kenney</a> (kenney.nl), licence CC0 (public domain).</p>
       </div>
 
@@ -190,21 +209,35 @@ export function settings() {
         <p class="muted">Trình duyệt (nhất là trong Zalo) có thể xoá tiến độ. Tạo mã rồi gửi cho chính mình để lưu; đổi máy thì dán mã vào ô dưới.</p>
         <button type="button" class="btn2" data-act="export">Create my code</button>
         <div class="code-out" hidden>
+          <output class="code-big" lang="en" hidden></output>
           <p class="field-msg ok code-info" aria-live="polite"></p>
           <div class="btn-row">
             <button type="button" class="btn2" data-act="copy">Copy code</button>
             <button type="button" class="btn2" data-act="share" hidden>Share</button>
           </div>
-          <details class="code-show"><summary>Show code</summary>
+          <details class="code-show" hidden><summary>Show code</summary>
             <textarea id="code-out" readonly rows="2" aria-label="Your code"></textarea></details>
         </div>
         <label for="code-in">Paste a code</label>
-        <textarea id="code-in" rows="2" placeholder="WU1.…"></textarea>
+        <textarea id="code-in" rows="1" placeholder="Ví dụ: K7P3Q-9XM2A" autocapitalize="characters" spellcheck="false"></textarea>
         <p class="field-msg imp-msg" aria-live="polite"></p>
         <button type="button" class="btn2" data-act="import">Import</button>
       </div>
     </div>`;
   const $ = (q) => el.querySelector(q);
+
+  // Có tài khoản: thay thẻ «Student» (tên + mã học sinh cũ) bằng thẻ Account
+  if (ctx?.account) {
+    const a = ctx.account, st = a.student || {};
+    $('[data-form="student"]').style.display = 'none';
+    // tiến độ nằm trong tài khoản (đồng bộ tự động): không cần mã tiến độ
+    for (const c of el.querySelectorAll('.set-card')) if (c.querySelector('h2')?.textContent === 'Progress code') c.style.display = 'none';
+    const card = document.createElement('div');
+    card.className = 'card set-card';
+    card.innerHTML = '<h2>Account</h2><p class="muted">' + esc(a.email) + '</p><p class="muted">Nick name: <b>' + esc(st.nickname || '') + '</b> · Mã lớp: <b>' + esc(st.joinCode || '') + '</b></p><button type="button" class="btn2" data-act="signout">Sign out</button>';
+    $('.set-top').after(card);
+    card.querySelector('[data-act=signout]').addEventListener('click', async () => { try { await a.h.A.signOut(a.h.auth); } catch { /* bỏ qua */ } location.reload(); });
+  }
 
   $('[data-form="student"]').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -218,7 +251,7 @@ export function settings() {
     flushQueue().then(() => fetchFeedback()); // có mã rồi thì gửi các bài đang chờ
   });
 
-  let armed = false;
+  let armed = false, fetched = null;
   el.addEventListener('click', async (e) => {
     const t = e.target.closest('[data-act], [data-scale]');
     if (!t) return;
@@ -233,10 +266,21 @@ export function settings() {
       if (on) sfx('tap');
       t.setAttribute('aria-checked', String(on)); t.querySelector('.sw-lbl').textContent = on ? 'On' : 'Off';
     } else if (act === 'export') {
-      const code = exportCode();
-      $('.code-out').hidden = false;
-      $('#code-out').value = code;
-      $('.code-info').textContent = `Đã tạo mã (${code.length.toLocaleString('vi-VN')} ký tự). Bấm Copy rồi dán vào tin nhắn gửi cho chính mình.`;
+      const long = exportCode();
+      t.disabled = true;
+      $('.code-out').hidden = false; $('.code-big').hidden = true; $('.code-show').hidden = true;
+      $('.code-info').className = 'field-msg code-info'; $('.code-info').textContent = 'Đang tạo mã…';
+      const j = await saveShort(long);
+      t.disabled = false;
+      if (j?.ok && j.ma) {
+        $('#code-out').value = j.ma;
+        $('.code-big').textContent = j.ma; $('.code-big').hidden = false;
+        $('.code-info').textContent = 'Chép mã này gửi cho chính mình. Đổi máy thì nhập mã vào ô bên dưới.';
+      } else {
+        $('#code-out').value = long; $('.code-show').hidden = false;
+        $('.code-info').textContent = `Chưa nối được Sheet của cô (mất mạng?) nên dùng mã dài ${long.length.toLocaleString('vi-VN')} ký tự. Bấm Copy rồi dán vào tin nhắn gửi cho chính mình.`;
+      }
+      $('.code-info').className = 'field-msg ok code-info';
       if (navigator.share) $('[data-act="share"]').hidden = false;
     } else if (act === 'share') {
       try { await navigator.share({ title: 'Write Up! progress code', text: $('#code-out').value }); } catch { /* đã huỷ */ }
@@ -246,14 +290,24 @@ export function settings() {
       catch { $('.code-show').open = true; ta.select(); document.execCommand?.('copy'); toast('Đã chọn mã – giữ để chép.'); }
     } else if (act === 'import') {
       const msg = $('.imp-msg');
-      const r = parseCode($('#code-in').value);
+      let raw = $('#code-in').value.trim().toUpperCase().replace(/s+/g, '');
+      if (SHORT_RE.test(raw)) { // mã ngắn: hỏi Sheet lấy tiến độ
+        if (fetched?.code !== raw) {
+          msg.textContent = 'Đang tìm mã…'; msg.className = 'field-msg imp-msg';
+          const j = await loadShort(raw);
+          if (!j?.ok) { msg.textContent = j?.loi === 'khong_thay' ? 'Không tìm thấy mã này. Kiểm tra lại từng ký tự.' : 'Chưa nối được Sheet của cô (mất mạng?). Thử lại sau.'; msg.className = 'field-msg imp-msg bad'; armed = false; t.textContent = 'Import'; return; }
+          fetched = { code: raw, long: j.du_lieu };
+        }
+        raw = fetched.long;
+      } else raw = $('#code-in').value;
+      const r = parseCode(raw);
       if (!r.ok) { msg.textContent = r.msg; msg.className = 'field-msg imp-msg bad'; armed = false; t.textContent = 'Import'; return; }
       if (!armed) { // bấm 2 lần thay cho hộp xác nhận (trình duyệt Zalo chặn cửa sổ bật lên)
         armed = true; t.textContent = 'Bấm lần nữa để thay tiến độ';
         msg.textContent = `${r.msg} Tiến độ hiện tại trên máy này sẽ bị thay.`; msg.className = 'field-msg imp-msg';
         return;
       }
-      importCode($('#code-in').value);
+      importCode(raw);
       applyPrefs(); updateStars(); updateBadges();
       msg.textContent = 'Đã nhập tiến độ.'; msg.className = 'field-msg imp-msg ok';
       armed = false; t.textContent = 'Import';

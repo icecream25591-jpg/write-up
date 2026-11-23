@@ -1,0 +1,451 @@
+{
+  "session": "S13",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S13 (tools/tao-session.mjs)",
+  "topic": "Social media and mental health",
+  "productVi": "đoạn nhân quả 120–140 từ, chuỗi ít nhất hai mắt xích.",
+  "targetsVi": "hai nhóm cấu trúc nhân quả (lead to, result in, because of…); mức chắc chắn hợp căn cứ.",
+  "sticker": "sticker-3#1",
+  "recall": [
+    {
+      "id": "S13-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "If I ___ more free time, I would cycle to school.",
+      "options": [
+        "have",
+        "had",
+        "will have"
+      ],
+      "answer": "had",
+      "explainVi": "Điều kiện loại 2: If + quá khứ đơn."
+    },
+    {
+      "id": "S13-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "___ the bus be late, please call me.",
+      "options": [
+        "Should",
+        "Were",
+        "Had"
+      ],
+      "answer": "Should",
+      "explainVi": "Đảo ngữ loại 1: Should + S + V = If the bus is late."
+    },
+    {
+      "id": "S13-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Unless you don't hurry, you will miss the bus.",
+      "answer": "bỏ \"don't\"",
+      "explainVi": "unless đã mang nghĩa phủ định (= if not)."
+    },
+    {
+      "id": "S13-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Buses will be faster ___ that the lane is kept clear.",
+      "options": [
+        "provided",
+        "unless",
+        "even"
+      ],
+      "answer": "provided",
+      "explainVi": "provided that = miễn là."
+    },
+    {
+      "id": "S13-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "The roads are busiest during the rush ___.",
+      "options": [
+        "hour",
+        "time",
+        "moment"
+      ],
+      "answer": "hour",
+      "explainVi": "rush hour = giờ cao điểm."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S13-C1",
+      "image": "s13-cau",
+      "cell": 1,
+      "altVi": "Lan lướt điện thoại trong chăn lúc nửa đêm",
+      "vi": "Dùng lead to với mức chắc chắn vừa phải (may / can).",
+      "target": "lead to",
+      "chips": [
+        "passive scrolling",
+        "screen time",
+        "under the blanket",
+        "a shorter night's sleep"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:may|can|might|could)\\s+lead\\s+to\\b",
+          "flags": "i",
+          "msgVi": "Dùng may / can + lead to."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Scrolling under the blanket at midnight may lead to a shorter night's sleep for Lan."
+    },
+    {
+      "id": "S13-C2",
+      "image": "s13-cau",
+      "cell": 2,
+      "altVi": "Minh xem ảnh kỳ nghỉ \"hoàn hảo\" của bạn, thấy mình nhỏ bé",
+      "vi": "Dùng Because of + cụm danh từ.",
+      "target": "Because of",
+      "chips": [
+        "self-esteem",
+        "curated",
+        "perfect holiday photos",
+        "feel bored"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*Because of\\b",
+          "flags": "",
+          "msgVi": "Mở đầu bằng Because of + cụm danh từ."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Because of his friend's perfect holiday photos, Minh begins to compare himself with his friend, which can hurt his self-esteem."
+    },
+    {
+      "id": "S13-C3",
+      "image": "s13-cau",
+      "cell": 3,
+      "altVi": "Vy vui vì nhận tim và like từ nhóm vẽ online",
+      "vi": "Dùng result in.",
+      "target": "result in",
+      "chips": [
+        "an online community",
+        "a sense of belonging",
+        "kind comments",
+        "greater confidence"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bresults?\\s+in\\b|\\bresulted\\s+in\\b|\\bresulting\\s+in\\b",
+          "flags": "i",
+          "msgVi": "Dùng result in."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Kind comments from an online drawing group can result in greater confidence for Vy."
+    },
+    {
+      "id": "S13-C4",
+      "image": "s13-cau",
+      "cell": 4,
+      "altVi": "Khoa bị vây bởi tin nhắn nhóm đòi trả lời ngay",
+      "vi": "Dùng cause + O + to V.",
+      "target": "cause + O + to V",
+      "chips": [
+        "anxiety",
+        "take a toll on",
+        "reply at once",
+        "feel tense"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bcaus(?:e|es|ed|ing)\\s+[\\w'-]+(?:\\s+[\\w'-]+){0,2}\\s+to\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng cause + O + to V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The pressure to reply at once causes Khoa to feel tense and anxious."
+    }
+  ],
+  "ideas": {
+    "image": "s13-y",
+    "prompt": "Many teenagers keep their phones in their bedroom at night. Explain ONE effect this habit may have on their well-being. Write a paragraph.",
+    "promptType": "explain",
+    "mode": "pick",
+    "lanes": [
+      {
+        "id": "link-1",
+        "en": "Link 1",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "link-2",
+        "en": "Link 2",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "link-3",
+        "en": "Link 3",
+        "color": "coral",
+        "prefilled": false
+      },
+      {
+        "id": "example",
+        "en": "Example",
+        "color": "example",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "spots": [
+      {
+        "id": "S13-Y1",
+        "panel": 1,
+        "lookVi": "Khung 1 · đồng hồ 11:45 và thông báo",
+        "qVi": "Vì sao Lan chưa ngủ?",
+        "chips": [
+          "one more notification",
+          "one more video"
+        ],
+        "lane": "link-1"
+      },
+      {
+        "id": "S13-Y2",
+        "panel": 1,
+        "lookVi": "Khung 1 · Lan cầm điện thoại trên giường",
+        "qVi": "Lan làm gì với điện thoại?",
+        "chips": [
+          "passive scrolling late at night"
+        ],
+        "lane": "link-1"
+      },
+      {
+        "id": "S13-Y3",
+        "panel": 2,
+        "lookVi": "Khung 2 · quầng thâm mắt, ngáp",
+        "qVi": "Đêm qua Lan ngủ thế nào?",
+        "chips": [
+          "fewer hours of sleep"
+        ],
+        "lane": "link-2"
+      },
+      {
+        "id": "S13-Y4",
+        "panel": 2,
+        "lookVi": "Khung 2 · đám mây xám, không nghe giảng được",
+        "qVi": "Tâm trạng và việc học của Lan ra sao?",
+        "chips": [
+          "feel irritable",
+          "lose concentration"
+        ],
+        "lane": "link-3"
+      },
+      {
+        "id": "S13-Y5",
+        "panel": 2,
+        "lookVi": "Khung 2 · Lan ngáp, khó theo bài của cô Mai",
+        "qVi": "Trong giờ học, Lan có biểu hiện gì và gặp khó khăn gì?",
+        "chips": [
+          "Lan yawns and struggles to follow the lesson"
+        ],
+        "lane": "example"
+      },
+      {
+        "id": "S13-Y6",
+        "panel": 3,
+        "hint": "afterCheck",
+        "labelVi": "Nếu thay đổi thói quen (không bắt buộc)",
+        "lookVi": "Khung 3 · hẹn giờ 10 giờ tối → ngủ ngon → cười với bạn",
+        "qVi": "Nếu Lan đặt giờ tắt điện thoại mỗi tối, giấc ngủ và tâm trạng của bạn có thể thay đổi thế nào?",
+        "chips": [
+          "set a time to turn off her phone → sleep better → feel happier"
+        ]
+      }
+    ],
+    "picks": {
+      "link-1": [
+        {
+          "en": "one more notification, one more video",
+          "ok": true
+        },
+        {
+          "en": "passive scrolling late at night",
+          "ok": true
+        },
+        {
+          "en": "use the phone",
+          "ok": false,
+          "whyVi": "Quá chung chung: chưa nói dùng khi nào, dùng thế nào."
+        },
+        {
+          "en": "fewer hours of sleep",
+          "ok": false,
+          "whyVi": "Sai chỗ: ý này thuộc nhánh Link 2."
+        }
+      ],
+      "link-2": [
+        {
+          "en": "fewer hours of sleep",
+          "ok": true
+        },
+        {
+          "en": "feel bad",
+          "ok": false,
+          "whyVi": "Quá chung chung: chưa nói thứ tự ngủ ít."
+        },
+        {
+          "en": "one more notification, one more video",
+          "ok": false,
+          "whyVi": "Sai chỗ: ý này thuộc nhánh Link 1."
+        },
+        {
+          "en": "passive scrolling late at night",
+          "ok": false,
+          "whyVi": "Sai chỗ: ý này thuộc nhánh Link 1."
+        }
+      ],
+      "link-3": [
+        {
+          "en": "feel irritable, lose concentration",
+          "ok": true
+        },
+        {
+          "en": "have problems",
+          "ok": false,
+          "whyVi": "Quá chung chung: chưa nói chuyện gì xảy ra trong lớp."
+        },
+        {
+          "en": "one more notification, one more video",
+          "ok": false,
+          "whyVi": "Sai chỗ: ý này thuộc nhánh Link 1."
+        },
+        {
+          "en": "passive scrolling late at night",
+          "ok": false,
+          "whyVi": "Sai chỗ: ý này thuộc nhánh Link 1."
+        }
+      ],
+      "example": [
+        {
+          "en": "Lan yawns and struggles to follow the lesson",
+          "ok": true
+        },
+        {
+          "en": "many teenagers",
+          "ok": false,
+          "whyVi": "Chưa cụ thể: cần một bạn và một việc trong tranh."
+        },
+        {
+          "en": "one more notification, one more video",
+          "ok": false,
+          "whyVi": "Sai chỗ: ý này thuộc nhánh Link 1."
+        },
+        {
+          "en": "passive scrolling late at night",
+          "ok": false,
+          "whyVi": "Sai chỗ: ý này thuộc nhánh Link 1."
+        }
+      ]
+    }
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Cause–effect language",
+      "vi": "lead to / result in + kết quả. result from + nguyên nhân. because + mệnh đề; because of / due to + danh từ.",
+      "exampleEn": "Late-night scrolling leads to shorter sleep. Tiredness results from too little sleep."
+    },
+    "ideas": {
+      "titleEn": "Build a chain",
+      "vi": "Chọn MỘT ảnh hưởng làm Claim, rồi nối các mắt xích theo thứ tự, không nhảy cóc. Ví dụ là cảnh Lan ngáp, khó theo bài. Cảnh đặt giờ tắt điện thoại → ngủ ngon → vui hơn không thuộc chuỗi tác hại: xem thẻ «Nếu thay đổi thói quen» sau khi Check.",
+      "exampleEn": "Claim: poor sleep → Link 1: scroll past midnight → Link 2: fewer hours of sleep → Link 3: lose concentration"
+    },
+    "write": {
+      "titleEn": "Chain, not jump",
+      "vi": "Hai đến ba mắt xích, mỗi mắt xích có giải thích. Dùng hai nhóm cấu trúc nhân quả khác nhau (lead to… và because of…). Dùng can / may / be likely to, tránh khẳng định tuyệt đối.",
+      "exampleEn": "Using a phone in bed may lead to shorter sleep, which in turn makes it harder to concentrate the next day."
+    },
+    "recall": {
+      "titleEn": "S12 review",
+      "vi": "If + hiện tại đơn, will + V. If + quá khứ đơn, would + V. unless = if not. provided that + hiện tại đơn.",
+      "exampleEn": "Unless students go to bed earlier, they will find mornings difficult."
+    }
+  },
+  "write": {
+    "id": "S13-W1",
+    "kind": "paragraph",
+    "prompt": "Many teenagers keep their phones in their bedroom at night. Explain ONE effect this habit may have on their well-being. Write a paragraph.",
+    "taskVi": "đoạn 120–140 từ (mở rộng: 150–170 từ, không khung): câu chủ đề, chuỗi hai–ba mắt xích, ví dụ, câu kết.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        120,
+        140
+      ],
+      "extension": [
+        150,
+        170
+      ]
+    },
+    "extensionVi": "không khung",
+    "minutes": null,
+    "mustUse": [
+      "hai nhóm cấu trúc nhân quả khác nhau (động từ như lead to / result in và giới từ như because of)",
+      "mức chắc chắn hợp lý"
+    ],
+    "modelAfterSubmit": "Keeping a phone in the bedroom at night can harm a teenager's well-being, mainly because it often leads to poor sleep. When the phone is within reach, many young people check one more notification or watch one more short video, and an hour can pass without them noticing. This late-night screen time results in fewer hours of sleep, and the bright light may also make it harder to fall asleep. Because of this, they are likely to feel tired and irritable the next day, which can take a toll on their mood and concentration. For instance, my classmate Lan used to scroll until nearly midnight and often looked exhausted in class. However, the effect depends on how the phone is used, and setting a time to switch it off can make a real difference."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Cả đoạn chỉ phát triển MỘT ảnh hưởng?"
+    },
+    {
+      "round": "Ý",
+      "code": "OVER",
+      "vi": "Mức chắc chắn hợp căn cứ (can, may, be likely to), không khẳng định tuyệt đối?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Các mắt xích nối đúng thứ tự, không nhảy cóc từ nguyên nhân đến kết quả cuối?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "because + mệnh đề / because of + danh từ; lead to + danh từ?"
+    },
+    {
+      "round": "Từ",
+      "code": "REF",
+      "vi": "This / which chỉ rõ việc gì ở câu trước?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-3#1",
+    "stickerVi": "Lan ôm gối với điện thoại"
+  },
+  "praiseEn": "Well-rested writing — your chain is strong!"
+}

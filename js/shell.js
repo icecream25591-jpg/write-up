@@ -53,7 +53,9 @@ export function pageScreen(title) {
  * opts: { n, topic, stage, done: Set<index>, tip: {title, html} }
  * trả về { el, body, foot, mai }
  */
-export function sessionScreen({ n, topic, stage, done = new Set(), tip, title }) {
+export function sessionScreen({ n, topic, stage, done = new Set(), tip, title, openUpTo = 4, stageNames = {} }) {
+  // tên chặng riêng của trạm (S22: chặng 3 = Five lines)
+  const STG = STAGES.map((x, i) => ({ ...x, name: stageNames[i] || x.name }));
   const el = document.createElement('section');
   el.className = 'screen session';
   const stars = load('stars', 0);
@@ -63,15 +65,18 @@ export function sessionScreen({ n, topic, stage, done = new Set(), tip, title })
         <a class="icon-btn" href="#/home" aria-label="Thoát về Home">${icons.close(20)}</a>
         <div class="sess-title">
           <div class="lbl">S${n} · ${esc(topic)}</div>
-          <h1>${esc(title || STAGES[stage].name)}</h1>
+          <h1>${esc(title || STG[stage].name)}</h1>
         </div>
         <div class="stars">${icons.star(26)}<span>${stars}</span><span class="sr-only"> stars</span></div>
       </div>
-      <ol class="stages" aria-label="Stage ${stage + 1} of 5: ${esc(STAGES[stage].name)}">
-        ${STAGES.map((s, i) => {
+      <ol class="stages" aria-label="Stage ${stage + 1} of 5: ${esc(STG[stage].name)}">
+        ${STG.map((s, i) => {
           // chặng đang mở vẫn mang thêm 'done' nếu đã xong (đường nối sang chặng sau tô xanh)
           const cls = [i === stage ? 'cur' : '', done.has(i) ? 'done' : ''].filter(Boolean).join(' ');
           const mark = done.has(i) && i !== stage ? icons.check(14) : i + 1;
+          // chặng chưa mở (phải xong chặng trước): không bấm được
+          if (i > openUpTo && i !== stage) return `<li class="${cls} locked"><span class="st-lock" aria-label="${s.name} – làm xong chặng trước để mở">
+            <span class="dot">${mark}</span><span class="name">${s.name}</span></span></li>`;
           return `<li class="${cls}"><a href="${href.stage(n, i)}" ${i === stage ? 'aria-current="step"' : ''}>
             <span class="dot">${mark}</span><span class="name">${s.name}${done.has(i) ? '<span class="sr-only"> (done)</span>' : ''}</span></a></li>`;
         }).join('')}

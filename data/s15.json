@@ -1,0 +1,372 @@
+{
+  "session": "S15",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S15 (tools/tao-session.mjs)",
+  "topic": "Homework and exams",
+  "productVi": "essay nêu quan điểm 4 đoạn, 200–250 từ, kiểm kế hoạch trước khi viết.",
+  "targetsVi": "đoạn phản biện ba bước nêu – thừa nhận – trả lời; câu chẻ (It is… that…, What… is…); đảo ngữ nhấn mạnh.",
+  "sticker": "sticker-3#3",
+  "recall": [
+    {
+      "id": "S15-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Rents in big cities are ___ higher than in small towns.",
+      "options": [
+        "far",
+        "very",
+        "too"
+      ],
+      "answer": "far",
+      "explainVi": "far / much + so sánh hơn; không dùng very."
+    },
+    {
+      "id": "S15-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "The benefits of studying abroad are partly ___ by the high costs.",
+      "options": [
+        "offset",
+        "outset",
+        "upset"
+      ],
+      "answer": "offset",
+      "explainVi": "be offset by = bị bù trừ bởi."
+    },
+    {
+      "id": "S15-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "The advantages are outweighed the disadvantages.",
+      "answer": "The advantages outweigh the disadvantages.",
+      "explainVi": "outweigh là ngoại động từ chủ động: A outweighs B."
+    },
+    {
+      "id": "S15-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "He improved his English at the ___ of time with his family.",
+      "options": [
+        "cost",
+        "fee",
+        "value"
+      ],
+      "answer": "cost",
+      "explainVi": "at the cost of = đánh đổi bằng."
+    },
+    {
+      "id": "S15-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Many overseas students feel ___ in their first months.",
+      "options": [
+        "homesick",
+        "homesickness",
+        "homeless"
+      ],
+      "answer": "homesick",
+      "explainVi": "feel + tính từ: homesick."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S15-C1",
+      "image": "s15-cau",
+      "cell": 1,
+      "altVi": "Lan vây quanh thẻ từ và bút dạ quang đêm trước kỳ thi",
+      "vi": "Câu chẻ What … is …",
+      "target": "What … is …",
+      "chips": [
+        "cram for an exam",
+        "exam pressure",
+        "tomorrow's exam",
+        "be doing"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*What\\b[^.]*\\b(?:is|was)\\b",
+          "flags": "",
+          "msgVi": "Dùng câu chẻ What … is …"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "What Lan is doing tonight is cramming for tomorrow's exam."
+    },
+    {
+      "id": "S15-C2",
+      "image": "s15-cau",
+      "cell": 2,
+      "altVi": "Minh trình bày mô hình cây cầu",
+      "vi": "Câu chẻ It is … that …",
+      "target": "It is … that …",
+      "chips": [
+        "reinforce learning",
+        "a science project",
+        "apply knowledge",
+        "a bridge"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*It\\s+(?:is|was)\\b[^.]*\\bthat\\b",
+          "flags": "",
+          "msgVi": "Dùng câu chẻ It is … that …"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "It is through projects like this bridge that Minh learns to apply his knowledge."
+    },
+    {
+      "id": "S15-C3",
+      "image": "s15-cau",
+      "cell": 3,
+      "altVi": "Cô Mai viết nhận xét vào hồ sơ học tập",
+      "vi": "Đảo ngữ Not only … but also.",
+      "target": "Not only … but also",
+      "chips": [
+        "a fair measure of",
+        "feedback",
+        "mark the work",
+        "write comments"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*Not only\\s+(?:does|do|did|is|are|was|were|has|have|can|will)\\b[^.]*\\bbut\\b[^.]*\\balso\\b",
+          "flags": "",
+          "msgVi": "Dùng đảo ngữ Not only + trợ động từ + S …, but … also …"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Not only does Ms Mai mark the work, but she also writes comments to help each student improve."
+    },
+    {
+      "id": "S15-C4",
+      "image": "s15-cau",
+      "cell": 4,
+      "altVi": "Phòng thi yên tĩnh, đồng hồ trên tường, giám thị đi chậm",
+      "vi": "Câu thừa nhận Admittedly, …",
+      "target": "Admittedly, …",
+      "chips": [
+        "a reliable result",
+        "the same conditions",
+        "a written test",
+        "the same questions"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*Admittedly,",
+          "flags": "",
+          "msgVi": "Mở đầu bằng Admittedly,"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Admittedly, a written test gives a reliable result because everyone answers the same questions under the same conditions."
+    }
+  ],
+  "ideas": {
+    "image": "s15-y",
+    "prompt": "Some people think that school projects should count for more than written tests in students' final marks. To what extent do you agree or disagree?",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "for-projects",
+        "en": "For projects",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "for-tests",
+        "en": "For tests",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "counter-argument",
+        "en": "Counter-argument",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "spots": [
+      {
+        "id": "S15-Y1",
+        "panel": 1,
+        "lookVi": "Lịch của Khoa với nhiều dấu tích",
+        "qVi": "Dự án cho thấy điều gì qua cả học kỳ?",
+        "chips": [
+          "steady work over the term"
+        ],
+        "lane": "for-projects"
+      },
+      {
+        "id": "S15-Y2",
+        "panel": 2,
+        "lookVi": "Mô hình cây cầu và mũi tên đi lên",
+        "qVi": "Làm mô hình giúp học sinh học như thế nào?",
+        "chips": [
+          "reinforce learning",
+          "apply knowledge"
+        ],
+        "lane": "for-projects"
+      },
+      {
+        "id": "S15-Y3",
+        "panel": 3,
+        "lookVi": "Thẻ bài thi và huy chương của Lan",
+        "qVi": "Vì sao bài thi được xem là công bằng?",
+        "chips": [
+          "the same questions for everyone",
+          "a reliable result"
+        ],
+        "lane": "for-tests"
+      },
+      {
+        "id": "S15-Y4",
+        "panel": 4,
+        "lookVi": "Bạn bị cảm cầm khăn giấy",
+        "qVi": "Chuyện gì xảy ra nếu bạn ốm đúng ngày thi?",
+        "chips": [
+          "one bad day decides the mark"
+        ],
+        "lane": "for-projects"
+      },
+      {
+        "id": "S15-Y5",
+        "panel": 5,
+        "lookVi": "Bạn với giấy ôn khắp người",
+        "qVi": "Học dồn trước kỳ thi dẫn đến gì?",
+        "chips": [
+          "cram",
+          "then forget"
+        ],
+        "lane": "for-projects"
+      },
+      {
+        "id": "S15-Y6",
+        "panel": 6,
+        "lookVi": "Hà bình tĩnh ghi chép",
+        "qVi": "Phía bên kia sẽ nghi ngờ điều gì ở dự án?",
+        "chips": [
+          "help from parents or tutors",
+          "hard to mark fairly"
+        ],
+        "lane": "counter-argument"
+      },
+      {
+        "id": "S15-Y7",
+        "panel": 7,
+        "lookVi": "Cô Mai với chiếc chuông",
+        "qVi": "Em trả lời phía bên kia bằng cách nào?",
+        "chips": [
+          "ask students to present and answer questions"
+        ],
+        "lane": "counter-argument"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Cleft + inversion",
+      "vi": "It is … that …; What … is …; không X mà Y: It is not X but Y that …. Đảo ngữ: Not only + trợ động từ + S + V. Dùng chừng mực, một lần trong bài là đủ.",
+      "exampleEn": "It is regular feedback that helps students improve. Not only do projects teach skills, but they also reduce exam stress."
+    },
+    "ideas": {
+      "titleEn": "Projects · Tests · Rebuttal",
+      "vi": "Xếp mỗi cụm vào Projects, Tests hoặc Rebuttal. Phản biện có ba bước: nêu ý bên kia → thừa nhận phần đúng → trả lời.",
+      "exampleEn": "steady work over the term → Projects; the same questions for everyone → Tests; ask students to present and answer questions → Rebuttal"
+    },
+    "write": {
+      "titleEn": "Refutation in three steps",
+      "vi": "Đoạn phản biện: nêu → thừa nhận → trả lời. Câu trả lời phải xử lý đúng điểm phản đối. Cần một câu chẻ và một câu đảo ngữ nhấn mạnh.",
+      "exampleEn": "Some argue that projects are easy to copy. This is partly true; however, it is oral questions, not written reports, that show who really understands."
+    },
+    "recall": {
+      "titleEn": "S14 review",
+      "vi": "far / much + so sánh hơn. outweigh. those of / that of khi so sánh.",
+      "exampleEn": "Rents in big cities are much higher than those in small towns."
+    }
+  },
+  "write": {
+    "id": "S15-W1",
+    "kind": "essay",
+    "prompt": "Some people think that school projects should count for more than written tests in students' final marks. To what extent do you agree or disagree?",
+    "taskVi": "kiểm kế hoạch (thesis nêu mức đồng ý · mỗi thân bài một ý · có đoạn phản biện) rồi viết essay 4 đoạn, 200–250 từ.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        200,
+        250
+      ],
+      "extension": [
+        200,
+        250
+      ]
+    },
+    "extensionVi": "",
+    "minutes": null,
+    "mustUse": [
+      "một đoạn phản biện đủ ba bước",
+      "một câu chẻ",
+      "một câu đảo ngữ nhấn mạnh"
+    ],
+    "modelAfterSubmit": "In many Vietnamese schools, a student's final mark depends mainly on written tests. Some people argue that projects should play a bigger role. I largely agree, because projects show what students can do over time, but written tests should still be part of the mark.\n\nWhat makes projects valuable is that they reward steady work rather than a single performance. A student who builds a model bridge over several weeks has to research, test ideas and correct mistakes, which reinforces learning far more than cramming the night before an exam. Moreover, a project cannot be ruined by one bad day, so it gives a fairer picture of a student's ability.\n\nAdmittedly, critics point out that projects are harder to mark fairly, since some students receive help from parents or tutors. This is a real problem. However, it is a reason to design projects carefully, not to rely only on tests. Teachers can ask students to present their work and answer questions about it, which only students who truly understand their project can do well. A short written test can then check the basic knowledge that every student needs.\n\nIn conclusion, projects should count for more than they do now, while tests remain a useful check. Only by combining the two can schools reward both understanding and effort."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Thesis nêu rõ mức đồng ý (largely agree, partly agree…)?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Đoạn phản biện đủ nêu – thừa nhận – trả lời, câu trả lời thật sự xử lý được phản đối?"
+    },
+    {
+      "round": "Câu",
+      "code": "VF",
+      "vi": "Đảo ngữ đúng trật tự (Not only does Ms Mai mark…, Only by… can schools…)?"
+    },
+    {
+      "round": "Câu",
+      "code": "FR",
+      "vi": "Câu chẻ đủ hai phần (What… is that…)?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "Phân biệt mark (điểm / chấm) và grade, test và exam?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-3#3",
+    "stickerVi": "Khoa cầm micro"
+  },
+  "praiseEn": "Debate champion — your counter-argument shines!"
+}

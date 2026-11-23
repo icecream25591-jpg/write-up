@@ -1,0 +1,5 @@
+dev/
+img/_soat/
+*.log
+Thumbs.db
+.DS_Store

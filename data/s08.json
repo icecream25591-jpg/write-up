@@ -1,0 +1,359 @@
+{
+  "session": "S08",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S8 (tools/tao-session.mjs)",
+  "topic": "Life skills vs academic subjects",
+  "productVi": "mở bài 30–50 từ + hai câu chủ đề thân bài, mỗi câu kèm một câu WHY / HOW.",
+  "targetsVi": "câu bị động (is taught, are given…) ở mở bài hoặc WHY / HOW; thesis chủ động.",
+  "sticker": "sticker-2#2",
+  "recall": [
+    {
+      "id": "S08-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Mobile payments ___ popular in Vietnam over the past five years.",
+      "options": [
+        "became",
+        "have become",
+        "become"
+      ],
+      "answer": "have become",
+      "explainVi": "over the past five years → hiện tại hoàn thành."
+    },
+    {
+      "id": "S08-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "The number of students who pay by phone ___ growing.",
+      "options": [
+        "is",
+        "are",
+        "be"
+      ],
+      "answer": "is",
+      "explainVi": "Danh từ chính là The number → số ít."
+    },
+    {
+      "id": "S08-R3",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Last week, I ___ too much on bubble tea.",
+      "options": [
+        "spend",
+        "have spent",
+        "spent"
+      ],
+      "answer": "spent",
+      "explainVi": "Last week → quá khứ đơn."
+    },
+    {
+      "id": "S08-R4",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Teenagers are likely buy more when paying is easy.",
+      "answer": "likely buy → likely to buy",
+      "explainVi": "be likely + to V."
+    },
+    {
+      "id": "S08-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "A good app helps you keep ___ of your spending.",
+      "options": [
+        "track",
+        "trace",
+        "trail"
+      ],
+      "answer": "track",
+      "explainVi": "keep track of = theo dõi."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S08-C1",
+      "image": "s08-cau",
+      "cell": 1,
+      "altVi": "Hà băng tay cho Lan trong giờ sơ cứu",
+      "vi": "Bị động tiếp diễn (is being + V3).",
+      "target": "Bị động tiếp diễn",
+      "chips": [
+        "first aid",
+        "hands-on experience",
+        "a bandage",
+        "around Lan's arm"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:is|are|was|were)\\s+being\\s+[a-z]+(?:ed|en|t|wn)\\b",
+          "flags": "i",
+          "msgVi": "Dùng bị động tiếp diễn: is / are being + V3."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "In the first-aid class, a bandage is being wrapped around Lan's arm by Ha."
+    },
+    {
+      "id": "S08-C2",
+      "image": "s08-cau",
+      "cell": 2,
+      "altVi": "Cô Mai vẽ ngân sách tháng trên bảng",
+      "vi": "Bị động hiện tại đơn với người học làm chủ ngữ.",
+      "target": "Bị động hiện tại đơn",
+      "chips": [
+        "financial literacy",
+        "plan a budget",
+        "the students",
+        "be taught"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:is|are|was|were|be|been)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|taught|given|grown|made|shown|told|kept|built|taken|written|seen|done|known)\\b",
+          "flags": "i",
+          "msgVi": "Dùng câu bị động: be + V3."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The students are taught how to plan a simple monthly budget."
+    },
+    {
+      "id": "S08-C3",
+      "image": "s08-cau",
+      "cell": 3,
+      "altVi": "Minh làm thí nghiệm hóa học",
+      "vi": "Bị động với give (are given + N).",
+      "target": "Bị động với give",
+      "chips": [
+        "academic subjects",
+        "test a theory",
+        "in the lab",
+        "a chance"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:is|are|was|were|be|been)\\s+given\\b",
+          "flags": "i",
+          "msgVi": "Dùng bị động với give: are given + N."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "In the lab, students are given a chance to test what they have learnt in theory."
+    },
+    {
+      "id": "S08-C4",
+      "image": "s08-cau",
+      "cell": 4,
+      "altVi": "Khoa và Vy trồng rau trong sân trường",
+      "vi": "Bị động với động từ khuyết thiếu (can be + V3).",
+      "target": "Bị động với động từ khuyết thiếu",
+      "chips": [
+        "equip students with",
+        "practical skills",
+        "grow vegetables",
+        "the school yard"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:can|could|should|must|may|might|will)\\s+be\\s+[a-z]+(?:ed|en|t|wn)\\b",
+          "flags": "i",
+          "msgVi": "Dùng bị động với động từ khuyết thiếu: can be + V3."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Vegetables can be grown in the school yard as a way to equip students with practical skills."
+    }
+  ],
+  "ideas": {
+    "image": "s08-y",
+    "prompt": "It has been suggested that all secondary schools should run a compulsory first-aid course. To what extent do you agree or disagree? For this task, write only the introduction and one topic sentence for each body paragraph, each followed by one WHY/HOW sentence.",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "support",
+        "en": "Support",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "concerns",
+        "en": "Concerns",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "my-view",
+        "en": "My view",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "spots": [
+      {
+        "id": "S08-Y1",
+        "panel": 1,
+        "lookVi": "Hộp sơ cứu ở phòng bên phải",
+        "qVi": "Khi bạn bị thương, ai có thể giúp ngay?",
+        "chips": [
+          "act before an ambulance arrives"
+        ],
+        "lane": "support"
+      },
+      {
+        "id": "S08-Y2",
+        "panel": 1,
+        "lookVi": "Hộp sơ cứu ở phòng bên phải",
+        "qVi": "Nếu một bạn bị thương nhẹ ở sân trường, kỹ năng sơ cứu có thể giúp em làm gì?",
+        "chips": [
+          "help a classmate with a minor injury"
+        ],
+        "lane": "support"
+      },
+      {
+        "id": "S08-Y3",
+        "panel": 2,
+        "lookVi": "Góc nấu ăn, khâu cúc áo",
+        "qVi": "Kỹ năng thực hành như sơ cứu nên học bằng cách nào?",
+        "chips": [
+          "learn by doing",
+          "hands-on practice"
+        ],
+        "lane": "support"
+      },
+      {
+        "id": "S08-Y4",
+        "panel": 3,
+        "lookVi": "Lớp toán bên trái: bảng toán",
+        "qVi": "Nhìn các hình trên bảng, em đoán đây là tiết học môn gì?",
+        "chips": [
+          "a maths lesson"
+        ],
+        "compare": "Look"
+      },
+      {
+        "id": "S08-Y5",
+        "panel": 4,
+        "lookVi": "Lớp toán: Minh tập trung nghe cô giảng",
+        "qVi": "Nếu trường lấy bớt giờ các môn chính để dạy sơ cứu, học sinh có thể gặp bất lợi gì?",
+        "chips": [
+          "less time for core subjects"
+        ],
+        "lane": "concerns"
+      },
+      {
+        "id": "S08-Y6",
+        "panel": 5,
+        "lookVi": "Hà đứng giữa hành lang",
+        "qVi": "Hà có thể chọn cách dung hòa nào?",
+        "chips": [
+          "short practical sessions",
+          "find the right balance between"
+        ],
+        "lane": "my-view"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Passives",
+      "vi": "be + V3 ở mọi thì: is taught, is being built, can be learnt. Chỉ thêm by khi cần biết người làm. Dùng bị động khi người làm không quan trọng hoặc để giữ chủ đề ở đầu câu.",
+      "exampleEn": "Cooking is taught in many primary schools. First aid can be learnt in a single afternoon."
+    },
+    "ideas": {
+      "titleEn": "Support · Concern · My view",
+      "vi": "Xếp mỗi cụm vào đúng phía. Lập trường của em nên dung hòa, không phủ nhận hẳn một phía.",
+      "exampleEn": "learn by doing → Support; less time for core subjects → Concern; short practical sessions → My view"
+    },
+    "write": {
+      "titleEn": "Introduction + thesis",
+      "vi": "Mở bài: bối cảnh → diễn đạt lại đề → thesis nêu mức đồng ý. Thesis ở thể chủ động, có ít nhất một câu bị động. Hai câu chủ đề phải khớp thesis.",
+      "exampleEn": "Practical courses are now offered in many schools. I largely agree that every student should take one, because it prepares them for real situations."
+    },
+    "recall": {
+      "titleEn": "S7 review",
+      "vi": "Hiện tại hoàn thành cho thay đổi đến nay. Quá khứ đơn cho mốc xác định. the number of + N số nhiều → động từ số ít.",
+      "exampleEn": "The number of cashless shops in my town has doubled since 2022."
+    }
+  },
+  "write": {
+    "id": "S08-W1",
+    "kind": "body",
+    "prompt": "It has been suggested that all secondary schools should run a compulsory first-aid course. To what extent do you agree or disagree? For this task, write only the introduction and one topic sentence for each body paragraph, each followed by one WHY/HOW sentence.",
+    "taskVi": "mở bài 30–50 từ (bối cảnh + thesis nêu mức đồng ý) và hai câu chủ đề thân bài, mỗi câu kèm một câu WHY / HOW. Mở rộng: tự lập kế hoạch, không dùng câu hỏi hỗ trợ.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        30,
+        50
+      ],
+      "extension": [
+        30,
+        50
+      ]
+    },
+    "extensionVi": "",
+    "minutes": null,
+    "mustUse": [
+      "ít nhất một câu bị động",
+      "thesis ở thể chủ động"
+    ],
+    "modelAfterSubmit": "Mở bài (45 từ): Today, many students can solve difficult equations but would not know what to do if a classmate suddenly fainted. In my view, every secondary school should offer a short compulsory first-aid course, as long as it does not replace core subjects.\n\nThân bài 1: The main reason is that basic first aid can save lives before professional help arrives. If simple skills such as stopping bleeding are taught to every student, someone nearby will always know how to act in an emergency.\n\nThân bài 2: Such a course would not take much time away from academic subjects. Most first-aid skills can be taught in a few practical sessions, which could be held during existing biology or physical education lessons."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Thesis trả lời \"to what extent\" (đồng ý hoàn toàn, phần nào, hay có điều kiện)?"
+    },
+    {
+      "round": "Ý",
+      "code": "OVER",
+      "vi": "Mở bài không chứa lý do chi tiết của thân bài?"
+    },
+    {
+      "round": "Câu",
+      "code": "VF",
+      "vi": "Bị động đủ be + V3 (is taught, can be held)?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Mỗi câu chủ đề gắn rõ với thesis?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "Phân biệt compulsory / optional, course / lesson?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-2#2",
+    "stickerVi": "Lan với hộp sơ cứu"
+  },
+  "praiseEn": "Plan ready — your essay has a strong backbone!"
+}

@@ -1,4 +1,4 @@
-// 6 tiếng ngắn: ok, bad, tap, open, done, sticker.
+// 4 tiếng ngắn: ok (đúng), bad (sai), tap (chạm chip), win (hoàn thành trạm). Không có tiếng khi chuyển chặng.
 // Nguồn chính: tệp OGG/MP3 trong sfx/ (Kenney «Interface Sounds», CC0) phát bằng thẻ <audio>
 //   – chạy được trên điện thoại (iPhone/Zalo) kể cả khi Web Audio bị chặn.
 // Dự phòng: tiếng tổng hợp bằng Web Audio khi tệp không tải được.
@@ -31,31 +31,22 @@ function loadFiles() {
     if (FILES[name]) continue;
     try {
       const a = new Audio(`sfx/${name}.${EXT}`);
-      a.preload = 'auto'; a.volume = FILE_VOLUME;
+      a.preload = 'auto'; a.volume = VOL[name] ?? FILE_VOLUME;
       a.addEventListener('error', () => { FILES[name] = null; });
       FILES[name] = a;
     } catch { FILES[name] = null; }
   }
 }
-// iOS chỉ cho phát khi có cú chạm: «mồi» từng tệp (tắt tiếng) ở lần chạm đầu để lần sau phát được ngay
-function primeFiles() {
-  for (const a of Object.values(FILES)) {
-    if (!a) continue;
-    try {
-      a.muted = true;
-      const pr = a.play();
-      const back = () => { a.pause(); a.currentTime = 0; a.muted = false; };
-      if (pr && pr.then) pr.then(back).catch(() => { a.muted = false; }); else back();
-    } catch { a.muted = false; }
-  }
-}
+// KHÔNG «mồi» tệp lúc chạm đầu: trên một số điện thoại / Zalo lệnh tắt tiếng bị bỏ qua,
+// khiến cả loạt tiếng kêu khi học sinh vừa chạm để cuộn trang.
 const FILE_VOLUME = 0.6;
+const VOL = { tap: 0.45, bad: 0.5 }; // tiếng xếp cụm và tiếng sai: nhỏ hơn
 
 /** Gọi một lần lúc khởi động: mở khoá âm thanh ở lần chạm đầu tiên. */
 export function initSfx() {
   const unlock = () => {
     unlocked = true;
-    loadFiles(); primeFiles();
+    loadFiles();
     const c = ensure();
     if (c && c.state === 'suspended') c.resume().catch(() => {});
     removeEventListener('pointerdown', unlock, true);
@@ -87,9 +78,7 @@ export const SOUNDS = {
   ok: { label: 'Đúng', dur: 0.26, play: (t) => { tone(t, { f: 784, dur: 0.11 }); tone(t, { f: 1175, at: 0.09, dur: 0.17 }); } },
   bad: { label: 'Chưa đúng', dur: 0.3, play: (t) => { tone(t, { f: 330, f2: 247, type: 'triangle', dur: 0.28, gain: 0.8 }); } },
   tap: { label: 'Chạm', dur: 0.05, play: (t) => { tone(t, { f: 1400, f2: 900, dur: 0.045, gain: 0.5 }); } },
-  open: { label: 'Mở chặng', dur: 0.3, play: (t) => { [523, 659, 784].forEach((f, i) => tone(t, { f, at: i * 0.07, dur: 0.14, gain: 0.7 })); } },
-  done: { label: 'Xong chặng', dur: 0.36, play: (t) => { [659, 784, 1047].forEach((f, i) => tone(t, { f, at: i * 0.08, dur: 0.18 })); tone(t, { f: 1319, at: 0.24, dur: 0.12, gain: 0.5 }); } },
-  sticker: { label: 'Nhận sticker', dur: 0.38, play: (t) => { [1568, 2093, 1760, 2637].forEach((f, i) => tone(t, { f, at: i * 0.075, dur: 0.1, type: i % 2 ? 'triangle' : 'sine', gain: 0.55 })); } },
+  win: { label: 'Chúc mừng hoàn thành trạm', dur: 0.5, play: (t) => { [659, 784, 1047].forEach((f, i) => tone(t, { f, at: i * 0.09, dur: 0.2 })); tone(t, { f: 1319, at: 0.28, dur: 0.2, gain: 0.5 }); } },
 };
 
 /** Phát một tiếng. force = bỏ qua công tắc và giảm chuyển động (chỉ dùng ở trang nghe thử). */
@@ -100,12 +89,14 @@ export function sfx(name, { force = false } = {}) {
   else if (!force && !soundEnabled()) why = 'tat';
   else if (!force && reduced()) why = 'giam_chuyen_dong';
   else if (!unlocked && !force) why = 'chua_cham';
+  // Chỉ phát ngay trong lúc học sinh vừa bấm (không phát muộn, không phát khi đang cuộn)
+  else if (!force && name !== 'win' && navigator.userActivation && !navigator.userActivation.isActive) why = 'khong_bam';
   const file = !why && !force ? FILES[name] : (!why ? (loadFiles(), FILES[name]) : null);
   if (file) {
     try {
       file.currentTime = 0;
       const pr = file.play();
-      if (pr && pr.catch) pr.catch(() => synth(name, s));
+      if (pr && pr.catch) pr.catch(() => {}); // bị chặn thì thôi, không phát bù sau
       log.push({ name, played: true, why: '', src: 'file' });
       if (log.length > 50) log.shift();
       return true;
@@ -119,7 +110,8 @@ function synth(name, s, why = '') {
   log.push({ name, played, why: why || (played ? '' : 'khong_ho_tro'), src: 'synth' });
   if (log.length > 50) log.shift();
   if (!played) return false;
-  if (ac.state === 'suspended') ac.resume().catch(() => {});
+  // Ngữ cảnh âm thanh chưa chạy thì bỏ qua (nếu xếp lịch lúc này, các tiếng sẽ dồn lại kêu cùng lúc khi nó chạy)
+  if (ac.state !== 'running') { ac.resume().catch(() => {}); log.at(-1).played = false; log.at(-1).why = 'chua_san_sang'; return false; }
   try { s.play(ac.currentTime + 0.01); } catch { return false; }
   return true;
 }

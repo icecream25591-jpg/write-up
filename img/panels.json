@@ -65,5 +65,713 @@
         "h": 100
       }
     ]
+  },
+  "s04-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "21/11/2026: tách khung 2 thành 2 vùng để mỗi vùng một hướng: 2 = các bạn làm quiz (hộp bóng đèn), 3 = cô Mai xem cột màu",
+    "panels": [
+      {
+        "n": 1,
+        "x": 0.25,
+        "y": 0.75,
+        "w": 32.5,
+        "h": 98.69
+      },
+      {
+        "n": 2,
+        "x": 33.38,
+        "y": 45,
+        "w": 33.38,
+        "h": 54.4
+      },
+      {
+        "n": 3,
+        "x": 33.38,
+        "y": 0.75,
+        "w": 33.38,
+        "h": 44
+      },
+      {
+        "n": 4,
+        "x": 67.25,
+        "y": 0.75,
+        "w": 32.5,
+        "h": 98.69
+      }
+    ]
+  },
+  "s05-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Tranh một cảnh lớn, chia vùng tay 21/11/2026: 1 xưởng gốm trái (ông thợ + Lan), 2 xưởng đóng cửa, 3 quầy hàng cổng làng, 4 khách cầm máy ảnh, 5 dân làng và Minh vẽ gốm",
+    "panels": [
+      {
+        "n": 1,
+        "x": 0,
+        "y": 34,
+        "w": 30,
+        "h": 56,
+        "zoomImg": true
+      },
+      {
+        "n": 2,
+        "x": 31,
+        "y": 3,
+        "w": 20,
+        "h": 45,
+        "zoomImg": true
+      },
+      {
+        "n": 3,
+        "x": 51,
+        "y": 18,
+        "w": 11,
+        "h": 32,
+        "zoomImg": true
+      },
+      {
+        "n": 4,
+        "x": 62,
+        "y": 10,
+        "w": 20,
+        "h": 45,
+        "zoomImg": true
+      },
+      {
+        "n": 5,
+        "x": 53,
+        "y": 52,
+        "w": 47,
+        "h": 44,
+        "zoomImg": true
+      }
+    ]
+  },
+  "s06-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "21/11/2026: mỗi nguồn rác một vùng: 1 chợ + các bạn ném rác, 2 dòng sông có rác nổi, 3 lưới cũ trên bãi; 4 dưới biển; 5 các giải pháp",
+    "panels": [
+      {
+        "n": 1,
+        "x": 0.3,
+        "y": 0.4,
+        "w": 16.5,
+        "h": 58.5
+      },
+      {
+        "n": 2,
+        "x": 16.8,
+        "y": 0.4,
+        "w": 16.3,
+        "h": 58.5
+      },
+      {
+        "n": 3,
+        "x": 0.3,
+        "y": 59,
+        "w": 32.8,
+        "h": 40.6
+      },
+      {
+        "n": 4,
+        "x": 33.6,
+        "y": 0.4,
+        "w": 32.8,
+        "h": 99.2
+      },
+      {
+        "n": 5,
+        "x": 66.9,
+        "y": 0.4,
+        "w": 32.8,
+        "h": 99.2
+      }
+    ]
+  },
+  "s07-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Chia tay 21/11/2026 theo 6 điểm chạm: 1 Minh cầm ví · 2 ba chiếc ví · 3 biển QR · 4 đặt hàng trên giường · 5 Minh xem biểu đồ · 6 Lan kéo thanh giới hạn · 21/11 tối: vùng 2 gồm dải ba chiếc ví và khung Minh ở quầy đồ ăn vặt",
+    "panels": [
+      {
+        "n": 1,
+        "x": 0.4,
+        "y": 0.6,
+        "w": 46.1,
+        "h": 37.5
+      },
+      {
+        "n": 2,
+        "x": 0.4,
+        "y": 38.8,
+        "w": 46.1,
+        "h": 60.6
+      },
+      {
+        "n": 3,
+        "x": 47.4,
+        "y": 0.6,
+        "w": 52.4,
+        "h": 33.8
+      },
+      {
+        "n": 4,
+        "x": 47.5,
+        "y": 34.7,
+        "w": 52.3,
+        "h": 25.8
+      },
+      {
+        "n": 5,
+        "x": 47.5,
+        "y": 61,
+        "w": 25,
+        "h": 38.5
+      },
+      {
+        "n": 6,
+        "x": 72.8,
+        "y": 61,
+        "w": 27,
+        "h": 38.5
+      }
+    ]
+  },
+  "s10-y": {
+    "manual": false,
+    "ratio": 1.5,
+    "panels": [
+      {
+        "n": 1,
+        "x": 0,
+        "y": 0,
+        "w": 49.63,
+        "h": 100
+      },
+      {
+        "n": 2,
+        "x": 50.5,
+        "y": 0,
+        "w": 49.5,
+        "h": 100
+      }
+    ]
+  },
+  "s11-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "21/11/2026: tách nửa phải thành 2 vùng: 2 = cô Mai đi giữa các bàn, 3 = hai bạn chung một phiếu",
+    "panels": [
+      {
+        "n": 1,
+        "x": 0,
+        "y": 0,
+        "w": 49.63,
+        "h": 100
+      },
+      {
+        "n": 2,
+        "x": 50.38,
+        "y": 0,
+        "w": 49.62,
+        "h": 56
+      },
+      {
+        "n": 3,
+        "x": 50.38,
+        "y": 56,
+        "w": 49.62,
+        "h": 44
+      }
+    ]
+  },
+  "s08-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Chia tay 21/11/2026 theo thứ tự điểm chạm: 1 hộp sơ cứu · 2 góc nấu ăn, khâu cúc · 3 Lan chỉ bản đồ · 4 bảng toán · 5 Minh và mô hình vật lý · 6 Hà giữa hành lang · 21/11 tối: vùng 1 gồm các bạn băng tay, hộp sơ cứu, bạn khâu áo (theo ảnh mẫu của cô); vùng 2 góc nấu ăn · 21/11 chốt: bỏ vùng 3 (Lan chỉ bản đồ xe buýt), câu sơ cứu gộp vào vùng 1; vùng 4–6 cũ thành 3–5.",
+    "panels": [
+      {
+        "n": 1,
+        "x": 62,
+        "y": 27,
+        "w": 38,
+        "h": 30
+      },
+      {
+        "n": 2,
+        "x": 62,
+        "y": 3,
+        "w": 38,
+        "h": 25
+      },
+      {
+        "n": 3,
+        "x": 15,
+        "y": 7,
+        "w": 22,
+        "h": 30
+      },
+      {
+        "n": 4,
+        "x": 0,
+        "y": 16,
+        "w": 30,
+        "h": 70
+      },
+      {
+        "n": 5,
+        "x": 38,
+        "y": 15,
+        "w": 22,
+        "h": 80
+      }
+    ]
+  },
+  "s09-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Chia tay 21/11/2026 theo thứ tự điểm chạm: 1 biển quảng cáo · 2 các em chỉ tay · 3 bác sĩ và phụ huynh · 4 chủ tiệm và nhân viên · 5 bé xem máy tính bảng · 6 Lan, Minh, Hà",
+    "panels": [
+      {
+        "n": 1,
+        "x": 45,
+        "y": 4,
+        "w": 40,
+        "h": 28
+      },
+      {
+        "n": 2,
+        "x": 24,
+        "y": 36,
+        "w": 22,
+        "h": 24
+      },
+      {
+        "n": 3,
+        "x": 75,
+        "y": 22,
+        "w": 25,
+        "h": 76
+      },
+      {
+        "n": 4,
+        "x": 0,
+        "y": 10,
+        "w": 26,
+        "h": 62
+      },
+      {
+        "n": 5,
+        "x": 4,
+        "y": 62,
+        "w": 20,
+        "h": 36
+      },
+      {
+        "n": 6,
+        "x": 30,
+        "y": 50,
+        "w": 42,
+        "h": 50
+      }
+    ]
+  },
+  "s12-y": {
+    "manual": false,
+    "ratio": 1.5,
+    "panels": [
+      {
+        "n": 1,
+        "x": 0,
+        "y": 0,
+        "w": 49.75,
+        "h": 100
+      },
+      {
+        "n": 2,
+        "x": 50.38,
+        "y": 0,
+        "w": 49.63,
+        "h": 100
+      }
+    ]
+  },
+  "s13-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Chia tay 21/11/2026 theo thứ tự điểm chạm: 3 khung: 1 thức khuya với điện thoại · 2 mệt mỏi trên lớp · 3 hẹn giờ, ngủ ngon, vui với bạn",
+    "panels": [
+      {
+        "n": 1,
+        "x": 0,
+        "y": 0,
+        "w": 29.5,
+        "h": 100
+      },
+      {
+        "n": 2,
+        "x": 29.8,
+        "y": 0,
+        "w": 33.2,
+        "h": 100
+      },
+      {
+        "n": 3,
+        "x": 63.3,
+        "y": 0,
+        "w": 36.7,
+        "h": 100
+      }
+    ]
+  },
+  "s14-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Chia tay 21/11/2026 theo thứ tự điểm chạm: 1 quả địa cầu, hộ chiếu · 2 sách tiếng Anh · 3 trường nước ngoài · 4 túi tiền · 5 gương mặt cô đơn · 6 ngôi nhà sáng đèn · 7 cái cân",
+    "panels": [
+      {
+        "n": 1,
+        "x": 2,
+        "y": 58,
+        "w": 15,
+        "h": 25
+      },
+      {
+        "n": 2,
+        "x": 16,
+        "y": 64,
+        "w": 13,
+        "h": 20
+      },
+      {
+        "n": 3,
+        "x": 13,
+        "y": 46,
+        "w": 27,
+        "h": 18
+      },
+      {
+        "n": 4,
+        "x": 27,
+        "y": 58,
+        "w": 14,
+        "h": 24
+      },
+      {
+        "n": 5,
+        "x": 17,
+        "y": 26,
+        "w": 18,
+        "h": 20
+      },
+      {
+        "n": 6,
+        "x": 60,
+        "y": 27,
+        "w": 37,
+        "h": 32
+      },
+      {
+        "n": 7,
+        "x": 35,
+        "y": 0,
+        "w": 32,
+        "h": 30
+      }
+    ]
+  },
+  "s15-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Chia tay 21/11/2026 theo thứ tự điểm chạm: 1 lịch của Khoa · 2 mô hình cầu, mũi tên · 3 bài thi và huy chương · 4 bạn bị cảm · 5 bạn với giấy ôn · 6 Hà ghi chép · 7 cô Mai với chuông",
+    "panels": [
+      {
+        "n": 1,
+        "x": 55,
+        "y": 5,
+        "w": 22,
+        "h": 22
+      },
+      {
+        "n": 2,
+        "x": 66,
+        "y": 5,
+        "w": 31,
+        "h": 32
+      },
+      {
+        "n": 3,
+        "x": 5,
+        "y": 5,
+        "w": 35,
+        "h": 35
+      },
+      {
+        "n": 4,
+        "x": 3,
+        "y": 60,
+        "w": 22,
+        "h": 40
+      },
+      {
+        "n": 5,
+        "x": 30,
+        "y": 62,
+        "w": 40,
+        "h": 38
+      },
+      {
+        "n": 6,
+        "x": 72,
+        "y": 60,
+        "w": 28,
+        "h": 40
+      },
+      {
+        "n": 7,
+        "x": 40,
+        "y": 22,
+        "w": 25,
+        "h": 30
+      }
+    ]
+  },
+  "s16-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Chia tay 21/11/2026 theo thứ tự điểm chạm: 1 hát và chơi thẻ hình · 2 diễn lại câu chuyện · 3 bé gái núp sau cột · 4 phụ huynh ở cửa sổ · 5 ghép khối màu · 6 cô Mai giảng ngữ pháp · 7 Tí đi sang lớp",
+    "panels": [
+      {
+        "n": 1,
+        "x": 0,
+        "y": 24,
+        "w": 32,
+        "h": 38
+      },
+      {
+        "n": 2,
+        "x": 0,
+        "y": 58,
+        "w": 32,
+        "h": 42
+      },
+      {
+        "n": 3,
+        "x": 29,
+        "y": 36,
+        "w": 10,
+        "h": 42
+      },
+      {
+        "n": 4,
+        "x": 40,
+        "y": 13,
+        "w": 15,
+        "h": 25
+      },
+      {
+        "n": 5,
+        "x": 55,
+        "y": 52,
+        "w": 45,
+        "h": 48
+      },
+      {
+        "n": 6,
+        "x": 56,
+        "y": 15,
+        "w": 40,
+        "h": 40
+      },
+      {
+        "n": 7,
+        "x": 38,
+        "y": 48,
+        "w": 17,
+        "h": 45
+      }
+    ]
+  },
+  "s17-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Chia tay 21/11/2026 theo thứ tự điểm chạm: 1 homestay · 2 đền đang sửa · 3 hướng dẫn viên · 4 xe du lịch trên ruộng · 5 rác và nhạc ồn · 6 bảng giá thuê nhà · 7 điệu múa · 8 họp làng",
+    "panels": [
+      {
+        "n": 1,
+        "x": 3,
+        "y": 3,
+        "w": 22,
+        "h": 28
+      },
+      {
+        "n": 2,
+        "x": 26,
+        "y": 3,
+        "w": 22,
+        "h": 28
+      },
+      {
+        "n": 3,
+        "x": 8,
+        "y": 58,
+        "w": 20,
+        "h": 28
+      },
+      {
+        "n": 4,
+        "x": 70,
+        "y": 3,
+        "w": 30,
+        "h": 25
+      },
+      {
+        "n": 5,
+        "x": 62,
+        "y": 26,
+        "w": 38,
+        "h": 28
+      },
+      {
+        "n": 6,
+        "x": 76,
+        "y": 44,
+        "w": 22,
+        "h": 24
+      },
+      {
+        "n": 7,
+        "x": 73,
+        "y": 66,
+        "w": 27,
+        "h": 28
+      },
+      {
+        "n": 8,
+        "x": 25,
+        "y": 66,
+        "w": 45,
+        "h": 34
+      }
+    ]
+  },
+  "s18-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Chia tay 21/11/2026 theo thứ tự điểm chạm: 1 mẹ dạy Lan nấu · 2 bố và Tí xếp quần áo · 3 phụ huynh bận laptop · 4 bạn ngồi chán · 5 cô Mai và các góc thực hành · 6 góc sơ cứu · 7 Hà trên cầu",
+    "panels": [
+      {
+        "n": 1,
+        "x": 0,
+        "y": 10,
+        "w": 27,
+        "h": 32
+      },
+      {
+        "n": 2,
+        "x": 26,
+        "y": 10,
+        "w": 22,
+        "h": 30
+      },
+      {
+        "n": 3,
+        "x": 0,
+        "y": 65,
+        "w": 38,
+        "h": 35
+      },
+      {
+        "n": 4,
+        "x": 76,
+        "y": 62,
+        "w": 24,
+        "h": 38
+      },
+      {
+        "n": 5,
+        "x": 52,
+        "y": 36,
+        "w": 48,
+        "h": 28
+      },
+      {
+        "n": 6,
+        "x": 53,
+        "y": 12,
+        "w": 22,
+        "h": 24
+      },
+      {
+        "n": 7,
+        "x": 40,
+        "y": 25,
+        "w": 22,
+        "h": 55
+      }
+    ]
+  },
+  "s19-y": {
+    "manual": false,
+    "ratio": 1.5,
+    "panels": [
+      {
+        "n": 1,
+        "x": 0,
+        "y": 0,
+        "w": 49.5,
+        "h": 100
+      },
+      {
+        "n": 2,
+        "x": 50.5,
+        "y": 0,
+        "w": 49.5,
+        "h": 100
+      }
+    ]
+  },
+  "s20-y": {
+    "manual": true,
+    "ratio": 1.5,
+    "_ghichu": "Chia tay 21/11/2026 theo thứ tự điểm chạm: 2 nửa theo Khung 1 (nguyên nhân) · Khung 2 (giải pháp)",
+    "panels": [
+      {
+        "n": 1,
+        "x": 0.5,
+        "y": 0.5,
+        "w": 49.3,
+        "h": 99
+      },
+      {
+        "n": 2,
+        "x": 50.2,
+        "y": 0.5,
+        "w": 49.3,
+        "h": 99
+      }
+    ]
+  },
+  "s21-y": {
+    "manual": false,
+    "ratio": 1.5,
+    "panels": [
+      {
+        "n": 1,
+        "x": 0.38,
+        "y": 0.56,
+        "w": 49.13,
+        "h": 98.87
+      },
+      {
+        "n": 2,
+        "x": 50.5,
+        "y": 0.56,
+        "w": 49.13,
+        "h": 98.87
+      }
+    ]
   }
 }

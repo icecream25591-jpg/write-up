@@ -1,0 +1,359 @@
+{
+  "session": "S09",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S9 (tools/tao-session.mjs)",
+  "topic": "Regulating fast-food advertising",
+  "productVi": "mở bài 30–50 từ cho đề hai quan điểm + hai câu chủ đề thân bài + kiểm kế hoạch.",
+  "targetsVi": "động từ tường thuật + that; mệnh đề danh từ; giả định cách (recommend that… be); mở bài hai quan điểm.",
+  "sticker": "sticker-2#3",
+  "recall": [
+    {
+      "id": "S09-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Basic cooking skills ___ at home in many families.",
+      "options": [
+        "teach",
+        "are taught",
+        "are teaching"
+      ],
+      "answer": "are taught",
+      "explainVi": "Kỹ năng được dạy → bị động."
+    },
+    {
+      "id": "S09-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "A new garden is ___ built behind the library.",
+      "options": [
+        "being",
+        "been",
+        "be"
+      ],
+      "answer": "being",
+      "explainVi": "Bị động tiếp diễn: is being + V3."
+    },
+    {
+      "id": "S09-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Students should taught how to manage money.",
+      "answer": "should be taught",
+      "explainVi": "Bị động với động từ khuyết thiếu: should be + V3."
+    },
+    {
+      "id": "S09-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Hands-on lessons ___ students with useful skills.",
+      "options": [
+        "equip",
+        "teach",
+        "learn"
+      ],
+      "answer": "equip",
+      "explainVi": "equip sb with sth."
+    },
+    {
+      "id": "S09-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Schools need to find the right ___ between exams and life skills.",
+      "options": [
+        "balance",
+        "weight",
+        "measure"
+      ],
+      "answer": "balance",
+      "explainVi": "find the right balance between A and B."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S09-C1",
+      "image": "s09-cau",
+      "cell": 1,
+      "altVi": "Tí nhìn biển quảng cáo burger kèm đồ chơi cạnh cổng trường",
+      "vi": "Mệnh đề danh từ với that sau realise / know.",
+      "target": "Mệnh đề danh từ",
+      "chips": [
+        "be exposed to advertising",
+        "persuasive techniques",
+        "a billboard",
+        "sell him a meal"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:realise|realises|realised|realize|realizes|realized|know|knows|knew|understand|understands|understood|see|sees|notice|notices)\\s+(?:that\\s+)?[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng mệnh đề danh từ với that sau realise / know."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Ti does not realise that the billboard is trying to sell him a meal."
+    },
+    {
+      "id": "S09-C2",
+      "image": "s09-cau",
+      "cell": 2,
+      "altVi": "Mẹ lắc đầu khi Tí kéo vào tiệm có đồ chơi trong tủ kính",
+      "vi": "Động từ tường thuật + that.",
+      "target": "Động từ tường thuật + that",
+      "chips": [
+        "parental responsibility",
+        "explain that",
+        "the toy",
+        "make children want the meal"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:explains?|explained|says?|said|claims?|claimed|argues?|argued|believes?|believed|points?\\s+out|pointed\\s+out|warns?|warned|admits?|admitted|insists?|insisted|suggests?|suggested)\\s+that\\b",
+          "flags": "i",
+          "msgVi": "Dùng động từ tường thuật + that."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Ti's mother explains that the toy is only there to make children want the meal."
+    },
+    {
+      "id": "S09-C3",
+      "image": "s09-cau",
+      "cell": 3,
+      "altVi": "TV chiếu linh vật burger nhảy múa giữa phim hoạt hình",
+      "vi": "What + mệnh đề làm chủ ngữ.",
+      "target": "What",
+      "chips": [
+        "be vulnerable to",
+        "a mascot",
+        "what the children remember",
+        "the dancing burger"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*What\\s+[a-z]",
+          "flags": "",
+          "msgVi": "Mở đầu câu bằng What + mệnh đề làm chủ ngữ."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "What the children remember most is the dancing burger, not the cartoon."
+    },
+    {
+      "id": "S09-C4",
+      "image": "s09-cau",
+      "cell": 4,
+      "altVi": "Quảng cáo hiện trên máy tính bảng của Tí, mẹ đang nấu không thấy",
+      "vi": "Giả định cách: recommend / suggest that + S + V nguyên mẫu.",
+      "target": "Giả định cách",
+      "chips": [
+        "impose a ban on",
+        "junk food",
+        "recommend that",
+        "children's apps"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:recommends?|recommended|suggests?|suggested|insists?|insisted|demands?|demanded|proposes?|proposed)\\s+that\\s+[\\w'-]+(?:\\s+[\\w'-]+){0,4}\\s+(?:be|not\\s+be|[a-z]+)\\b",
+          "flags": "i",
+          "msgVi": "Dùng giả định cách: recommend / suggest that + S + V nguyên mẫu."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Many parents recommend that junk-food adverts be blocked on children's apps."
+    }
+  ],
+  "ideas": {
+    "image": "s09-y",
+    "prompt": "Some people believe that food companies should not be allowed to give free toys with children's meals, while others think this is harmless fun. Discuss both views and give your own opinion. For this task, write only the introduction and one topic sentence for each body paragraph.",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "view-1",
+        "en": "View 1",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "view-2",
+        "en": "View 2",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "my-view",
+        "en": "My view",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "spots": [
+      {
+        "id": "S09-Y1",
+        "panel": 1,
+        "lookVi": "Biển quảng cáo có đồ chơi tặng kèm",
+        "qVi": "Đồ chơi khiến món ăn trông như thế nào với trẻ?",
+        "chips": [
+          "link junk food with fun"
+        ],
+        "lane": "view-1"
+      },
+      {
+        "id": "S09-Y2",
+        "panel": 2,
+        "lookVi": "Các em nhỏ chỉ tay",
+        "qVi": "Trẻ nhỏ có biết đây là quảng cáo không?",
+        "chips": [
+          "be vulnerable to persuasive techniques"
+        ],
+        "lane": "view-1"
+      },
+      {
+        "id": "S09-Y3",
+        "panel": 3,
+        "lookVi": "Bác sĩ và phụ huynh (trái tim, rau)",
+        "qVi": "Họ lo điều gì cho trẻ?",
+        "chips": [
+          "childhood obesity",
+          "unhealthy eating habits"
+        ],
+        "lane": "view-1"
+      },
+      {
+        "id": "S09-Y4",
+        "panel": 4,
+        "lookVi": "Chủ tiệm và nhân viên (đồng xu, người làm)",
+        "qVi": "Họ sẽ nói gì nếu bị cấm tặng đồ chơi?",
+        "chips": [
+          "sales and jobs",
+          "harmless fun"
+        ],
+        "lane": "view-2"
+      },
+      {
+        "id": "S09-Y5",
+        "panel": 5,
+        "lookVi": "Bé xem máy tính bảng trên bậc thềm",
+        "qVi": "Ai quyết định trẻ ăn gì?",
+        "chips": [
+          "parents make the final choice"
+        ],
+        "lane": "view-2"
+      },
+      {
+        "id": "S09-Y6",
+        "panel": 6,
+        "lookVi": "Lan, Minh, Hà đứng giữa",
+        "qVi": "Có cách nào dung hòa hai bên?",
+        "chips": [
+          "toys only with healthier meals"
+        ],
+        "lane": "my-view"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "that-clauses · recommend that",
+      "vi": "Động từ tường thuật + that: argue, claim, point out. What… làm chủ ngữ. suggest / recommend that + S + V nguyên mẫu (không -s, không to).",
+      "exampleEn": "Critics argue that adverts target young children. Doctors recommend that schools stop selling sweets in canteens."
+    },
+    "ideas": {
+      "titleEn": "Should be banned · Harmless · My view",
+      "vi": "Xếp mỗi cụm vào đúng quan điểm. Ý của em thường tìm cách dung hòa hai bên.",
+      "exampleEn": "be vulnerable to advertising → Should be banned; parents make the final choice → Harmless; healthier meals only → My view"
+    },
+    "write": {
+      "titleEn": "Two views, one voice",
+      "vi": "Mở bài: bối cảnh → quan điểm 1 → quan điểm 2 → ý riêng. Hai động từ tường thuật khác nhau + that, một câu giả định cách. While / whereas nối hai quan điểm; có phẩy sau While… đứng đầu câu.",
+      "exampleEn": "While some argue that free toys encourage children to eat badly, others claim that they are harmless fun. I would suggest that toys be offered only with healthier meals."
+    },
+    "recall": {
+      "titleEn": "S8 review",
+      "vi": "be + V3. Thesis chủ động, nêu rõ mức đồng ý. Mở bài không chép đề.",
+      "exampleEn": "Financial skills are rarely taught in lower secondary schools."
+    }
+  },
+  "write": {
+    "id": "S09-W1",
+    "kind": "body",
+    "prompt": "Some people believe that food companies should not be allowed to give free toys with children's meals, while others think this is harmless fun. Discuss both views and give your own opinion. For this task, write only the introduction and one topic sentence for each body paragraph.",
+    "taskVi": "mở bài 30–50 từ (bối cảnh, hai quan điểm, ý riêng) + câu chủ đề của hai đoạn thân bài, rồi đánh dấu bảng kiểm kế hoạch. Mở rộng: viết trọn đoạn thân bài 1 (100–120 từ).",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        30,
+        50
+      ],
+      "extension": [
+        100,
+        120
+      ]
+    },
+    "extensionVi": "",
+    "minutes": null,
+    "mustUse": [
+      "hai động từ tường thuật khác nhau + that",
+      "một câu giả định cách"
+    ],
+    "modelAfterSubmit": "Mở bài (46 từ): Many fast-food restaurants now offer a free toy with every children's meal. While some people argue that this marketing trick should be banned, others claim that it is simply harmless fun. I would recommend that such toys be offered only with healthier meals.\n\nThân bài 1: Those who support a ban point out that toys make young children want food that is high in fat and sugar.\n\nThân bài 2: On the other hand, supporters of the toys believe that parents, not companies, decide what a family eats."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Bàn CẢ hai quan điểm và có ý riêng?"
+    },
+    {
+      "round": "Câu",
+      "code": "VF",
+      "vi": "Sau recommend / suggest that là động từ nguyên mẫu (be, stop, not use)?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "while / whereas nối hai quan điểm trong một câu?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "Động từ tường thuật hợp ý: argue, claim, point out, believe?"
+    },
+    {
+      "round": "Từ",
+      "code": "PU",
+      "vi": "Mệnh đề While… đứng đầu câu có dấu phẩy ngăn cách?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-2#3",
+    "stickerVi": "Hà với tô salad"
+  },
+  "praiseEn": "Fair and balanced — just like a healthy meal!"
+}

@@ -96,3 +96,34 @@
   .rw-title{font-size:1.75rem}
   .rw-in{gap:8px;padding:16px}
 }
+
+/* S22 · Phân tích đề (năm dòng) và thi thử */
+.analysis{display:flex;flex-direction:column;gap:10px;max-width:860px;margin-inline:auto;width:100%}
+.an-intro{margin:0;color:var(--ink-3)}
+.an-prompt{padding:12px 14px}.an-prompt p{margin:4px 0 0;font-size:1rem}
+.an-lines{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.an-row{padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.an-row label{display:flex;flex-direction:column;gap:2px}
+.an-what{font-size:.8125rem;font-weight:700;color:var(--ink-2)}
+.an-lines textarea{width:100%;min-height:44px;border-radius:12px;border:2px solid var(--border);padding:8px 10px;font-size:16px;font-weight:700;resize:vertical;background:#fff;color:var(--ink)}
+.an-lines textarea:focus{border-color:var(--primary);outline:none}
+.an-ex{background:var(--primary-soft);border-left:4px solid var(--primary);border-radius:10px;padding:6px 10px;font-size:.875rem}
+.an-show{align-self:flex-start}
+.exam-lines li{display:flex;flex-direction:column;gap:3px}
+.exam-start{padding:16px;display:flex;flex-direction:column;gap:10px;max-width:640px}
+.exam-start h2{font-size:1.25rem}.exam-start p{margin:0}
+
+/* S22: hai mục thi, yêu cầu chung, bảng «Em đã sửa gì?» */
+.exam-modes{display:flex;flex-direction:column;gap:12px;max-width:720px;margin-inline:auto;width:100%}
+.ex-pick{min-height:44px;border-radius:12px;border:2px solid var(--border);padding:6px 10px;font-size:16px;font-weight:800;background:#fff;color:var(--ink);max-width:320px}
+.pc-req{margin:0;font-size:.8125rem;font-weight:800;color:var(--primary-shadow)}
+.pc-switch{border:0;background:none;cursor:pointer}
+.edits{padding:10px;display:flex;flex-direction:column;gap:6px;border-radius:16px}
+.ed-list{display:flex;flex-direction:column;gap:6px}
+.ed-row{display:grid;grid-template-columns:78px 1fr auto 1fr 36px;gap:6px;align-items:center}
+.ed-row select,.ed-row input{min-height:44px;border-radius:10px;border:2px solid var(--border);padding:4px 8px;font-size:16px;font-weight:700;background:#fff;color:var(--ink);min-width:0}
+.ed-del{width:36px;height:36px;min-height:0;border-radius:50%;border:2px solid var(--border);background:#fff;font-weight:900}
+.ed-act{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ed-none{display:flex;align-items:center;gap:6px;font-size:.8125rem;font-weight:700;min-height:44px}
+.ed-none input{width:20px;height:20px}
+@media (max-width:420px){.ed-row{grid-template-columns:70px 1fr 36px}.ed-row>span{display:none}.ed-row input[data-f="after"]{grid-column:2}}

@@ -1,0 +1,369 @@
+{
+  "session": "S14",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S14 (tools/tao-session.mjs)",
+  "topic": "Studying abroad",
+  "productVi": "essay 4 đoạn 200–250 từ, dạng lợi ích có lớn hơn bất lợi không.",
+  "targetsVi": "so sánh có mức độ (far more…, slightly less…); câu cân nhắc với outweigh / be offset by / at the cost of.",
+  "sticker": "sticker-3#2",
+  "recall": [
+    {
+      "id": "S14-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Too much screen time can lead ___ poor sleep.",
+      "options": [
+        "to",
+        "in",
+        "on"
+      ],
+      "answer": "to",
+      "explainVi": "lead to + danh từ."
+    },
+    {
+      "id": "S14-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "___ the noise from my phone, I could not sleep.",
+      "options": [
+        "Because",
+        "Because of",
+        "So"
+      ],
+      "answer": "Because of",
+      "explainVi": "because of + cụm danh từ."
+    },
+    {
+      "id": "S14-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Cyberbullying can result to anxiety.",
+      "answer": "result to → result in",
+      "explainVi": "result in + kết quả."
+    },
+    {
+      "id": "S14-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Constant comparison may take a ___ on teenagers' self-esteem.",
+      "options": [
+        "toll",
+        "cost",
+        "price"
+      ],
+      "answer": "toll",
+      "explainVi": "take a toll on = gây hại dần."
+    },
+    {
+      "id": "S14-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Which claim is more careful?",
+      "options": [
+        "Social media destroys every teenager's confidence.",
+        "Heavy social media use may lower some teenagers' confidence."
+      ],
+      "answer": "Heavy social media use may lower some teenagers' confidence.",
+      "explainVi": "Mức chắc chắn hợp căn cứ: may, some."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S14-C1",
+      "image": "s14-cau",
+      "cell": 1,
+      "altVi": "Minh ôm bố mẹ chào tạm biệt ở sân bay",
+      "vi": "So sánh có mức độ với far more.",
+      "target": "far more",
+      "chips": [
+        "be homesick",
+        "leave home",
+        "a sixteen-year-old",
+        "a university student"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bfar\\s+(?:more|less|[a-z]+er)\\b",
+          "flags": "i",
+          "msgVi": "So sánh có mức độ với far more / far + so sánh hơn."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "For Minh, leaving home at sixteen is far more difficult than it is for a university student."
+    },
+    {
+      "id": "S14-C2",
+      "image": "s14-cau",
+      "cell": 2,
+      "altVi": "Hà học trong thư viện lớn với bạn nhiều nước",
+      "vi": "So sánh có mức độ với much + so sánh hơn.",
+      "target": "much + so sánh hơn",
+      "chips": [
+        "broaden one's horizons",
+        "an overseas student",
+        "classmates from many countries",
+        "a wider view"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bmuch\\s+(?:more|less|[a-z]+er)\\b",
+          "flags": "i",
+          "msgVi": "Dùng much + so sánh hơn."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Studying with classmates from many countries gives Ha a much wider view of the world."
+    },
+    {
+      "id": "S14-C3",
+      "image": "s14-cau",
+      "cell": 3,
+      "altVi": "Khoa một mình trong ký túc xá, gọi video về nhà",
+      "vi": "Dùng be offset by.",
+      "target": "be offset by",
+      "chips": [
+        "homesickness",
+        "a support network",
+        "a new school",
+        "lonely evenings"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\boffset\\s+by\\b",
+          "flags": "i",
+          "msgVi": "Dùng be offset by."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Khoa's excitement about starting at a new school can be offset by homesickness during lonely evenings in his dorm room."
+    },
+    {
+      "id": "S14-C4",
+      "image": "s14-cau",
+      "cell": 4,
+      "altVi": "Vy vui vẻ ở trường đại học trong nước, cuối tuần gia đình đến thăm",
+      "vi": "slightly less …, but …",
+      "target": "slightly less …, but …",
+      "chips": [
+        "the cost of living",
+        "family support",
+        "an international course",
+        "slightly less"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bslightly\\s+less\\b[^.]*,\\s*but\\b",
+          "flags": "i",
+          "msgVi": "Dùng slightly less …, but …"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Vy may have slightly less contact with students from other countries than she would on an international course abroad, but she can still count on family support."
+    }
+  ],
+  "ideas": {
+    "image": "s14-y",
+    "prompt": "Some Vietnamese families now send their children abroad at the age of fifteen or sixteen to finish upper secondary school. Do the benefits of this choice outweigh its drawbacks?",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "advantages",
+        "en": "Advantages",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "disadvantages",
+        "en": "Disadvantages",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "weighing-up",
+        "en": "Weighing up",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "spots": [
+      {
+        "id": "S14-Y1",
+        "panel": 1,
+        "lookVi": "Đĩa trái · quả địa cầu, hộ chiếu",
+        "qVi": "Du học sớm mở ra điều gì?",
+        "chips": [
+          "broaden one's horizons"
+        ],
+        "lane": "advantages"
+      },
+      {
+        "id": "S14-Y2",
+        "panel": 2,
+        "lookVi": "Đĩa trái · sách tiếng Anh",
+        "qVi": "Ngôn ngữ tiến bộ nhờ đâu?",
+        "chips": [
+          "use English every day"
+        ],
+        "lane": "advantages"
+      },
+      {
+        "id": "S14-Y3",
+        "panel": 3,
+        "lookVi": "Đĩa trái · tòa nhà trường nước ngoài",
+        "qVi": "Trường đó có gì trong nước chưa có?",
+        "chips": [
+          "subjects not available at home"
+        ],
+        "lane": "advantages"
+      },
+      {
+        "id": "S14-Y4",
+        "panel": 4,
+        "lookVi": "Đĩa trái · túi tiền nặng",
+        "qVi": "Gia đình phải trả những khoản gì?",
+        "chips": [
+          "tuition fees",
+          "the cost of living"
+        ],
+        "lane": "disadvantages"
+      },
+      {
+        "id": "S14-Y5",
+        "panel": 5,
+        "lookVi": "Đĩa trái · gương mặt cô đơn",
+        "qVi": "Một bạn 16 tuổi xa nhà cảm thấy thế nào?",
+        "chips": [
+          "homesickness",
+          "culture shock"
+        ],
+        "lane": "disadvantages"
+      },
+      {
+        "id": "S14-Y6",
+        "panel": 6,
+        "lookVi": "Đĩa phải · ngôi nhà sáng đèn",
+        "qVi": "Ở lại trong nước, bạn giữ được gì?",
+        "chips": [
+          "a support network"
+        ],
+        "lane": "weighing-up"
+      },
+      {
+        "id": "S14-Y7",
+        "panel": 7,
+        "lookVi": "Cái cân chỉ nghiêng nhẹ",
+        "qVi": "Điều gì quyết định bên nào nặng hơn?",
+        "chips": [
+          "age and maturity",
+          "weigh up the pros and cons"
+        ],
+        "lane": "weighing-up"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Comparison + weighing",
+      "vi": "far / much / slightly + so sánh hơn. A outweighs B: A nặng hơn B. be offset by: được bù đắp bởi. at the cost of: đổi lại bằng.",
+      "exampleEn": "Living costs abroad are far higher than those at home. Independence is gained at the cost of family support."
+    },
+    "ideas": {
+      "titleEn": "Advantages · Disadvantages · Weighing",
+      "vi": "Xếp mỗi cụm vào Advantages, Disadvantages hoặc Weighing. Cân nhắc là hỏi: đối với ai? kéo dài bao lâu? giảm được không?",
+      "exampleEn": "use English every day → Advantages; culture shock → Disadvantages; age and maturity → Weighing"
+    },
+    "write": {
+      "titleEn": "Which side is heavier?",
+      "vi": "Thesis và kết bài nói rõ bên nào nặng hơn, đối với ai. Phải có câu cân nhắc giải thích vì sao, không chỉ liệt kê hai bên.",
+      "exampleEn": "For students over sixteen, the benefits outweigh the drawbacks, because homesickness usually fades while language skills last."
+    },
+    "recall": {
+      "titleEn": "S13 review",
+      "vi": "result in + kết quả. result from + nguyên nhân. because of + danh từ.",
+      "exampleEn": "Better grades result from regular revision."
+    }
+  },
+  "write": {
+    "id": "S14-W1",
+    "kind": "essay",
+    "prompt": "Some Vietnamese families now send their children abroad at the age of fifteen or sixteen to finish upper secondary school. Do the benefits of this choice outweigh its drawbacks?",
+    "taskVi": "essay 4 đoạn, 200–250 từ: mở bài có thesis trả lời \"outweigh\" – lợi ích – bất lợi (có câu cân nhắc) – kết bài.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        200,
+        250
+      ],
+      "extension": [
+        200,
+        250
+      ]
+    },
+    "extensionVi": "",
+    "minutes": null,
+    "mustUse": [
+      "một so sánh có mức độ",
+      "một câu với outweigh / be offset by / at the cost of"
+    ],
+    "modelAfterSubmit": "In recent years, some Vietnamese families have started sending their children abroad at the age of fifteen or sixteen to finish upper secondary school. Although this trend offers real benefits, I believe that for most teenagers of this age the disadvantages outweigh the advantages.\n\nAdmittedly, studying abroad early can broaden a young person's horizons. By using English every day, teenagers usually become far more fluent than their friends at home, and they learn to solve everyday problems without their parents' help. Some schools abroad also offer subjects and activities that are not available in Vietnam.\n\nHowever, these benefits often come at a high cost. Tuition fees and the cost of living abroad are much higher than at home, which puts heavy pressure on many families. More importantly, a sixteen-year-old is still developing emotionally. Without a support network nearby, many young students suffer from homesickness and culture shock, and some fall behind because no one notices their problems early. These difficulties are not easily offset by better language skills.\n\nIn conclusion, sending teenagers abroad for upper secondary school can broaden their horizons, but the financial and emotional costs are usually greater. In my view, most students would gain far more from studying abroad at university, when they are mature enough to adapt."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Thesis và kết bài trả lời rõ bên nào nặng hơn?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Có câu cân nhắc nói vì sao một bên nặng hơn, không chỉ liệt kê hai bên?"
+    },
+    {
+      "round": "Câu",
+      "code": "VF",
+      "vi": "far / much / slightly + so sánh hơn; không dùng \"very more\"?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "A outweighs B (A nặng hơn B), không viết ngược nghĩa?"
+    },
+    {
+      "round": "Từ",
+      "code": "A",
+      "vi": "a sixteen-year-old (không có -s), the cost of living?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-3#2",
+    "stickerVi": "Minh kéo va li"
+  },
+  "praiseEn": "Well weighed — your argument has perfect balance!"
+}

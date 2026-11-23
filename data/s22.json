@@ -1,0 +1,381 @@
+{
+  "session": "S22",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S22 (tools/tao-session.mjs)",
+  "topic": "Mock exam and self-editing",
+  "productVi": "",
+  "targetsVi": "",
+  "sticker": "sticker-4#4",
+  "recall": [
+    {
+      "id": "S22-R1",
+      "type": "choice",
+      "vi": "Chọn mã lỗi",
+      "en": "Because many students work late. They feel tired in class.",
+      "options": [
+        "FR",
+        "CS",
+        "SV",
+        "VF",
+        "SP"
+      ],
+      "answer": "FR",
+      "explainVi": "Lỗi FR. Sửa: Because many students work late, they feel tired in class.",
+      "askVi": "Đọc từng câu và chọn mã tương ứng với lỗi em phát hiện."
+    },
+    {
+      "id": "S22-R2",
+      "type": "choice",
+      "vi": "Chọn mã lỗi",
+      "en": "Online learning is convenient, however it needs a stable connection.",
+      "options": [
+        "FR",
+        "CS",
+        "SV",
+        "VF",
+        "SP"
+      ],
+      "answer": "CS",
+      "explainVi": "Lỗi CS. Sửa: … convenient; however, it needs …",
+      "askVi": "Đọc từng câu và chọn mã tương ứng với lỗi em phát hiện."
+    },
+    {
+      "id": "S22-R3",
+      "type": "choice",
+      "vi": "Chọn mã lỗi",
+      "en": "The number of tourists have increased sharply.",
+      "options": [
+        "FR",
+        "CS",
+        "SV",
+        "VF",
+        "SP"
+      ],
+      "answer": "SV",
+      "explainVi": "Lỗi SV. Sửa: The number … has increased …",
+      "askVi": "Đọc từng câu và chọn mã tương ứng với lỗi em phát hiện."
+    },
+    {
+      "id": "S22-R4",
+      "type": "choice",
+      "vi": "Chọn mã lỗi",
+      "en": "Late-night scrolling can cause teenagers feel anxious.",
+      "options": [
+        "FR",
+        "CS",
+        "SV",
+        "VF",
+        "SP"
+      ],
+      "answer": "VF",
+      "explainVi": "Lỗi VF. Sửa: cause teenagers to feel anxious",
+      "askVi": "Đọc từng câu và chọn mã tương ứng với lỗi em phát hiện."
+    },
+    {
+      "id": "S22-R5",
+      "type": "choice",
+      "vi": "Chọn mã lỗi",
+      "en": "Every student should be equiped with basic first-aid skills.",
+      "options": [
+        "FR",
+        "CS",
+        "SV",
+        "VF",
+        "SP"
+      ],
+      "answer": "SP",
+      "explainVi": "Lỗi SP. Sửa: equipped",
+      "askVi": "Đọc từng câu và chọn mã tương ứng với lỗi em phát hiện."
+    },
+    {
+      "id": "S22-R6",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Khởi động tự sửa",
+      "warmup": true,
+      "en": "Nowadays, many teenager spend hours on their phones. Because short videos are fun. This habit can lead to poor sleep, it also makes it hard to concentrate. Teachers should encourage students reading more books, which can broaden there vocabulary.",
+      "answer": "teenager → teenagers (P) · câu Because … fun. đứng một mình → nối vào câu trước (FR) · … poor sleep, it also … → poor sleep, and it also … (CS) · encourage students reading → encourage students to read (VF) · there → their (SP).",
+      "explainVi": "Đoạn có 5 lỗi: P, FR, CS, VF, SP. Gắn mã cho từng chỗ em sửa."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S22-C1",
+      "image": "s22-cau",
+      "cell": 1,
+      "altVi": "Minh gạch chân từ khóa của đề, kính lúp bên cạnh",
+      "vi": "Mở đầu bằng Before + V-ing, có so that.",
+      "target": "Before + V-ing + so that",
+      "chips": [
+        "key words",
+        "the exact question",
+        "underline",
+        "so that"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*Before\\s+[a-z]+ing\\b",
+          "flags": "",
+          "msgVi": "Mở đầu bằng Before + V-ing."
+        },
+        {
+          "kind": "regex",
+          "pattern": "\\bso that\\b",
+          "flags": "i",
+          "msgVi": "Dùng so that."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Before writing, Minh underlines the key words so that he answers the exact question."
+    },
+    {
+      "id": "S22-C2",
+      "image": "s22-cau",
+      "cell": 2,
+      "altVi": "Lan phác nhanh dàn ý bốn ô, đồng hồ nhỏ bên cạnh",
+      "vi": "Dùng It is + adj + to V.",
+      "target": "It is + adj + to V",
+      "chips": [
+        "plan",
+        "four paragraphs",
+        "five minutes",
+        "it is wise"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*It\\s+is\\s+[a-z]+\\s+to\\s+[a-z]+",
+          "flags": "",
+          "msgVi": "Dùng It is + adj + to V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "It is wise to spend five minutes planning four short paragraphs before writing."
+    },
+    {
+      "id": "S22-C3",
+      "image": "s22-cau",
+      "cell": 3,
+      "altVi": "Hà dò từng câu bằng ngón tay, dấu tích trên mỗi dòng",
+      "vi": "Dùng By + V-ing.",
+      "target": "By + V-ing",
+      "chips": [
+        "a subject and a main verb",
+        "check each sentence",
+        "find fragments",
+        "before her teacher"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*By\\s+[a-z]+ing\\b",
+          "flags": "",
+          "msgVi": "Mở đầu bằng By + V-ing."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "By checking each sentence for a subject and a main verb, Ha finds fragments before her teacher does."
+    },
+    {
+      "id": "S22-C4",
+      "image": "s22-cau",
+      "cell": 4,
+      "altVi": "Khoa soát chính tả và đuôi từ trong bốn phút cuối",
+      "vi": "Dùng make sure (that).",
+      "target": "make sure (that)",
+      "chips": [
+        "verb endings",
+        "plural -s",
+        "the last four minutes",
+        "make sure"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bmak(?:e|es|ing)\\s+sure\\b",
+          "flags": "i",
+          "msgVi": "Dùng make sure (that)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "In the last four minutes, Khoa makes sure that every verb ending and plural -s is correct."
+    }
+  ],
+  "ideas": null,
+  "analysis": {
+    "introVi": "Đọc đề và ghi ý chính vào năm dòng bên dưới trước khi bắt đầu viết.",
+    "prompt": "Some people think that secondary schools should stop requiring students to wear uniforms. To what extent do you agree or disagree?",
+    "lines": [
+      {
+        "label": "1 · Dạng đề",
+        "whatVi": "Opinion / discuss both views / advantages–disadvantages / causes–solutions / two-part",
+        "example": "Opinion (to what extent)"
+      },
+      {
+        "label": "2 · Câu hỏi lõi",
+        "whatVi": "Đề thật sự hỏi gì, viết lại bằng lời của em",
+        "example": "Should uniforms stop being compulsory?"
+      },
+      {
+        "label": "3 · Từ giới hạn",
+        "whatVi": "Từ khoanh vùng phạm vi",
+        "example": "secondary schools, requiring"
+      },
+      {
+        "label": "4 · Quan điểm + lý do",
+        "whatVi": "Một câu",
+        "example": "I partly disagree: uniforms reduce pressure about clothes, but schools could allow more choice."
+      },
+      {
+        "label": "5 · Việc của từng thân bài",
+        "whatVi": "Mỗi thân bài một dòng",
+        "example": "TB1: why uniforms help · TB2: what could change"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Exam-day habits",
+      "vi": "Before + V-ing; It is + adj + to V; By + V-ing; make sure (that). Dùng cho thói quen làm bài: gạch từ khóa, lập dàn ý, soát câu, soát đuôi từ.",
+      "exampleEn": "Before writing, I check the exact question. By planning for five minutes, I avoid going off topic."
+    },
+    "ideas": {
+      "titleEn": "Five lines",
+      "vi": "Trước khi viết, điền năm dòng: dạng đề, câu hỏi lõi (viết lại bằng lời của em), từ giới hạn, quan điểm + lý do, việc của từng thân bài.",
+      "exampleEn": "Core question: Should uniforms stop being compulsory? → Limiting words: secondary schools, requiring"
+    },
+    "write": {
+      "titleEn": "Three passes",
+      "vi": "4 phút cuối, đọc ba lượt và ghi mã bên cạnh mỗi chỗ sửa: Ý (OFF, OVER) → Câu (FR, CS, SV, T, VF, LINK) → Từ (WW, WF, REF, A, P, SP, PU).",
+      "exampleEn": "Many student is tired. [SV] → Many students are tired."
+    },
+    "recall": {
+      "titleEn": "Error codes",
+      "vi": "Nhớ các mã đã học. Mỗi câu một lỗi: chọn mã rồi sửa. FR = câu cụt; CS = nối hai câu bằng dấu phẩy; SV = hòa hợp chủ – vị; VF = dạng động từ; SP = chính tả.",
+      "exampleEn": "Schools should encourage students reading more. [VF] → … encourage students to read more."
+    }
+  },
+  "write": {
+    "id": "S22-W1",
+    "kind": "essay",
+    "prompt": "",
+    "taskVi": "đề mới giáo viên nhập trên trang quản lý, chỉ hiện khi học sinh bấm Bắt đầu. 40 phút (gồm 4 phút cuối học sinh tự đọc và sửa), 200–250 từ, không tranh, không gợi ý, không có công cụ tự kiểm tự động. Trước khi viết câu đầu tiên, web yêu cầu điền «năm dòng». Không có bài mẫu trên web cho đề thi.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        200,
+        250
+      ],
+      "extension": [
+        200,
+        250
+      ]
+    },
+    "extensionVi": "",
+    "minutes": 40,
+    "mustUse": [],
+    "modelAfterSubmit": "",
+    "exam": true,
+    "practice": {
+      "_ghichu": "Đề tự luyện thi thử do cô Ngoan gửi 21/11/2026 (nguyên văn). Mã và dạng bài chỉ để quản lý, không hiện cho học sinh.",
+      "requirementEn": "Write an essay of 200–250 words. Give reasons for your answer and support your ideas with relevant examples.",
+      "defaultId": "S22-TL01",
+      "prompts": [
+        {
+          "id": "S22-TL01",
+          "type": "Opinion",
+          "text": "Some people argue that parents should ask their teenage children for permission before sharing photos or stories about them online. To what extent do you agree or disagree?"
+        },
+        {
+          "id": "S22-TL02",
+          "type": "Opinion",
+          "text": "Some people believe that businesses should be required to make spare parts available so that customers can repair products instead of replacing them. To what extent do you agree or disagree?"
+        },
+        {
+          "id": "S22-TL03",
+          "type": "Discussion",
+          "text": "Some people believe that competitive sports are the best way to encourage young people to exercise. Others think that physical activities without winners or losers are more effective. Discuss both views and give your own opinion."
+        },
+        {
+          "id": "S22-TL04",
+          "type": "Discussion",
+          "text": "Some people believe that protecting wildlife should take priority when land is developed. Others think that creating jobs for local people should come first. Discuss both views and give your own opinion."
+        },
+        {
+          "id": "S22-TL05",
+          "type": "Outweigh",
+          "text": "In some workplaces, employees are allowed to bring their children to an on-site childcare centre. Do the advantages of this arrangement outweigh the disadvantages?"
+        },
+        {
+          "id": "S22-TL06",
+          "type": "Outweigh",
+          "text": "Some towns offer bicycles that residents can borrow for short journeys and return at different locations. Do the advantages of this system outweigh the disadvantages?"
+        },
+        {
+          "id": "S22-TL07",
+          "type": "Causes–solutions",
+          "text": "In some communities, people know fewer of their neighbours than they used to. What might explain this change, and what could residents and local organisations do to help neighbours get to know one another?"
+        },
+        {
+          "id": "S22-TL08",
+          "type": "Causes–solutions",
+          "text": "Many teenagers find it difficult to tell whether photographs and videos shared online are genuine. Why might they struggle to do this, and what can schools do to help students check what they see online?"
+        },
+        {
+          "id": "S22-TL09",
+          "type": "Two-part",
+          "text": "More people now sell or exchange things they no longer need through online platforms. Why has this become popular? Do you think it is a positive or negative development?"
+        },
+        {
+          "id": "S22-TL10",
+          "type": "Two-part",
+          "text": "Some young people turn their hobbies into small businesses. Why might they choose to do this? Do you think earning money from a hobby changes it for the better?"
+        }
+      ]
+    }
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF, OVER",
+      "vi": "Thesis trả lời đúng câu hỏi lõi; mỗi thân bài làm đúng việc đã ghi; không khẳng định quá mức?"
+    },
+    {
+      "round": "Câu",
+      "code": "FR, CS, SV, T, VF, LINK",
+      "vi": "Mỗi câu đủ chủ – vị, không nối hai câu bằng dấu phẩy; động từ đúng số, đúng thì, đúng dạng; từ nối đúng nghĩa?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW, WF, REF, A, P, SP, PU",
+      "vi": "Từ đúng nghĩa và đúng loại; this / they chỉ rõ; mạo từ, số ít / số nhiều, chính tả, dấu câu?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-4#4",
+    "stickerVi": "cả nhóm nâng cúp"
+  },
+  "praiseEn": "Champion! You have finished the whole journey.",
+  "_ghichu": "S22: 10 đề tự luyện (write.practice) chèn riêng 21/11/2026, không tạo lại tệp. Câu Nhớ nhanh 6 = đoạn «Khởi động tự sửa» của bản duyệt."
+}

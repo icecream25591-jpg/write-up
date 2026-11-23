@@ -4,6 +4,7 @@
 // - Nhận xét: GET ?ma_hs=…&khoa=… → chỉ bài của đúng em đó (khoá bí mật tạo trên máy em).
 import { load, save } from './store.js';
 import { queue, updateItem } from './queue.js';
+import * as cloud from './account/cloud.js';
 
 let CONFIG = {};
 let busy = false;
@@ -29,13 +30,14 @@ const planText = (plan) => (plan?.lanes || []).map((l) => `${l.en}: ${(l.items |
 /** sent · pending (chờ mạng) · nocode (chưa có mã HS) · noserver (chưa nối Sheet) · error (Sheet từ chối) */
 export function itemStatus(it) {
   if (it.sent) return 'sent';
+  if (cloud.on()) return it.wiped ? 'wiped' : it.blocked ? 'blocked' : 'pending';   // tài khoản: không còn mã học sinh / Sheet
   if (!CONFIG.sheetUrl) return 'noserver';
   if (!load('studentCode', '')) return 'nocode';
   if (it.error) return 'error';
   return 'pending';
 }
 export const STATUS_TEXT = {
-  sent: 'Đã gửi', pending: 'Chờ gửi', nocode: 'Chờ gửi · cần mã học sinh', noserver: 'Lưu trên máy · chưa nối Sheet', error: 'Chưa gửi được',
+  sent: 'Đã gửi', blocked: 'Chưa gửi được · hồ sơ chưa được duyệt', wiped: 'Quản trị đã xoá dữ liệu · không tự gửi', pending: 'Chờ gửi', nocode: 'Chờ gửi · cần mã học sinh', noserver: 'Lưu trên máy · chưa nối Sheet', error: 'Chưa gửi được',
 };
 
 function payload(it) {
@@ -43,12 +45,14 @@ function payload(it) {
     client_id: it.id, ma_hs: load('studentCode', ''), ten: load('studentName', ''), khoa: studentKey(),
     session: it.session, chu_de: it.topic || '', luot: it.kind === 'draft2' ? 2 : 1, id_ban_1: it.draft1Id || '',
     muc: it.level || '', de: it.prompt || '', bai_viet: it.text, dan_y: planText(it.plan), so_tu: it.words || 0,
-    tu_soat: (it.selfCheck || []).map((c) => `${c} ✓`).join(' '),
+    tu_soat: (it.selfCheck || []).map((c) => `${c} ✓`).join(' ')
+      + (it.edits ? ` | Em đã sửa: ${it.editsNone ? 'không có' : it.edits.map((x) => `[${x.code}] ${x.before} → ${x.after}`).join('; ')}` : ''),
   };
 }
 
 /** Gửi mọi bài chưa gửi. Trả về số bài đã gửi được lần này. */
 export async function flushQueue() {
+  if (cloud.on()) return cloud.flush();
   if (busy || !CONFIG.sheetUrl || !load('studentCode', '')) return 0;
   busy = true;
   let n = 0;
@@ -74,7 +78,7 @@ export async function flushQueue() {
 }
 
 // ---------- nhận xét ----------
-const fbKey = (f) => `${f.id}|${(f.nhan_xet || '').length}|${(f.khen || '').length}|${f.cau_nhan_xet || ''}`.slice(0, 300);
+const fbKey = (f) => `${f.id}|${f.v || ''}|${(f.nhan_xet || '').length}|${(f.khen || '').length}|${f.cau_nhan_xet || ''}`.slice(0, 300);   // f.v = phiên bản (feedbackAt): cô sửa lại dù cùng độ dài vẫn là bản mới
 export const feedbackList = () => load('feedback', { list: [] }).list || [];
 export const feedbackFor = (id) => feedbackList().find((f) => f.id === id) || null;
 export const isNew = (f) => !load('feedbackSeen', []).includes(fbKey(f));
@@ -83,10 +87,12 @@ export function markSeen(f) {
   const seen = new Set(load('feedbackSeen', []));
   seen.add(fbKey(f)); save('feedbackSeen', [...seen]);
   updateBadges();
+  if (cloud.on()) cloud.markSeen(f);     // ghi seenAt lên máy chủ (1 lượt ghi cho mỗi nhận xét)
 }
 
 /** Hỏi Sheet nhận xét mới. Trả về danh sách hoặc null (chưa nối / mất mạng). */
 export async function fetchFeedback() {
+  if (cloud.on()) { const r = await cloud.fetchFeedback(); updateBadges(); emit(); return r; }
   const code = load('studentCode', '');
   if (!CONFIG.sheetUrl || !code) return null;
   try {
@@ -111,6 +117,16 @@ export function updateBadges() {
     a.setAttribute('aria-label', n > 0 ? `My Work – ${n} nhận xét mới` : 'My Work');
   }
 }
+
+/** Có tài khoản: đồng bộ tiến độ / bài nộp / nhận xét qua Firestore (thay Google Sheet). */
+export function initCloudSync(ctx, updateStars) {
+  CONFIG = ctx.config || {};
+  updateBadges();
+  cloud.start(ctx, { emit, onFeedback: updateBadges, afterPull: () => { updateStars?.(); updateBadges(); } });
+}
+export const isCloud = () => cloud.on();
+/** Em chủ động gửi lại một bài đã bị cách ly sau khi quản trị xoá dữ liệu (không bao giờ tự làm). */
+export async function resendWiped(id) { updateItem(id, { wiped: null, wipedAt: null }); emit(); return flushQueue(); }
 
 export function initSync(config) {
   CONFIG = config || {};

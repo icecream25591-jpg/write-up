@@ -156,3 +156,8 @@ body.typing .sent .thumbs{display:none}
   .cell,body.typing .sent .cell{width:100%}
   .thumbs{display:none}
 }
+
+/* nhắc mềm (dùng cụm gợi ý): vàng, không tính là sai */
+.checks li.soft{color:#7A5200} .checks li.soft .m{background:#F2A93B;font-size:12px;font-weight:900}
+.checks li.soft i{font-style:normal;font-weight:700;color:var(--ink-2)}
+.fix-para{min-height:120px;resize:vertical;line-height:1.45}

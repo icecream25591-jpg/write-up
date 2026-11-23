@@ -79,7 +79,9 @@
       "target": "make it + adj + to V",
       "chips": [
         "a required book",
-        "read for pleasure"
+        "read for pleasure",
+        "a test at the end",
+        "hard for Minh"
       ],
       "checks": [
         {
@@ -89,11 +91,13 @@
           "msgVi": "Dùng make it + adj + to V."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
-      "model": "A thick book with a test at the end makes it hard for Minh to read for pleasure."
+      "model": "A required book with a test at the end makes it hard for Minh to read for pleasure."
     },
     {
       "id": "S03-C2",
@@ -104,7 +108,9 @@
       "target": "help + O + V",
       "chips": [
         "a well-stocked class library",
-        "the right level"
+        "the right level",
+        "choose a book",
+        "help Ha"
       ],
       "checks": [
         {
@@ -114,8 +120,10 @@
           "msgVi": "Dùng help + O + V."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
       "model": "The teacher helps Ha choose a book at the right level from the class library."
@@ -129,7 +137,9 @@
       "target": "by + V-ing",
       "chips": [
         "personal interest",
-        "borrow books"
+        "borrow books",
+        "encourage him",
+        "his favourite animals"
       ],
       "checks": [
         {
@@ -139,11 +149,13 @@
           "msgVi": "Dùng by + V-ing."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
-      "model": "Ti's dad encourages him to read by borrowing books about dinosaurs, his favourite animals."
+      "model": "Ti's dad encourages him to read by borrowing books that match his personal interest."
     },
     {
       "id": "S03-C4",
@@ -154,7 +166,9 @@
       "target": "enable + O + to V",
       "chips": [
         "develop a reading habit",
-        "a series"
+        "a series",
+        "really enjoy",
+        "football"
       ],
       "checks": [
         {
@@ -164,8 +178,10 @@
           "msgVi": "Dùng enable + O + to V."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
       "model": "A football series that he really enjoys enables Khoa to develop a reading habit."

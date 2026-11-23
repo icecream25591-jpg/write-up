@@ -1,0 +1,431 @@
+{
+  "session": "S04",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S4 (Recall, Sentences, Write, Tự soát, Thưởng, Ms Mai’s tip) + mẫu đã duyệt mau-giao-dien/M5-XuongY (hướng chooseOne, cụm chung chung)",
+  "_ghichu": "21/11/2026: câu mẫu Luyện câu ô 2 và ô 4 đổi theo yêu cầu giáo viên (dùng cụm gợi ý); bản Markdown content/noi-dung-S1-S22.md chưa có hai câu mới, chờ cập nhật từ doc.",
+  "topic": "Technology in education",
+  "productVi": "câu chủ đề + 4–5 câu phát triển MỘT ý, 100–120 từ.",
+  "targetsVi": "V-ing làm chủ ngữ hoặc sau giới từ; to V chỉ mục đích; allow / enable + O + to V; cụm danh từ có bổ nghĩa sau.",
+  "sticker": "sticker-1#4",
+  "recall": [
+    {
+      "id": "S04-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "The club lets members ___ their own books.",
+      "options": [
+        "choose",
+        "to choose",
+        "choosing"
+      ],
+      "answer": "choose",
+      "explainVi": "let + O + V nguyên mẫu."
+    },
+    {
+      "id": "S04-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "A quiet corner enables students ___ on long texts.",
+      "options": [
+        "focus",
+        "to focus",
+        "focusing"
+      ],
+      "answer": "to focus",
+      "explainVi": "enable + O + to V."
+    },
+    {
+      "id": "S04-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Phones prevent many teenagers to read before bed.",
+      "answer": "… from reading …",
+      "explainVi": "prevent + O + from V-ing."
+    },
+    {
+      "id": "S04-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Tiny print makes ___ hard to read for a long time.",
+      "options": [
+        "it",
+        "this",
+        "that"
+      ],
+      "answer": "it",
+      "explainVi": "make it + adj + to V; \"it\" là tân ngữ giả."
+    },
+    {
+      "id": "S04-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Reading every day helps you ___ your vocabulary.",
+      "options": [
+        "expand",
+        "extend",
+        "enlarge"
+      ],
+      "answer": "expand",
+      "explainVi": "expand one's vocabulary = mở rộng vốn từ."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S04-C1",
+      "image": "s04-cau",
+      "cell": 1,
+      "altVi": "Vy dừng và tua lại bài giảng toán trên máy tính bảng, vừa xem vừa ghi vở",
+      "vi": "Mở đầu bằng V-ing làm chủ ngữ.",
+      "target": "V-ing subject",
+      "chips": [
+        "replay a recorded lesson",
+        "learn at one's own pace",
+        "help Vy",
+        "a maths lesson"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*[A-Z][a-z]+ing\\b",
+          "flags": "",
+          "msgVi": "Mở đầu câu bằng V-ing làm chủ ngữ (ví dụ: Replaying …)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Replaying a recorded lesson helps Vy learn at her own pace."
+    },
+    {
+      "id": "S04-C2",
+      "image": "s04-cau",
+      "cell": 2,
+      "altVi": "Lan làm sai một câu quiz trên điện thoại, hộp bóng đèn giải thích hiện ngay",
+      "vi": "Dùng allow + O + to V.",
+      "target": "allow + O + to V",
+      "chips": [
+        "the online quiz",
+        "instant feedback",
+        "see the mistake",
+        "a wrong answer"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(allow|allows|allowed|allowing)\\s+[\\w']+(\\s+[\\w']+)?\\s+to\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng allow + O + to V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The online quiz allows Lan to get instant feedback on her answer."
+    },
+    {
+      "id": "S04-C3",
+      "image": "s04-cau",
+      "cell": 3,
+      "altVi": "Một bạn ở nhà sàn vùng cao xem bài học trên điện thoại và ghi chép",
+      "vi": "Dùng to V chỉ mục đích.",
+      "target": "to V (purpose)",
+      "chips": [
+        "access learning resources",
+        "an online lesson",
+        "a mountain village",
+        "her old phone"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(in order\\s+)?to\\s+(?!the\\b|a\\b|an\\b|school\\b|class\\b|her\\b|his\\b|my\\b|their\\b|our\\b)[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng to V để nói mục đích (ví dụ: uses her phone to watch …)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "A student in a mountain village uses her old phone to access an online lesson."
+    },
+    {
+      "id": "S04-C4",
+      "image": "s04-cau",
+      "cell": 4,
+      "altVi": "Minh gãi đầu, trên màn hình bài học trực tuyến hiện thông báo trò chơi",
+      "vi": "Dùng V-ing sau giới từ (instead of / without).",
+      "target": "preposition + V-ing",
+      "chips": [
+        "be easily distracted",
+        "instead of",
+        "a game notification",
+        "his laptop"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(instead of|without|before|after|by|of|for|about|from)\\s+[a-z]+ing\\b",
+          "flags": "i",
+          "msgVi": "Sau giới từ (instead of, without …) dùng V-ing."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Instead of listening to the teacher, Minh is easily distracted by a game notification on his laptop."
+    }
+  ],
+  "ideas": {
+    "image": "s04-y",
+    "prompt": "Not every student understands a lesson the first time. Explain ONE way in which technology can help these students. Write a paragraph.",
+    "promptType": "explain-one-way",
+    "mode": "chooseOne",
+    "lanes": [
+      {
+        "id": "claim",
+        "en": "Claim",
+        "color": "claim",
+        "prefilled": false
+      },
+      {
+        "id": "how",
+        "en": "How",
+        "color": "how",
+        "prefilled": false
+      },
+      {
+        "id": "example",
+        "en": "Example",
+        "color": "example",
+        "prefilled": false
+      },
+      {
+        "id": "result",
+        "en": "Result",
+        "color": "result",
+        "prefilled": false
+      }
+    ],
+    "directions": [
+      {
+        "id": "S04-D1",
+        "panel": 1,
+        "claim": "replay a lesson",
+        "how": "pause the hard step",
+        "example": "Vy replays a maths step",
+        "result": "solve it on her own"
+      },
+      {
+        "id": "S04-D2",
+        "panel": 2,
+        "claim": "instant feedback",
+        "how": "see the mistake at once",
+        "example": "Lan's quiz shows a hint",
+        "result": "remember the rule"
+      },
+      {
+        "id": "S04-D3",
+        "panel": 3,
+        "claim": "a class dashboard",
+        "how": "see which question confuses",
+        "example": "Ms Mai reads the coloured bars",
+        "result": "re-teach that step"
+      },
+      {
+        "id": "S04-D4",
+        "panel": 4,
+        "claim": "a free online course",
+        "how": "study from a village",
+        "example": "a girl with an old phone",
+        "result": "keep learning"
+      }
+    ],
+    "vague": {
+      "how": {
+        "en": "use a device",
+        "whyVi": "Quá chung chung: chưa nói làm gì với bài khó.",
+        "branchVi": "How"
+      },
+      "example": {
+        "en": "many students",
+        "whyVi": "Chưa cụ thể: cần một người và một việc trong tranh.",
+        "branchVi": "Example"
+      },
+      "result": {
+        "en": "learn better",
+        "whyVi": "Quá chung chung: chưa nói bạn ấy làm được gì thêm.",
+        "branchVi": "Result"
+      }
+    },
+    "decoy": {
+      "en": "play games in class",
+      "whyVi": "Không có trong tranh và không giúp bạn chưa hiểu bài."
+    },
+    "spots": [
+      {
+        "id": "S04-Y1",
+        "panel": null,
+        "hint": "tap",
+        "labelVi": "Gợi ý chung · WHY",
+        "lookVi": "Thẻ gợi ý chung",
+        "qVi": "Vì sao có bạn không hiểu bài ngay trên lớp?",
+        "chips": [
+          "students learn at different speeds"
+        ]
+      },
+      {
+        "id": "S04-Y2",
+        "panel": 1,
+        "lookVi": "Khung 1 · biểu tượng tua lại",
+        "qVi": "Vy làm gì với bước khó?",
+        "chips": [
+          "pause and replay the hard step"
+        ],
+        "branchVi": "HOW"
+      },
+      {
+        "id": "S04-Y3",
+        "panel": 1,
+        "lookVi": "Khung 1 · Vy tự giải bài trong vở",
+        "qVi": "Sau khi xem lại, Vy làm được gì?",
+        "chips": [
+          "solve the problem on her own"
+        ],
+        "branchVi": "RESULT"
+      },
+      {
+        "id": "S04-Y4",
+        "panel": 2,
+        "lookVi": "Khung 2 · hộp bóng đèn",
+        "qVi": "Sai một câu, màn hình hiện gì ngay?",
+        "chips": [
+          "instant feedback"
+        ],
+        "branchVi": "HOW"
+      },
+      {
+        "id": "S04-Y5",
+        "panel": 3,
+        "lookVi": "Khung 2 · cột màu trên máy cô Mai",
+        "qVi": "Cô giáo biết được điều gì từ các cột màu?",
+        "chips": [
+          "see which question confuses the class"
+        ],
+        "branchVi": "HOW"
+      },
+      {
+        "id": "S04-Y6",
+        "panel": 4,
+        "lookVi": "Khung 3 · nhà sàn và điện thoại cũ",
+        "qVi": "Bạn ở vùng cao học thêm bằng cách nào?",
+        "chips": [
+          "join a free online course"
+        ],
+        "branchVi": "EXAMPLE"
+      },
+      {
+        "id": "S04-Y7",
+        "panel": 4,
+        "hint": "afterCheck",
+        "labelVi": "Giới hạn (không bắt buộc)",
+        "lookVi": "Khung 3 · biểu tượng sóng yếu",
+        "qVi": "Điều gì có thể cản trở bạn ấy?",
+        "chips": [
+          "a weak signal",
+          "the digital divide"
+        ]
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "V-ing · to V · allow + O + to V",
+      "vi": "V-ing đứng đầu câu làm chủ ngữ thì động từ số ít. to V chỉ mục đích. allow / enable + O + to V. Sau giới từ (instead of, without) dùng V-ing.",
+      "exampleEn": "Watching a short video before class helps me learn new words. The app enables teachers to see who needs help."
+    },
+    "ideas": {
+      "titleEn": "Choose ONE way",
+      "vi": "Chọn MỘT cách công nghệ giúp bạn chưa hiểu bài ngay làm Claim. Rồi chọn cụm How, Example, Result khớp đúng cách đó; cụm của cách khác hoặc quá chung thì loại.",
+      "exampleEn": "Claim: instant feedback → How: see the mistake straight away → Example: Lan corrects her answer → Result: remember the rule"
+    },
+    "write": {
+      "titleEn": "One idea, then WHY / HOW / EXAMPLE / RESULT",
+      "vi": "Câu chủ đề nêu MỘT cách. Các câu sau chỉ phát triển cách đó. Cần allow / enable + O + to V và một V-ing sau giới từ.",
+      "exampleEn": "Online quizzes allow students to check their answers without waiting for the teacher."
+    },
+    "recall": {
+      "titleEn": "S3 review",
+      "vi": "let + O + V (không to). enable + O + to V. prevent + O + from V-ing. make it + adj + to V.",
+      "exampleEn": "The school lets pupils borrow tablets for free. Phones prevent some pupils from sleeping well."
+    }
+  },
+  "write": {
+    "id": "S04-W1",
+    "kind": "paragraph",
+    "prompt": "Not every student understands a lesson the first time. Explain ONE way in which technology can help these students. Write a paragraph.",
+    "taskVi": "Câu chủ đề nêu một cách công nghệ giúp ích, rồi 4–5 câu WHY / HOW – EXAMPLE – RESULT.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        100,
+        120
+      ],
+      "extension": [
+        120,
+        150
+      ]
+    },
+    "extensionVi": "",
+    "minutes": null,
+    "mustUse": [
+      "allow / enable + O + to V",
+      "V-ing sau giới từ"
+    ],
+    "modelAfterSubmit": "Recorded video lessons are one of the most useful ways technology can help students who find a lesson difficult. In a busy classroom, a teacher cannot repeat every step for each student, and some students are too shy to ask. With a recorded lesson, these students can pause and replay a hard step as many times as they need. This allows them to learn at their own pace without feeling embarrassed. For example, my friend Vy often rewinds a maths video to the part she missed and then solves the problem in her notebook. As a result, she now finishes her homework on her own and feels more confident in class."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Cả đoạn chỉ phát triển MỘT cách công nghệ giúp ích?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Ví dụ minh họa đúng cách đã nêu, không mở ý mới?"
+    },
+    {
+      "round": "Câu",
+      "code": "VF",
+      "vi": "allow / enable + O + to V; sau giới từ là V-ing?"
+    },
+    {
+      "round": "Từ",
+      "code": "REF",
+      "vi": "This / they / these students chỉ rõ đúng người, đúng việc?"
+    },
+    {
+      "round": "Từ",
+      "code": "WF",
+      "vi": "Phân biệt confident / confidence, difficult / difficulty?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-1#4",
+    "stickerVi": "Minh với máy tính bảng"
+  },
+  "praiseEn": "Smart learner — you used tech words like a pro!"
+}

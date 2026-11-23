@@ -17,11 +17,45 @@ export function mountSentences(s, { n, data, p }) {
   const st = (it) => (S.items[it.id] ||= { text: '', tries: 0, passed: false, model: false });
   const img = (it, w) => `img/${it.image}-${it.cell}-${w}.webp`;
 
+  // Cột tranh dựng MỘT lần; đổi tranh chỉ thay ảnh lớn và đánh dấu ô nhỏ (không tải lại cả màn → không nháy)
+  function updateLeft(i) {
+    const it = items[i];
+    const pic = s.body.querySelector('.cell-pic');
+    const src = img(it, 480);
+    if (!pic.src.endsWith(src)) {
+      const set = `${img(it, 480)} 480w, ${img(it, 960)} 960w`;
+      const pre = new Image();
+      pre.sizes = pic.sizes; pre.srcset = set; pre.src = src; // tải trước đúng cỡ ảnh mà ô lớn sẽ dùng
+      const swap = () => { pic.srcset = set; pic.src = src; pic.alt = it.altVi || ''; };
+      (pre.decode ? pre.decode() : Promise.resolve()).then(swap, swap);
+    }
+    s.body.querySelector('.cell-badge').textContent = `${i + 1} / ${items.length}`;
+    s.body.querySelectorAll('.thumb').forEach((b, k) => {
+      const x = items[k], ok = !!S.items[x.id]?.passed;
+      b.classList.toggle('cur', k === i); b.classList.toggle('ok', ok);
+      if (k === i) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+      b.setAttribute('aria-label', `Picture ${k + 1}${ok ? ' (done)' : ''}`);
+    });
+  }
+
   function show() {
     const i = Math.min(S.i, items.length - 1);
     const it = items[i], my = st(it);
     s.setTitle(`Sentence Practice · ${i + 1}/${items.length}`);
-    s.body.innerHTML = `
+    const built = !!s.body.querySelector('.sent .col-l');
+    if (built) updateLeft(i);
+    const colR = `
+          <div class="card task">Viết <span class="hl">một câu</span> về bức tranh. ${esc(it.vi)}
+            <span class="target">Target: <b lang="en">${esc(it.target)}</b></span></div>
+          <div class="chips-wrap"><div class="lbl">Useful phrases</div>
+            <div class="chips">${(it.chips || []).map((c) => `<button type="button" class="chip" data-chip="${esc(c)}" lang="en">+ ${esc(c)}</button>`).join('')}</div></div>
+          <label for="sent-ta" class="lbl">Your sentence</label>
+          <textarea id="sent-ta" class="sent-ta" lang="en" rows="2" enterkeyhint="done" autocapitalize="sentences" spellcheck="true"
+            placeholder="Viết một câu tiếng Anh…">${esc(my.text)}</textarea>
+          <div class="checks" aria-live="polite"></div>
+          <div class="model" hidden></div>`;
+    if (built) s.body.querySelector('.sent .col-r').innerHTML = colR;
+    else s.body.innerHTML = `
       <div class="cols sent">
         <div class="col-l">
           <figure class="cell">
@@ -33,16 +67,7 @@ export function mountSentences(s, { n, data, p }) {
             <button type="button" class="thumb${k === i ? ' cur' : ''}${S.items[x.id]?.passed ? ' ok' : ''}" data-go="${k}" aria-label="Picture ${k + 1}${S.items[x.id]?.passed ? ' (done)' : ''}"${k === i ? ' aria-current="true"' : ''}>
               <img src="${img(x, 480)}" alt="" loading="lazy" width="72" height="72"></button>`).join('')}</div>
         </div>
-        <div class="col-r">
-          <div class="card task">Viết <span class="hl">một câu</span> về bức tranh. ${esc(it.vi)}
-            <span class="target">Target: <b lang="en">${esc(it.target)}</b></span></div>
-          <div class="chips-wrap"><div class="lbl">Useful phrases</div>
-            <div class="chips">${(it.chips || []).map((c) => `<button type="button" class="chip" data-chip="${esc(c)}" lang="en">+ ${esc(c)}</button>`).join('')}</div></div>
-          <label for="sent-ta" class="lbl">Your sentence</label>
-          <textarea id="sent-ta" class="sent-ta" lang="en" rows="2" enterkeyhint="done" autocapitalize="sentences" spellcheck="true"
-            placeholder="Viết một câu tiếng Anh…">${esc(my.text)}</textarea>
-          <div class="checks" aria-live="polite"></div>
-          <div class="model" hidden></div>
+        <div class="col-r">${colR}
         </div>
       </div>`;
 
@@ -64,7 +89,7 @@ export function mountSentences(s, { n, data, p }) {
       ta.focus({ preventScroll: true });
       ta.scrollIntoView({ block: 'nearest' });
     });
-    s.body.querySelector('.thumbs').addEventListener('click', (e) => {
+    if (!built) s.body.querySelector('.thumbs').addEventListener('click', (e) => {
       const b = e.target.closest('[data-go]');
       if (!b) return;
       go(+b.dataset.go);
@@ -79,7 +104,7 @@ export function mountSentences(s, { n, data, p }) {
     const box = s.body.querySelector('.checks');
     box.classList.toggle('stale', stale);
     box.innerHTML = `
-      <ul>${rows.map((r) => `<li class="${r.ok ? 'ok' : 'bad'}"><span class="m" aria-hidden="true">${r.ok ? icons.check(13) : icons.close(11)}</span>${esc(r.msg)}</li>`).join('')}</ul>
+      <ul>${rows.map((r) => `<li class="${r.ok ? 'ok' : r.soft ? 'soft' : 'bad'}"><span class="m" aria-hidden="true">${r.ok ? icons.check(13) : r.soft ? '!' : icons.close(11)}</span>${esc(r.msg)}${!r.ok && r.soft ? ' <i>(gợi ý, không bắt buộc)</i>' : ''}</li>`).join('')}</ul>
       <p class="sum ${pass ? 'ok' : ''}">${stale ? 'Câu đã sửa – bấm Check lại.' : pass ? 'Câu đạt các điểm tự kiểm. Bấm Model để so sánh.' : 'Sửa câu rồi bấm Check lại. Có thể xem Model hoặc làm ô sau.'}</p>`;
   }
   function markStale() {
@@ -123,14 +148,14 @@ export function mountSentences(s, { n, data, p }) {
     const checkBtn = `<button type="button" class="btn grow" data-act="check">Check</button>`;
     s.footIn.innerHTML = `
       <button type="button" class="btn2" data-act="model" ${canModel ? '' : 'disabled aria-disabled="true" title="Bấm Check trước"'}>Model</button>
-      ${fresh && my.passed ? nextBtn : checkBtn}`;
+      ${(fresh && my.passed) || (my.tries > 0 && my.model) ? nextBtn : checkBtn}`;
   }
 
   function go(k) {
     flush(key, p);
     S.i = Math.max(0, Math.min(items.length - 1, k));
     save(); show();
-    s.body.scrollTop = 0;
+    window.scrollTo(0, 0);
   }
 
   s.footIn.addEventListener('click', (e) => {
@@ -143,7 +168,7 @@ export function mountSentences(s, { n, data, p }) {
       // Xong chặng khi đã Check cả 4 ô (đạt hết hoặc đã thử và xem Model)
       if (S.i >= items.length - 1) {
         if (items.every((x) => S.items[x.id]?.tries > 0)) S.done = true;
-        if (S.done) sfx('done');
+        if (!S.done) { go(items.findIndex((x) => !(S.items[x.id]?.tries > 0))); return; } // còn tranh chưa làm
         flush(key, p); save(); location.hash = href.stage(n, 2);
       }
       else go(S.i + 1);

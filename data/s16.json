@@ -1,0 +1,368 @@
+{
+  "session": "S16",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S16 (tools/tao-session.mjs)",
+  "topic": "Early foreign-language learning",
+  "productVi": "essay có giờ, 200–250 từ, 40 phút (5 phút lập ý, khoảng 31 phút viết, 4 phút soát).",
+  "targetsVi": "quy chiếu bằng this / these / such + danh từ khái quát; thay thế, the former / the latter; từ nối đúng chỗ.",
+  "sticker": "sticker-3#4",
+  "recall": [
+    {
+      "id": "S16-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "___ helps me most is studying with a friend.",
+      "options": [
+        "What",
+        "It",
+        "That"
+      ],
+      "answer": "What",
+      "explainVi": "Câu chẻ What + mệnh đề + is…"
+    },
+    {
+      "id": "S16-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "It was the science project ___ taught me teamwork.",
+      "options": [
+        "that",
+        "what",
+        "where"
+      ],
+      "answer": "that",
+      "explainVi": "It was + N + that…"
+    },
+    {
+      "id": "S16-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Not only she studies hard, but she also helps others.",
+      "answer": "Not only does she study hard, …",
+      "explainVi": "Not only đầu câu → đảo trợ động từ lên trước chủ ngữ."
+    },
+    {
+      "id": "S16-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Cramming the night before can be ___ because you forget everything quickly.",
+      "options": [
+        "counterproductive",
+        "productive",
+        "reproductive"
+      ],
+      "answer": "counterproductive",
+      "explainVi": "counterproductive = phản tác dụng."
+    },
+    {
+      "id": "S16-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Regular quizzes help to ___ what students learn in class.",
+      "options": [
+        "reinforce",
+        "enforce",
+        "force"
+      ],
+      "answer": "reinforce",
+      "explainVi": "reinforce learning = củng cố việc học."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S16-C1",
+      "image": "s16-cau",
+      "cell": 1,
+      "altVi": "Học sinh tiểu học hát và chơi thẻ hình với cô giáo vui vẻ",
+      "vi": "Mở đầu bằng This + danh từ khái quát.",
+      "target": "This + danh từ khái quát",
+      "chips": [
+        "young learners",
+        "an early start",
+        "feel like a game",
+        "a school subject"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*This\\s+[a-z]+",
+          "flags": "",
+          "msgVi": "Mở đầu bằng This + danh từ khái quát."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "This approach makes English feel like a game rather than a school subject."
+    },
+    {
+      "id": "S16-C2",
+      "image": "s16-cau",
+      "cell": 2,
+      "altVi": "Lan và Minh dùng sổ từ vựng có hình vẽ và sơ đồ tư duy",
+      "vi": "Mở đầu bằng Such + danh từ.",
+      "target": "Such + danh từ",
+      "chips": [
+        "study strategies",
+        "older learners",
+        "remember new words",
+        "for longer"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*Such\\s+[a-z]+",
+          "flags": "",
+          "msgVi": "Mở đầu bằng Such + danh từ."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Such strategies help older students remember new words for longer."
+    },
+    {
+      "id": "S16-C3",
+      "image": "s16-cau",
+      "cell": 3,
+      "altVi": "Cô giáo lo lắng đọc theo sách, lịch chỉ một tiết mỗi tuần",
+      "vi": "Dùng the former hoặc the latter.",
+      "target": "the former + the latter",
+      "chips": [
+        "trained teachers",
+        "classroom hours",
+        "a nervous teacher",
+        "dislike English"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bthe\\s+(?:former|latter)\\b",
+          "flags": "i",
+          "msgVi": "Dùng the former hoặc the latter."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Of the two, the former matters more, since a nervous teacher can make children dislike English."
+    },
+    {
+      "id": "S16-C4",
+      "image": "s16-cau",
+      "cell": 4,
+      "altVi": "Vy luyện thẻ hình với em họ, bà kể truyện cổ tích bên cạnh",
+      "vi": "Dùng while đúng vị trí giữa hai vế.",
+      "target": "while",
+      "chips": [
+        "mother tongue",
+        "bilingual",
+        "learn English at home",
+        "tell stories"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "[a-z],\\s*while\\b",
+          "flags": "i",
+          "msgVi": "Đặt while giữa hai vế (có dấu phẩy trước while)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "He learns English at home with Vy, while Grandma makes sure he still hears stories in his mother tongue."
+    }
+  ],
+  "ideas": {
+    "image": "s16-y",
+    "prompt": "Some people think that primary school children should learn English only through songs and games, while others believe they should also be taught simple grammar rules from the start. Discuss both views and give your own opinion.",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "songs-and-games",
+        "en": "Songs and games",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "grammar-too",
+        "en": "Grammar too",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "my-view",
+        "en": "My view",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "onDemand": true,
+    "spots": [
+      {
+        "id": "S16-Y1",
+        "panel": 1,
+        "lookVi": "Bên trái · hát và chơi thẻ hình",
+        "qVi": "Trẻ thấy việc học như thế nào?",
+        "chips": [
+          "hear words many times without getting bored"
+        ],
+        "lane": "songs-and-games"
+      },
+      {
+        "id": "S16-Y2",
+        "panel": 2,
+        "lookVi": "Bên trái · diễn lại câu chuyện",
+        "qVi": "Trẻ dùng từ trong tình huống nào?",
+        "chips": [
+          "lose their fear of speaking"
+        ],
+        "lane": "songs-and-games"
+      },
+      {
+        "id": "S16-Y3",
+        "panel": 3,
+        "lookVi": "Bên trái · bé gái núp sau cột",
+        "qVi": "Vì sao có bé bị lạc giữa trò chơi ồn ào?",
+        "chips": [
+          "some children need clear patterns"
+        ],
+        "lane": "grammar-too"
+      },
+      {
+        "id": "S16-Y4",
+        "panel": 4,
+        "lookVi": "Cửa sổ · phụ huynh cầm sách tranh tiếng Việt",
+        "qVi": "Vị phụ huynh này lo điều gì?",
+        "chips": [
+          "keep the mother tongue strong"
+        ],
+        "lane": "my-view"
+      },
+      {
+        "id": "S16-Y5",
+        "panel": 5,
+        "lookVi": "Bên phải · ghép khối màu mẫu câu",
+        "qVi": "Ghép khối màu giúp các em thấy gì?",
+        "chips": [
+          "see how a sentence is built"
+        ],
+        "lane": "grammar-too"
+      },
+      {
+        "id": "S16-Y6",
+        "panel": 6,
+        "lookVi": "Bên phải · cô Mai giảng ngữ pháp",
+        "qVi": "Quy tắc rõ ràng giúp gì?",
+        "chips": [
+          "speak and write accurately"
+        ],
+        "lane": "grammar-too"
+      },
+      {
+        "id": "S16-Y7",
+        "panel": 7,
+        "lookVi": "Cửa giữa hai lớp · Tí đeo cặp đi sang",
+        "qVi": "Hai cách có thể nối tiếp nhau ra sao?",
+        "chips": [
+          "games first",
+          "simple patterns later"
+        ],
+        "lane": "my-view"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "this / such + noun",
+      "vi": "Quy chiếu bằng this / these / such + danh từ khái quát (this approach, these habits) để khỏi lặp. the former / the latter chỉ đúng thứ tự.",
+      "exampleEn": "Children enjoy songs and stories. This approach keeps lessons lively. Games and grammar tables can both help beginners; the former build confidence, the latter build accuracy."
+    },
+    "ideas": {
+      "titleEn": "Games · Grammar · My view",
+      "vi": "Từ S16, thử tự lập ý trước, bấm \"Cần gợi ý\" khi bí. Xếp cụm vào đúng quan điểm, ý riêng của em nối hai cách.",
+      "exampleEn": "hear words many times → Games; see how a sentence is built → Grammar; games first, simple patterns later → My view"
+    },
+    "write": {
+      "titleEn": "Timed: 5 – 31 – 4",
+      "vi": "40 phút: 5 phút lập ý, 31 phút viết, 4 phút soát. Ít nhất hai lần this / these / such + danh từ, và người đọc luôn biết từ đó chỉ ý nào. Thesis và kết bài cùng một lập trường.",
+      "exampleEn": "Some schools teach pupils only through games. Such a method keeps lessons lively, but it may leave gaps in accuracy."
+    },
+    "recall": {
+      "titleEn": "S15 review",
+      "vi": "Câu chẻ. Đảo ngữ sau Not only. Phản biện: nêu → thừa nhận → trả lời.",
+      "exampleEn": "It is practice, not talent, that makes pupils fluent."
+    }
+  },
+  "write": {
+    "id": "S16-W1",
+    "kind": "essay",
+    "prompt": "Some people think that primary school children should learn English only through songs and games, while others believe they should also be taught simple grammar rules from the start. Discuss both views and give your own opinion.",
+    "taskVi": "essay 200–250 từ trong 40 phút, đồng hồ đếm ngược hiện trên màn hình. Không có câu mở đầu gợi ý.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        200,
+        250
+      ],
+      "extension": [
+        200,
+        250
+      ]
+    },
+    "extensionVi": "",
+    "minutes": 40,
+    "mustUse": [
+      "ít nhất hai lần quy chiếu bằng this / these / such + danh từ, và người đọc luôn biết từ quy chiếu đang chỉ ý nào. The former / the latter đã luyện ở chặng 2, không bắt buộc trong bài có giờ"
+    ],
+    "modelAfterSubmit": "There is an ongoing debate about how young children should be taught English. Some people believe that songs and games should be the main method, whereas others argue that grammar should be taught from the very beginning. In my opinion, games should come first, but simple patterns can be introduced gradually.\n\nSupporters of a playful approach point out that young learners acquire language best when they are relaxed and having fun. Singing, acting out stories and playing picture-card games allow children to hear the same words many times without feeling bored. Such activities also help them lose their fear of speaking, which is often a problem for older students.\n\nOn the other hand, those who favour early grammar believe that clear rules help children speak accurately. Without them, some pupils may remember many words but be unable to build a sentence. This concern is reasonable, especially for shy children who feel lost in noisy games. However, formal grammar lessons are difficult for seven-year-olds, who cannot yet follow abstract explanations.\n\nOverall, both views have merit, but the former suits young children better. Teachers can start with songs and games, then point out simple patterns as children grow older. This step-by-step approach lays the groundwork for more formal study at secondary school."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Bàn cả hai quan điểm và nêu ý riêng ở mở bài, kết bài?"
+    },
+    {
+      "round": "Từ",
+      "code": "REF",
+      "vi": "This / such + danh từ chỉ rõ việc vừa nói; the former / the latter trỏ đúng thứ tự?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "However đầu câu mới; whereas / while nằm giữa hai vế?"
+    },
+    {
+      "round": "Câu",
+      "code": "SV",
+      "vi": "Chủ ngữ dài (Singing, acting out stories and playing…) đi với động từ số nhiều?"
+    },
+    {
+      "round": "Từ",
+      "code": "SP",
+      "vi": "grammar, language, separate, beginning?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-3#4",
+    "stickerVi": "Vy xếp khối hộp"
+  },
+  "praiseEn": "From ABC to A+ — wonderful writing!"
+}

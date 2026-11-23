@@ -51,16 +51,21 @@
 .lg.done{background:var(--ok)} .lg.now{background:var(--primary)} .lg.open{background:#fff;box-shadow:0 0 0 2px var(--primary)}
 .lg.soon{background:#fff} .lg.locked{background:#EDE7DC}
 .jmap{position:relative;margin:0 -16px;overflow:hidden}
-.jmap-bg{display:block;width:100%;height:auto}
-.stn{position:absolute;transform:translate(-50%,-50%);width:34px;height:34px;min-height:0;padding:0;border-radius:50%;border:3px solid #fff;
+.jmap-bg{display:block;width:100%;height:auto;aspect-ratio:1/3} /* nền dọc 1:3, cả trang cuộn */
+.stn{position:absolute;transform:translate(-50%,-50%);width:36px;height:36px;min-height:0;padding:0;border-radius:50%;border:3px solid #fff;
   display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900;text-decoration:none;box-shadow:0 1px 4px rgba(43,37,64,.3)}
-.stn::before{content:"";position:absolute;inset:-8px;border-radius:50%} /* vùng chạm ≥ 44px dù chấm nhỏ */
+.stn::before{content:"";position:absolute;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%} /* vùng chạm 56 px cố định */
 .stn.done{background:var(--ok);color:#fff}
 .stn.open{background:#fff;color:var(--primary-shadow);border-color:var(--primary)}
-.stn.soon{width:30px;height:30px;background:rgba(255,255,255,.88);color:var(--ink-2);border-color:var(--border)}
-.stn.locked{width:30px;height:30px;background:#EDE7DC;color:var(--muted)}
-.stn.now{width:auto;height:auto;border:0;background:none;box-shadow:none;flex-direction:column;transform:translate(-50%,-85%);z-index:2}
-.now-tag{background:var(--primary);color:#fff;font-weight:900;font-size:.75rem;border-radius:999px;padding:3px 10px;margin-bottom:4px;white-space:nowrap}
+.stn.soon{width:32px;height:32px;background:rgba(255,255,255,.88);color:var(--ink-2);border-color:var(--border)}
+.stn.locked{width:32px;height:32px;background:#EDE7DC;color:var(--muted)}
+.stn.now{width:auto;height:auto;border:0;background:none;box-shadow:none;flex-direction:column;z-index:2}
+.j-now{position:sticky;top:0;z-index:4;display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--card-border);border-radius:16px;padding:8px 10px;margin-bottom:8px}
+.j-now img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--primary);flex:none}
+.j-now-txt{display:flex;flex-direction:column;min-width:0;flex:1}
+.j-now-txt .lbl{font-size:.6875rem;font-weight:800;color:var(--ink-2)}
+.j-now-txt b{font-size:.875rem;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.j-now-go{width:auto;min-height:44px;padding:0 14px;flex:none}
 .stn.now img{width:50px;height:50px;border-radius:50%;object-fit:cover;object-position:top;border:4px solid var(--primary);background:#fff;
   animation:stn-pulse 2.4s ease-in-out infinite}
 @keyframes stn-pulse{0%,100%{box-shadow:0 0 0 0 rgba(47,91,234,.45)}50%{box-shadow:0 0 0 9px rgba(47,91,234,0)}}
@@ -108,9 +113,8 @@
   .stat span{font-size:.875rem}
   .j-panel{flex:1 1 340px;max-width:440px;background:#fff;border:2px solid var(--card-border);border-radius:22px;padding:16px;gap:10px}
   .j-title{font-size:1.25rem}
+  .j-now{display:none} /* máy tính: thẻ Now learning ở cột trái đã có Continue */
   .jmap{margin:0;border-radius:18px}
-  .stn{width:30px;height:30px}
-  .stn.soon,.stn.locked{width:26px;height:26px;font-size:.6875rem}
   .stn.now img{width:46px;height:46px}
   .toast{bottom:28px}
 }
@@ -168,3 +172,5 @@ button.stat{font:inherit;color:inherit;text-align:center;cursor:pointer}
 .stk-grid figure{margin:0;text-align:center;font-size:.75rem;font-weight:800;color:var(--ink-2)}
 .stk-grid img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;margin:0 auto}
 .stk-empty{margin:6px 0!important;color:var(--ink-3)}
+.code-big{display:block;text-align:center;font-size:1.75rem;font-weight:900;letter-spacing:.12em;color:var(--primary-shadow);
+  background:var(--primary-soft);border:2px dashed var(--primary);border-radius:14px;padding:10px 8px;user-select:all;font-variant-numeric:tabular-nums}

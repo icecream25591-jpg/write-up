@@ -1,0 +1,424 @@
+{
+  "session": "S07",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S7 (tools/tao-session.mjs)",
+  "topic": "Cashless payments",
+  "productVi": "đoạn mở rộng 120–140 từ (mốc kiểm tra viết đoạn).",
+  "targetsVi": "hiện tại hoàn thành ở câu chủ đề, hiện tại đơn ở cơ chế; chủ ngữ dài và hòa hợp chủ–vị; quá khứ đơn ở ví dụ; be likely to.",
+  "sticker": "sticker-2#1",
+  "recall": [
+    {
+      "id": "S07-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Bottles ___ on the beach are often washed into the sea.",
+      "options": [
+        "leaving",
+        "left",
+        "leave"
+      ],
+      "answer": "left",
+      "explainVi": "Chai bị bỏ lại → phân từ II mang nghĩa bị động."
+    },
+    {
+      "id": "S07-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Turtles often mistake plastic bags ___ jellyfish.",
+      "options": [
+        "as",
+        "with",
+        "for"
+      ],
+      "answer": "for",
+      "explainVi": "mistake A for B."
+    },
+    {
+      "id": "S07-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "code": "S",
+      "en": "Nets discarding by fishing boats trap many animals.",
+      "answer": "discarding → discarded",
+      "explainVi": "Lưới bị vứt bỏ → phân từ II."
+    },
+    {
+      "id": "S07-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "The storm carried the rubbish out to sea, ___ the whole bay.",
+      "options": [
+        "polluting",
+        "polluted",
+        "pollutes"
+      ],
+      "answer": "polluting",
+      "explainVi": "Mệnh đề V-ing nêu kết quả của vế trước."
+    },
+    {
+      "id": "S07-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Tiny pieces of plastic can enter the food ___.",
+      "options": [
+        "line",
+        "chain",
+        "circle"
+      ],
+      "answer": "chain",
+      "explainVi": "enter the food chain."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S07-C1",
+      "image": "s07-cau",
+      "cell": 1,
+      "altVi": "Hà quét mã QR trả tiền bánh mì",
+      "vi": "Hiện tại đơn mô tả cách thanh toán hoạt động.",
+      "target": "Hiện tại đơn",
+      "chips": [
+        "scan a QR code",
+        "a digital wallet",
+        "pay for bánh mì",
+        "no money leaves her hand"
+      ],
+      "checks": [
+        {
+          "kind": "notRegex",
+          "pattern": "\\b(?:was|were|did|paid|scanned|bought|went|used|took|got)\\b",
+          "flags": "i",
+          "msgVi": "Dùng hiện tại đơn (không dùng quá khứ)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Ha pays for her bánh mì by scanning a QR code, so no money leaves her hand."
+    },
+    {
+      "id": "S07-C2",
+      "image": "s07-cau",
+      "cell": 2,
+      "altVi": "Lan nằm trên giường lúc nửa đêm, đặt trà sữa một chạm",
+      "vi": "Dùng be likely to.",
+      "target": "be likely to",
+      "chips": [
+        "impulse buying",
+        "one-tap orders",
+        "be likely to",
+        "things they do not need"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:is|are|am|be|was|were|been)\\s+(?:more\\s+|less\\s+|very\\s+|quite\\s+)?likely\\s+to\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng be likely to + V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Teenagers who can order with one tap are likely to buy things they do not really need."
+    },
+    {
+      "id": "S07-C3",
+      "image": "s07-cau",
+      "cell": 3,
+      "altVi": "Minh xem biểu đồ chi tiêu tuần, cột cao cạnh hình đồ ăn vặt, game",
+      "vi": "Chủ ngữ dài, động từ hợp chủ ngữ chính.",
+      "target": "Chủ ngữ dài",
+      "chips": [
+        "keep track of one's spending",
+        "a weekly chart",
+        "tall bars",
+        "snacks and games"
+      ],
+      "checks": [
+        {
+          "kind": "words",
+          "min": 10,
+          "max": 40,
+          "msgVi": "Câu có chủ ngữ dài: viết câu từ 10 từ trở lên."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The tall bars in Minh's weekly chart help him keep track of his spending on snacks and games."
+    },
+    {
+      "id": "S07-C4",
+      "image": "s07-cau",
+      "cell": 4,
+      "altVi": "Khoa ngần ngừ trước tin nhắn lạ có hộp quà và đường link",
+      "vi": "Dùng hiện tại hoàn thành.",
+      "target": "hiện tại hoàn thành",
+      "chips": [
+        "online fraud",
+        "personal data",
+        "a strange message",
+        "a free gift"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:has|have)\\s+(?:just\\s+|already\\s+|recently\\s+|never\\s+|ever\\s+)?(?:[a-z]+ed|[a-z]+en|got|made|had|bought|sent|spent|lost|found|left|paid|kept)\\b",
+          "flags": "i",
+          "msgVi": "Dùng hiện tại hoàn thành (has / have + V3)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Khoa has just received a strange message that promises him a free gift."
+    }
+  ],
+  "ideas": {
+    "image": "s07-y",
+    "prompt": "Explain one way in which e-wallet apps can help teenagers manage their pocket money better. Write an extended paragraph.",
+    "promptType": "explain",
+    "mode": "chooseOne",
+    "lanes": [
+      {
+        "id": "claim",
+        "en": "Claim",
+        "color": "claim",
+        "prefilled": false
+      },
+      {
+        "id": "how",
+        "en": "How",
+        "color": "how",
+        "prefilled": false
+      },
+      {
+        "id": "example",
+        "en": "Example",
+        "color": "example",
+        "prefilled": false
+      },
+      {
+        "id": "result",
+        "en": "Result",
+        "color": "result",
+        "prefilled": false
+      }
+    ],
+    "directions": [
+      {
+        "id": "S07-D1",
+        "panel": 5,
+        "claim": "a weekly summary",
+        "how": "see every payment in one place",
+        "example": "Minh checks his weekly chart",
+        "result": "notice his snack spending"
+      },
+      {
+        "id": "S07-D2",
+        "panel": 6,
+        "claim": "a spending limit",
+        "how": "the app warns before the limit",
+        "example": "Lan drags the limit bar",
+        "result": "stop impulse buying"
+      },
+      {
+        "id": "S07-D3",
+        "panel": 3,
+        "claim": "a payment record",
+        "how": "small payments show in a list",
+        "example": "QR payments add up",
+        "result": "keep track of spending"
+      }
+    ],
+    "vague": {
+      "how": {
+        "en": "use the app",
+        "whyVi": "Quá chung chung: chưa nói ứng dụng làm gì để giúp.",
+        "branchVi": "How"
+      },
+      "example": {
+        "en": "many teenagers",
+        "whyVi": "Chưa cụ thể: cần một người và một việc trong tranh.",
+        "branchVi": "Example"
+      },
+      "result": {
+        "en": "save a lot of money",
+        "whyVi": "Nói quá: chưa nói được tiết kiệm bao nhiêu, bằng cách nào.",
+        "branchVi": "Result"
+      }
+    },
+    "decoy": {
+      "en": "pay faster at shops",
+      "whyVi": "Lạc đề: nhanh hơn không giúp quản lý tiền."
+    },
+    "spots": [
+      {
+        "id": "S07-Y1",
+        "panel": 1,
+        "lookVi": "Minh cầm ví tiền mỏng",
+        "qVi": "Với tiền mặt, Minh biết mình còn bao nhiêu bằng cách nào?",
+        "chips": [
+          "see the notes in his wallet"
+        ],
+        "branchVi": "đối chiếu"
+      },
+      {
+        "id": "S07-Y2",
+        "panel": 2,
+        "lookVi": "Ba chiếc ví mỏng dần",
+        "qVi": "Vì sao tiền mặt giúp Minh dừng lại?",
+        "chips": [
+          "the wallet gets thinner"
+        ],
+        "branchVi": "đối chiếu"
+      },
+      {
+        "id": "S07-Y3",
+        "panel": 3,
+        "lookVi": "Các biển QR khắp nơi",
+        "qVi": "Vì sao quét mã dễ khiến ta tiêu nhiều?",
+        "chips": [
+          "small payments are easy to forget"
+        ],
+        "branchVi": "WHY / HOW"
+      },
+      {
+        "id": "S07-Y4",
+        "panel": 4,
+        "lookVi": "Đặt hàng trên giường lúc đêm",
+        "qVi": "Minh mua gì, lúc mấy giờ?",
+        "chips": [
+          "impulse buying late at night"
+        ],
+        "branchVi": "WHY / HOW"
+      },
+      {
+        "id": "S07-Y5",
+        "panel": 5,
+        "lookVi": "Minh hốt hoảng trước biểu đồ tuần",
+        "qVi": "Ứng dụng cho Minh thấy điều gì?",
+        "chips": [
+          "a weekly summary of every payment"
+        ],
+        "branchVi": "WHY / HOW"
+      },
+      {
+        "id": "S07-Y6",
+        "panel": 6,
+        "lookVi": "Lan xem biểu đồ và kéo thanh giới hạn",
+        "qVi": "Lan làm gì sau khi xem biểu đồ?",
+        "chips": [
+          "set a spending limit",
+          "keep track of one's spending"
+        ],
+        "branchVi": "EXAMPLE / RESULT"
+      },
+      {
+        "id": "S07-Y7",
+        "panel": null,
+        "hint": "tap",
+        "labelVi": "Gợi ý chung · Điều kiện",
+        "lookVi": "Thẻ gợi ý chung",
+        "qVi": "Ứng dụng chỉ giúp được khi nào?",
+        "chips": [
+          "only if users check the record"
+        ]
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Tenses by function",
+      "vi": "Hiện tại hoàn thành: thay đổi đến nay. Hiện tại đơn: cách hoạt động. Quá khứ đơn: việc đã xảy ra, có mốc. be likely to + V. Chủ ngữ dài: động từ hợp danh từ chính.",
+      "exampleEn": "Paying by phone has become common among teenagers. The list of recent payments appears on the screen."
+    },
+    "ideas": {
+      "titleEn": "Why / How → Example → Result",
+      "vi": "Chọn MỘT cách ví điện tử giúp quản lý tiền làm Claim, rồi chọn cụm khớp cách đó. Thẻ Điều kiện nói ứng dụng chỉ giúp khi nào.",
+      "exampleEn": "Claim: a weekly summary → How: see every payment in one place → Example: Minh notices his snack spending → Result: set a spending limit"
+    },
+    "write": {
+      "titleEn": "Three tenses, one paragraph",
+      "vi": "Câu chủ đề: hiện tại hoàn thành. Cơ chế: hiện tại đơn. Ví dụ đã xảy ra: quá khứ đơn. Thêm một câu be likely to và một câu giới hạn (However…).",
+      "exampleEn": "E-wallets have made spending easier to track. Last month, Hoa checked her weekly chart and cancelled a subscription she never used."
+    },
+    "recall": {
+      "titleEn": "S6 review",
+      "vi": "V-ed là bị động, V-ing là chủ động. Mệnh đề V-ing sau dấu phẩy nêu kết quả.",
+      "exampleEn": "Cans dropped on the street often block the drains, causing floods."
+    }
+  },
+  "write": {
+    "id": "S07-W1",
+    "kind": "paragraph",
+    "prompt": "Explain one way in which e-wallet apps can help teenagers manage their pocket money better. Write an extended paragraph.",
+    "taskVi": "đoạn mở rộng 120–140 từ (mở rộng: 140–160 từ, không khung).",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        120,
+        140
+      ],
+      "extension": [
+        140,
+        160
+      ]
+    },
+    "extensionVi": "không khung",
+    "minutes": null,
+    "mustUse": [
+      "hiện tại hoàn thành ở câu chủ đề",
+      "hiện tại đơn khi giải thích cơ chế",
+      "quá khứ đơn ở ví dụ",
+      "một câu có be likely to"
+    ],
+    "modelAfterSubmit": "E-wallet apps have made it easier for teenagers to track where their pocket money goes. Although some people worry that these apps make spending too easy, their records can actually help young people manage their money better. Every payment made through an e-wallet is recorded automatically, and many apps show a weekly chart of where the money has gone. A student who checks this chart is likely to notice small habits that add up, such as buying bubble tea every afternoon. For example, my classmate Lan saw that snacks took up most of her spending last month, so she set a weekly limit in the app. However, the record only helps teenagers who actually look at it; otherwise, they may simply spend more without noticing."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Cả đoạn phát triển MỘT cách ứng dụng giúp quản lý tiền?"
+    },
+    {
+      "round": "Câu",
+      "code": "T",
+      "vi": "Câu chủ đề dùng hiện tại hoàn thành; cơ chế dùng hiện tại đơn; ví dụ đã xảy ra dùng quá khứ đơn?"
+    },
+    {
+      "round": "Câu",
+      "code": "SV",
+      "vi": "Chủ ngữ dài (Every payment made through…, The tall bars in…) đi với động từ hợp danh từ chính?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Câu giới hạn (However…) nối đúng với ý trước?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "spend money on; keep track of?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-2#1",
+    "stickerVi": "Minh quét mã QR"
+  },
+  "praiseEn": "Money-smart and word-smart — well done!"
+}

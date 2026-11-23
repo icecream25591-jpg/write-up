@@ -18,6 +18,7 @@ export function createMai({ title = 'Ms Mai’s tip', html = '' } = {}) {
   bubble.querySelector('p').innerHTML = html;
 
   const scroller = () => wrap.closest('.screen')?.querySelector('.sess-body');
+  const headH = () => document.querySelector('.sess-head')?.getBoundingClientRect().bottom || 0;
   const isField = (el) => el && el.matches?.('textarea, input:not([type=checkbox]):not([type=radio]), [contenteditable="true"]');
 
   function open() {
@@ -43,10 +44,10 @@ export function createMai({ title = 'Ms Mai’s tip', html = '' } = {}) {
     const bubbleTop = () => btn.getBoundingClientRect().bottom - 76 - bubble.offsetHeight;
     body.style.paddingBottom = `${bubble.offsetHeight + 24}px`;
     const overlap = el.getBoundingClientRect().bottom + 8 - bubbleTop();
-    if (overlap > 0) body.scrollBy({ top: overlap });
+    if (overlap > 0) window.scrollBy({ top: overlap });
     // Cuộn rồi mà vẫn đè (ô quá cao hoặc màn quá thấp): ưu tiên việc gõ, đóng bong bóng.
     const r = el.getBoundingClientRect();
-    if (r.bottom + 4 > bubbleTop() || r.top < body.getBoundingClientRect().top - 1) {
+    if (r.bottom + 4 > bubbleTop() || r.top < headH() - 1) {
       close();
       el.scrollIntoView({ block: 'center' });
     }

@@ -1,0 +1,370 @@
+{
+  "session": "S18",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S18 (tools/tao-session.mjs)",
+  "topic": "Life skills: home or school?",
+  "productVi": "essay có giờ, 200–250 từ, 40 phút, dạng hai quan điểm + ý riêng.",
+  "targetsVi": "hai mẫu tường thuật khác nhau; một câu chuyển sang đánh giá; ý riêng rõ ở thesis và kết bài.",
+  "sticker": "sticker-3#6",
+  "recall": [
+    {
+      "id": "S18-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "I ___ agree that tourism should be controlled.",
+      "options": [
+        "largely",
+        "large",
+        "larger"
+      ],
+      "answer": "largely",
+      "explainVi": "Trạng từ bổ nghĩa cho agree: largely agree."
+    },
+    {
+      "id": "S18-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Tourism can bring benefits, ___ that residents are involved in decisions.",
+      "options": [
+        "provided",
+        "unless",
+        "despite"
+      ],
+      "answer": "provided",
+      "explainVi": "provided that = miễn là."
+    },
+    {
+      "id": "S18-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "In my perspective, homestays are the best option.",
+      "answer": "From my perspective",
+      "explainVi": "Cụm cố định: from my perspective / in my view."
+    },
+    {
+      "id": "S18-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Popular sites can be damaged when visitors exceed their carrying ___.",
+      "options": [
+        "capacity",
+        "ability",
+        "power"
+      ],
+      "answer": "capacity",
+      "explainVi": "carrying capacity = sức chứa tối đa."
+    },
+    {
+      "id": "S18-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Rents in tourist areas ___ to rise quickly.",
+      "options": [
+        "tend",
+        "tends",
+        "tending"
+      ],
+      "answer": "tend",
+      "explainVi": "Chủ ngữ số nhiều Rents → tend."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S18-C1",
+      "image": "s18-cau",
+      "cell": 1,
+      "altVi": "Mẹ dạy Minh cuốn chả giò trong bếp",
+      "vi": "Mẫu tường thuật It is often argued that…",
+      "target": "It is often argued that…",
+      "chips": [
+        "set an example",
+        "learn by doing",
+        "cook",
+        "watch a parent"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*It is (?:often|widely|commonly)\\s+(?:argued|claimed|said|believed)\\s+that\\b",
+          "flags": "",
+          "msgVi": "Dùng mẫu tường thuật It is often argued that…"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "It is often argued that children learn to cook best by watching a parent."
+    },
+    {
+      "id": "S18-C2",
+      "image": "s18-cau",
+      "cell": 2,
+      "altVi": "Cô Mai hướng dẫn lớp tập hô hấp nhân tạo trên mô hình",
+      "vi": "Mẫu tường thuật Supporters of … claim that…",
+      "target": "Supporters of … claim that…",
+      "chips": [
+        "a trained teacher",
+        "first aid",
+        "supporters of school lessons",
+        "require"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:Supporters|Opponents|Critics|Advocates)\\s+of\\b[^.]*\\b(?:claim|argue|believe|say)\\s+that\\b",
+          "flags": "",
+          "msgVi": "Dùng Supporters of … claim that…"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Supporters of school lessons claim that skills such as first aid require a trained teacher."
+    },
+    {
+      "id": "S18-C3",
+      "image": "s18-cau",
+      "cell": 3,
+      "altVi": "Bố chỉ Hà lắp xích xe đạp ngoài sân",
+      "vi": "Câu chuyển sang đánh giá với While …, …",
+      "target": "While …, …",
+      "chips": [
+        "family background",
+        "share responsibility for",
+        "a busy parent",
+        "be unsure how"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*While\\b[^.]*,",
+          "flags": "",
+          "msgVi": "Mở đầu bằng While …, …"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "While Ha can learn to fix her bike from her father, a busy parent may have less time to teach this skill, so schools and families can share responsibility for teaching practical skills."
+    },
+    {
+      "id": "S18-C4",
+      "image": "s18-cau",
+      "cell": 4,
+      "altVi": "Cô Mai dạy lập ngân sách bằng tiền đồ chơi và giỏ hàng",
+      "vi": "Nêu ý riêng với In my view,",
+      "target": "In my view,",
+      "chips": [
+        "reinforce a skill",
+        "money skills",
+        "in my view",
+        "practise at home"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*In my view,",
+          "flags": "",
+          "msgVi": "Mở đầu bằng In my view,"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "In my view, money skills are best introduced at school and then practised at home."
+    }
+  ],
+  "ideas": {
+    "image": "s18-y",
+    "prompt": "Some people think that life skills should be taught in one short lesson every week, while others believe it is better to hold a few full days of hands-on practice during the school year. Discuss both views and give your own opinion.",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "weekly-lessons",
+        "en": "Weekly lessons",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "practice-days",
+        "en": "Practice days",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "my-view",
+        "en": "My view",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "onDemand": true,
+    "spots": [
+      {
+        "id": "S18-Y1",
+        "panel": 1,
+        "lookVi": "Nửa trái · mẹ dạy Lan nấu ăn",
+        "qVi": "Ở nhà, kỹ năng được luyện bao lâu một lần?",
+        "chips": [
+          "regular practice helps a skill stick"
+        ],
+        "lane": "weekly-lessons"
+      },
+      {
+        "id": "S18-Y2",
+        "panel": 2,
+        "lookVi": "Nửa trái · bố và Tí phân loại quần áo",
+        "qVi": "Việc nhỏ lặp lại đều đặn giúp gì?",
+        "chips": [
+          "build a habit step by step"
+        ],
+        "lane": "weekly-lessons"
+      },
+      {
+        "id": "S18-Y3",
+        "panel": 3,
+        "lookVi": "Nửa trái · phụ huynh bận với laptop",
+        "qVi": "Nếu ở nhà không ai nhắc lại, kỹ năng học một lần có giữ được không?",
+        "chips": [
+          "skills fade without practice"
+        ],
+        "lane": "weekly-lessons"
+      },
+      {
+        "id": "S18-Y4",
+        "panel": 4,
+        "lookVi": "Nửa phải · bạn ngồi chán",
+        "qVi": "Vì sao một buổi quá dài có thể khiến vài bạn chán?",
+        "chips": [
+          "lose interest in a long day"
+        ],
+        "lane": "weekly-lessons"
+      },
+      {
+        "id": "S18-Y5",
+        "panel": 5,
+        "lookVi": "Nửa phải · cô Mai và nhiều góc thực hành",
+        "qVi": "Một buổi dài làm được những gì?",
+        "chips": [
+          "practise several skills with trained staff"
+        ],
+        "lane": "practice-days"
+      },
+      {
+        "id": "S18-Y6",
+        "panel": 6,
+        "lookVi": "Nửa phải · góc sơ cứu",
+        "qVi": "Kỹ năng nào cần thời gian luyện liền mạch?",
+        "chips": [
+          "repeat a task several times in one go"
+        ],
+        "lane": "practice-days"
+      },
+      {
+        "id": "S18-Y7",
+        "panel": 7,
+        "lookVi": "Hà đứng trên cầu",
+        "qVi": "Có thể kết hợp hai cách thế nào?",
+        "chips": [
+          "a practice day each term",
+          "short weekly reminders"
+        ],
+        "lane": "my-view"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Reporting two views",
+      "vi": "Dùng hai mẫu tường thuật khác nhau: Some argue that…, It is often claimed that…, Others point out that…. Thêm một câu chuyển sang đánh giá: While both views have merit, …",
+      "exampleEn": "Some argue that weekly lessons build habits. It is also claimed that a full practice day makes skills stick."
+    },
+    "ideas": {
+      "titleEn": "Weekly lessons · Practice days · My view",
+      "vi": "Xếp mỗi cụm vào đúng phía. My view có thể kết hợp hai cách.",
+      "exampleEn": "regular practice helps a skill stick → Weekly lessons; repeat a task several times in one go → Practice days; a practice day each term, short weekly reminders → My view"
+    },
+    "write": {
+      "titleEn": "Fair to both, clear on yours",
+      "vi": "Bàn đủ hai quan điểm. Ý riêng có ở thesis và kết bài, không mâu thuẫn nhau. Có ít nhất một câu chuyển từ trình bày sang đánh giá.",
+      "exampleEn": "While both views have merit, I believe a termly practice day, supported by short weekly reminders, works best."
+    },
+    "recall": {
+      "titleEn": "S17 review",
+      "vi": "Thesis nêu mức đồng ý kèm lý do. Admittedly… However…. the number of + N số nhiều → động từ số ít.",
+      "exampleEn": "I partly agree, since tourism helps families, but only if visitors are managed."
+    }
+  },
+  "write": {
+    "id": "S18-W1",
+    "kind": "essay",
+    "prompt": "Some people think that life skills should be taught in one short lesson every week, while others believe it is better to hold a few full days of hands-on practice during the school year. Discuss both views and give your own opinion.",
+    "taskVi": "essay 200–250 từ trong 40 phút.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        200,
+        250
+      ],
+      "extension": [
+        200,
+        250
+      ]
+    },
+    "extensionVi": "",
+    "minutes": 40,
+    "mustUse": [
+      "hai mẫu tường thuật khác nhau",
+      "một câu chuyển sang đánh giá",
+      "ý riêng xuất hiện ở cả thesis và kết bài"
+    ],
+    "modelAfterSubmit": "Most schools agree that students need practical life skills, but they disagree about how to fit them into the timetable. Some people prefer a short lesson every week, whereas others argue that a few full days of hands-on practice are more effective. In my view, a combination of the two would work best.\n\nSupporters of weekly lessons point out that skills are learnt through regular practice. A student who plans a simple budget every week is more likely to remember the steps than one who tries it only once a term. Short lessons also fit easily into the timetable and are less tiring, so students are unlikely to lose interest.\n\nOn the other hand, it is often argued that some skills cannot be learnt in forty minutes. Cooking a full meal or practising first aid on a dummy takes time to set up, and a short lesson may end just as students start to understand. A full practice day allows them to repeat each task several times with trained staff. While both views are reasonable, the second seems more convincing for complex skills.\n\nIn conclusion, I believe schools should hold a hands-on practice day each term for demanding skills such as first aid, and then use short weekly lessons to help students remember what they have learnt."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Bàn đủ hai quan điểm; ý riêng có ở thesis và kết bài, không mâu thuẫn?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Có một câu chuyển từ trình bày sang đánh giá (While both sides…)?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "Hai mẫu tường thuật khác nhau, không lặp \"Some people think\"?"
+    },
+    {
+      "round": "Câu",
+      "code": "SV",
+      "vi": "few / not every / every student đi với động từ đúng số?"
+    },
+    {
+      "round": "Từ",
+      "code": "PU",
+      "vi": "Dấu phẩy quanh \"however\" khi nó đứng giữa câu?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-3#6",
+    "stickerVi": "Hà với hộp dụng cụ nấu ăn"
+  },
+  "praiseEn": "Life skill unlocked: balanced writing!"
+}

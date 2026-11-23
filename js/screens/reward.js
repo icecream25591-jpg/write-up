@@ -48,7 +48,7 @@ export function mountReward(s, { n, data, p }) {
     updateStars();
     s.el.querySelector('.sess-head .stars span').textContent = stars;
     s.el.querySelector('.stages li:last-child')?.classList.add('done'); // thanh chặng: Reward cũng xong
-    sfx('sticker');
+    sfx('win'); // tiếng chúc mừng khi hoàn thành một trạm
   }
   const streak = load('streak', { days: p.reward.streak || 1 }).days || 1;
   const name = load('studentName', '') || 'bạn';

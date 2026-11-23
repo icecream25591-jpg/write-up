@@ -6,6 +6,7 @@ import { saveProgress } from '../progress.js';
 import { href } from '../router.js';
 import { icons } from '../icons.js';
 import { sfx } from '../sfx.js';
+import { CODE_VI, codeLabel } from '../codes.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const shuffle = (a) => { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
@@ -28,7 +29,7 @@ export function mountRecall(s, { n, data, p }) {
     const a = R.ans[q.id];
     s.setTitle(`Quick Recall · ${i + 1}/${items.length}`);
     const isFix = q.kind === 'fix-error' || q.type === 'fix';
-    const ask = isFix ? 'Tìm và sửa lỗi trong câu.' : 'Chọn đáp án đúng để hoàn thành câu.';
+    const ask = q.askVi || (isFix ? 'Tìm và sửa lỗi trong câu.' : 'Chọn đáp án đúng để hoàn thành câu.');
 
     s.body.innerHTML = `
       <div class="recall">
@@ -36,7 +37,7 @@ export function mountRecall(s, { n, data, p }) {
           <img class="guide-pic" src="${emo(n, a ? (a.ok ? EMO.ok : EMO.bad) : EMO.idle)}" alt="" width="84" height="110">
           <p class="guide-say"><b>${review}</b> · ${ask}</p>
         </div>
-        <div class="card q-card" lang="en">${isFix ? `<span class="fix-tag">Find the mistake</span>` : ''}${blank(q.en, !isFix && a ? a.pick : '', !!a && !a.ok)}</div>
+        <div class="card q-card" lang="en">${isFix ? `<span class="fix-tag">Find the mistake${q.code ? ` · ${esc(codeLabel(q.code))}` : ""}</span>` : ''}${blank(q.en, !isFix && a ? a.pick : '', !!a && !a.ok)}</div>
         <div class="q-area"></div>
       </div>`;
     const area = s.body.querySelector('.q-area');
@@ -44,7 +45,7 @@ export function mountRecall(s, { n, data, p }) {
     if (!isFix) {
       const opts = shuffle(q.options);
       area.innerHTML = `<div class="opts" role="group" aria-label="Options">${opts.map((o, k) => `
-        <button type="button" class="opt" data-v="${esc(o)}"><span class="key">${'ABCD'[k]}</span><span class="txt" lang="en">${esc(o)}</span><span class="mark" aria-hidden="true"></span></button>`).join('')}</div>`;
+        <button type="button" class="opt" data-v="${esc(o)}"><span class="key">${'ABCDEF'[k]}</span><span class="txt" lang="en">${esc(CODE_VI[o] ? codeLabel(o) : o)}</span><span class="mark" aria-hidden="true"></span></button>`).join('')}</div>`;
       const tried = (R.first ||= {})[q.id];
       if (tried && !a) markTried(tried);
       area.addEventListener('click', (e) => {
@@ -68,8 +69,10 @@ export function mountRecall(s, { n, data, p }) {
     } else {
       area.innerHTML = `
         <label class="lbl" for="fix-in">Your correction <span class="opt-note">(không bắt buộc)</span></label>
-        <input id="fix-in" class="fix-in" lang="en" autocomplete="off" autocapitalize="sentences" spellcheck="false"
-          placeholder="Gõ câu đã sửa…" value="${esc(a?.typed || R.typed?.[q.id] || '')}">
+        ${q.warmup // đoạn khởi động tự sửa: ô viết nhiều dòng, chép lại đoạn rồi sửa
+          ? `<textarea id="fix-in" class="fix-in fix-para" lang="en" rows="5" spellcheck="false" placeholder="Chép lại đoạn và sửa 5 lỗi…">${esc(a?.typed || R.typed?.[q.id] || q.en)}</textarea>`
+          : `<input id="fix-in" class="fix-in" lang="en" autocomplete="off" autocapitalize="sentences" spellcheck="false"
+          placeholder="Gõ câu đã sửa…" value="${esc(a?.typed || R.typed?.[q.id] || '')}">`}
         <div class="reveal" ${a || R.revealed?.[q.id] ? '' : 'hidden'}>
           <div class="ans"><span class="lbl">Answer</span> <b lang="en">${esc(q.answer)}</b></div>
           <div class="self" ${a ? 'hidden' : ''}>
@@ -187,9 +190,9 @@ export function mountRecall(s, { n, data, p }) {
       foot(`<span class="hint">Tự đánh dấu bên trên rồi đi tiếp.</span>`);
       s.body.querySelector('.reveal').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     } else if (act === 'next') {
-      if (R.i >= items.length - 1) { R.done = true; save(); sfx('done'); location.hash = href.stage(n, 1); return; }
+      if (R.i >= items.length - 1) { R.done = true; save(); location.hash = href.stage(n, 1); return; }
       R.i++; save(); show();
-      s.body.scrollTop = 0;
+      window.scrollTo(0, 0);
     } else if (act === 'again') {
       R.i = 0; R.ans = {}; R.revealed = {}; R.typed = {}; R.first = {}; R.retry = {}; R.done = false; save(); show();
     }

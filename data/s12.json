@@ -1,0 +1,388 @@
+{
+  "session": "S12",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S12 (tools/tao-session.mjs)",
+  "topic": "Urban traffic",
+  "productVi": "essay 4 đoạn có hướng dẫn, 200–250 từ, viết từng đoạn.",
+  "targetsVi": "câu điều kiện loại 1 và 2; cách thay if (provided that, unless…); đảo ngữ điều kiện.",
+  "sticker": "sticker-2#6",
+  "recall": [
+    {
+      "id": "S12-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "___ classroom lessons, online classes can be recorded.",
+      "options": [
+        "Unlike",
+        "Despite",
+        "Instead"
+      ],
+      "answer": "Unlike",
+      "explainVi": "Unlike + danh từ: so sánh khác biệt."
+    },
+    {
+      "id": "S12-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Some students enjoy online lessons, ___ others feel lonely at home.",
+      "options": [
+        "whereas",
+        "however",
+        "although"
+      ],
+      "answer": "whereas",
+      "explainVi": "whereas nối hai vế đối lập trong một câu."
+    },
+    {
+      "id": "S12-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Although the lesson was online, but everyone joined on time.",
+      "answer": "bỏ \"but\"",
+      "explainVi": "Although và but không dùng cùng một câu."
+    },
+    {
+      "id": "S12-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Online learners need to be self-___.",
+      "options": [
+        "motivated",
+        "motivating",
+        "motivation"
+      ],
+      "answer": "motivated",
+      "explainVi": "self-motivated = tự có động lực."
+    },
+    {
+      "id": "S12-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Compared ___ face-to-face lessons, online classes offer less peer interaction.",
+      "options": [
+        "with",
+        "than",
+        "as"
+      ],
+      "answer": "with",
+      "explainVi": "Compared with / to + danh từ."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S12-C1",
+      "image": "s12-cau",
+      "cell": 1,
+      "altVi": "Minh kẹt giữa dòng xe giờ cao điểm, nhìn đồng hồ",
+      "vi": "Điều kiện loại 1.",
+      "target": "Điều kiện loại 1",
+      "chips": [
+        "rush hour",
+        "private vehicles",
+        "leave home",
+        "get stuck"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bif\\b[^.]*\\b(?:will|won't|can|may)\\b|\\b(?:will|won't)\\b[^.]*\\bif\\b",
+          "flags": "i",
+          "msgVi": "Dùng điều kiện loại 1: If + hiện tại, will + V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "If Minh leaves home after 6:45, he will get stuck in rush-hour traffic."
+    },
+    {
+      "id": "S12-C2",
+      "image": "s12-cau",
+      "cell": 2,
+      "altVi": "Xe buýt đông nghẹt kẹt cùng dòng ô tô, Hà ép sát cửa kính",
+      "vi": "Điều kiện loại 2.",
+      "target": "Điều kiện loại 2",
+      "chips": [
+        "public transport",
+        "commuters",
+        "a bus lane",
+        "the same jam"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bif\\b[^.]*\\b(?:would|could|might)\\b|\\b(?:would|could)\\b[^.]*\\bif\\b",
+          "flags": "i",
+          "msgVi": "Dùng điều kiện loại 2: If + quá khứ, would + V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "If there were a bus lane, commuters like Ha would not be stuck in the same jam as drivers."
+    },
+    {
+      "id": "S12-C3",
+      "image": "s12-cau",
+      "cell": 3,
+      "altVi": "Xe máy và hàng quán chiếm vỉa hè, Lan phải đi dưới lòng đường",
+      "vi": "Dùng unless.",
+      "target": "unless",
+      "chips": [
+        "the pavement",
+        "pedestrians",
+        "clear",
+        "walk on the road"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bunless\\b",
+          "flags": "i",
+          "msgVi": "Dùng unless."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Unless the pavements are cleared, pedestrians like Lan will have to walk on the road."
+    },
+    {
+      "id": "S12-C4",
+      "image": "s12-cau",
+      "cell": 4,
+      "altVi": "Xe buýt chạy nhanh trên làn riêng, vượt hàng ô tô đang kẹt",
+      "vi": "Dùng provided that.",
+      "target": "provided that",
+      "chips": [
+        "a dedicated bus lane",
+        "keep clear",
+        "buses",
+        "move quickly"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bprovided\\s+(?:that\\b)?",
+          "flags": "i",
+          "msgVi": "Dùng provided that."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Provided that the bus lane is kept clear, buses can move quickly even at rush hour."
+    }
+  ],
+  "ideas": {
+    "image": "s12-y",
+    "prompt": "Many students arrive late at school because of traffic jams near the school gates at rush hour. What causes this problem, and what can schools and local authorities do to solve it?",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "causes",
+        "en": "Causes",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "solutions",
+        "en": "Solutions",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "conditions",
+        "en": "Conditions",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "spots": [
+      {
+        "id": "S12-Y1",
+        "panel": 1,
+        "lookVi": "Khung 1 · đồng hồ 7:00, ai cũng đến cùng lúc",
+        "qVi": "Vì sao xe dồn về một giờ?",
+        "chips": [
+          "everyone arrives at the same time"
+        ],
+        "lane": "causes"
+      },
+      {
+        "id": "S12-Y2",
+        "panel": 1,
+        "lookVi": "Khung 1 · xe máy và ô tô kín làn",
+        "qVi": "Phụ huynh đưa con đi học bằng gì?",
+        "chips": [
+          "too many private vehicles"
+        ],
+        "lane": "causes"
+      },
+      {
+        "id": "S12-Y3",
+        "panel": 1,
+        "lookVi": "Khung 1 · xe buýt kẹt giữa dòng xe",
+        "qVi": "Vì sao xe buýt cũng trễ?",
+        "chips": [
+          "stuck in the same traffic"
+        ],
+        "lane": "causes"
+      },
+      {
+        "id": "S12-Y4",
+        "panel": 1,
+        "lookVi": "Khung 1 · vỉa hè bị chiếm",
+        "qVi": "Học sinh đi bộ phải đi đâu?",
+        "chips": [
+          "pavements used for parking"
+        ],
+        "lane": "causes"
+      },
+      {
+        "id": "S12-Y5",
+        "panel": 2,
+        "lookVi": "Khung 2 · hai cổng, hai đồng hồ",
+        "qVi": "Trường thay đổi giờ vào học thế nào?",
+        "chips": [
+          "staggered start times"
+        ],
+        "lane": "solutions"
+      },
+      {
+        "id": "S12-Y6",
+        "panel": 2,
+        "lookVi": "Khung 2 · làn xe buýt đỏ",
+        "qVi": "Xe buýt chạy ở đâu?",
+        "chips": [
+          "a dedicated bus lane"
+        ],
+        "lane": "solutions"
+      },
+      {
+        "id": "S12-Y7",
+        "panel": 2,
+        "lookVi": "Khung 2 · vỉa hè trống, làn xe đạp",
+        "qVi": "Người đi bộ và đi xe đạp được gì?",
+        "chips": [
+          "safe pavements and cycle lanes"
+        ],
+        "lane": "solutions"
+      },
+      {
+        "id": "S12-Y8",
+        "panel": 2,
+        "lookVi": "Khung 2 · biển gửi xe có đồng xu",
+        "qVi": "Gửi ô tô trong trung tâm sẽ ra sao?",
+        "chips": [
+          "parking fees"
+        ],
+        "lane": "solutions"
+      },
+      {
+        "id": "S12-Y9",
+        "panel": null,
+        "lookVi": "Thẻ gợi ý chung",
+        "qVi": "Giải pháp chỉ hiệu quả khi nào?",
+        "chips": [
+          "only if the lane is kept clear"
+        ],
+        "show": "card",
+        "lane": "conditions"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "If · unless · provided that",
+      "vi": "Loại 1: If + hiện tại đơn, will + V. Loại 2: If + quá khứ đơn, would + V. unless = if not. provided that / as long as + hiện tại đơn, không dùng will.",
+      "exampleEn": "If the school starts later, fewer pupils will arrive in the rush hour. If parents carpooled, the street would be less crowded."
+    },
+    "ideas": {
+      "titleEn": "Causes → Solutions → Condition",
+      "vi": "Xếp mỗi cụm vào Causes, Solutions hoặc Condition. Mỗi giải pháp phải xử lý đúng một nguyên nhân. Condition nói giải pháp hiệu quả khi nào.",
+      "exampleEn": "too many private vehicles → Causes; a dedicated bus lane → Solutions; only if the lane is kept clear → Condition"
+    },
+    "write": {
+      "titleEn": "Cause → solution → condition",
+      "vi": "Essay 4 đoạn: mở bài, nguyên nhân, giải pháp khớp nguyên nhân, kết bài. Cần một câu điều kiện loại 2 và một câu với unless hoặc provided that.",
+      "exampleEn": "If the school opened two gates, pupils would not all arrive through one narrow street."
+    },
+    "recall": {
+      "titleEn": "S11 review",
+      "vi": "Although = nhượng bộ. whereas = đối lập hai đối tượng. despite / because of + danh từ, không + mệnh đề.",
+      "exampleEn": "Despite the heavy traffic, most pupils arrived on time."
+    }
+  },
+  "write": {
+    "id": "S12-W1",
+    "kind": "essay",
+    "prompt": "Many students arrive late at school because of traffic jams near the school gates at rush hour. What causes this problem, and what can schools and local authorities do to solve it?",
+    "taskVi": "essay 4 đoạn, 200–250 từ: mở bài – nguyên nhân – giải pháp khớp nguyên nhân – kết bài. Mức cơ bản viết từng đoạn có khung; mức mở rộng viết liền.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        200,
+        250
+      ],
+      "extension": [
+        200,
+        250
+      ]
+    },
+    "extensionVi": "",
+    "minutes": null,
+    "mustUse": [
+      "một câu điều kiện loại 2",
+      "một câu với unless hoặc provided that"
+    ],
+    "modelAfterSubmit": "Every morning, the roads around many city schools are blocked by motorbikes, cars and buses. As a result, a large number of students arrive late and stressed. This essay will explain the main causes of this problem and suggest what schools and local authorities could do about it.\n\nThe main cause is that thousands of families travel to the same place at exactly the same time. Since most schools start at seven o'clock, parents on motorbikes and in cars all arrive within a few minutes, and many stop at the gate to drop off their children. Buses cannot help much, because they are stuck in the same traffic. In addition, parked motorbikes and food stalls often cover the pavements, so students on foot have to walk on the road.\n\nThese problems can be reduced. If schools started classes at different times for different grades, the morning rush would be spread over half an hour. Local authorities could also create a short bus lane near large schools. Provided that it is kept clear, the bus would become a faster choice than a private vehicle. Unless the pavements are cleared, however, walking will remain unsafe.\n\nIn conclusion, traffic jams outside schools are mainly caused by everyone arriving at once and by too little space for buses and pedestrians. Should schools and the city work together on start times, bus lanes and pavements, students will be able to reach school safely and on time."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Trả lời CẢ hai câu hỏi: nguyên nhân và giải pháp?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Mỗi giải pháp xử lý một nguyên nhân đã nêu ở đoạn trước?"
+    },
+    {
+      "round": "Câu",
+      "code": "VF",
+      "vi": "Loại 2: If + quá khứ đơn, would + V; đảo ngữ Should + S + V?"
+    },
+    {
+      "round": "Câu",
+      "code": "T",
+      "vi": "unless / provided that + hiện tại đơn, không dùng will trong mệnh đề điều kiện?"
+    },
+    {
+      "round": "Từ",
+      "code": "A",
+      "vi": "a bus lane / the bus lane đúng lần đầu và lần nhắc lại?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-2#6",
+    "stickerVi": "Khoa đạp xe"
+  },
+  "praiseEn": "Green light — your essay is on the road!"
+}

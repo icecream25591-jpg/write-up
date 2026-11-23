@@ -2,7 +2,7 @@
 // và Feedback → Draft 2 (mẫu M9-SuaBan2, D5-SuaBan2).
 import { load, save } from '../store.js';
 import { queue, findItem, enqueue } from '../queue.js';
-import { itemStatus, STATUS_TEXT, flushQueue, fetchFeedback, feedbackFor, feedbackList, isNew, markSeen, onSync, getConfig } from '../sync.js';
+import { itemStatus, STATUS_TEXT, flushQueue, fetchFeedback, feedbackFor, feedbackList, isNew, markSeen, onSync, getConfig, isCloud, resendWiped } from '../sync.js';
 import { countWords } from '../structures.js';
 import { icons } from '../icons.js';
 
@@ -33,16 +33,21 @@ export function workList() {
     const items = queue().slice().reverse();
     const waiting = items.filter((x) => !x.sent).length;
     const st = $('.mw-status');
-    if (!cfg.sheetUrl) st.innerHTML = '<p class="mw-warn">Web chưa nối Google Sheet: bài đang lưu trên máy này.</p>';
+    const blocked = items.filter((x) => !x.sent && x.blocked && !x.wiped).length, wiped = items.filter((x) => !x.sent && x.wiped).length;
+    if (isCloud()) st.innerHTML = (wiped ? `<p class="mw-warn">${wiped} bài chưa gửi: quản trị đã xoá dữ liệu của em trên máy chủ nên bài này <b>sẽ không tự gửi</b>. Bài vẫn nằm trên máy; bấm «Gửi lại bài này» nếu em muốn gửi.</p>` : '')
+      + (blocked ? `<p class="mw-warn">${blocked} bài chưa gửi được vì hồ sơ của em chưa được duyệt vào lớp (hoặc đã bị gỡ khỏi lớp). Bài vẫn lưu trên máy; khi cô duyệt lại, web tự gửi.</p>` : '')
+      + (waiting - blocked - wiped > 0 ? `<p class="mw-warn">${waiting - blocked - wiped} bài chờ gửi – sẽ tự gửi khi có mạng.</p>` : '');
+    else if (!cfg.sheetUrl) st.innerHTML = '<p class="mw-warn">Web chưa nối Google Sheet: bài đang lưu trên máy này.</p>';
     else if (!load('studentCode', '')) st.innerHTML = '<p class="mw-warn">Nhập <a href="#/settings">mã học sinh</a> để gửi bài cho cô.</p>';
     else if (waiting) st.innerHTML = `<p class="mw-warn">${waiting} bài chờ gửi – sẽ tự gửi khi có mạng.</p>`;
     else st.innerHTML = '';
-    $('[data-act="send"]').hidden = !(waiting && cfg.sheetUrl && load('studentCode', ''));
-    $('[data-act="refresh"]').hidden = !cfg.sheetUrl;
+    const live = isCloud() || (cfg.sheetUrl && load('studentCode', ''));
+    $('[data-act="send"]').hidden = !(live && (isCloud() ? waiting - blocked - wiped > 0 : waiting));   // bài «blocked» / «wiped» không gửi bằng nút này
+    $('[data-act="refresh"]').hidden = !(isCloud() || cfg.sheetUrl);
     if (!items.length) { $('.mw-list').innerHTML = '<div class="card mw-empty">Chưa có bài nào. Làm xong <b>Write &amp; Check</b> rồi bấm Submit.</div>'; return; }
     $('.mw-list').innerHTML = items.map((it) => {
       const stt = itemStatus(it);
-      const fb = it.kind === 'draft1' ? feedbackFor(it.id) : null;
+      const fb = feedbackFor(it.id);        // cả bản 1 và bản 2 đều có thể có nhận xét riêng
       const neu = fb && isNew(fb);
       const d2 = items.find((x) => x.kind === 'draft2' && x.draft1Id === it.id);
       const tag = it.kind === 'draft2' ? 'Draft 2' : 'Draft 1';
@@ -50,7 +55,8 @@ export function workList() {
         <div class="mw-mid"><b>${tag}</b><span>${when(it.submittedAt || it.queuedAt)} · ${it.words || countWords(it.text)} words</span></div>
         <div class="mw-chips"><span class="st st-${stt}">${stt === 'sent' ? icons.check(12) : ''}${STATUS_TEXT[stt]}</span>
           ${fb ? `<span class="st st-fb">${neu ? '<i class="dot-new" aria-hidden="true"></i>' : ''}Feedback${neu ? ' · mới' : ''}</span>` : ''}
-          ${d2 ? '<span class="st st-d2">Draft 2 đã nộp</span>' : ''}</div>`;
+          ${d2 ? '<span class="st st-d2">Draft 2 đã nộp</span>' : ''}</div>
+        ${stt === 'wiped' ? `<button type="button" class="btn2 sm" data-act="resend" data-id="${esc(it.id)}">Gửi lại bài này</button>` : ''}`;
       return fb ? `<a class="card mw-item${neu ? ' new' : ''}" href="#/work/${encodeURIComponent(it.id)}" aria-label="${sLabel(it.session)} ${tag} – ${neu ? 'có nhận xét mới' : 'xem nhận xét'}">${body}</a>`
         : `<div class="card mw-item">${body}</div>`;
     }).join('');
@@ -60,12 +66,13 @@ export function workList() {
     const b = e.target.closest('[data-act]');
     if (!b) return;
     b.disabled = true;
+    if (b.dataset.act === 'resend') await resendWiped(b.dataset.id);    // em chủ động gửi lại bài đã bị cách ly sau khi quản trị xoá dữ liệu
     if (b.dataset.act === 'send') await flushQueue();
     if (b.dataset.act === 'refresh') {
       await flushQueue();
       const r = await fetchFeedback();
       const info = $('.mw-info');
-      info.textContent = r === null ? 'Chưa kết nối được Sheet. Thử lại khi có mạng.' : r.length ? `Có ${r.length} bài đã được cô nhận xét.` : 'Cô chưa nhận xét bài nào.';
+      info.textContent = r === null ? (isCloud() ? 'Chưa kết nối được máy chủ. Thử lại khi có mạng.' : 'Chưa kết nối được Sheet. Thử lại khi có mạng.') : r.length ? `Có ${r.length} bài đã được cô nhận xét.` : 'Cô chưa nhận xét bài nào.';
       info.hidden = false;
     }
     b.disabled = false;
@@ -102,6 +109,7 @@ export function feedbackPage(ctx, route) {
     return { el };
   }
   markSeen(fb);
+  if ((fb.kind || local?.kind) === 'draft2') return feedbackPageD2(el, fb, local);   // nhận xét của riêng bản 2: chỉ đọc, không viết lại nữa
   const text = fb.bai_viet || local?.text || '';
   const parts = sentences(text);
   const weakI = locate(text, fb.cau_nhan_xet);
@@ -191,6 +199,45 @@ export function feedbackPage(ctx, route) {
     }
   });
   paint();
+  return { el };
+}
+
+/** Nhận xét của cô cho BẢN 2 (chỉ đọc): hiện đúng bài bản 2, câu được tô màu và nhận xét của bản 2; có liên kết sang nhận xét bản 1. */
+function feedbackPageD2(el, fb, local) {
+  const text = fb.bai_viet || local?.text || '';
+  const parts = sentences(text);
+  const weakI = locate(text, fb.cau_nhan_xet), goodI = locate(text, fb.cau_khen);
+  const color = laneColor(fb.nhanh), lane = fb.nhanh || 'Sentence';
+  const mark = (i, s) => {
+    const body = s.replace(/\s+$/, ''), tail = s.slice(body.length);
+    if (i === weakI) return `<mark class="hl" style="${laneStyle(color)}" title="${esc(lane)}">${esc(body)}</mark>${esc(tail)}`;
+    if (i === goodI) return `<mark class="hl" style="${laneStyle('claim')}" title="Good">${esc(body)}</mark>${esc(tail)}`;
+    return esc(s);
+  };
+  const d1 = local?.draft1Id ? feedbackFor(local.draft1Id) : null;
+  el.innerHTML = `
+    <div class="page fbk">
+      <div class="fbk-head"><div class="lbl">My Work · ${sLabel(fb.session)} ·${esc(fb.chu_de || local?.topic || '')}</div>
+        <div class="fbk-title"><h1>Feedback · Draft 2</h1><span class="chip-st">Draft 2 · marked</span></div></div>
+      <div class="fbk-cols">
+        <div class="fbk-l">
+          <div class="card fbk-draft"><span class="lbl">Draft 2</span><p class="d1" lang="en">${parts.map((s, i) => mark(i, s)).join('')}</p></div>
+          <div class="fbk-box">
+            <img src="img/comai-face.webp" alt="Ms Mai" width="60" height="60">
+            <div class="fbk-txt"><b class="fbk-who">Ms Mai’s feedback · Draft 2</b>
+              ${fb.khen ? `<div class="fbk-row"><span class="tagc" style="${laneStyle('claim')}">Good</span><span>${esc(fb.khen)}</span></div>` : ''}
+              ${fb.nhan_xet ? `<div class="fbk-row"><span class="tagc" style="${laneStyle(color)}">${esc(lane)}</span><span>${esc(fb.nhan_xet)}</span></div>` : ''}
+              ${fb.diem ? `<div class="fbk-row"><span class="tagc" style="${laneStyle('teal')}">Score</span><span>${esc(fb.diem)}</span></div>` : ''}</div>
+          </div>
+        </div>
+        <div class="fbk-r">
+          <p class="fbk-hint">Đây là nhận xét của cô cho <b>bản 2</b> của em.</p>
+          <div class="fbk-actions">
+            ${d1 ? `<a class="btn2" href="#/work/${encodeURIComponent(local.draft1Id)}">Xem nhận xét bản 1</a>` : ''}
+            <a class="btn2" href="#/work">Back to My Work</a></div>
+        </div>
+      </div>
+    </div>`;
   return { el };
 }
 

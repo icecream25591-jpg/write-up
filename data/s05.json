@@ -1,0 +1,427 @@
+{
+  "session": "S05",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S5",
+  "topic": "Preserving cultural heritage",
+  "productVi": "đoạn thân bài 100–120 từ.",
+  "targetsVi": "mệnh đề quan hệ xác định (the potter who…, the bowl that…); mệnh đề không xác định và \", which\".",
+  "sticker": "sticker-1#5",
+  "recall": [
+    {
+      "id": "S05-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Online dictionaries enable students ___ new words quickly.",
+      "options": [
+        "check",
+        "to check",
+        "checking"
+      ],
+      "answer": "to check",
+      "explainVi": "enable + O + to V."
+    },
+    {
+      "id": "S05-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "She watched the video again ___ understand the last step.",
+      "options": [
+        "so",
+        "to",
+        "for"
+      ],
+      "answer": "to",
+      "explainVi": "to V chỉ mục đích."
+    },
+    {
+      "id": "S05-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Without check the source, he copied the information.",
+      "answer": "Without checking …",
+      "explainVi": "Sau giới từ là V-ing."
+    },
+    {
+      "id": "S05-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Some students are easily ___ by game notifications.",
+      "options": [
+        "distract",
+        "distracted",
+        "distracting"
+      ],
+      "answer": "distracted",
+      "explainVi": "be easily distracted (bị động, phân từ II)."
+    },
+    {
+      "id": "S05-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Online quizzes give students ___ feedback on their answers.",
+      "options": [
+        "instant",
+        "quickly",
+        "soon"
+      ],
+      "answer": "instant",
+      "explainVi": "instant feedback; cần tính từ trước danh từ."
+    },
+    {
+      "id": "S05-R6",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "code": "SV",
+      "en": "The potter who teach the children is very patient.",
+      "answer": "teach → teaches",
+      "explainVi": "Động từ trong mệnh đề quan hệ hợp với danh từ đứng trước (potter, số ít). Mã lỗi: SV."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S05-C1",
+      "image": "s05-cau",
+      "cell": 1,
+      "altVi": "Ông thợ gốm cầm tay Hà nặn bát, hai bạn nhỏ đứng xem",
+      "vi": "Mệnh đề quan hệ xác định với who.",
+      "target": "defining who",
+      "chips": [
+        "the old potter",
+        "guide Ha's hands",
+        "pass on skills",
+        "traditional crafts"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "[^,\\s]\\s+who\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng mệnh đề xác định với who (không có dấu phẩy trước who)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The old potter who guides Ha's hands passes on skills of traditional crafts."
+    },
+    {
+      "id": "S05-C2",
+      "image": "s05-cau",
+      "cell": 2,
+      "altVi": "Bà chỉ Vy cách gấp lá gói bánh chưng",
+      "vi": "Mệnh đề quan hệ xác định với that.",
+      "target": "defining that",
+      "chips": [
+        "the cake",
+        "Grandma and Vy wrap",
+        "keep a tradition alive",
+        "local customs"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "[^,\\s]\\s+that\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng mệnh đề xác định với that (không có dấu phẩy trước that)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The cake that Grandma and Vy wrap helps keep a tradition alive."
+    },
+    {
+      "id": "S05-C3",
+      "image": "s05-cau",
+      "cell": 3,
+      "altVi": "Minh và các bạn khiêng kiệu trong lễ rước",
+      "vi": "Mệnh đề không xác định , which bình luận cả vế trước.",
+      "target": ", which",
+      "chips": [
+        "Minh and his friends",
+        "take part in the procession",
+        "a sense of identity",
+        "feel proud"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": ",\\s*which\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng , which (có dấu phẩy) để nhận xét cả vế trước."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Minh and his friends take part in the procession, which gives them a sense of identity."
+    },
+    {
+      "id": "S05-C4",
+      "image": "s05-cau",
+      "cell": 4,
+      "altVi": "Quầy bán đồ lưu niệm làm hàng loạt, ông thợ già lo lắng",
+      "vi": "Mệnh đề không xác định với , who.",
+      "target": ", who",
+      "chips": [
+        "the old craftsman",
+        "have no successor",
+        "the craft",
+        "die out"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": ",\\s*who\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng , who (có dấu phẩy) để thêm thông tin về người đã rõ."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The old craftsman, who has no successor, fears the craft will die out."
+    }
+  ],
+  "ideas": {
+    "image": "s05-y",
+    "prompt": "Why is it important for young people to take part in local traditions, not just watch them? Write a body paragraph.",
+    "promptType": "explain-why",
+    "mode": "chooseOne",
+    "lanes": [
+      {
+        "id": "claim",
+        "en": "Claim",
+        "color": "claim",
+        "prefilled": false
+      },
+      {
+        "id": "how",
+        "en": "How",
+        "color": "how",
+        "prefilled": false
+      },
+      {
+        "id": "example",
+        "en": "Example",
+        "color": "example",
+        "prefilled": false
+      },
+      {
+        "id": "result",
+        "en": "Result",
+        "color": "result",
+        "prefilled": false
+      }
+    ],
+    "directions": [
+      {
+        "id": "S05-D1",
+        "panel": 1,
+        "claim": "learn by doing",
+        "how": "correct her hands",
+        "example": "shape a bowl",
+        "result": "make it alone"
+      },
+      {
+        "id": "S05-D2",
+        "panel": 2,
+        "claim": "successors for a craft",
+        "how": "learn from the old craftsman",
+        "example": "a closed workshop",
+        "result": "the craft continues"
+      },
+      {
+        "id": "S05-D3",
+        "panel": 5,
+        "claim": "a sense of identity",
+        "how": "prepare the festival together",
+        "example": "paint pots with villagers",
+        "result": "feel proud"
+      }
+    ],
+    "vague": {
+      "how": {
+        "en": "in different ways",
+        "whyVi": "Quá chung chung: chưa nói người trẻ làm gì khi tham gia.",
+        "branchVi": "How"
+      },
+      "example": {
+        "en": "many people",
+        "whyVi": "Chưa cụ thể: cần một người và một việc trong tranh.",
+        "branchVi": "Example"
+      },
+      "result": {
+        "en": "good for everyone",
+        "whyVi": "Quá chung chung: chưa nói người tham gia được gì.",
+        "branchVi": "Result"
+      }
+    },
+    "decoy": {
+      "en": "take photos for social media",
+      "whyVi": "Ngược hướng: chụp ảnh là chỉ đứng xem, không phải tham gia."
+    },
+    "spots": [
+      {
+        "id": "S05-Y1",
+        "panel": null,
+        "hint": "tap",
+        "labelVi": "Gợi ý chung · WHY",
+        "lookVi": "Thẻ gợi ý chung",
+        "qVi": "Kỹ năng truyền thống thường được học bằng cách nào?",
+        "chips": [
+          "learnt by doing",
+          "not by watching"
+        ]
+      },
+      {
+        "id": "S05-Y2",
+        "panel": 1,
+        "lookVi": "Xưởng gốm bên trái",
+        "qVi": "Ông thợ đang làm gì với Lan?",
+        "chips": [
+          "correct her hands as she tries"
+        ],
+        "branchVi": "HOW"
+      },
+      {
+        "id": "S05-Y3",
+        "panel": 2,
+        "lookVi": "Xưởng bên cạnh đóng cửa",
+        "qVi": "Vì sao xưởng này vắng vẻ?",
+        "chips": [
+          "no young successor",
+          "a craft may die out"
+        ],
+        "branchVi": "Nếu chỉ đứng xem",
+        "compare": "If we only watch"
+      },
+      {
+        "id": "S05-Y4",
+        "panel": 3,
+        "lookVi": "Quầy hàng ở cổng làng",
+        "qVi": "Khách đang mua loại gốm nào?",
+        "chips": [
+          "factory-made copies",
+          "be over-commercialised"
+        ],
+        "branchVi": "Nếu chỉ đứng xem",
+        "compare": "If we only watch"
+      },
+      {
+        "id": "S05-Y5",
+        "panel": 4,
+        "lookVi": "Khách cầm máy ảnh",
+        "qVi": "Khách tham gia hay chỉ chụp ảnh?",
+        "chips": [
+          "only take photos"
+        ],
+        "branchVi": "Nếu chỉ đứng xem",
+        "compare": "If we only watch"
+      },
+      {
+        "id": "S05-Y6",
+        "panel": 5,
+        "lookVi": "Dân làng và Minh vẽ gốm cho lễ hội",
+        "qVi": "Minh học được gì khi cùng làm?",
+        "chips": [
+          "keep a tradition alive",
+          "a sense of identity"
+        ],
+        "branchVi": "RESULT"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "who · that · which",
+      "vi": "Xác định (không phẩy): the man who…, the bowl that…. Không xác định (có phẩy): , who / , which và không dùng that. , which còn nhận xét cả vế trước.",
+      "exampleEn": "The weaver who taught me this pattern is eighty. Our village festival, which starts in March, attracts many visitors."
+    },
+    "ideas": {
+      "titleEn": "Take part, don't just watch",
+      "vi": "Chọn MỘT lý do vì sao nên tham gia thay vì chỉ xem làm Claim. Các cụm How, Example, Result phải khớp lý do đó.",
+      "exampleEn": "Claim: take part in a festival → How: help prepare the costumes → Example: Minh paints a mask → Result: feel part of the community"
+    },
+    "write": {
+      "titleEn": "Defining + non-defining",
+      "vi": "Cần một mệnh đề xác định (không phẩy) và một mệnh đề không xác định (có phẩy). who / which không tách thành câu riêng. Động từ hợp với danh từ đứng trước.",
+      "exampleEn": "Villagers who join the festival learn more than visitors who only take photos."
+    },
+    "recall": {
+      "titleEn": "S4 review",
+      "vi": "V-ing làm chủ ngữ → động từ số ít. allow / enable + O + to V. to V chỉ mục đích.",
+      "exampleEn": "Using a tablet allows pupils to draw maps in class."
+    }
+  },
+  "write": {
+    "id": "S05-W1",
+    "kind": "body",
+    "prompt": "Why is it important for young people to take part in local traditions, not just watch them? Write a body paragraph.",
+    "taskVi": "Đoạn thân bài: câu chủ đề, WHY / HOW, ví dụ, kết quả.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        100,
+        120
+      ],
+      "extension": [
+        120,
+        140
+      ]
+    },
+    "extensionVi": "không khung",
+    "minutes": null,
+    "mustUse": [
+      "mệnh đề quan hệ xác định",
+      "mệnh đề không xác định có dấu phẩy"
+    ],
+    "modelAfterSubmit": "Young people should take part in local traditions because a tradition can only survive if someone knows how to do it. Many traditional skills, which are rarely written down, are passed on through practice. A teenager who shapes clay beside an experienced potter learns things that no photo can show, such as how wet the clay should be. For example, in my village, the teenagers who helped paint pots for the festival later joined the potters' workshop. In contrast, tourists who only take pictures leave with memories but no skills. When young people take part, they keep a tradition alive and feel proud of where they come from."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Đoạn trả lời \"vì sao phải tham gia\", không chỉ kể về lễ hội?"
+    },
+    {
+      "round": "Câu",
+      "code": "FR",
+      "vi": "Mệnh đề who / which không bị tách thành câu riêng?"
+    },
+    {
+      "round": "Câu",
+      "code": "SV",
+      "vi": "Động từ trong mệnh đề quan hệ hợp với danh từ đứng trước (skills which are, a teenager who shapes)?"
+    },
+    {
+      "round": "Từ",
+      "code": "PU",
+      "vi": "Mệnh đề không xác định có dấu phẩy; mệnh đề xác định thì không?"
+    },
+    {
+      "round": "Từ",
+      "code": "REF",
+      "vi": "which chỉ đúng danh từ hoặc cả vế mà em muốn nói?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-1#5",
+    "stickerVi": "Hà cầm đèn lồng"
+  },
+  "praiseEn": "You keep traditions — and good grammar — alive!"
+}

@@ -1,0 +1,431 @@
+{
+  "session": "S06",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S6 (tools/tao-session.mjs)",
+  "topic": "Plastic pollution",
+  "productVi": "đoạn nguyên nhân – tác hại – giải pháp, 110–130 từ.",
+  "targetsVi": "cụm phân từ sau danh từ (nets left on the beach, bags floating in the water); mệnh đề V-ing nêu kết quả; chuỗi nguyên nhân → tác hại → giải pháp.",
+  "sticker": "sticker-1#6",
+  "recall": [
+    {
+      "id": "S06-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "The woman ___ taught me to weave lives next door.",
+      "options": [
+        "who",
+        "which",
+        "whose"
+      ],
+      "answer": "who",
+      "explainVi": "who thay cho người, làm chủ ngữ của mệnh đề."
+    },
+    {
+      "id": "S06-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Bánh chưng, ___ is made for Tết, takes hours to cook.",
+      "options": [
+        "that",
+        "which",
+        "what"
+      ],
+      "answer": "which",
+      "explainVi": "Mệnh đề không xác định (có dấu phẩy) không dùng that."
+    },
+    {
+      "id": "S06-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "code": "S",
+      "en": "The craft that my grandfather practised it is dying out.",
+      "answer": "bỏ \"it\"",
+      "explainVi": "\"that\" đã thay cho the craft."
+    },
+    {
+      "id": "S06-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Without young learners, some crafts may ___ out.",
+      "options": [
+        "die",
+        "fall",
+        "run"
+      ],
+      "answer": "die",
+      "explainVi": "die out = mai một, biến mất."
+    },
+    {
+      "id": "S06-R5",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "code": "S",
+      "en": "My village, that is famous for silk, attracts many visitors.",
+      "answer": "that → which",
+      "explainVi": "Sau dấu phẩy dùng which."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S06-C1",
+      "image": "s06-cau",
+      "cell": 1,
+      "altVi": "Rùa vướng lưới cũ, ngư dân và Vy gỡ cho rùa",
+      "vi": "Cụm phân từ II sau danh từ (caught in…).",
+      "target": "phân từ II",
+      "chips": [
+        "discarded fishing nets",
+        "get tangled",
+        "free a turtle",
+        "caught in"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b[a-z]+\\s+(?:[a-z]+ed|caught|left|thrown|built|made|kept|held|sold|found|taken|given|brought|done)\\s+(?:in|on|into|across|by|at|from|near|along|under|over|to)\\b",
+          "flags": "i",
+          "msgVi": "Dùng cụm phân từ sau danh từ (ví dụ: a net left on the beach)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "A fisherman and Vy are freeing a turtle caught in a discarded fishing net."
+    },
+    {
+      "id": "S06-C2",
+      "image": "s06-cau",
+      "cell": 2,
+      "altVi": "Rùa sắp nuốt túi ni-lông trông như sứa",
+      "vi": "Cụm V-ing sau danh từ (floating in…).",
+      "target": "V-ing",
+      "chips": [
+        "mistake sth for sth",
+        "single-use plastic",
+        "a plastic bag",
+        "floating in the water"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b[a-z]+\\s+[a-z]+ing\\s+(?:in|on|into|across|at|near|along|under|over|around|through)\\b",
+          "flags": "i",
+          "msgVi": "Dùng cụm V-ing sau danh từ (ví dụ: a bag floating in the water)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The turtle mistakes a plastic bag floating in the water for a jellyfish."
+    },
+    {
+      "id": "S06-C3",
+      "image": "s06-cau",
+      "cell": 3,
+      "altVi": "Ngư dân bỏ lưới hỏng vào thùng thu gom ở cảng",
+      "vi": "Mệnh đề V-ing nêu kết quả sau dấu phẩy.",
+      "target": "V-ing nêu kết quả",
+      "chips": [
+        "damaged nets",
+        "a collection point",
+        "a collection bin",
+        "keep out of the sea"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": ",\\s*[a-z]+ing\\b",
+          "flags": "i",
+          "msgVi": "Sau dấu phẩy, thêm cụm V-ing nói kết quả (…, keeping them out of the sea)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Fishermen drop their damaged nets into a collection bin, keeping them out of the sea."
+    },
+    {
+      "id": "S06-C4",
+      "image": "s06-cau",
+      "cell": 4,
+      "altVi": "Minh cạnh bẫy rác trên sông",
+      "vi": "Cụm phân từ II sau danh từ (built across…).",
+      "target": "phân từ II",
+      "chips": [
+        "end up in the sea",
+        "waste collection",
+        "a rubbish trap",
+        "across the river"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b[a-z]+\\s+(?:[a-z]+ed|caught|left|thrown|built|made|kept|held|sold|found|taken|given|brought|done)\\s+(?:in|on|into|across|by|at|from|near|along|under|over|to)\\b",
+          "flags": "i",
+          "msgVi": "Dùng cụm phân từ sau danh từ (ví dụ: a net left on the beach)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The rubbish trap built across the river stops bottles before they end up in the sea."
+    }
+  ],
+  "ideas": {
+    "image": "s06-y",
+    "prompt": "Much of the plastic in the sea comes from rivers and busy markets. Explain how this waste can harm sea animals, and suggest one way local people can stop it.",
+    "promptType": "explain",
+    "mode": "chooseOne",
+    "lanes": [
+      {
+        "id": "claim",
+        "en": "Source",
+        "color": "claim",
+        "prefilled": false
+      },
+      {
+        "id": "how",
+        "en": "Effect",
+        "color": "coral",
+        "prefilled": false
+      },
+      {
+        "id": "example",
+        "en": "Solution",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "result",
+        "en": "Result",
+        "color": "result",
+        "prefilled": false
+      }
+    ],
+    "directions": [
+      {
+        "id": "S06-D1",
+        "panel": 1,
+        "claim": "single-use bags",
+        "how": "a turtle eats a bag",
+        "example": "cloth bags at the market",
+        "result": "fewer bags in the river"
+      },
+      {
+        "id": "S06-D2",
+        "panel": 3,
+        "claim": "old nets on the beach",
+        "how": "birds get tangled",
+        "example": "a net-collection point",
+        "result": "nets stay out of the sea"
+      },
+      {
+        "id": "S06-D3",
+        "panel": 2,
+        "claim": "plastic in the river",
+        "how": "plastic enters the food chain",
+        "example": "a rubbish trap",
+        "result": "waste stops before the sea"
+      }
+    ],
+    "vague": {
+      "how": {
+        "en": "bad for animals",
+        "whyVi": "Quá chung chung: chưa nói con vật bị gì.",
+        "branchVi": "Tác hại"
+      },
+      "example": {
+        "en": "clean the sea",
+        "whyVi": "Không khớp nguồn: dọn biển không ngăn rác từ nguồn em chọn.",
+        "branchVi": "Giải pháp"
+      },
+      "result": {
+        "en": "a better world",
+        "whyVi": "Quá chung chung: chưa nói rác đi đâu.",
+        "branchVi": "Kết quả"
+      }
+    },
+    "decoy": {
+      "en": "factory smoke",
+      "whyVi": "Không có trong tranh: đề nói về rác nhựa."
+    },
+    "otherWhy": {
+      "example": "Giải pháp này chưa khớp nguồn rác em đang viết."
+    },
+    "spots": [
+      {
+        "id": "S06-Y1",
+        "panel": 1,
+        "lookVi": "Khung 1 · chợ bên sông",
+        "qVi": "Người ta ném gì xuống sông?",
+        "chips": [
+          "single-use bags thrown into the river"
+        ],
+        "branchVi": "Nguồn rác"
+      },
+      {
+        "id": "S06-Y2",
+        "panel": 3,
+        "lookVi": "Khung 1 · lưới cũ trên bãi",
+        "qVi": "Thứ gì bị bỏ lại trên cát?",
+        "chips": [
+          "old nets left on the beach"
+        ],
+        "branchVi": "Nguồn rác"
+      },
+      {
+        "id": "S06-Y3",
+        "panel": 4,
+        "lookVi": "Khung 2 · rùa và túi ni-lông",
+        "qVi": "Vì sao rùa nuốt túi?",
+        "chips": [
+          "mistake a bag for a jellyfish"
+        ],
+        "branchVi": "Tác hại"
+      },
+      {
+        "id": "S06-Y4",
+        "panel": 4,
+        "lookVi": "Khung 2 · rùa và chim mắc lưới",
+        "qVi": "Chuyện gì xảy ra với con chim và con rùa thứ hai?",
+        "chips": [
+          "get tangled in a net"
+        ],
+        "branchVi": "Tác hại"
+      },
+      {
+        "id": "S06-Y5",
+        "panel": 4,
+        "lookVi": "Khung 2 · cá nhỏ rỉa mảnh nhựa",
+        "qVi": "Mảnh nhựa nhỏ đi đâu tiếp?",
+        "chips": [
+          "enter the food chain"
+        ],
+        "branchVi": "Tác hại"
+      },
+      {
+        "id": "S06-Y6",
+        "panel": 5,
+        "lookVi": "Khung 3 · bẫy rác và thuyền thu gom",
+        "qVi": "Rác trên sông bị chặn ở đâu?",
+        "chips": [
+          "a rubbish trap at the river mouth"
+        ],
+        "branchVi": "Giải pháp"
+      },
+      {
+        "id": "S06-Y7",
+        "panel": 5,
+        "lookVi": "Khung 3 · Vy và Lan phát túi vải",
+        "qVi": "Ở chợ, các bạn thay túi ni-lông bằng gì?",
+        "chips": [
+          "cloth bags",
+          "curb plastic use"
+        ],
+        "branchVi": "Giải pháp"
+      },
+      {
+        "id": "S06-Y8",
+        "panel": 5,
+        "lookVi": "Khung 3 · điểm thu lưới ở cảng",
+        "qVi": "Lưới hỏng được xử lý thế nào?",
+        "chips": [
+          "a net-collection point"
+        ],
+        "branchVi": "Giải pháp"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Participles after nouns",
+      "vi": "V-ed là bị động (plastic thrown…), V-ing là chủ động (a turtle swimming…). Mệnh đề V-ing sau dấu phẩy nêu kết quả. Chủ thể phải rõ.",
+      "exampleEn": "Bottles left on the beach end up in the sea. The market bans thin bags, helping the river stay cleaner."
+    },
+    "ideas": {
+      "titleEn": "Source → Effects → Solutions",
+      "vi": "Chọn MỘT nguồn rác làm Claim. Chọn tác hại và giải pháp khớp đúng nguồn đó (túi chợ → túi vải, lưới cũ → điểm thu lưới).",
+      "exampleEn": "Source: old nets left on the beach → Effect: get tangled in a net → Solution: a net-collection point"
+    },
+    "write": {
+      "titleEn": "A chain that fits",
+      "vi": "Chuỗi nguồn rác → tác hại → giải pháp liền mạch. Giải pháp xử lý đúng nguồn đã nêu. Cần một cụm phân từ sau danh từ và một mệnh đề V-ing nêu kết quả.",
+      "exampleEn": "Bags thrown into the river drift out to sea, harming turtles that mistake them for jellyfish."
+    },
+    "recall": {
+      "titleEn": "S5 review",
+      "vi": "who cho người, which cho vật hoặc cả vế. Không xác định có phẩy và không dùng that. Đại từ làm tân ngữ có thể bỏ.",
+      "exampleEn": "The craftsman, who is seventy, still carves masks by hand."
+    }
+  },
+  "write": {
+    "id": "S06-W1",
+    "kind": "paragraph",
+    "prompt": "Much of the plastic in the sea comes from rivers and busy markets. Explain how this waste can harm sea animals, and suggest one way local people can stop it.",
+    "taskVi": "đoạn 110–130 từ (mở rộng: 130–150 từ, không khung) theo chuỗi nguồn rác → tác hại → giải pháp khớp.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        110,
+        130
+      ],
+      "extension": [
+        130,
+        150
+      ]
+    },
+    "extensionVi": "không khung",
+    "minutes": null,
+    "mustUse": [
+      "một cụm phân từ sau danh từ",
+      "một mệnh đề V-ing nêu kết quả"
+    ],
+    "modelAfterSubmit": "Single-use bags thrown into rivers near busy markets are a serious threat to marine life. Carried by the current, these bags soon end up in the sea, where they float like jellyfish. Sea turtles often mistake them for food and swallow them, filling their stomachs with plastic that they cannot digest. Over time, the bags also break into tiny pieces eaten by small fish, allowing plastic to enter the food chain. One effective solution is for market sellers to offer cloth bags instead of free plastic ones. If fewer bags are handed out at the market, fewer will be dropped into the river, and less plastic will reach the sea. Sellers could also give a small discount to customers who bring their own bags."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Giải pháp xử lý đúng nguồn rác em đã nêu (túi chợ → túi vải, bẫy rác)?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Chuỗi liền mạch: nguồn → đường đi ra biển → tác hại → giải pháp?"
+    },
+    {
+      "round": "Câu",
+      "code": "VF",
+      "vi": "Phân từ đúng nghĩa: thrown / left (bị động), floating / filling (chủ động)?"
+    },
+    {
+      "round": "Câu",
+      "code": "SV",
+      "vi": "Chủ ngữ dài \"Bags thrown into rivers…\" đi với are?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "mistake A for B; end up in the sea?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-1#6",
+    "stickerVi": "Vy với bình nước và chiếc lá"
+  },
+  "praiseEn": "Ocean hero — your chain of ideas holds together!"
+}

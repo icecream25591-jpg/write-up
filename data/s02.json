@@ -79,7 +79,9 @@
       "target": "however",
       "chips": [
         "recall a method",
-        "a gap in his knowledge"
+        "a gap in his knowledge",
+        "solve the problems",
+        "the third one"
       ],
       "checks": [
         {
@@ -89,8 +91,10 @@
           "msgVi": "Dùng however giữa hai vế, đúng dấu câu."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
       "model": "Minh solved the first two problems easily; however, the third one showed him a gap in his knowledge."
@@ -104,7 +108,9 @@
       "target": "therefore",
       "chips": [
         "a common mistake",
-        "consolidate knowledge"
+        "consolidate knowledge",
+        "Ms Mai",
+        "the whole class"
       ],
       "checks": [
         {
@@ -114,8 +120,10 @@
           "msgVi": "Dùng therefore nêu kết quả."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
       "model": "Many students made a common mistake; therefore, Ms Mai explains it to the whole class."
@@ -129,7 +137,9 @@
       "target": "because",
       "chips": [
         "a heavy workload",
-        "meet a deadline"
+        "meet a deadline",
+        "copy answers",
+        "three subjects"
       ],
       "checks": [
         {
@@ -139,11 +149,13 @@
           "msgVi": "Câu WHY với because."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
-      "model": "Khoa is copying answers at 11:30 p.m. because he has to meet a deadline for three subjects tomorrow."
+      "model": "Khoa is copying answers because he has to meet a deadline for three subjects."
     },
     {
       "id": "S02-C4",
@@ -154,7 +166,9 @@
       "target": "so",
       "chips": [
         "strike a balance between",
-        "extracurricular activities"
+        "extracurricular activities",
+        "a short review task",
+        "play badminton"
       ],
       "checks": [
         {
@@ -164,11 +178,13 @@
           "msgVi": "Câu RESULT với so."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
-      "model": "Vy finishes one short review task, so she can strike a balance between study and extracurricular activities like badminton."
+      "model": "Vy finishes one short review task, so she can strike a balance between study and extracurricular activities."
     }
   ],
   "ideas": {

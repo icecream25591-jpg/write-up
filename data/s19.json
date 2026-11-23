@@ -1,0 +1,377 @@
+{
+  "session": "S19",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S19 (tools/tao-session.mjs)",
+  "topic": "Clubs and volunteering",
+  "productVi": "essay có giờ, 200–250 từ, 40 phút (mốc luyện có giờ).",
+  "targetsVi": "thesis dùng outweigh có phạm vi; câu nêu tiêu chí vì sao một bên nặng hơn; điều kiện với provided that / as long as.",
+  "sticker": "sticker-4#1",
+  "recall": [
+    {
+      "id": "S19-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "It is often ___ that parents are the best teachers of life skills.",
+      "options": [
+        "argued",
+        "arguing",
+        "argue"
+      ],
+      "answer": "argued",
+      "explainVi": "Mẫu tường thuật bị động: It is argued that…"
+    },
+    {
+      "id": "S19-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Supporters of school workshops ___ out that every student gets the same chance.",
+      "options": [
+        "point",
+        "make",
+        "show"
+      ],
+      "answer": "point",
+      "explainVi": "point out that = chỉ ra rằng."
+    },
+    {
+      "id": "S19-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Some people consider that cooking lessons a waste of time.",
+      "answer": "consider cooking lessons a waste of time",
+      "explainVi": "consider + O + danh từ, không có \"that\" khi không có mệnh đề."
+    },
+    {
+      "id": "S19-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Parents and teachers should share responsibility ___ children's safety.",
+      "options": [
+        "for",
+        "of",
+        "with"
+      ],
+      "answer": "for",
+      "explainVi": "share responsibility for."
+    },
+    {
+      "id": "S19-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "___ both sides make valid points, I find the second more convincing.",
+      "options": [
+        "While",
+        "Despite",
+        "However"
+      ],
+      "answer": "While",
+      "explainVi": "While + mệnh đề, chuyển sang đánh giá."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S19-C1",
+      "image": "s19-cau",
+      "cell": 1,
+      "altVi": "Khoa và bạn lắp robot ở câu lạc bộ",
+      "vi": "Dùng outweigh có phạm vi (for students like…).",
+      "target": "outweigh",
+      "chips": [
+        "teamwork skills",
+        "extracurricular activities",
+        "a robotics club",
+        "the time it takes"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\boutweighs?\\b",
+          "flags": "i",
+          "msgVi": "Dùng outweigh."
+        },
+        {
+          "kind": "regex",
+          "pattern": "\\bfor\\s+(?:students|people|teenagers|most\\s+students|many\\s+students)\\b",
+          "flags": "i",
+          "msgVi": "Nêu phạm vi: for students like … / for most students."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "For students like Khoa, the benefits of a robotics club clearly outweigh the time it takes."
+    },
+    {
+      "id": "S19-C2",
+      "image": "s19-cau",
+      "cell": 2,
+      "altVi": "Vy và tình nguyện viên nhặt rác trên bãi biển",
+      "vi": "Điều kiện với as long as.",
+      "target": "as long as",
+      "chips": [
+        "volunteer work",
+        "a sense of belonging",
+        "choose work",
+        "care about"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bas long as\\b",
+          "flags": "i",
+          "msgVi": "Dùng as long as."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Volunteering is a valuable experience as long as students choose work they care about."
+    },
+    {
+      "id": "S19-C3",
+      "image": "s19-cau",
+      "cell": 3,
+      "altVi": "Minh căng thẳng lúc khuya, áo câu lạc bộ trên ghế, sách ôn thi mở",
+      "vi": "Câu nêu tiêu chí cân nhắc.",
+      "target": "tiêu chí",
+      "chips": [
+        "overcommit oneself",
+        "fall behind",
+        "the key question",
+        "a few days"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:the key question is|what matters (?:most )?is|the (?:main|real) issue is|the deciding factor is)\\b",
+          "flags": "i",
+          "msgVi": "Nêu tiêu chí cân nhắc (The key question is whether …)."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "The key question is whether this pressure lasts a few days or the whole school year."
+    },
+    {
+      "id": "S19-C4",
+      "image": "s19-cau",
+      "cell": 4,
+      "altVi": "Lan dạy các em nhỏ ở lớp học vùng quê trong chuyến tình nguyện",
+      "vi": "Điều kiện với Provided that.",
+      "target": "Provided that",
+      "chips": [
+        "build confidence",
+        "a well-rounded education",
+        "the trip",
+        "well organised"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*Provided\\s+(?:that\\b)?",
+          "flags": "",
+          "msgVi": "Mở đầu bằng Provided that."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Provided that the trip is well organised, volunteer teaching can build students' confidence."
+    }
+  ],
+  "ideas": {
+    "image": "s19-y",
+    "prompt": "Some schools require every student to complete a set number of volunteer hours each year. Do the advantages of this rule outweigh the disadvantages?",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "disadvantages",
+        "en": "Disadvantages",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "advantages",
+        "en": "Advantages",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "criteria-conditions",
+        "en": "Criteria / Conditions",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "onDemand": true,
+    "spots": [
+      {
+        "id": "S19-Y1",
+        "panel": 1,
+        "lookVi": "Khung 1 · lịch trùng (buổi đọc sách tình nguyện và bài kiểm tra)",
+        "qVi": "Hoạt động và ôn thi đụng nhau ra sao?",
+        "chips": [
+          "clash with revision time"
+        ],
+        "lane": "disadvantages"
+      },
+      {
+        "id": "S19-Y2",
+        "panel": 1,
+        "lookVi": "Khung 1 · Minh ôm đầu",
+        "qVi": "Minh cảm thấy thế nào?",
+        "chips": [
+          "tiredness",
+          "overcommit oneself"
+        ],
+        "lane": "disadvantages"
+      },
+      {
+        "id": "S19-Y3",
+        "panel": 1,
+        "lookVi": "Khung 1 · bài kiểm tra mặt buồn",
+        "qVi": "Việc học bị ảnh hưởng thế nào?",
+        "chips": [
+          "fall behind with schoolwork"
+        ],
+        "lane": "disadvantages"
+      },
+      {
+        "id": "S19-Y4",
+        "panel": 2,
+        "lookVi": "Khung 2 · Minh và Khoa dọn rác cùng các em nhỏ",
+        "qVi": "Hai bạn học được gì khi làm cùng nhau?",
+        "chips": [
+          "teamwork skills"
+        ],
+        "lane": "advantages"
+      },
+      {
+        "id": "S19-Y5",
+        "panel": null,
+        "lookVi": "Thẻ gợi ý chung",
+        "qVi": "Làm tình nguyện giúp học sinh hiểu thêm điều gì?",
+        "chips": [
+          "understand the community's needs"
+        ],
+        "show": "card",
+        "lane": "advantages"
+      },
+      {
+        "id": "S19-Y6",
+        "panel": 2,
+        "lookVi": "Khung 2 · lịch mới: sáng cuối tuần",
+        "qVi": "Minh đã thay đổi lịch thế nào?",
+        "chips": [
+          "flexible hours at weekends"
+        ],
+        "lane": "criteria-conditions"
+      },
+      {
+        "id": "S19-Y7",
+        "panel": 2,
+        "lookVi": "Khung 2 · bài kiểm tra mặt vui",
+        "qVi": "Vấn đề có giảm được không?",
+        "chips": [
+          "can be reduced with planning"
+        ],
+        "lane": "criteria-conditions"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "outweigh + conditions",
+      "vi": "A outweighs B. Thêm phạm vi: for most students. provided that / as long as + hiện tại đơn, không dùng will. a growing number of + N số nhiều → động từ số nhiều.",
+      "exampleEn": "For most students, the teamwork skills gained outweigh the lost weekend time. A growing number of schools ask students to volunteer."
+    },
+    "ideas": {
+      "titleEn": "Advantages · Disadvantages · Criteria",
+      "vi": "Xếp mỗi cụm vào đúng nhánh. Tiêu chí: kéo dài bao lâu? bao nhiêu người ảnh hưởng? giảm được không?",
+      "exampleEn": "teamwork skills → Advantages; clash with revision time → Disadvantages; can be reduced with planning → Criteria"
+    },
+    "write": {
+      "titleEn": "Say why one side is heavier",
+      "vi": "Thesis dùng outweigh kèm phạm vi. Cần một câu tiêu chí giải thích vì sao bên này nặng hơn, và một điều kiện với provided that / as long as.",
+      "exampleEn": "The disadvantages are real but temporary, whereas the skills gained last, so the benefits outweigh the costs for most students."
+    },
+    "recall": {
+      "titleEn": "S18 review",
+      "vi": "Hai mẫu tường thuật khác nhau. Câu chuyển While both sides…. Ý riêng ở thesis và kết bài.",
+      "exampleEn": "It is claimed that exams are fair; others point out that one bad day can decide a mark."
+    }
+  },
+  "write": {
+    "id": "S19-W1",
+    "kind": "essay",
+    "prompt": "Some schools require every student to complete a set number of volunteer hours each year. Do the advantages of this rule outweigh the disadvantages?",
+    "taskVi": "essay 200–250 từ trong 40 phút.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        200,
+        250
+      ],
+      "extension": [
+        200,
+        250
+      ]
+    },
+    "extensionVi": "",
+    "minutes": 40,
+    "mustUse": [
+      "thesis dùng outweigh kèm phạm vi (for most students…)",
+      "một câu nêu tiêu chí vì sao một bên nặng hơn",
+      "một điều kiện với provided that / as long as"
+    ],
+    "modelAfterSubmit": "A growing number of schools now ask every student to complete a set number of volunteer hours each year. In my opinion, the advantages of this rule outweigh the disadvantages for most students, as long as the hours can be done at flexible times.\n\nThe main benefit is that volunteering teaches skills that are rarely learnt in the classroom. When students clean a beach or help younger children with their reading, they have to work in teams, plan tasks and talk to people they do not know. These experiences build confidence and give students a better understanding of their community's needs.\n\nOn the other hand, compulsory hours can add pressure to an already full timetable. Students who also attend extra classes may have to give up rest or revision time, and some may fall behind. However, the key question is whether this problem can be reduced, and in most cases it can. If schools allow students to choose weekend activities and spread the hours across the year, the extra workload becomes manageable.\n\nIn conclusion, required volunteer hours do take time, but their benefits for students' skills and confidence last much longer. Provided that schools keep the system flexible, the rule is a positive one."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Thesis và kết bài nói rõ bên nào nặng hơn, cho nhóm nào?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Có câu tiêu chí (kéo dài bao lâu? bao nhiêu người? giảm được không?) giải thích vì sao?"
+    },
+    {
+      "round": "Câu",
+      "code": "T",
+      "vi": "provided that / as long as + hiện tại đơn?"
+    },
+    {
+      "round": "Câu",
+      "code": "SV",
+      "vi": "A growing number of schools ask (số nhiều)?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "volunteer (danh từ / động từ) và voluntary (tính từ) dùng đúng?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-4#1",
+    "stickerVi": "Vy ôm trái tim"
+  },
+  "praiseEn": "Big heart, clear mind — excellent essay!"
+}

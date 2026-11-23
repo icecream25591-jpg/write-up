@@ -75,7 +75,9 @@
       "target": "when",
       "chips": [
         "prepare a meal",
-        "on her own"
+        "on her own",
+        "follow each step",
+        "learn to"
       ],
       "checks": [
         {
@@ -85,11 +87,13 @@
           "msgVi": "Viết một câu có when + mệnh đề."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
-      "model": "When Lan prepares a meal on her own, she learns to follow each step carefully."
+      "model": "When Lan prepares a meal on her own, she learns to follow each step."
     },
     {
       "id": "S01-C2",
@@ -100,7 +104,9 @@
       "target": "V-ing",
       "chips": [
         "do the laundry",
-        "manage one's time"
+        "manage one's time",
+        "before homework",
+        "help Minh"
       ],
       "checks": [
         {
@@ -110,8 +116,10 @@
           "msgVi": "Mở đầu bằng V-ing làm chủ ngữ."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
       "model": "Doing the laundry before homework helps Minh manage his time."
@@ -125,7 +133,9 @@
       "target": "because",
       "chips": [
         "working parents",
-        "share the workload"
+        "share the workload",
+        "feel relieved",
+        "wash the dishes"
       ],
       "checks": [
         {
@@ -135,11 +145,13 @@
           "msgVi": "Viết một câu có because + mệnh đề."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
-      "model": "Working parents like Khoa's mother feel relieved because he has already washed all the dishes."
+      "model": "Working parents like Khoa's mother feel relieved because he has already washed the dishes."
     },
     {
       "id": "S01-C4",
@@ -149,6 +161,8 @@
       "vi": "Chủ ngữ dài với who.",
       "target": "who",
       "chips": [
+        "plan cheap meals",
+        "for the week",
         "live on a small budget",
         "become self-reliant"
       ],
@@ -160,8 +174,10 @@
           "msgVi": "Chủ ngữ dài với who."
         },
         {
-          "kind": "anyChip",
-          "msgVi": "Dùng ít nhất một cụm gợi ý."
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
         }
       ],
       "model": "A student who plans cheap meals for the week can live on a small budget."

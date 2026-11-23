@@ -28,7 +28,7 @@ a.mw-item:active{transform:translateY(2px)}
 .st-sent{background:var(--ok-soft);color:var(--ok-ink);border-color:#A8E3C9}
 .st-pending,.st-nocode{background:var(--amber-bg);color:var(--amber-ink);border-color:#F7D9A0}
 .st-noserver{background:#fff;color:var(--ink-2);border-color:var(--border)}
-.st-error{background:var(--coral-bg);color:var(--coral-ink);border-color:#F5C3B5}
+.st-error,.st-blocked,.st-wiped{background:var(--coral-bg);color:var(--coral-ink);border-color:#F5C3B5}
 .st-fb{background:#fff;color:var(--primary-shadow);border-color:var(--primary)}
 .st-d2{background:var(--result-bg);color:var(--result-ink);border-color:#D2BFF6}
 .dot-new{width:8px;height:8px;border-radius:50%;background:var(--danger);display:inline-block}

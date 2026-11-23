@@ -1,0 +1,406 @@
+{
+  "session": "S20",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S20 (tools/tao-session.mjs)",
+  "topic": "Food waste",
+  "productVi": "essay có giờ, 200–250 từ, 40 phút, dạng nguyên nhân – giải pháp.",
+  "targetsVi": "giải pháp khớp nguyên nhân; hai mẫu đề xuất chủ động và bị động, rõ người làm; câu cách thức / mục đích (by + V-ing, so that…); câu giới hạn hiệu quả.",
+  "sticker": "sticker-4#2",
+  "recall": [
+    {
+      "id": "S20-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "For most students, the benefits ___ the drawbacks.",
+      "options": [
+        "outweigh",
+        "outweighs",
+        "overweigh"
+      ],
+      "answer": "outweigh",
+      "explainVi": "Chủ ngữ số nhiều the benefits → outweigh."
+    },
+    {
+      "id": "S20-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "You can join two clubs ___ long as your grades stay high.",
+      "options": [
+        "as",
+        "so",
+        "such"
+      ],
+      "answer": "as",
+      "explainVi": "as long as = miễn là."
+    },
+    {
+      "id": "S20-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Provided that students will plan their time, clubs are helpful.",
+      "answer": "will plan → plan",
+      "explainVi": "Mệnh đề điều kiện dùng hiện tại đơn."
+    },
+    {
+      "id": "S20-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Being part of a team often gives newcomers a sense of ___.",
+      "options": [
+        "belonging",
+        "belong",
+        "belonged"
+      ],
+      "answer": "belonging",
+      "explainVi": "a sense of belonging = cảm giác thuộc về."
+    },
+    {
+      "id": "S20-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Volunteering helps shy students build ___.",
+      "options": [
+        "confidence",
+        "confident",
+        "confidently"
+      ],
+      "answer": "confidence",
+      "explainVi": "build + danh từ: confidence."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S20-C1",
+      "image": "s20-cau",
+      "cell": 1,
+      "altVi": "Tủ lạnh có rau hỏng, mẹ cầm túi rau giống hệt vừa mua",
+      "vi": "Câu nguyên nhân với because.",
+      "target": "because",
+      "chips": [
+        "go off",
+        "check supplies",
+        "buy more",
+        "the food at home"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bbecause\\b",
+          "flags": "i",
+          "msgVi": "Dùng because + mệnh đề."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Vegetables often go off because families buy more without checking their supplies."
+    },
+    {
+      "id": "S20-C2",
+      "image": "s20-cau",
+      "cell": 2,
+      "altVi": "Tiệc ở nhà hàng, bàn đầy món, bố vẫn gọi thêm",
+      "vi": "Câu mục đích với so that.",
+      "target": "so that",
+      "chips": [
+        "a social norm",
+        "leftovers",
+        "look generous",
+        "order more dishes"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bso that\\b",
+          "flags": "i",
+          "msgVi": "Dùng so that."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Dad keeps ordering more dishes so that the family will look generous to the guests."
+    },
+    {
+      "id": "S20-C3",
+      "image": "s20-cau",
+      "cell": 3,
+      "altVi": "Lan kiểm tra tủ lạnh, vẽ thực đơn trước khi đi chợ",
+      "vi": "Câu cách thức với by + V-ing.",
+      "target": "by + V-ing",
+      "chips": [
+        "plan meals",
+        "food waste",
+        "check the fridge",
+        "buy too much"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bby\\s+[a-z]+ing\\b",
+          "flags": "i",
+          "msgVi": "Dùng by + V-ing."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Lan avoids buying too much by checking the fridge and planning meals first."
+    },
+    {
+      "id": "S20-C4",
+      "image": "s20-cau",
+      "cell": 4,
+      "altVi": "Bếp nhà hàng nấu từng mẻ nhỏ, phục vụ chỉ thực đơn bát nhỏ – bát lớn",
+      "vi": "Đề xuất bị động có người làm (should be offered by…).",
+      "target": "bị động có người làm",
+      "chips": [
+        "portion sizes",
+        "restaurants",
+        "should be offered",
+        "order only what they need"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:should|must|could|can)\\s+be\\s+[a-z]+(?:ed|en|t|wn)\\b[^.]*\\bby\\b",
+          "flags": "i",
+          "msgVi": "Dùng đề xuất bị động có người làm: should be + V3 + by …"
+        },
+        {
+          "kind": "regex",
+          "pattern": "\\bso that\\b",
+          "flags": "i",
+          "msgVi": "Dùng so that."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Smaller portion sizes should be offered by restaurants so that customers can order only what they need."
+    }
+  ],
+  "ideas": {
+    "image": "s20-y",
+    "prompt": "At weddings and family parties in Vietnam, a lot of food is often left uneaten. Why does this happen, and what can hosts and restaurants do about it?",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "causes",
+        "en": "Causes",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "limits",
+        "en": "Limits",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "solutions",
+        "en": "Solutions",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "onDemand": true,
+    "spots": [
+      {
+        "id": "S20-Y1",
+        "panel": 1,
+        "lookVi": "Khung 1 · món ăn dở trên bàn tiệc",
+        "qVi": "Vì sao chủ tiệc gọi nhiều hơn sức ăn?",
+        "chips": [
+          "hosts want to seem generous"
+        ],
+        "lane": "causes"
+      },
+      {
+        "id": "S20-Y2",
+        "panel": 1,
+        "lookVi": "Khung 1 · nồi lớn nấu sẵn trong bếp",
+        "qVi": "Bếp nấu bao nhiêu, lúc nào?",
+        "chips": [
+          "cook large amounts before guests arrive"
+        ],
+        "lane": "causes"
+      },
+      {
+        "id": "S20-Y3",
+        "panel": 1,
+        "lookVi": "Khung 1 · thùng rác tràn đầy",
+        "qVi": "Thức ăn thừa đi đâu?",
+        "chips": [
+          "leftovers end up in landfill"
+        ],
+        "lane": "causes"
+      },
+      {
+        "id": "S20-Y4",
+        "panel": 1,
+        "lookVi": "Khung 1 · tủ lạnh nhà Lan (hình nhỏ)",
+        "qVi": "Đây là lãng phí ở đâu, có thuộc đề không?",
+        "chips": [
+          "at home"
+        ],
+        "lane": "limits"
+      },
+      {
+        "id": "S20-Y5",
+        "panel": 2,
+        "lookVi": "Khung 2 · gọi ít món trước, thêm sau",
+        "qVi": "Chủ tiệc có thể gọi món thế nào?",
+        "chips": [
+          "order a few dishes first",
+          "add more later"
+        ],
+        "branchVi": "Giải pháp (chủ tiệc)",
+        "lane": "solutions",
+        "whoEn": "Hosts"
+      },
+      {
+        "id": "S20-Y6",
+        "panel": 2,
+        "lookVi": "Khung 2 · thực đơn có suất nhỏ",
+        "qVi": "Nhà hàng thay đổi thực đơn ra sao?",
+        "chips": [
+          "smaller portion options"
+        ],
+        "branchVi": "Giải pháp (nhà hàng)",
+        "lane": "solutions",
+        "whoEn": "Restaurants"
+      },
+      {
+        "id": "S20-Y7",
+        "panel": 2,
+        "lookVi": "Khung 2 · bếp nấu từng mẻ nhỏ",
+        "qVi": "Bếp nấu theo cách nào?",
+        "chips": [
+          "cook in small batches"
+        ],
+        "branchVi": "Giải pháp (nhà hàng)",
+        "lane": "solutions",
+        "whoEn": "Restaurants"
+      },
+      {
+        "id": "S20-Y8",
+        "panel": 2,
+        "lookVi": "Khung 2 · hộp mang về, tủ lạnh chia sẻ",
+        "qVi": "Đồ ăn còn lại được xử lý thế nào?",
+        "chips": [
+          "take-away boxes",
+          "donate surplus food"
+        ],
+        "branchVi": "Giải pháp (cả hai)",
+        "lane": "solutions",
+        "whoEn": "Both"
+      },
+      {
+        "id": "S20-Y9",
+        "panel": null,
+        "lookVi": "Thẻ gợi ý chung",
+        "qVi": "Giải pháp nào khó làm nhất, vì sao?",
+        "chips": [
+          "guests may expect a full table"
+        ],
+        "show": "card",
+        "lane": "limits"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Active and passive suggestions",
+      "vi": "Chủ động: Hosts should order…. Bị động: Surplus food should be donated (by…). Cách thức: by + V-ing. Mục đích: so that….",
+      "exampleEn": "Hosts could order a few dishes first by checking the guest list. Surplus food should be donated to local shelters."
+    },
+    "ideas": {
+      "titleEn": "Causes · Solutions · Limits",
+      "vi": "Xếp mỗi cụm vào đúng nhánh. Giải pháp nào không có nguyên nhân tương ứng thì bỏ. Cụm ngoài phạm vi đề (lãng phí ở nhà) xếp vào Limits.",
+      "exampleEn": "hosts want to seem generous → Causes; smaller portion options → Solutions; at home → Limits"
+    },
+    "write": {
+      "titleEn": "Each solution answers a cause",
+      "vi": "Mỗi giải pháp gắn với một nguyên nhân và nêu rõ ai làm. Một đề xuất chủ động, một bị động (should be + V3), một câu giới hạn hiệu quả.",
+      "exampleEn": "Because hosts fear looking mean, restaurants could print smaller sets on the menu. However, this works only if guests accept it."
+    },
+    "recall": {
+      "titleEn": "S19 review",
+      "vi": "outweigh + phạm vi. provided that / as long as + hiện tại đơn. a growing number of + N số nhiều.",
+      "exampleEn": "As long as the tasks are short, most students can fit volunteering into their week."
+    }
+  },
+  "write": {
+    "id": "S20-W1",
+    "kind": "essay",
+    "prompt": "At weddings and family parties in Vietnam, a lot of food is often left uneaten. Why does this happen, and what can hosts and restaurants do about it?",
+    "taskVi": "essay 200–250 từ trong 40 phút.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        200,
+        250
+      ],
+      "extension": [
+        200,
+        250
+      ]
+    },
+    "extensionVi": "",
+    "minutes": 40,
+    "mustUse": [
+      "mỗi giải pháp gắn với một nguyên nhân và nêu rõ ai làm",
+      "một đề xuất chủ động và một đề xuất bị động",
+      "một câu giới hạn hiệu quả"
+    ],
+    "modelAfterSubmit": "At Vietnamese weddings and family parties, it is common to see tables still covered with food when the guests leave. This waste is mainly caused by social customs and by the way restaurants prepare food, but both hosts and restaurants can take simple steps to reduce it.\n\nThe main reason is a social norm: many hosts believe that a crowded table shows respect for their guests. As a result, they order far more dishes than people can eat, because running out of food would be embarrassing. Restaurants add to the problem by cooking large amounts before the guests arrive, so food that is never served is often thrown away at the end of the night.\n\nTo deal with the first cause, hosts could order a few dishes at the start and add more only if needed. Smaller portions should also be offered by restaurants so that tables look full without being wasteful. For the second cause, kitchens can reduce waste by cooking in smaller batches as guests eat, and surplus food could be given to local charities. However, these steps will only work if guests also accept that an empty plate is a sign of a good meal, not a mean host.\n\nIn conclusion, food waste at parties comes from both customs and kitchen habits. If hosts change how they order and restaurants change how they cook, much of this food can be saved."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Trả lời cả \"why\" và \"what can be done\"; giữ đúng bối cảnh tiệc cưới, tiệc gia đình?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Giải pháp nào cũng có nguyên nhân tương ứng; giải pháp không có nguyên nhân đã bị gạch?"
+    },
+    {
+      "round": "Câu",
+      "code": "VF",
+      "vi": "Đề xuất bị động đủ should be + V3 (+ by…)?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "food waste không đếm được; leftovers số nhiều; go off (hỏng) dùng đúng?"
+    },
+    {
+      "round": "Từ",
+      "code": "A",
+      "vi": "the guests / the night đã xác định; a social norm lần đầu?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-4#2",
+    "stickerVi": "Minh giơ ngón cái"
+  },
+  "praiseEn": "Clean plate, clear essay — well done!"
+}

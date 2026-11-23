@@ -1,9 +1,9 @@
 /* ===== Nền tảng ===== */
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;height:100%}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scrollbar-gutter:stable}
 body{margin:0;min-height:100vh;min-height:100dvh;background:var(--bg);color:var(--ink);
   font-family:var(--font);font-weight:700;font-size:1rem;line-height:1.45;
-  -webkit-tap-highlight-color:transparent;overflow:hidden}
+  -webkit-tap-highlight-color:transparent}
 img{max-width:100%;display:block}
 a{color:var(--primary-shadow)}
 button,input,textarea,select{font:inherit;color:inherit}
@@ -33,21 +33,22 @@ h1,h2,h3{margin:0;line-height:1.2;font-weight:900}
 .card{background:var(--surface);border-radius:var(--r-lg);border:2px solid var(--card-border)}
 
 /* ===== Khung ứng dụng ===== */
-.app{display:flex;flex-direction:column;height:100vh;height:100dvh;width:100%}
+/* Cả trang cuộn MỘT thanh cuộn như mọi trang web; thanh 5 chặng dính ở trên, cô Mai nổi ở góc dưới */
+.app{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;width:100%}
 .topnav{display:none}
-#view{flex:1;min-height:0;width:100%;max-width:480px;margin:0 auto;display:flex;flex-direction:column;position:relative}
+#view{flex:1;width:100%;max-width:480px;margin:0 auto;display:flex;flex-direction:column;position:relative}
 #view:focus{outline:none}
-.screen{flex:1;min-height:0;display:flex;flex-direction:column;min-width:0}
+.screen{flex:1;display:flex;flex-direction:column;min-width:0}
 .screen.enter{animation:screen-in .2s var(--ease)}
-@keyframes screen-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes screen-in{from{transform:translateY(6px)}to{transform:none}} /* không làm mờ: tránh nháy trắng trên điện thoại */
 
 /* Trang thường (Home, Journey, My Work, Settings): cuộn dọc */
-.page{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+.page{flex:1;
   padding:max(14px,var(--safe-t)) var(--gutter) 24px;display:flex;flex-direction:column;gap:14px}
 .page-title{font-size:1.375rem}
 
 /* Thanh menu dưới (điện thoại) */
-.tabbar{display:flex;flex:none;background:var(--surface);border-top:2px solid var(--line);
+.tabbar{display:flex;flex:none;position:sticky;bottom:0;z-index:25;background:var(--surface);border-top:2px solid var(--line);
   padding:4px 6px max(8px,var(--safe-b));width:100%}
 .tabbar a{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 4px;
   min-height:var(--tap);text-decoration:none;color:var(--ink-2);font-weight:700;font-size:.75rem;white-space:nowrap}
@@ -56,7 +57,7 @@ h1,h2,h3{margin:0;line-height:1.2;font-weight:900}
 body.in-session .tabbar{display:none}
 
 /* ===== Màn một session ===== */
-.sess-head{flex:none;padding:max(12px,var(--safe-t)) var(--gutter) 10px;display:flex;flex-direction:column;gap:10px;
+.sess-head{flex:none;position:sticky;top:0;z-index:25;padding:max(12px,var(--safe-t)) var(--gutter) 10px;display:flex;flex-direction:column;gap:10px;
   background:var(--bg);border-bottom:2px solid var(--line)}
 .sess-row{display:flex;align-items:center;gap:10px;min-width:0}
 .sess-title{flex:1;min-width:0}
@@ -78,19 +79,20 @@ body.in-session .tabbar{display:none}
 .stages li.done .dot{background:var(--ok);border-color:var(--ok);color:#fff}
 .stages li.cur .dot{background:var(--primary);border-color:var(--primary);color:#fff;box-shadow:0 0 0 3px var(--primary-soft)}
 .stages li.cur .name{color:var(--primary-shadow);font-weight:900}
+.stages .st-lock{display:flex;flex-direction:column;align-items:center;gap:3px;color:var(--muted);min-width:0;width:100%;min-height:var(--tap);cursor:not-allowed;opacity:.55}
 
 /* Vùng giữa cuộn dọc */
-.sess-body{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+.sess-body{flex:1;
   padding:12px var(--gutter) 20px;display:flex;flex-direction:column;gap:12px;scroll-padding-bottom:24px}
 
-/* Thanh nút dưới cố định; chừa 92px bên phải cho nút cô Mai */
+/* Thanh nút nằm cuối nội dung (cuộn cùng trang); chừa 92px bên phải cho nút cô Mai nổi */
 .sess-foot{flex:none;position:relative;display:flex;align-items:center;gap:10px;
   padding:10px 92px max(14px,var(--safe-b)) var(--gutter);background:var(--surface);border-top:2px solid var(--line)}
 .sess-foot .hint{flex:1;min-width:0;font-size:.75rem;font-weight:800;color:var(--ink-2)}
 .sess-foot .btn{flex:none}
 
 /* ===== Cô Mai ===== */
-.mai{position:absolute;right:14px;bottom:calc(10px + var(--safe-b));z-index:30}
+.mai{position:fixed;right:14px;bottom:calc(14px + var(--safe-b));z-index:40}
 .mai-btn{display:block;width:60px;height:60px;min-height:0;border-radius:50%;padding:0;border:4px solid var(--mai);background:var(--ok-soft);
   overflow:hidden;box-shadow:0 0 0 4px #fff,0 4px 10px rgba(43,37,64,.15);transition:transform .1s}
 .mai-btn:active{transform:scale(.94)}
@@ -139,13 +141,13 @@ body.in-session .tabbar{display:none}
   .tabbar{display:none}
   #view{max-width:var(--maxw)}
   .page{padding:28px 32px 40px;gap:20px}
-  .sess-head{padding:20px 32px 12px;background:transparent}
+  .sess-head{padding:16px 32px 10px}
   .sess-title h1{font-size:1.75rem}
   .stages{max-width:640px}
   .stages .name{font-size:.75rem}
   .sess-body{padding:20px 32px 28px}
-  .sess-foot{padding:12px 108px 12px 32px;border:2px solid var(--line);border-bottom:none;border-radius:var(--r-lg) var(--r-lg) 0 0}
-  .mai{position:fixed;right:28px;bottom:28px}
+  .sess-foot{padding:14px 108px 14px 32px;border:2px solid var(--line);border-radius:var(--r-lg);margin:0 32px 28px}
+  .mai{right:28px;bottom:28px}
   .cols{flex-direction:row;flex-wrap:wrap;gap:28px;align-items:flex-start}
   .sess-head .stars{display:none} /* sao đã có trên menu ngang */
   .cols>.col-l{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:12px}

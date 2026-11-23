@@ -1,0 +1,427 @@
+{
+  "session": "S10",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S10 (tools/tao-session.mjs)",
+  "topic": "Part-time jobs for students",
+  "productVi": "đoạn nêu quan điểm 110–130 từ.",
+  "targetsVi": "should / should not ở câu chủ đề; nhận định chừng mực với can / may / tend to / be likely to.",
+  "sticker": "sticker-2#4",
+  "recall": [
+    {
+      "id": "S10-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "The doctor recommended that he ___ fewer sugary drinks.",
+      "options": [
+        "drinks",
+        "drink",
+        "drank"
+      ],
+      "answer": "drink",
+      "explainVi": "recommend that + S + V nguyên mẫu."
+    },
+    {
+      "id": "S10-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "___ worries parents most is the free toy.",
+      "options": [
+        "What",
+        "That",
+        "Which"
+      ],
+      "answer": "What",
+      "explainVi": "What + mệnh đề làm chủ ngữ = \"Điều mà…\"."
+    },
+    {
+      "id": "S10-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Many people claim that fast food it is unhealthy.",
+      "answer": "bỏ \"it\"",
+      "explainVi": "Mệnh đề sau that đã có chủ ngữ fast food."
+    },
+    {
+      "id": "S10-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Young children are especially vulnerable ___ advertising.",
+      "options": [
+        "to",
+        "with",
+        "for"
+      ],
+      "answer": "to",
+      "explainVi": "be vulnerable to."
+    },
+    {
+      "id": "S10-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "The government could impose a ban ___ junk-food adverts.",
+      "options": [
+        "on",
+        "to",
+        "for"
+      ],
+      "answer": "on",
+      "explainVi": "impose a ban on sth."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S10-C1",
+      "image": "s10-cau",
+      "cell": 1,
+      "altVi": "Minh đưa đồ uống và tiền thừa cho khách ở quán cà phê",
+      "vi": "Nhận định chừng mực với can.",
+      "target": "can",
+      "chips": [
+        "customer service",
+        "handle money",
+        "a café counter",
+        "improve skills"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bcan\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng can + V để nói chừng mực."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Working at a café counter can improve a student's customer service skills."
+    },
+    {
+      "id": "S10-C2",
+      "image": "s10-cau",
+      "cell": 2,
+      "altVi": "Lan đóng gói hàng bán online, bài tập bị đẩy ra mép bàn",
+      "vi": "Dùng tend to.",
+      "target": "tend to",
+      "chips": [
+        "juggle work and study",
+        "come at the expense of",
+        "an online shop",
+        "push homework aside"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\btends?\\s+to\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng tend to + V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Students who run an online shop tend to push their homework aside when new orders come in."
+    },
+    {
+      "id": "S10-C3",
+      "image": "s10-cau",
+      "cell": 3,
+      "altVi": "Khoa ngủ gục trên bàn sáng hôm sau",
+      "vi": "Dùng should not + lý do với may.",
+      "target": "should not + may",
+      "chips": [
+        "work long hours",
+        "fall behind",
+        "a school night",
+        "in class"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:should\\s+not|shouldn't)\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng should not + V."
+        },
+        {
+          "kind": "regex",
+          "pattern": "\\bmay\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Thêm lý do với may + V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "Students should not work late on school nights because they may fall behind in class."
+    },
+    {
+      "id": "S10-C4",
+      "image": "s10-cau",
+      "cell": 4,
+      "altVi": "Hà bỏ tiền tự kiếm vào heo đất, ảnh laptop trên tường",
+      "vi": "Dùng be likely to.",
+      "target": "be likely to",
+      "chips": [
+        "earn pocket money",
+        "financial independence",
+        "spend carefully",
+        "likely to"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\b(?:is|are|am|be|was|were|been)\\s+(?:more\\s+|less\\s+|very\\s+|quite\\s+)?likely\\s+to\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng be likely to + V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "A teenager who earns her own money is likely to spend it more carefully."
+    }
+  ],
+  "ideas": {
+    "image": "s10-y",
+    "prompt": "Some secondary school students work part-time only during the summer holidays. Do you think a summer job is a good idea for them? Write a paragraph giving your opinion.",
+    "promptType": "explain",
+    "mode": "chooseOne",
+    "lanes": [
+      {
+        "id": "claim",
+        "en": "Claim",
+        "color": "claim",
+        "prefilled": false
+      },
+      {
+        "id": "how",
+        "en": "How",
+        "color": "how",
+        "prefilled": false
+      },
+      {
+        "id": "example",
+        "en": "Example",
+        "color": "example",
+        "prefilled": false
+      },
+      {
+        "id": "result",
+        "en": "Result",
+        "color": "result",
+        "prefilled": false
+      }
+    ],
+    "directions": [
+      {
+        "id": "S10-D1",
+        "panel": null,
+        "claim": "summer jobs suit students",
+        "how": "no homework, daytime shifts",
+        "example": "Khoa works at a café in July",
+        "result": "earn his own money"
+      },
+      {
+        "id": "S10-D2",
+        "panel": 1,
+        "claim": "a job builds responsibility",
+        "how": "talk to customers politely",
+        "example": "the manager praises Khoa",
+        "result": "a sense of responsibility"
+      },
+      {
+        "id": "S10-D3",
+        "panel": 2,
+        "claim": "term-time jobs cause problems",
+        "how": "work late on school nights",
+        "example": "Khoa falls asleep in class",
+        "result": "fall behind in class"
+      }
+    ],
+    "vague": {
+      "how": {
+        "en": "work hard",
+        "whyVi": "Quá chung chung: chưa nói làm việc thế nào.",
+        "branchVi": "How"
+      },
+      "example": {
+        "en": "many students",
+        "whyVi": "Chưa cụ thể: cần một người và một việc trong tranh.",
+        "branchVi": "Example"
+      },
+      "result": {
+        "en": "a nice life",
+        "whyVi": "Quá chung chung: chưa nói chuyện gì xảy ra với Khoa.",
+        "branchVi": "Result"
+      }
+    },
+    "decoy": {
+      "en": "students should never work",
+      "whyVi": "Quá tuyệt đối (never) và không khớp tranh."
+    },
+    "spots": [
+      {
+        "id": "S10-Y1",
+        "panel": 1,
+        "lookVi": "Khung 1 · Khoa nói chuyện với khách",
+        "qVi": "Khoa đang học được kỹ năng gì?",
+        "chips": [
+          "talk to customers politely"
+        ],
+        "branchVi": "Lợi ích"
+      },
+      {
+        "id": "S10-Y2",
+        "panel": 1,
+        "lookVi": "Khung 1 · quản lý giơ ngón cái",
+        "qVi": "Vì sao quản lý khen Khoa?",
+        "chips": [
+          "a sense of responsibility"
+        ],
+        "branchVi": "Lợi ích"
+      },
+      {
+        "id": "S10-Y3",
+        "panel": 1,
+        "lookVi": "Khung 1 · đồng hồ 10:30",
+        "qVi": "Khoa làm đến mấy giờ, vào ngày nào?",
+        "chips": [
+          "work long hours on a school night"
+        ],
+        "branchVi": "Vấn đề"
+      },
+      {
+        "id": "S10-Y4",
+        "panel": 1,
+        "lookVi": "Khung 1 · con phố tối vắng",
+        "qVi": "Điều gì chờ Khoa trên đường về?",
+        "chips": [
+          "an unsafe journey home"
+        ],
+        "branchVi": "Vấn đề"
+      },
+      {
+        "id": "S10-Y5",
+        "panel": 2,
+        "lookVi": "Khung 2 · Khoa buồn ngủ, cô Mai lo lắng",
+        "qVi": "Sáng hôm sau chuyện gì xảy ra?",
+        "chips": [
+          "fall behind in class"
+        ],
+        "branchVi": "Vấn đề"
+      },
+      {
+        "id": "S10-Y6",
+        "panel": 2,
+        "lookVi": "Khung 2 · phong bì lương",
+        "qVi": "Khoa tự hào về điều gì?",
+        "chips": [
+          "earn his own money"
+        ],
+        "branchVi": "Lợi ích"
+      },
+      {
+        "id": "S10-Y7",
+        "panel": null,
+        "hint": "tap",
+        "labelVi": "Gợi ý chung · Vì sao mùa hè khác",
+        "lookVi": "Thẻ gợi ý chung",
+        "qVi": "Mùa hè khác năm học ở điểm nào?",
+        "chips": [
+          "no homework",
+          "daytime shifts"
+        ]
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Modals + hedging",
+      "vi": "can / may / tend to / be likely to làm nhận định mềm. should / should not nêu lập trường. Tránh always, never, all khi chưa có căn cứ. must not ≠ don't have to.",
+      "exampleEn": "A weekend job may teach teenagers to manage their time. Students who work every evening tend to feel tired in class."
+    },
+    "ideas": {
+      "titleEn": "Choose ONE stance",
+      "vi": "Chọn MỘT lập trường làm Claim (ví dụ: việc làm mùa hè phù hợp). Rồi chọn cụm How, Example, Result khớp lập trường đó.",
+      "exampleEn": "Claim: summer jobs suit students → How: no homework, daytime shifts → Example: Khoa works at a café in July → Result: earn his own money"
+    },
+    "write": {
+      "titleEn": "Clear stance, careful claims",
+      "vi": "Câu chủ đề và câu kết cùng một lập trường (should / should not). Ít nhất hai cách nói chừng mực. Bỏ all, always, never khi chưa có căn cứ.",
+      "exampleEn": "Students should take summer jobs, because a few weeks of work may build confidence without harming their studies."
+    },
+    "recall": {
+      "titleEn": "S9 review",
+      "vi": "argue / claim / point out + that. recommend that + S + V nguyên mẫu. while nối hai quan điểm.",
+      "exampleEn": "Some teachers argue that homework should be shorter. They suggest that it be limited to thirty minutes."
+    }
+  },
+  "write": {
+    "id": "S10-W1",
+    "kind": "paragraph",
+    "prompt": "Some secondary school students work part-time only during the summer holidays. Do you think a summer job is a good idea for them? Write a paragraph giving your opinion.",
+    "taskVi": "đoạn 110–130 từ (mở rộng: 140–160 từ, không khung): lập trường rõ, lý do, minh họa, câu kết.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        110,
+        130
+      ],
+      "extension": [
+        140,
+        160
+      ]
+    },
+    "extensionVi": "không khung",
+    "minutes": null,
+    "mustUse": [
+      "should / should not ở câu chủ đề hoặc câu kết",
+      "ít nhất hai cách làm mềm nhận định (như can, may)"
+    ],
+    "modelAfterSubmit": "In my opinion, a summer job can be a valuable experience for secondary school students, as long as the work is safe and suitable for their age. During the school year, a part-time job often comes at the expense of study, because students who work late tend to arrive at school tired and may fall behind. In the summer holidays, however, they have no homework and can choose daytime shifts. A job in a café or a shop teaches them to talk to customers politely and to take responsibility for their tasks. Earning their own money also makes them more likely to spend it carefully. Therefore, secondary students should take a summer job, provided that the hours are reasonable and the workplace is safe."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Câu chủ đề và câu kết nêu cùng một lập trường?"
+    },
+    {
+      "round": "Ý",
+      "code": "OVER",
+      "vi": "Không khẳng định quá mức (all students, always, never) khi chưa có căn cứ?"
+    },
+    {
+      "round": "Câu",
+      "code": "VF",
+      "vi": "tend to / be likely to + V nguyên mẫu; can / may / should + V nguyên mẫu?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "\"however\" đối chiếu đúng năm học với mùa hè?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "a job (đếm được) / work (không đếm được)?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-2#4",
+    "stickerVi": "Minh bưng cà phê"
+  },
+  "praiseEn": "Hard-working writer — great job!"
+}

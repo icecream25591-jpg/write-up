@@ -45,8 +45,9 @@
 .z-mine{font-size:.8125rem;font-weight:900;color:var(--ok-ink);white-space:nowrap}
 .z-close{position:absolute;right:8px;top:8px;width:44px;height:44px;min-height:0;padding:0;border-radius:50%;border:none;
   background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;z-index:2}
-.z-pager{display:flex;align-items:center;gap:4px;font-size:.8125rem;flex:none}
-.z-nav{width:44px;height:44px;min-height:0;padding:0;border-radius:50%;border:2px solid var(--border);background:#fff;font-size:1.1rem;font-weight:900}
+.z-pager{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:800;vertical-align:middle;margin:0 2px 0 8px;white-space:nowrap}
+.z-nav{position:relative;width:30px;height:30px;min-height:0;padding:0;border-radius:50%;border:2px solid var(--border);background:#fff;font-size:.95rem;font-weight:900;line-height:1}
+.z-nav::before{content:"";position:absolute;inset:-7px}
 .z-nav:disabled{opacity:.35}
 
 /* My plan: mỗi hàng một màu nhánh (--lb nền, --lc viền, --li chữ) */
@@ -127,3 +128,37 @@
   .z-bar{width:42%;max-height:none;overflow:auto;align-self:center;flex-wrap:wrap;align-content:center;margin-right:52px}
   .z-close{top:8px;right:8px}
 }
+
+/* Thẻ gợi ý phụ: bấm mới mở / hiện sau Check */
+.hint-tap summary{list-style:none;cursor:pointer;min-height:44px;display:flex;align-items:center;gap:8px}
+.hint-tap summary::-webkit-details-marker{display:none}
+.hint-tap .hc-open{margin-left:auto;font-size:.75rem;font-weight:800;color:var(--amber-ink)}
+.hint-tap[open] .hc-open{display:none}
+.hint-after{border-style:solid;border-color:var(--teal, #2BB5C4)}
+
+/* chooseOne: điểm đối chiếu (If we only watch) trong khung phóng to */
+.z-cmp{display:block;margin-top:4px;font-weight:700}
+.z-ctag{display:inline-block;background:var(--coral);color:#fff;border-radius:6px;padding:0 6px;font-size:.6875rem;margin-right:4px}
+.hint-cmp{border-color:var(--coral)}
+
+/* chooseOne: các hướng trong khung phóng to, thẻ hướng nhiễu đã chọn nhầm, nhắc riêng của điểm chạm */
+.z-dirs{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.z-dir{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.z-dclaim{font-weight:900;color:var(--claim-ink);background:var(--claim-bg);border:2px solid var(--claim);border-radius:10px;padding:2px 8px}
+.z-note{display:block;margin-top:3px;font-size:.75rem;font-weight:800;color:var(--how-ink)}
+.pchip.tried{background:#FDEAE4;border-color:var(--danger);color:#B23A26;text-decoration:line-through}
+/* Thanh chữ dưới khung phóng to: câu hỏi + cụm chiếm cả bề ngang, nút / nhắc xuống dòng dưới (không bóp cột chữ) */
+.z-bar{flex-wrap:wrap}
+.z-bar .z-q{flex:1 1 100%}
+.z-bar .z-warn{text-align:left;max-width:none}
+@media (max-width:767px){ .z-bar{max-height:45dvh} }
+
+/* đang mở khung phóng to trên điện thoại: trang không cuộn, khung không giật theo thanh địa chỉ */
+html.zoom-open,html.zoom-open body{overflow:hidden;overscroll-behavior:none}
+.zoom{overscroll-behavior:contain;touch-action:pan-y}
+.z-bar .z-dirs{flex:1 1 100%;margin-top:2px}
+
+/* Từ S16: tự lập ý trước, tranh mở khi bấm «Cần gợi ý» */
+.od-card{padding:12px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;grid-area:pic}
+.od-card p{margin:0;flex:1 1 220px;font-size:.9375rem}
+.who{display:inline-block;font-size:.6875rem;font-weight:900;color:#fff;background:var(--ink-2);border-radius:6px;padding:0 5px;margin-right:3px;vertical-align:1px}

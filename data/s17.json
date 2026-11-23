@@ -1,0 +1,384 @@
+{
+  "session": "S17",
+  "version": "2026.11.21",
+  "source": "content/noi-dung-S1-S22.md · S17 (tools/tao-session.mjs)",
+  "topic": "Tourism and local communities",
+  "productVi": "essay có giờ, 200–250 từ, 40 phút, tự lập ý trên giấy nháp.",
+  "targetsVi": "thesis nêu mức đồng ý kèm lý do hoặc điều kiện; cụm nêu quan điểm ngoài I think; nhận định chừng mực.",
+  "sticker": "sticker-3#5",
+  "recall": [
+    {
+      "id": "S17-R1",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Children love songs and stories. ___ activities keep them interested.",
+      "options": [
+        "Such",
+        "So",
+        "This"
+      ],
+      "answer": "Such",
+      "explainVi": "Such + danh từ số nhiều quy chiếu ý vừa nêu."
+    },
+    {
+      "id": "S17-R2",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Teachers and parents both matter, but ___ spend more time with children.",
+      "options": [
+        "the latter",
+        "the later",
+        "the last"
+      ],
+      "answer": "the latter",
+      "explainVi": "the latter = cái được nêu sau (parents)."
+    },
+    {
+      "id": "S17-R3",
+      "type": "fix",
+      "kind": "fix-error",
+      "vi": "Sửa lỗi",
+      "en": "Young learners copy sounds easily. These makes pronunciation lessons fun.",
+      "answer": "These → This",
+      "explainVi": "This quy chiếu cả ý câu trước, đi với makes."
+    },
+    {
+      "id": "S17-R4",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Children learn their mother ___ naturally at home.",
+      "options": [
+        "tongue",
+        "speech",
+        "voice"
+      ],
+      "answer": "tongue",
+      "explainVi": "mother tongue = tiếng mẹ đẻ."
+    },
+    {
+      "id": "S17-R5",
+      "type": "choice",
+      "vi": "Chọn",
+      "en": "Early lessons can lay the ___ for later study.",
+      "options": [
+        "groundwork",
+        "background",
+        "homework"
+      ],
+      "answer": "groundwork",
+      "explainVi": "lay the groundwork for = đặt nền móng cho."
+    }
+  ],
+  "sentences": [
+    {
+      "id": "S17-C1",
+      "image": "s17-cau",
+      "cell": 1,
+      "altVi": "Khách cầm gậy tự sướng chắn lối đi, bác nông dân dắt trâu đứng chờ",
+      "vi": "Nhận định chừng mực với tend to.",
+      "target": "tend to",
+      "chips": [
+        "mass tourism",
+        "local residents",
+        "tourist crowds",
+        "narrow paths"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\btends?\\s+to\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Dùng tend to + V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "On busy holidays, tourist crowds tend to block the narrow paths that farmers use every day."
+    },
+    {
+      "id": "S17-C2",
+      "image": "s17-cau",
+      "cell": 2,
+      "altVi": "Gia đình mời khách nước ngoài bữa cơm ở homestay",
+      "vi": "Cụm nêu quan điểm From my perspective,",
+      "target": "From my perspective,",
+      "chips": [
+        "a homestay",
+        "cultural exchange",
+        "from my perspective",
+        "local families"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*From my perspective,",
+          "flags": "",
+          "msgVi": "Mở đầu bằng From my perspective,"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "From my perspective, homestays are one of the fairest ways for tourism money to reach local families."
+    },
+    {
+      "id": "S17-C3",
+      "image": "s17-cau",
+      "cell": 3,
+      "altVi": "Rác để lại ở điểm ngắm thác nước",
+      "vi": "Nhận định kèm điều kiện (only if…).",
+      "target": "điều kiện",
+      "chips": [
+        "carrying capacity",
+        "visitor numbers",
+        "stay beautiful",
+        "a waterfall"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "\\bonly\\b[^.]*\\bif\\b",
+          "flags": "i",
+          "msgVi": "Thêm điều kiện với only … if …"
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "A waterfall like this can only stay beautiful if visitor numbers stay within its carrying capacity."
+    },
+    {
+      "id": "S17-C4",
+      "image": "s17-cau",
+      "cell": 4,
+      "altVi": "Điệu múa thiêng của làng thành màn diễn ngắn bán vé",
+      "vi": "Cụm nêu quan điểm It seems to me that + may.",
+      "target": "It seems to me that",
+      "chips": [
+        "commercialise a tradition",
+        "a sacred dance",
+        "a paid show",
+        "empty it of meaning"
+      ],
+      "checks": [
+        {
+          "kind": "regex",
+          "pattern": "^\\s*It seems to me that\\b",
+          "flags": "",
+          "msgVi": "Mở đầu bằng It seems to me that"
+        },
+        {
+          "kind": "regex",
+          "pattern": "\\bmay\\s+[a-z]+",
+          "flags": "i",
+          "msgVi": "Thêm lý do với may + V."
+        },
+        {
+          "kind": "minChips",
+          "min": 2,
+          "soft": true,
+          "msgVi": "Nên dùng ít nhất hai cụm gợi ý."
+        }
+      ],
+      "model": "It seems to me that turning a sacred dance into a paid show may empty it of meaning."
+    }
+  ],
+  "ideas": {
+    "image": "s17-y",
+    "prompt": "Some people believe that villages which become popular with tourists should limit the number of visitors. To what extent do you agree or disagree?",
+    "promptType": "explain",
+    "mode": "sort",
+    "lanes": [
+      {
+        "id": "advantages",
+        "en": "Advantages",
+        "color": "amber",
+        "prefilled": false
+      },
+      {
+        "id": "effects",
+        "en": "Effects",
+        "color": "teal",
+        "prefilled": false
+      },
+      {
+        "id": "conditions-my-view",
+        "en": "Conditions / My view",
+        "color": "coral",
+        "prefilled": false
+      }
+    ],
+    "vague": null,
+    "onDemand": true,
+    "spots": [
+      {
+        "id": "S17-Y1",
+        "panel": 1,
+        "lookVi": "Gia đình đón khách ở homestay",
+        "qVi": "Tiền du lịch đến tay ai?",
+        "chips": [
+          "income for local families"
+        ],
+        "lane": "advantages"
+      },
+      {
+        "id": "S17-Y2",
+        "panel": 2,
+        "lookVi": "Đền cổ đang sửa, giàn giáo",
+        "qVi": "Tiền du lịch còn dùng vào việc gì?",
+        "chips": [
+          "money to repair old buildings"
+        ],
+        "lane": "advantages"
+      },
+      {
+        "id": "S17-Y3",
+        "panel": 3,
+        "lookVi": "Bạn trẻ làm hướng dẫn viên",
+        "qVi": "Thanh niên trong làng có thêm gì?",
+        "chips": [
+          "seasonal jobs"
+        ],
+        "lane": "advantages"
+      },
+      {
+        "id": "S17-Y4",
+        "panel": 4,
+        "lookVi": "Xe du lịch đỗ trên ruộng lúa",
+        "qVi": "Chuyện gì xảy ra với ruộng?",
+        "chips": [
+          "damage farmland"
+        ],
+        "lane": "effects"
+      },
+      {
+        "id": "S17-Y5",
+        "panel": 5,
+        "lookVi": "Đống rác cạnh suối, nhạc ồn từ quán bar",
+        "qVi": "Cảnh quan và cuộc sống thay đổi ra sao?",
+        "chips": [
+          "rubbish and noise"
+        ],
+        "lane": "effects"
+      },
+      {
+        "id": "S17-Y6",
+        "panel": 6,
+        "lookVi": "Bảng giá thuê nhà mũi tên đi lên",
+        "qVi": "Người dân trả tiền nhà thế nào?",
+        "chips": [
+          "rising rents"
+        ],
+        "lane": "effects"
+      },
+      {
+        "id": "S17-Y7",
+        "panel": 7,
+        "lookVi": "Điệu múa thành màn diễn nhanh",
+        "qVi": "Điệu múa còn giữ ý nghĩa không?",
+        "chips": [
+          "commercialise a tradition"
+        ],
+        "lane": "effects"
+      },
+      {
+        "id": "S17-Y8",
+        "panel": 8,
+        "lookVi": "Họp làng giơ tay biểu quyết",
+        "qVi": "Ai nên quyết định giới hạn số khách?",
+        "chips": [
+          "residents involved in decisions"
+        ],
+        "lane": "conditions-my-view"
+      }
+    ]
+  },
+  "tips": {
+    "sentences": {
+      "titleEn": "Opinion phrases + hedging",
+      "vi": "Đừng chỉ dùng I think: From my perspective, It seems to me that, I largely agree that. Nhận định chừng mực: can, may, tend to. the number of + N số nhiều → số ít; a number of → số nhiều.",
+      "exampleEn": "From my perspective, visitor numbers should be limited at fragile sites. The number of tourists tends to rise in summer."
+    },
+    "ideas": {
+      "titleEn": "Advantages · Disadvantages · Condition",
+      "vi": "Tự lập ý trước, bấm \"Cần gợi ý\" khi bí. Xếp cụm vào Advantages, Disadvantages hoặc Condition. Lập trường tốt nêu điều kiện (ai quyết định, giới hạn bao nhiêu).",
+      "exampleEn": "income for local families → Advantages; rising rents → Disadvantages; residents involved in decisions → Condition"
+    },
+    "write": {
+      "titleEn": "Thesis with extent",
+      "vi": "Thesis trả lời \"to what extent\" và nêu lý do hoặc điều kiện. Một đoạn thừa nhận (Admittedly…) rồi đoạn trả lời (However…). Không nhắc lại lập trường quá nhiều lần.",
+      "exampleEn": "I largely agree, provided that local people help decide how many visitors may enter."
+    },
+    "recall": {
+      "titleEn": "S16 review",
+      "vi": "this / such + danh từ khái quát. the former / the latter. However đầu câu mới, whereas nằm giữa hai vế.",
+      "exampleEn": "Villages receive more visitors every year. This trend brings income but also noise."
+    }
+  },
+  "write": {
+    "id": "S17-W1",
+    "kind": "essay",
+    "prompt": "Some people believe that villages which become popular with tourists should limit the number of visitors. To what extent do you agree or disagree?",
+    "taskVi": "essay 200–250 từ trong 40 phút, không có câu mở đầu gợi ý.",
+    "topicSentence": null,
+    "words": {
+      "core": [
+        200,
+        250
+      ],
+      "extension": [
+        200,
+        250
+      ]
+    },
+    "extensionVi": "",
+    "minutes": 40,
+    "mustUse": [
+      "thesis nêu mức đồng ý kèm điều kiện hoặc lý do",
+      "một cụm nêu quan điểm khác I think, không nhắc lại lập trường nhiều lần"
+    ],
+    "modelAfterSubmit": "As travel becomes cheaper, many small villages that were once quiet now receive thousands of visitors at weekends. I largely agree that such villages should limit visitor numbers, provided that the limits are set together with local residents.\n\nAdmittedly, tourism brings real benefits to rural communities. Homestays and craft stalls allow families to earn money without leaving their village, and some of this income is used to repair old temples and roads. Tourism also gives young people a reason to stay in their village instead of moving to the city for work. A complete ban on visitors would therefore hurt the very people it is meant to protect.\n\nHowever, it seems clear that too many visitors can destroy what makes a village special. When tour buses park on rice fields and rubbish piles up beside the streams, the landscape that attracts tourists begins to disappear. Rents also tend to rise as outsiders open bars and hotels, which can push young residents away. A daily limit, especially during holidays, would keep the number of visitors within what the village can handle.\n\nIn conclusion, tourism should not be stopped, but it should be controlled. As long as residents have a voice in deciding the limits, popular villages can enjoy the income from tourism without losing their way of life."
+  },
+  "selfCheck": [
+    {
+      "round": "Ý",
+      "code": "OFF",
+      "vi": "Thesis trả lời \"to what extent\" và nêu điều kiện hoặc lý do?"
+    },
+    {
+      "round": "Ý",
+      "code": "OVER",
+      "vi": "Không khẳng định quá mức (tourism destroys everything)?"
+    },
+    {
+      "round": "Câu",
+      "code": "LINK",
+      "vi": "Đoạn thừa nhận (Admittedly…) nối rõ sang đoạn trả lời (However…)?"
+    },
+    {
+      "round": "Từ",
+      "code": "WW",
+      "vi": "Cụm nêu quan điểm đa dạng và đúng (From my perspective, It seems to me that, I largely agree)?"
+    },
+    {
+      "round": "Từ",
+      "code": "A",
+      "vi": "the number of + danh từ số nhiều; a number of khi nói \"nhiều\"?"
+    }
+  ],
+  "reward": {
+    "sticker": "sticker-3#5",
+    "stickerVi": "Lan cầm bản đồ, đeo ba lô"
+  },
+  "praiseEn": "Explorer of ideas — great balance!"
+}
