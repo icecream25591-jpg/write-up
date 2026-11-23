@@ -43,7 +43,7 @@ export function dialog({ title, body = '', input = null, requireText = null, con
       if (requireText && value !== requireText) return;
       if (input && input.required && !value) { msg.textContent = input.requiredMsg || 'Hãy nhập nội dung.'; msg.className = 'field-msg bad'; return field.focus(); }
       const extra = {}; wrap.querySelectorAll('select[id]').forEach((x) => { extra[x.id] = x.value; });
-      const values = Object.fromEntries([...wrap.querySelectorAll('[name]')].map((el) => [el.name, el.type === 'checkbox' ? el.checked : el.value]));
+      const values = Object.fromEntries([...wrap.querySelectorAll('[name]')].filter((el) => el.type !== 'radio' || el.checked).map((el) => [el.name, el.type === 'checkbox' ? el.checked : el.value]));   // nút chọn (radio): chỉ lấy nút đang chọn
       if (validate) { const m = validate(values); if (m) { msg.textContent = m; msg.className = 'field-msg bad'; return; } }
       close({ ok: true, value, extra, values });
     });

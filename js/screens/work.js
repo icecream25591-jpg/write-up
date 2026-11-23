@@ -5,6 +5,7 @@ import { queue, findItem, enqueue } from '../queue.js';
 import { itemStatus, STATUS_TEXT, flushQueue, fetchFeedback, feedbackFor, feedbackList, isNew, markSeen, onSync, getConfig, isCloud, resendWiped } from '../sync.js';
 import { countWords } from '../structures.js';
 import { icons } from '../icons.js';
+import { CRITERIA } from '../account/exchange.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const when = (iso) => { try { return new Date(iso).toLocaleString('vi-VN', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }); } catch { return ''; } };
@@ -99,6 +100,25 @@ function locate(text, quote) {
   return i;
 }
 
+// Chữ trong dấu huyền ngược hiện thành «chip» mã (câu sửa mẫu); phần còn lại được thoát ký tự.
+const rich = (t) => esc(t).replace(/`([^`]+)`/g, '<code class="fbk-code" lang="en">$1</code>');
+/** Nội dung nhận xét của cô: lời khen, bốn tiêu chí (chỉ tiêu chí có góp ý), nhận xét chung, câu sửa gợi ý, điểm. Nhận xét kiểu cũ (một ô) hiện như trước. */
+function fbRows(fb, color, lane) {
+  const crit = CRITERIA.filter((c) => fb[c.col]);
+  const out = [];
+  if (fb.khen) out.push(`<div class="fbk-row"><span class="tagc" style="${laneStyle('claim')}">Good</span><span>${rich(fb.khen)}</span></div>`);
+  if (crit.length) out.push(`<div class="fbk-crits">${crit.map((c) => `<div class="fbk-crit"><b class="fbk-crit-h"><span lang="en">${esc(c.en)}</span> <small>· ${esc(c.vi)}</small></b><p>${rich(fb[c.col])}</p></div>`).join('')}</div>`);
+  if (fb.nhan_xet) {
+    const tag = crit.length ? 'Overall' : fb.nhanh ? lane : fb.mau === 'cau' ? 'Fix' : lane;
+    out.push(`<div class="fbk-row"><span class="tagc" style="${laneStyle(crit.length ? 'teal' : color)}">${esc(tag)}</span><span>${rich(fb.nhan_xet)}</span></div>`);
+  }
+  if (fb.cau_sua) out.push(`<div class="fbk-row"><span class="tagc" style="${laneStyle('example')}">Try</span><span>${rich(fb.cau_sua)}</span></div>`);
+  if (fb.diem) out.push(`<div class="fbk-row"><span class="tagc" style="${laneStyle('teal')}">Score</span><span>${esc(fb.diem)}</span></div>`);
+  return out.join('');
+}
+/** Khung «Ưu tiên cho Draft 2» (một việc chính cô chốt); rỗng nếu cô không ghi. */
+const prioBox = (fb) => (fb.uu_tien ? `<div class="fbk-prio" role="note"><b>Ưu tiên cho Draft 2</b><span>${rich(fb.uu_tien)}</span></div>` : '');
+
 export function feedbackPage(ctx, route) {
   const el = document.createElement('section');
   el.className = 'screen';
@@ -118,8 +138,17 @@ export function feedbackPage(ctx, route) {
   const lane = fb.nhanh || 'Sentence';
   const d2Key = `draft2:${fb.id}`;
   const done = queue().find((x) => x.kind === 'draft2' && x.draft1Id === fb.id);
-  const original = weakI >= 0 ? norm(parts[weakI]) : norm(text);
-  let rewrite = load(d2Key, null) ?? (done?.rewrite?.to || original);
+  // Em chọn sửa MỘT CÂU (câu cô tô màu) hoặc CẢ ĐOẠN / BÀI. Không có câu được tô màu thì chỉ có «cả đoạn / bài».
+  const scopeKey = `draft2s:${fb.id}`;
+  let scope = weakI < 0 ? 'whole' : (done?.rewrite?.scope || load(scopeKey, null) || 'sentence');
+  if (scope !== 'whole') scope = 'sentence';
+  const origOf = (sc) => (sc === 'whole' || weakI < 0 ? norm(text) : norm(parts[weakI]));
+  const keyOf = (sc) => (sc === 'whole' && weakI >= 0 ? `${d2Key}:whole` : d2Key);   // mỗi cách sửa giữ bản nháp riêng
+  const drafts = { sentence: null, whole: null };
+  for (const sc of ['sentence', 'whole']) drafts[sc] = load(keyOf(sc), null) ?? (done && (done.rewrite?.scope || (weakI < 0 ? 'whole' : 'sentence')) === sc ? done.rewrite?.to : null) ?? origOf(sc);
+  const isWhole = () => scope === 'whole';
+  let original = origOf(scope);
+  let rewrite = drafts[scope];
   let full = weakI < 0;
 
   // tô màu đúng phần chữ của câu, khoảng trắng sau câu để ngoài
@@ -130,11 +159,11 @@ export function feedbackPage(ctx, route) {
     return esc(s);
   };
   const draftHtml = () => {
-    if (full || weakI < 0) return parts.map((s, i) => mark(i, s)).join('');
+    if (full || weakI < 0 || isWhole()) return parts.map((s, i) => mark(i, s)).join('');
     const a = Math.max(0, weakI - 1), b = Math.min(parts.length - 1, weakI + 1);
     return `${a > 0 ? '… ' : ''}${parts.slice(a, b + 1).map((s, k) => mark(a + k, s)).join('')}${b < parts.length - 1 ? ' …' : ''}`;
   };
-  const draft2 = () => (weakI >= 0 ? parts.map((s, i) => (i === weakI ? rewrite.trim() + (/\s$/.test(s) ? ' ' : '') : s)).join('') : rewrite.trim());
+  const draft2 = () => (weakI >= 0 && !isWhole() ? parts.map((s, i) => (i === weakI ? rewrite.trim() + (/\s$/.test(s) ? ' ' : '') : s)).join('') : rewrite.trim());
 
   el.innerHTML = `
     <div class="page fbk">
@@ -147,15 +176,15 @@ export function feedbackPage(ctx, route) {
           <div class="fbk-box">
             <img src="img/comai-face.webp" alt="Ms Mai" width="60" height="60">
             <div class="fbk-txt"><b class="fbk-who">Ms Mai’s feedback</b>
-              ${fb.khen ? `<div class="fbk-row"><span class="tagc" style="${laneStyle('claim')}">Good</span><span>${esc(fb.khen)}</span></div>` : ''}
-              ${fb.nhan_xet ? `<div class="fbk-row"><span class="tagc" style="${laneStyle(color)}">${esc(lane)}</span><span>${esc(fb.nhan_xet)}</span></div>` : ''}
-              ${fb.diem ? `<div class="fbk-row"><span class="tagc" style="${laneStyle('teal')}">Score</span><span>${esc(fb.diem)}</span></div>` : ''}</div>
+              ${fbRows(fb, color, lane)}</div>
           </div>
         </div>
         <div class="fbk-r">
+          ${prioBox(fb)}
+          ${weakI >= 0 ? `<div class="fbk-scope" role="radiogroup" aria-label="Em muốn sửa gì?">${[['sentence', 'Sửa một câu'], ['whole', 'Sửa cả đoạn / bài']].map(([k, t]) => `<button type="button" role="radio" data-scope="${k}" aria-checked="${scope === k}"${done ? ' disabled' : ''}>${t}</button>`).join('')}</div>` : ''}
           <label for="d2-ta" class="fbk-lbl">${weakI >= 0 ? `Rewrite the ${esc(lane)} sentence` : 'Rewrite your paragraph'}</label>
           <textarea id="d2-ta" class="d2-ta" lang="en" style="${laneStyle(color)}" ${done ? 'readonly' : ''}>${esc(rewrite)}</textarea>
-          <p class="fbk-hint">${done ? `Đã nộp bản 2 · <b class="d2-st"></b>` : 'Sửa đúng câu được tô màu, giữ ý của em. Bản 2 = bản 1 với câu này đã viết lại.'}</p>
+          <p class="fbk-hint">${done ? `Đã nộp bản 2 · <b class="d2-st"></b>` : hintText()}</p>
           <details class="card fbk-prev"><summary>Draft 2 preview</summary><p lang="en" class="d2p"></p></details>
           <div class="fbk-actions">
             <button type="button" class="btn2" data-act="view">${weakI >= 0 ? 'View Draft 1' : 'Hide Draft 1'}</button>
@@ -166,16 +195,30 @@ export function feedbackPage(ctx, route) {
     </div>`;
   const $ = (q) => el.querySelector(q);
   const ta = $('#d2-ta');
+  function hintText() { return isWhole() ? 'Viết lại cả đoạn / bài, giữ ý của em và chú ý ưu tiên của cô. Bản 2 là toàn bộ văn bản em viết ở đây.' : 'Sửa đúng câu được tô màu, giữ ý của em. Bản 2 = bản 1 với câu này đã viết lại.'; }
 
   function paint() {
+    const lbl = $('.fbk-lbl'); if (lbl) lbl.textContent = weakI >= 0 && !isWhole() ? `Rewrite the ${lane} sentence` : (weakI >= 0 ? 'Rewrite your whole text' : 'Rewrite your paragraph');
+    const viewBtn = $('[data-act="view"]'); if (viewBtn) viewBtn.hidden = isWhole();
+    if (!done) $('.fbk-hint').textContent = hintText();
     $('.d1').innerHTML = draftHtml();
     $('.d2p').textContent = draft2();
     const btn = $('[data-act="submit2"]');
     if (!done) btn.disabled = !norm(rewrite) || norm(rewrite) === original;
     if (done) { const it = findItem(done.id); const stt = it ? itemStatus(it) : 'pending'; $('.d2-st').textContent = STATUS_TEXT[stt]; }
   }
-  ta.addEventListener('input', () => { rewrite = ta.value; save(d2Key, rewrite); paint(); });
+  ta.addEventListener('input', () => { rewrite = ta.value; drafts[scope] = rewrite; save(keyOf(scope), rewrite); paint(); });
   el.addEventListener('click', async (e) => {
+    const sc = e.target.closest('[data-scope]');
+    if (sc && !sc.disabled) {
+      if (sc.dataset.scope !== scope) {
+        drafts[scope] = rewrite; scope = sc.dataset.scope; save(scopeKey, scope);
+        original = origOf(scope); rewrite = drafts[scope]; ta.value = rewrite;
+        el.querySelectorAll('[data-scope]').forEach((x) => x.setAttribute('aria-checked', String(x.dataset.scope === scope)));
+        paint();
+      }
+      return;
+    }
     const b = e.target.closest('[data-act]');
     if (!b || b.disabled) return;
     if (b.dataset.act === 'view') {
@@ -187,10 +230,11 @@ export function feedbackPage(ctx, route) {
       const t = draft2();
       const it = enqueue({
         kind: 'draft2', session: fb.session, topic: fb.chu_de || local?.topic || '', prompt: local?.prompt || '', level: local?.level || '',
-        text: t, words: countWords(t), draft1Id: fb.id, rewrite: { from: original, to: norm(rewrite), lane },
+        text: t, words: countWords(t), draft1Id: fb.id, rewrite: { from: original, to: norm(rewrite), lane, scope: isWhole() ? 'whole' : 'sentence' },
         submittedAt: new Date().toISOString(),
       });
       b.disabled = true; ta.readOnly = true;
+      el.querySelectorAll('[data-scope]').forEach((x) => { x.disabled = true; });   // đã nộp: không đổi cách sửa nữa
       $('.chip-st').textContent = 'Draft 2 · submitted';
       $('.fbk-hint').innerHTML = 'Đã nộp bản 2 · <b class="d2-st"></b>';
       await flushQueue();
@@ -225,12 +269,11 @@ function feedbackPageD2(el, fb, local) {
           <div class="fbk-box">
             <img src="img/comai-face.webp" alt="Ms Mai" width="60" height="60">
             <div class="fbk-txt"><b class="fbk-who">Ms Mai’s feedback · Draft 2</b>
-              ${fb.khen ? `<div class="fbk-row"><span class="tagc" style="${laneStyle('claim')}">Good</span><span>${esc(fb.khen)}</span></div>` : ''}
-              ${fb.nhan_xet ? `<div class="fbk-row"><span class="tagc" style="${laneStyle(color)}">${esc(lane)}</span><span>${esc(fb.nhan_xet)}</span></div>` : ''}
-              ${fb.diem ? `<div class="fbk-row"><span class="tagc" style="${laneStyle('teal')}">Score</span><span>${esc(fb.diem)}</span></div>` : ''}</div>
+              ${fbRows(fb, color, lane)}</div>
           </div>
         </div>
         <div class="fbk-r">
+          ${prioBox(fb)}
           <p class="fbk-hint">Đây là nhận xét của cô cho <b>bản 2</b> của em.</p>
           <div class="fbk-actions">
             ${d1 ? `<a class="btn2" href="#/work/${encodeURIComponent(local.draft1Id)}">Xem nhận xét bản 1</a>` : ''}

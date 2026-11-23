@@ -134,7 +134,8 @@ const verOf = (ts) => (ts && ts.seconds != null ? `${ts.seconds}.${ts.nanosecond
 function toFeedback(id, d) {
   const f = d.feedback || {};
   return { id, kind: d.draft === 2 ? 'draft2' : 'draft1', v: verOf(d.feedbackAt), session: d.session, chu_de: topicOf(id), bai_viet: d.text || '', cau_nhan_xet: f.sentence || '', cau_khen: f.praiseSentence || '',
-    nhanh: f.branch || '', nhan_xet: f.comment || '', khen: f.praise || '', diem: f.score != null ? String(f.score) : '' };
+    nhanh: f.branch || '', nhan_xet: f.comment || '', khen: f.praise || '', diem: f.score != null ? String(f.score) : '',
+    mau: f.tpl || '', task_response: f.tc?.task || '', coherence: f.tc?.coh || '', vocabulary: f.tc?.vocab || '', grammar: f.tc?.gram || '', uu_tien: f.priority || '', cau_sua: f.fix || '' };
 }
 function mergeFeedback(docs) {
   const withFb = docs.filter(([, d]) => d.feedback);

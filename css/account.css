@@ -161,3 +161,9 @@
 .tk-rej{margin:6px 0;font-size:.8125rem;color:var(--coral-ink)} .tk-rej summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-weight:800}
 .tk-rej ul{margin:0;padding-left:18px}
 @media (max-width:700px){ .tk thead th:first-child,.tk tbody th[scope=row]{min-width:112px;max-width:112px} .tk thead th:nth-child(2),.tk .tk-sum{left:112px} .tk-who b,.tk-who span{max-width:96px} }
+
+/* mẫu nhận xét của giáo viên */
+.tk-tpl{border:0;padding:0;margin:8px 0}
+.tk-tpl legend{font-weight:800;font-size:.875rem;margin-bottom:4px}
+.tk-tpl label{display:inline-flex;gap:6px;align-items:center;margin-right:14px;font-weight:700}
+.tk-grp[hidden]{display:none}

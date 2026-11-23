@@ -79,3 +79,19 @@ a.mw-item:active{transform:translateY(2px)}
   .fbk-actions{position:static;background:none;padding-right:0}
   .fbk-actions .btn.grow{flex:1 1 200px}
 }
+
+/* nhận xét bốn tiêu chí, khung ưu tiên cho Draft 2, chip câu sửa */
+.fbk-crits{display:flex;flex-direction:column;gap:8px;margin:2px 0}
+.fbk-crit{border-top:2px solid rgba(0,0,0,.1);padding-top:6px}
+.fbk-crit-h{display:block;font-size:.8125rem;font-weight:900}
+.fbk-crit-h small{font-weight:700;opacity:.75}
+.fbk-crit p{margin:2px 0 0;font-weight:700}
+.fbk-prio{display:flex;flex-direction:column;gap:2px;background:#fff6cf;border:3px solid #e9b400;border-radius:14px;padding:8px 12px;margin-bottom:8px;font-weight:700;font-size:.9375rem;line-height:1.45}
+.fbk-prio b{font-size:.75rem;font-weight:900;letter-spacing:.02em;text-transform:uppercase}
+.fbk-code{background:rgba(0,0,0,.07);border-radius:6px;padding:0 5px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.92em;white-space:pre-wrap}
+
+/* Draft 2: chọn sửa một câu hay cả đoạn / bài */
+.fbk-scope{display:flex;gap:6px;margin:2px 0 8px}
+.fbk-scope button{flex:1;min-height:44px;border:3px solid var(--line,#d9d2c3);background:#fff;border-radius:14px;font:inherit;font-weight:800;font-size:.875rem;padding:6px 10px;cursor:pointer}
+.fbk-scope button[aria-checked="true"]{border-color:var(--mai,#2f6fed);background:#eef3ff}
+.fbk-scope button:disabled{opacity:.6;cursor:default}

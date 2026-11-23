@@ -1,8 +1,8 @@
 {
   "_ghichu": "Cấu hình do giáo viên sửa. lockOrder=true: học sinh phải học xong trạm trước mới mở trạm sau. lockStages=true: trong một trạm phải xong chặng trước mới vào chặng sau (đặt false cả hai khi cô muốn thử nhanh). sheetUrl: URL Ứng dụng web Apps Script (…/exec) – xem docs/huong-dan-google-sheet.md; để trống thì bài chỉ lưu trên máy học sinh. examPrompt: đề thi thử S22 (học sinh chỉ thấy khi bấm Bắt đầu; để trống thì chưa thi được). accounts: true = bắt buộc đăng nhập Google và vào lớp bằng mã lớp (cần Firebase, xem KE-HOACH-TAI-KHOAN.md; để false thì web chạy như cũ). sessionsReady: các session đã có data/sXX.json và được mở cho học sinh.",
   "siteName": "Write Up!",
-  "lockOrder": false,
-  "lockStages": false,
+  "lockOrder": true,
+  "lockStages": true,
   "accounts": false,
   "sheetUrl": "https://script.google.com/macros/s/AKfycbxFxg07ZGDLbpe-EYmyXrgLfqn1k3-IVS73RWYJNh_o0yuKeD13yJaaDWGyBBkcpmrjLQ/exec",
   "examPrompt": "",

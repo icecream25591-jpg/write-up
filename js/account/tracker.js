@@ -84,36 +84,54 @@ export function trackerPanel(ctx, { classes, students, alive, dialog, errMessage
   };
   const ensureSubs = async () => { if (subs === null) await loadSubs(); };
 
+  // Giá trị biểu mẫu → nhận xét lưu lên máy chủ. Ô của mẫu đang ẩn bị bỏ (không lưu nhầm chữ cũ).
+  const valuesToFb = (v) => {
+    const r = { ...v }; const t = v.mau === 'doan' ? 'doan' : 'cau';
+    if (t === 'doan') r.cau_sua = ''; else for (const c of X.CRITERIA) r[c.col] = '';
+    return X.rowToFb({ ...r, mau: t });
+  };
   // ---------- ghi nhận xét cho một bài
   async function commentDialog(sub, opts = {}) {
     const stu = byId.get(sub.studentId), fb = sub.feedback || {};
     const sents = sentences(sub.text);
+    const tpl0 = X.templateOf(sub);
+    const area = (id, label, val, ph, max, rows = 2) => `<label for="${id}">${label}</label><textarea id="${id}" name="${id}" rows="${rows}" maxlength="${max}" placeholder="${esc(ph || '')}">${esc(val || '')}</textarea>`;
     const row = (id, label, val, ph, area) => `<label for="${id}">${label}</label>${area ? `<textarea id="${id}" name="${id}" rows="3" maxlength="${X.LIMITS.nhan_xet}" placeholder="${esc(ph || '')}">${esc(val)}</textarea>` : `<input id="${id}" name="${id}" maxlength="${X.LIMITS.cau}" value="${esc(val)}" placeholder="${esc(ph || '')}">`}`;
     const r = await dialog({
       title: `Nhận xét · ${stu?.nickname || '?'} · ${sLabel(sub.session)} · Draft ${sub.draft === 2 ? 2 : 1}`, confirmText: 'Lưu nhận xét', wide: true,
       body: `<p class="st-meta">${esc(stu?.realName || '')} · nộp ${esc(when(sub.submittedAt))} · ${sub.words || 0} từ${sub.feedback ? ` · ${fbLabel(sub)}` : ''}</p>
         ${sub.prompt ? `<p class="tk-prompt"><b>Đề:</b> ${esc(sub.prompt)}</p>` : ''}
         <div class="tk-essay" lang="en" aria-label="Bài viết của em">${sents.map((t, i) => `<button type="button" class="tk-sent" data-i="${i}">${esc(t.trim())}</button> `).join('')}</div>
+        <fieldset class="tk-tpl"><legend>Mẫu nhận xét</legend>
+          ${Object.entries(X.TEMPLATES).map(([k, t]) => `<label><input type="radio" name="mau" value="${k}"${k === tpl0 ? ' checked' : ''}> ${esc(t)}</label>`).join(' ')}</fieldset>
         <fieldset class="tk-pick"><legend>Bấm một câu trong bài để điền vào ô:</legend>
           <label><input type="radio" name="mode" value="cau_nhan_xet" checked> Câu cần sửa</label> <label><input type="radio" name="mode" value="cau_khen"> Câu khen</label></fieldset>
         ${row('cau_nhan_xet', 'Câu được nhận xét', fb.sentence, 'Câu cần sửa (bấm trong bài ở trên)')}
         <label for="nhanh">Nhánh</label><select id="nhanh" name="nhanh"><option value="">(không chọn)</option>${X.BRANCHES.map((b) => `<option${fb.branch === b ? ' selected' : ''}>${esc(b)}</option>`).join('')}${fb.branch && !X.BRANCHES.includes(fb.branch) ? `<option selected>${esc(fb.branch)}</option>` : ''}</select>
-        ${row('nhan_xet', 'Nhận xét', fb.comment, 'Việc cần sửa và gợi ý (tiếng Việt, ngắn)', true)}
+        <div class="tk-grp" data-grp="doan"${tpl0 === 'doan' ? '' : ' hidden'}>
+          <p class="st-meta">Chỉ điền tiêu chí có góp ý cụ thể. Chữ trong dấu huyền ngược (\`I don't\`) hiện thành chip cho em.</p>
+          ${X.CRITERIA.map((c) => area(c.col, `<span lang="en">${esc(c.en)}</span> · ${esc(c.vi)}`, fb.tc?.[c.key], c.vi === 'Bám đề' ? 'Em có trả lời đúng đề, đủ ý chưa?' : 'Một góp ý cụ thể, dẫn câu hoặc cụm từ của em', X.LIMITS.tc, 3)).join('')}
+        </div>
+        <div class="tk-grp" data-grp="cau"${tpl0 === 'cau' ? '' : ' hidden'}>
+          ${area('cau_sua', 'Câu sửa gợi ý', fb.fix, 'Một câu mẫu tiếng Anh (có thể dùng dấu huyền ngược cho chip)', X.LIMITS.cau_sua, 2)}
+        </div>
+        ${row('nhan_xet', 'Nhận xét chung', fb.comment, 'Việc cần sửa và gợi ý (tiếng Việt, ngắn)', true)}
+        ${area('uu_tien', 'Ưu tiên cho Draft 2', fb.priority, 'Một việc em làm đầu tiên khi viết lại (tối đa hai việc)', X.LIMITS.uu_tien, 2)}
         ${row('cau_khen', 'Câu khen', fb.praiseSentence, 'Câu làm tốt (bấm trong bài ở trên)')}
         ${row('khen', 'Lời khen', fb.praise, 'Điểm mạnh của bài', true)}
         <label for="diem">Điểm</label><input id="diem" name="diem" maxlength="${X.LIMITS.diem}" value="${esc(fb.score == null ? '' : fb.score)}" placeholder="Ví dụ: 8 (không bắt buộc)">
         ${sub.feedback ? '<p class="st-note">Bài đã có nhận xét: lưu sẽ ghi đè và em thấy bản mới.</p>' : ''}`,
-      onOpen: (wrap) => wrap.querySelector('.tk-essay').addEventListener('click', (e) => {
+      onOpen: (wrap) => { wrap.querySelectorAll('[name=mau]').forEach((r) => r.addEventListener('change', () => wrap.querySelectorAll('.tk-grp').forEach((g) => { g.hidden = g.dataset.grp !== wrap.querySelector('[name=mau]:checked').value; }))); wrap.querySelector('.tk-essay').addEventListener('click', (e) => {
         const b = e.target.closest('.tk-sent'); if (!b) return;
         const mode = wrap.querySelector('[name=mode]:checked').value;
         wrap.querySelector('#' + mode).value = b.textContent.trim().slice(0, X.LIMITS.cau);
         wrap.querySelectorAll('.tk-sent.on-' + mode).forEach((x) => x.classList.remove('on-' + mode));
         b.classList.add('on-' + mode);
-      }),
-      validate: (v) => X.checkFeedback(X.rowToFb(v)),
+      }); },
+      validate: (v) => X.checkFeedback(valuesToFb(v)),
     });
     if (!r.ok) return false;
-    const f = X.rowToFb(r.values);
+    const f = valuesToFb(r.values);
     await S.saveFeedback(h, sub.id, f);
     sub.feedback = f; sub.feedbackAt = { toMillis: () => Date.now() };
     return true;
@@ -161,9 +179,12 @@ export function trackerPanel(ctx, { classes, students, alive, dialog, errMessage
         ${items.map((it, n) => { const sub = bySub.get(it.id), stu = byId.get(sub.studentId), has = !!sub.feedback; return `<fieldset class="tk-imp" data-id="${esc(it.id)}"><legend><label><input type="checkbox" name="ok-${n}" ${has ? '' : 'checked'}> Duyệt · <b>${esc(stu?.nickname || '?')}</b> · ${sLabel(sub.session)} · Draft ${sub.draft === 2 ? 2 : 1}</label></legend>
           <p class="tk-snip" lang="en">${esc(String(sub.text).slice(0, 160))}${String(sub.text).length > 160 ? '…' : ''}</p>
           ${has ? `<p class="st-note">Đã có nhận xét: «${esc(String(sub.feedback.comment || sub.feedback.praise || '').slice(0, 80))}». Lưu sẽ ghi đè.</p>` : ''}
-          <p class="st-meta">${it.fb.sentence ? `Câu: <i lang="en">${esc(it.fb.sentence)}</i> · ` : ''}${it.fb.branch ? `Nhánh: ${esc(it.fb.branch)} · ` : ''}${it.fb.score != null ? `Điểm: ${esc(it.fb.score)}` : ''}</p>
+          <p class="st-meta">${it.fb.tpl ? `Mẫu: ${esc(X.TEMPLATES[it.fb.tpl] || it.fb.tpl)} · ` : ''}${it.fb.sentence ? `Câu: <i lang="en">${esc(it.fb.sentence)}</i> · ` : ''}${it.fb.branch ? `Nhánh: ${esc(it.fb.branch)} · ` : ''}${it.fb.score != null ? `Điểm: ${esc(it.fb.score)}` : ''}</p>
           <label for="cm-${n}">Nhận xét</label><textarea id="cm-${n}" name="cm-${n}" rows="3" maxlength="${X.LIMITS.nhan_xet}">${esc(it.fb.comment || '')}</textarea>
-          ${it.fb.praise ? `<label for="kh-${n}">Lời khen</label><textarea id="kh-${n}" name="kh-${n}" rows="2" maxlength="${X.LIMITS.khen}">${esc(it.fb.praise)}</textarea>` : ''}</fieldset>`; }).join('')}`,
+          ${it.fb.praise ? `<label for="kh-${n}">Lời khen</label><textarea id="kh-${n}" name="kh-${n}" rows="2" maxlength="${X.LIMITS.khen}">${esc(it.fb.praise)}</textarea>` : ''}
+          ${X.CRITERIA.filter((c) => it.fb.tc?.[c.key]).map((c) => `<label for="${c.col}-${n}">${esc(c.en)} · ${esc(c.vi)}</label><textarea id="${c.col}-${n}" name="${c.col}-${n}" rows="2" maxlength="${X.LIMITS.tc}">${esc(it.fb.tc[c.key])}</textarea>`).join('')}
+          ${it.fb.fix ? `<label for="cs-${n}">Câu sửa gợi ý</label><textarea id="cs-${n}" name="cs-${n}" rows="2" maxlength="${X.LIMITS.cau_sua}">${esc(it.fb.fix)}</textarea>` : ''}
+          ${it.fb.priority ? `<label for="up-${n}">Ưu tiên cho Draft 2</label><textarea id="up-${n}" name="up-${n}" rows="2" maxlength="${X.LIMITS.uu_tien}">${esc(it.fb.priority)}</textarea>` : ''}</fieldset>`; }).join('')}`,
       validate: (v) => (items.some((_, n) => v[`ok-${n}`]) ? '' : 'Hãy tick «Duyệt» ít nhất một bài, hoặc bấm Huỷ.'),
     });
     if (!r.ok) { say('Đã huỷ, chưa lưu nhận xét nào.'); return; }
@@ -171,7 +192,10 @@ export function trackerPanel(ctx, { classes, students, alive, dialog, errMessage
     say('Đang lưu nhận xét…');
     for (const [n, it] of items.entries()) {
       if (!r.values[`ok-${n}`]) continue;
-      const fb = { ...it.fb, comment: String(r.values[`cm-${n}`] ?? '').trim() || undefined, ...(it.fb.praise ? { praise: String(r.values[`kh-${n}`] ?? '').trim() || undefined } : {}) };
+      const val = (k) => String(r.values[`${k}-${n}`] ?? '').trim() || undefined;
+      const tc = it.fb.tc ? Object.fromEntries(X.CRITERIA.filter((c) => it.fb.tc[c.key]).map((c) => [c.key, val(c.col)])) : undefined;
+      if (tc) Object.keys(tc).forEach((k) => tc[k] === undefined && delete tc[k]);
+      const fb = { ...it.fb, comment: val('cm'), ...(it.fb.praise ? { praise: val('kh') } : {}), ...(it.fb.fix ? { fix: val('cs') } : {}), ...(it.fb.priority ? { priority: val('up') } : {}), ...(tc ? { tc: Object.keys(tc).length ? tc : undefined } : {}) };
       Object.keys(fb).forEach((k) => fb[k] === undefined && delete fb[k]);
       const m = X.checkFeedback(fb);
       if (m) { fails.push(`${byId.get(bySub.get(it.id).studentId)?.nickname || it.id}: ${m}`); continue; }
